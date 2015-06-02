@@ -1,0 +1,24 @@
+CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
+PROJECT(${PKG_NAME} C CXX)
+SET(VERSION "${PKG_VERSION}")
+
+MESSAGE("PROJECT : ${PROJECT_NAME}")
+MESSAGE("VERSION : ${VERSION}")
+
+INCLUDE(FindPkgConfig)
+
+PKG_CHECK_MODULES(common_pkgs REQUIRED capi-base-common dlog)
+INCLUDE_DIRECTORIES(
+	${common_pkgs_INCLUDE_DIRS}
+)
+
+SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${EXTRA_CFLAGS} -fPIC -Wall -Werror")
+SET(CMAKE_C_FLAGS_DEBUG "-O0 -g")
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${EXTRA_CFLAGS}")
+
+SET(common_pc_requires "capi-base-common")
+SET(common_libs 
+	${common_pkgs_LDFLAGS}
+)
+
+ADD_SUBDIRECTORY(src/)
