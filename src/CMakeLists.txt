@@ -1,0 +1,71 @@
+SET(target_name "base-utils-i18n")
+SET(pc_name "capi-base-utils-i18n")
+
+SET(dependents "icu-i18n")
+PKG_CHECK_MODULES(baseutils REQUIRED ${dependents})
+
+IF (TIZEN_WEARABLE)
+SET(INC_DIR "include/wearable")
+ELSEIF (TIZEN_MOBILE)
+SET(INC_DIR "include/mobile")
+ELSE (TIZEN_WEARABLE)
+SET(INC_DIR "include/wearable")
+ENDIF (TIZEN_WEARABLE)
+
+INCLUDE_DIRECTORIES(
+    ${baseutils_INCLUDE_DIRS}
+	${CMAKE_CURRENT_SOURCE_DIR}/${INC_DIR}
+)
+
+SET(BASEUTILS_SRCS
+	utils_i18n_private.c
+	utils_i18n_uchar.c
+	utils_i18n_ucollator.c
+	utils_i18n_unormalization.c
+	utils_i18n_usearch.c
+	utils_i18n_ustring.c
+    utils_i18n_ucalendar.c
+    utils_i18n_udate.c
+    utils_i18n_udatepg.c
+    utils_i18n_ulocale.c
+    utils_i18n_unumber.c
+    utils_i18n_uenumeration.c
+    utils_i18n_uset.c
+    utils_i18n_ubrk.c
+    utils_i18n_timezone.cpp
+)
+
+ADD_LIBRARY(${target_name} SHARED ${BASEUTILS_SRCS}
+	# ${CMAKE_CURRENT_SOURCE_DIR}/*.c
+)
+
+TARGET_LINK_LIBRARIES(${target_name}
+	${common_libs}
+	${baseutils_LDFLAGS}
+)
+
+SET_TARGET_PROPERTIES(${target_name} PROPERTIES VERSION ${PKG_VERSION})
+SET_TARGET_PROPERTIES(${target_name} PROPERTIES SOVERSION 0)
+
+SET(PC_REQUIRED "${common_pc_requires} icu-i18n")
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${EXTRA_CFLAGS}")
+CONFIGURE_FILE(${pc_name}.pc.in ${pc_name}.pc @ONLY)
+
+INSTALL(TARGETS ${target_name} DESTINATION ${LIB_INSTALL_DIR})
+INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/${INC_DIR}/utils_i18n_types.h DESTINATION ${INCLUDE_INSTALL_DIR}/base)
+INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/${INC_DIR}/utils_i18n_uchar.h DESTINATION ${INCLUDE_INSTALL_DIR}/base)
+INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/${INC_DIR}/utils_i18n_ucollator.h DESTINATION ${INCLUDE_INSTALL_DIR}/base)
+INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/${INC_DIR}/utils_i18n_unormalization.h DESTINATION ${INCLUDE_INSTALL_DIR}/base)
+INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/${INC_DIR}/utils_i18n_usearch.h DESTINATION ${INCLUDE_INSTALL_DIR}/base)
+INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/${INC_DIR}/utils_i18n_ustring.h DESTINATION ${INCLUDE_INSTALL_DIR}/base)
+INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/${INC_DIR}/utils_i18n_ucalendar.h DESTINATION ${INCLUDE_INSTALL_DIR}/base)
+INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/${INC_DIR}/utils_i18n_udate.h DESTINATION ${INCLUDE_INSTALL_DIR}/base)
+INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/${INC_DIR}/utils_i18n_udatepg.h DESTINATION ${INCLUDE_INSTALL_DIR}/base)
+INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/${INC_DIR}/utils_i18n_ulocale.h DESTINATION ${INCLUDE_INSTALL_DIR}/base)
+INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/${INC_DIR}/utils_i18n_unumber.h DESTINATION ${INCLUDE_INSTALL_DIR}/base)
+INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/${INC_DIR}/utils_i18n_timezone.h DESTINATION ${INCLUDE_INSTALL_DIR}/base)
+INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/${INC_DIR}/utils_i18n_uenumeration.h DESTINATION ${INCLUDE_INSTALL_DIR}/base)
+INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/${INC_DIR}/utils_i18n_uset.h DESTINATION ${INCLUDE_INSTALL_DIR}/base)
+INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/${INC_DIR}/utils_i18n_ubrk.h DESTINATION ${INCLUDE_INSTALL_DIR}/base)
+INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/${INC_DIR}/utils_i18n.h DESTINATION ${INCLUDE_INSTALL_DIR}/base)
+INSTALL(FILES ${CMAKE_CURRENT_BINARY_DIR}/${pc_name}.pc DESTINATION ${LIB_INSTALL_DIR}/pkgconfig)
