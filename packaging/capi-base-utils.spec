@@ -17,9 +17,9 @@ Requires(postun): /sbin/ldconfig
 The base utils library for internationalization and localization
 
 %package devel
-License:    ICU
+License:    Apache-2.0 and ICU
 Summary:    The Base Utils Library (Development)
-Group:      Development/Libraries
+Group:      Base
 Requires:   %{name} = %{version}-%{release}
 
 %description devel
