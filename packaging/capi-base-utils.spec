@@ -2,7 +2,7 @@ Name:       capi-base-utils
 Summary:    Base Utils
 Version:    0.1.1
 Release:    4
-Group:      Development/Libraries
+Group:      Base
 License:    Apache-2.0 and ICU
 Source0:    %{name}-%{version}.tar.gz
 BuildRequires:  cmake
