@@ -32,10 +32,10 @@ The base utils library for internationalization and localization (Development)
 #export CFLAGS="$CFLAGS -Wall -Werror -Wno-unused-function"
 cmake . -DCMAKE_INSTALL_PREFIX=%{_prefix} -DLIB_INSTALL_DIR:PATH=%{_libdir} -DINCLUDE_INSTALL_DIR:PATH=%{_includedir} \
     -DPKG_NAME=%{name} -DPKG_VERSION=%{version} \
-%if "%{?tizen_profile_name}" == "wearable"
+%if "%{profile}" == "wearable"
     -DTIZEN_WEARABLE=YES \
 %endif
-%if "%{?tizen_profile_name}" == "mobile"
+%if "%{profile}" == "mobile"
     -DTIZEN_MOBILE=YES \
 %endif
 
