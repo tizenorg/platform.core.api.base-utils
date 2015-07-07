@@ -237,9 +237,10 @@ int i18n_udate_format_date ( const i18n_udate_format_h format, i18n_udate date_t
  * @details Note: since the mapping is many-to-one, there is no inverse mapping.
  * @since_tizen 2.3.1
  *
- * @param[in] field The #i18n_udate_format_h to map.
+ * @param[in] field The #i18n_udate_format_h to map. 
+ *     #I18N_UDATE_FORMAT_TIMEZONE_LOCALIZED_GMT_OFFSET_FIELD, #I18N_UDATE_FORMAT_TIMEZONE_ISO_FIELD, 
+ *     #I18N_UDATE_FORMAT_TIMEZONE_ISO_LOCAL_FIELD and #I18N_UDATE_FORMAT_FIELD_COUNT are not supported.
  * @param[out] date_field_type A pointer to the #i18n_ucalendar_date_fields_e.
- *         This will be #I18N_UCALENDAR_FIELD_COUNT in case of error (e.g. the input field is #I18N_UDATE_FORMAT_FIELD_COUNT).
  *
  * @return Error code.
  * @retval #I18N_ERROR_NONE Successful

@@ -177,6 +177,11 @@ int i18n_udate_set_number_format ( i18n_udate_format_h format, const i18n_unumbe
 
 const char *i18n_udate_get_available ( int32_t locale_index )
 {
+    if(locale_index < 0) {
+        set_last_result(I18N_ERROR_INVALID_PARAMETER);
+        return NULL;
+    }
+    set_last_result(I18N_ERROR_NONE);
     return udat_getAvailable(locale_index);
 }
 

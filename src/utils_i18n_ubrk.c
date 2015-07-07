@@ -168,6 +168,11 @@ int32_t i18n_ubrk_following (i18n_ubreak_iterator_h break_iter, int32_t offset)
 
 const char *i18n_ubrk_get_available (int32_t index)
 {
+    if(index < 0) {
+        set_last_result(I18N_ERROR_INVALID_PARAMETER);
+        return NULL;
+    }
+
     set_last_result(I18N_ERROR_NONE);
     return ubrk_getAvailable(index);
 }

@@ -250,6 +250,11 @@ int i18n_unumber_apply_pattern (i18n_unumber_format_h format, i18n_ubool localiz
 
 const char *i18n_unumber_get_available (int32_t locale_index)
 {
+    if(locale_index < 0) {
+        set_last_result(I18N_ERROR_INVALID_PARAMETER);
+        return NULL;
+    }
+
     set_last_result(I18N_ERROR_NONE);
     return unum_getAvailable(locale_index);
 }

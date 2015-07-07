@@ -196,7 +196,7 @@ int32_t i18n_ustring_spn ( const i18n_uchar *string, const i18n_uchar *match_set
 
 i18n_uchar* i18n_ustring_tokenizer_r ( i18n_uchar *src, const i18n_uchar *delim, i18n_uchar **save_state )
 {
-    if(src == NULL && save_state == NULL) {
+    if((src == NULL && save_state == NULL) || delim == NULL) {
         set_last_result(I18N_ERROR_INVALID_PARAMETER);
         return NULL;
     }

@@ -65,6 +65,11 @@ int i18n_ulocale_get_display_name (const char *locale_id, const char *in_locale_
 
 const char* i18n_ulocale_get_available (int32_t n)
 {
+    if(n < 0){
+        set_last_result(I18N_ERROR_INVALID_PARAMETER);
+        return NULL;
+    }
+    set_last_result(I18N_ERROR_NONE);
     return uloc_getAvailable(n);
 }
 

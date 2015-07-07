@@ -203,7 +203,11 @@ int i18n_timezone_set_default( i18n_timezone_h timezone )
 const char* i18n_timezone_get_tzdata_version(void)
 {
     UErrorCode status = U_ZERO_ERROR;
-    return TimeZone::getTZDataVersion(status);
+    const char* tzver = TimeZone::getTZDataVersion(status);
+
+    set_last_result(_i18n_error_mapping(status));
+
+    return tzver;
 }
 
 int i18n_timezone_get_region(const char *timezone_id, char *region, int32_t *region_len, int32_t region_capacity)
