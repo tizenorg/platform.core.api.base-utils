@@ -60,7 +60,8 @@ extern "C" {
  * #I18N_UBRK_LINE, #I18N_UBRK_SENTENCE
  * @param[in] locale        The locale specifying the text-breaking conventions.
  *                          If @c NULL, the default locale will be used.
- * @param[in] text          The text to be iterated over.
+ * @param[in] text          The text to be iterated over. May be @c NULL, then the iterator will be created without any text.
+ *                          The text can be set later with i18n_ubrk_set_text() function.
  * @param[in] text_length   The number of characters in text, or -1 if NULL-terminated.
  * @param[out] break_iter   A pointer to the #i18n_ubreak_iterator_h for the specified locale.
  * @return The obtained error code.

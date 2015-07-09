@@ -40,7 +40,7 @@ int i18n_unumber_destroy (i18n_unumber_format_h fmt)
 
 int i18n_unumber_get_symbol (const i18n_unumber_format_h fmt, i18n_unumber_format_symbol_e symbol, i18n_uchar *buffer, int32_t size, int32_t *len_symbol)
 {
-    retv_if(fmt == NULL, I18N_ERROR_INVALID_PARAMETER);
+    retv_if(fmt == NULL || len_symbol == NULL, I18N_ERROR_INVALID_PARAMETER);
 
     UErrorCode icu_error = U_ZERO_ERROR;
     *len_symbol = unum_getSymbol(fmt, symbol, buffer, size, &icu_error);
@@ -115,7 +115,7 @@ int32_t i18n_unumber_format_double (const i18n_unumber_format_h fmt, double numb
 
 int32_t i18n_unumber_format_decimal (const i18n_unumber_format_h fmt, const char *number, int32_t length, i18n_uchar *result, int32_t result_length, i18n_ufield_position_h pos)
 {
-    if(fmt == NULL) {
+    if(fmt == NULL || number == NULL) {
         set_last_result(I18N_ERROR_INVALID_PARAMETER);
         return 0;
     }
@@ -217,7 +217,7 @@ int32_t i18n_unumber_parse_decimal (const i18n_unumber_format_h fmt, const i18n_
 
 double i18n_unumber_parse_double_currency (const i18n_unumber_format_h fmt, const i18n_uchar *text, int32_t text_length, int32_t *parse_pos, i18n_uchar *currency)
 {
-    if(fmt == NULL || text == NULL) {
+    if(fmt == NULL || text == NULL || currency == NULL) {
         set_last_result(I18N_ERROR_INVALID_PARAMETER);
         return 0;
     }
@@ -234,7 +234,7 @@ double i18n_unumber_parse_double_currency (const i18n_unumber_format_h fmt, cons
 
 int i18n_unumber_apply_pattern (i18n_unumber_format_h format, i18n_ubool localized, const i18n_uchar *pattern, int32_t pattern_length, i18n_uparse_error_s* parse_error)
 {
-    if(format == NULL) {
+    if(format == NULL || pattern == NULL || pattern_length < -1) {
         return I18N_ERROR_INVALID_PARAMETER;
     }
 

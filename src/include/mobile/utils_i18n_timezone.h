@@ -250,7 +250,8 @@ const char* i18n_timezone_get_tzdata_version(void);
  * @param[in]  timezone_id The system time zone ID.
  * @param[out] region Output buffer for receiving the region code.
  * @param[out] region_len The length of the region code.
- * @param[in]  region_capacity The size of the output buffer.
+ * @param[in]  region_capacity The size of the output buffer. If it is lower than required @a region buffer size,
+ *                             then I18N_ERROR_BUFFER_OVERFLOW error is returned.
  *
  * @return the version string, such as "2007f"
  */
@@ -346,8 +347,8 @@ int i18n_timezone_get_display_name(i18n_timezone_h timezone, char **display_name
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
  * @param[in] timezone The i18n_timezone_h to get a display name.
- * @param[in] language The language in which to supply the display name.
- * @param[in] country The country in which to supply the display name.
+ * @param[in] language The language in which to supply the display name. This parameter can be NULL; if so, the locale is initialized to match the current default locale.
+ * @param[in] country The country in which to supply the display name. This parameter can be NULL.
  * @param[out] display_name The human-readable name of this time zone in the default locale.
  *
  * @retval #I18N_ERROR_NONE Successful
@@ -378,8 +379,8 @@ int i18n_timezone_get_display_name_with_type(i18n_timezone_h timezone, i18n_uboo
  * @param[in] timezone The i18n_timezone_h to get a display name.
  * @param[in] daylight If true, display_name is filled with the daylight savings name.
  * @param[in] style The style displayed on.
- * @param[in] language The language in which to supply the display name.
- * @param[in] country The country in which to supply the display name.
+ * @param[in] language The language in which to supply the display name. This parameter can be NULL; if so, the locale is initialized to match the current default locale.
+ * @param[in] country The country in which to supply the display name. This parameter can be NULL.
  * @param[out] display_name The human-readable name of this time zone in the default locale.
  *
  * @retval #I18N_ERROR_NONE Successful

@@ -68,7 +68,7 @@ extern "C" {
     dlog_print(DLOG_INFO, LOG_TAG, "%s %s %s\n", src, result == 1 ? "is equal to" : "is not equal to", target );    // tizen is not equal to bada
 
     // destroys the collator
-    i18n_ucollator_destroy( coll );  
+    i18n_ucollator_destroy( coll );
  * @endcode
  * @section CAPI_BASE_UTILS_I18N_UCOLLATOR_MODULE_SAMPLE_CODE_2 Sample Code 2
  * @brief Sorts in ascending order on the given data using string_ucollator
@@ -115,7 +115,7 @@ extern "C" {
     for ( i = 0; i < sizeof( src ) / sizeof( src[0] ); i++ ) {
         dlog_print(DLOG_INFO, LOG_TAG, "%s\n", src[i] );
     }    // ariplane    banana    cat
- * @endcode 
+ * @endcode
  */
 
 /**
@@ -141,7 +141,7 @@ extern "C" {
  */
 int i18n_ucollator_create ( const char *locale, i18n_ucollator_h *collator );
 
-/** 
+/**
  * @brief Closes a i18n_ucollator_h.
  * @details Once closed, a string_ucollator_h should not be used. Every an open collator should be closed. Otherwise, a memory leak will result.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif

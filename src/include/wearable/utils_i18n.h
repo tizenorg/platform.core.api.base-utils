@@ -233,11 +233,6 @@ extern "C" {
  * </tr>
  * <tr>
  *    <td>@ref CAPI_BASE_UTILS_I18N_TIMEZONE_MODULE</td>
- *    <td>#i18n_ucalendar_is_in_daylight_time</td>
- *    <td>inDaylightTime</td>
- * </tr>
- * <tr>
- *    <td>@ref CAPI_BASE_UTILS_I18N_TIMEZONE_MODULE</td>
  *    <td>#i18n_timezone_has_same_rule</td>
  *    <td>hasSameRules</td>
  * </tr>

@@ -87,7 +87,7 @@ extern "C" {
  * </tr>
  * <tr>
  *    <td>@ref CAPI_BASE_UTILS_I18N_UDATE_MODULE</td>
- *    <td>Udate module consists of functions that convert dates and times from their 
+ *    <td>Udate module consists of functions that convert dates and times from their
              internal representations to textual form and back again in a language-independent manner.</td>
  * </tr>
  * <tr>
@@ -230,11 +230,6 @@ extern "C" {
  *    <td>@ref CAPI_BASE_UTILS_I18N_TIMEZONE_MODULE</td>
  *    <td>#i18n_timezone_use_daylight_time</td>
  *    <td>useDaylightTime</td>
- * </tr>
- * <tr>
- *    <td>@ref CAPI_BASE_UTILS_I18N_TIMEZONE_MODULE</td>
- *    <td>#i18n_timezone_in_daylight_time</td>
- *    <td>inDaylightTime</td>
  * </tr>
  * <tr>
  *    <td>@ref CAPI_BASE_UTILS_I18N_TIMEZONE_MODULE</td>
@@ -463,7 +458,7 @@ extern "C" {
  * </tr>
  * <tr>
  *    <td>@ref CAPI_BASE_UTILS_I18N_USEARCH_MODULE</td>
- *    <td>#i18n_usearch_create</td>
+ *    <td>#i18n_usearch_create_new</td>
  *    <td>usearch_open</td>
  * </tr>
  * <tr>
@@ -535,7 +530,7 @@ extern "C" {
  *    <td>@ref CAPI_BASE_UTILS_I18N_USTRING_MODULE</td>
  *    <td>#i18n_ustring_r_string</td>
  *    <td>u_strrstr</td>
- * </tr> 
+ * </tr>
  * <tr>
  *    <td>@ref CAPI_BASE_UTILS_I18N_USTRING_MODULE</td>
  *    <td>#i18n_ustring_find_last</td>
@@ -713,7 +708,7 @@ extern "C" {
  * </tr>
  * <tr>
  *    <td>@ref CAPI_BASE_UTILS_I18N_USTRING_MODULE</td>
- *    <td>#i18n_ustring_to_title</td>
+ *    <td>#i18n_ustring_to_title_new</td>
  *    <td>u_strToTitle</td>
  * </tr>
  * <tr>
@@ -778,7 +773,7 @@ extern "C" {
  * </tr>
  * </table>
  */
- 
+
 #ifdef __cplusplus
 }
 #endif

@@ -212,7 +212,8 @@ const char* i18n_timezone_get_tzdata_version(void)
 
 int i18n_timezone_get_region(const char *timezone_id, char *region, int32_t *region_len, int32_t region_capacity)
 {
-    retv_if(timezone_id == NULL, I18N_ERROR_INVALID_PARAMETER);
+    retv_if(timezone_id == NULL || region == NULL || region_len == NULL, I18N_ERROR_INVALID_PARAMETER);
+
     UErrorCode status = U_ZERO_ERROR;
     const UnicodeString id(timezone_id);
     *region_len = TimeZone::getRegion(id, region, region_capacity, status);
@@ -223,7 +224,8 @@ int i18n_timezone_get_region(const char *timezone_id, char *region, int32_t *reg
 
 int i18n_timezone_get_offset_with_date(i18n_timezone_h timezone, i18n_udate date, i18n_ubool local, int32_t *raw_offset, int32_t *dst_offset)
 {
-    retv_if(timezone == NULL, I18N_ERROR_INVALID_PARAMETER);
+    retv_if(timezone == NULL || raw_offset == NULL || dst_offset == NULL, I18N_ERROR_INVALID_PARAMETER);
+
     UErrorCode status = U_ZERO_ERROR;
     ((TimeZone*)timezone)->getOffset( date, local, *raw_offset, *dst_offset, status );
 
@@ -241,7 +243,8 @@ int i18n_timezone_set_raw_offset(i18n_timezone_h timezone, int32_t offset_millis
 
 int i18n_timezone_get_raw_offset(i18n_timezone_h timezone, int32_t *offset_milliseconds)
 {
-    retv_if(timezone == NULL, I18N_ERROR_INVALID_PARAMETER);
+    retv_if(timezone == NULL || offset_milliseconds == NULL, I18N_ERROR_INVALID_PARAMETER);
+
     *offset_milliseconds = ((TimeZone*)timezone)->getRawOffset();
 
     return I18N_ERROR_NONE;

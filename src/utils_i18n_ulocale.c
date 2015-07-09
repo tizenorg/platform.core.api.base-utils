@@ -47,8 +47,18 @@ int i18n_ulocale_get_language (const char *locale_id, char *language, int32_t la
 
 int32_t i18n_ulocale_get_country (const char *locale_id, char *country, int32_t country_capacity, int *error)
 {
-    int32_t result = uloc_getCountry(locale_id, country, country_capacity, error);
-    *error = _i18n_error_mapping(*error);
+    if(NULL == country) {
+        if(NULL != error) {
+            *error = I18N_ERROR_INVALID_PARAMETER;
+        }
+        return 0;
+    }
+
+    UErrorCode icu_error = U_ZERO_ERROR;
+    int32_t result = uloc_getCountry(locale_id, country, country_capacity, &icu_error);
+    if(NULL != error) {
+        *error = _i18n_error_mapping(icu_error);
+    }
 
     return result;
 }
@@ -291,7 +301,7 @@ int i18n_ulocale_keywords_create (const char *locale_id, i18n_uenumeration_h *en
 int32_t i18n_ulocale_get_keyword_value (const char *locale_id, const char *keyword_name, char *buffer,
         int32_t buffer_capacity)
 {
-    if(NULL == keyword_name || NULL == buffer || buffer_capacity < 0){
+    if(NULL == locale_id || NULL == keyword_name || NULL == buffer || buffer_capacity < 0){
         set_last_result(I18N_ERROR_INVALID_PARAMETER);
         return -1;
     }

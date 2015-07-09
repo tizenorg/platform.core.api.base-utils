@@ -83,7 +83,7 @@ typedef enum {
     I18N_WARNING_STRING_NOT_TERMINATED      = TIZEN_ERROR_UTILITY_ICU | 0x1D,     /**< String not terminated with NULL. @if MOBILE (Since 2.3.1) @endif*/
     I18N_ERROR_STD3_ASCII_RULES             = TIZEN_ERROR_UTILITY_ICU | 0x1E,     /**< Argument does not satisfy STD3 rules. @if MOBILE (Since 2.3.1) @endif*/
     I18N_ERROR_UNASSIGNED                   = TIZEN_ERROR_UTILITY_ICU | 0x1F,     /**< Unassigned code points are found. @if MOBILE (Since 2.3.1) @endif*/
-    I18N_WARNING_SORT_KEY_TOO_SHORT         = -123,                               /**< Number of levels requested in getBound is higher than the number of levels in the sort key. @if MOBILE (Since 2.3.1) @endif*/
+    I18N_WARNING_SORT_KEY_TOO_SHORT         = TIZEN_ERROR_UTILITY_ICU | 0x20,     /**< Number of levels requested in getBound is higher than the number of levels in the sort key. @if MOBILE (Since 2.3.1) @endif*/
     I18N_ERROR_UNKNOWN                      = TIZEN_ERROR_UNKNOWN,                /**< Unknown error. @if MOBILE (Since 2.3.1) @endif*/
 } i18n_error_code_e;
 

@@ -59,7 +59,18 @@ int i18n_udate_to_calendar_date_field ( i18n_udate_format_field_e field, i18n_uc
     {
         return I18N_ERROR_INVALID_PARAMETER;
     }
-    *date_field_type = (i18n_ucalendar_date_fields_e)udat_toCalendarDateField(field);
+
+    switch (field) {
+        case I18N_UDATE_FORMAT_TIMEZONE_LOCALIZED_GMT_OFFSET_FIELD:
+        case I18N_UDATE_FORMAT_TIMEZONE_ISO_FIELD:
+        case I18N_UDATE_FORMAT_TIMEZONE_ISO_LOCAL_FIELD:
+        case I18N_UDATE_FORMAT_FIELD_COUNT:
+            ERR("Unsupported filed");
+            return I18N_ERROR_INVALID_PARAMETER;
+        default:
+            *date_field_type = (i18n_ucalendar_date_fields_e)udat_toCalendarDateField(field);
+    }
+
     return I18N_ERROR_NONE;
 }
 
@@ -97,7 +108,7 @@ int i18n_udate_parse ( const i18n_udate_format_h format, const i18n_uchar *text,
 
 int i18n_udate_parse_calendar (const i18n_udate_format_h format, i18n_ucalendar_h * calendar, const i18n_uchar *text, int32_t text_length, int32_t *parse_pos )
 {
-    if (format == NULL || calendar == NULL || text == NULL)
+    if (format == NULL || calendar == NULL || text == NULL || text_length < -1)
     {
         return I18N_ERROR_INVALID_PARAMETER;
     }
@@ -135,7 +146,7 @@ int i18n_udate_set_lenient ( i18n_udate_format_h format, i18n_ubool is_lenient )
 
 int i18n_udate_get_calendar ( const i18n_udate_format_h format, i18n_ucalendar_h *calendar)
 {
-    if (format == NULL)
+    if (format == NULL || calendar == NULL)
     {
         return I18N_ERROR_INVALID_PARAMETER;
     }
@@ -283,7 +294,7 @@ int32_t i18n_udate_count_symbols ( const i18n_udate_format_h format, i18n_udate_
 
 int i18n_udate_set_symbols ( i18n_udate_format_h format, i18n_udate_format_symbol_type_e type, int32_t symbol_index, i18n_uchar *value, int32_t value_length )
 {
-    if (format == NULL)
+    if (format == NULL || symbol_index < 0)
     {
         return I18N_ERROR_INVALID_PARAMETER;
     }

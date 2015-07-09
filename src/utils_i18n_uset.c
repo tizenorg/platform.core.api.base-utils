@@ -84,7 +84,7 @@ int i18n_uset_destroy ( i18n_uset_h set )
 int i18n_uset_clone ( const i18n_uset_h set, i18n_uset_h *set_clone )
 {
     set_last_result(I18N_ERROR_NONE);
-    if (set == NULL) {
+    if (set == NULL || set_clone == NULL) {
         return I18N_ERROR_INVALID_PARAMETER;
     }
     *set_clone = (i18n_uset_h)uset_clone((const USet*)set);
@@ -114,7 +114,7 @@ int i18n_uset_freeze ( i18n_uset_h set )
 int i18n_uset_clone_as_thawed ( const i18n_uset_h set, i18n_uset_h *set_copy )
 {
     set_last_result(I18N_ERROR_NONE);
-    if (set == NULL) {
+    if (set == NULL || set_copy == NULL) {
         return I18N_ERROR_INVALID_PARAMETER;
     }
     *set_copy = (i18n_uset_h)uset_cloneAsThawed((const USet*)set);
@@ -482,7 +482,7 @@ int32_t i18n_uset_get_item_count ( const i18n_uset_h set )
 int32_t i18n_uset_get_item ( const i18n_uset_h set, int32_t item_index, i18n_uchar32 *start, i18n_uchar32 *end,
         i18n_uchar *str, int32_t str_capacity )
 {
-    if (set == NULL || (item_index < 0 || item_index > uset_getItemCount((const USet*)set)-1)) {
+    if (set == NULL || (item_index < 0 || item_index > uset_getItemCount((const USet*)set)-1) || start == NULL || end == NULL) {
        set_last_result(I18N_ERROR_INVALID_PARAMETER);
        return 0;
     }

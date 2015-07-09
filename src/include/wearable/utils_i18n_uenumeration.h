@@ -51,7 +51,7 @@ extern "C" {
  * @brief Disposes of resources in use by the iterator.
  * @details If @c enumeration is <code>NULL</code>, does nothing. After this call, any <code>char*</code> or <code>i18n_uchar*</code> returned
  *          by i18n_uenumeration_unext() or i18n_uenumeration_next() is invalid.
- * @remarks Error codes are described in Exceptions section.
+ * @remarks Error codes are described in #i18n_error_code_e description.
  * @since_tizen 2.3.1
  *
  * @param[in] enumeration    An #i18n_uenumeration_h to destroy
@@ -132,7 +132,7 @@ const char *i18n_uenumeration_next ( i18n_uenumeration_h enumeration, int32_t *r
 /**
  * @brief Resets the iterator to the current list of service IDs.
  * @details This re-establishes sync with the service and rewinds the iterator to start at the first element.
- * @remarks Error codes are described in Exceptions section and #i18n_error_code_e description.
+ * @remarks Error codes are described in #i18n_error_code_e description.
  * @since_tizen 2.3.1
  *
  * @param[in] enumeration      An #i18n_uenumeration_h
@@ -140,7 +140,6 @@ const char *i18n_uenumeration_next ( i18n_uenumeration_h enumeration, int32_t *r
  * @return The obtained error code.
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
- * @retval #I18N_ERROR_ENUM_OUT_OF_SYNC The iterator is out of sync
  */
 int i18n_uenumeration_reset ( i18n_uenumeration_h enumeration );
 
@@ -148,7 +147,7 @@ int i18n_uenumeration_reset ( i18n_uenumeration_h enumeration );
  * @brief Given an array of <code>const i18n_uchar*</code> strings, return an #i18n_uenumeration_h.
  * @details String pointers from 0..count-1 must not be <code>NULL</code>.
  *          Do not free or modify either the string array or the characters it points to until this object has been destroyed with i18n_uenumeration_destroy().
- * @remarks Error codes are described in Exceptions section and #i18n_error_code_e description.
+ * @remarks Error codes are described in #i18n_error_code_e description.
  * @since_tizen 2.3.1
  *
  * @param[in] strings     An array of const <code>i18n_uchar*</code> strings (each null terminated). All storage is owned by the caller.
@@ -167,7 +166,7 @@ int i18n_uenumeration_uchar_strings_enumeration_create(const i18n_uchar *const s
  * @brief Given an array of <code>const char*</code> strings (invariant chars only), return an #i18n_uenumeration_h.
  * @details String pointers from 0..count-1 must not be <code>NULL</code>.
  *          Do not free or modify either the string array or the characters it points to until this object has been destroyed with i18n_uenumeration_destroy().
- * @remarks Error codes are described in Exceptions section and #i18n_error_code_e description.
+ * @remarks Error codes are described in #i18n_error_code_e description.
  * @since_tizen 2.3.1
  *
  * @param[in] strings     A array of <code>char*</code> strings (each null terminated). All storage is owned by the caller.

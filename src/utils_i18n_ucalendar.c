@@ -385,12 +385,34 @@ int32_t i18n_ucalendar_get_limit ( const i18n_ucalendar_h calendar, i18n_ucalend
         set_last_result(I18N_ERROR_INVALID_PARAMETER);
         return 0;
     }
-    i18n_error_code_e i18n_error;
-    UErrorCode icu_error = U_ZERO_ERROR;
-    int32_t result_ucal_getLimit = ucal_getLimit(calendar, field, type, &icu_error);
-    ERR("ErrorCode : %d", icu_error);
-    ERR_MAPPING(icu_error, i18n_error);
-    set_last_result(i18n_error);
+
+    int32_t result_ucal_getLimit = 0;
+    switch (field) {
+        case I18N_UCALENDAR_YEAR_WOY:
+        case I18N_UCALENDAR_DOW_LOCAL:
+        case I18N_UCALENDAR_EXTENDED_YEAR:
+        case I18N_UCALENDAR_JULIAN_DAY:
+        case I18N_UCALENDAR_MILLISECONDS_IN_DAY:
+        case I18N_UCALENDAR_IS_LEAP_MONTH:
+        case I18N_UCALENDAR_FIELD_COUNT:
+            {
+                set_last_result(I18N_ERROR_INVALID_PARAMETER);
+                ERR("Unsupported filed");
+                break;               
+            }
+        default:
+            {
+                i18n_error_code_e i18n_error = I18N_ERROR_NONE;
+                UErrorCode icu_error = U_ZERO_ERROR;
+                int32_t limit = ucal_getLimit(calendar, field, type, &icu_error);
+                ERR("ErrorCode : %d", icu_error);
+                ERR_MAPPING(icu_error, i18n_error);
+                set_last_result(i18n_error);
+                if(i18n_error == I18N_ERROR_NONE)
+                    result_ucal_getLimit = limit;                
+            }
+    }
+
     return result_ucal_getLimit;
 }
 

@@ -1006,7 +1006,7 @@ int32_t i18n_ustring_to_title ( i18n_uchar *dest, int32_t dest_capacity, const i
  * algorithm of Unicode TR 21.\n
  * The result may be longer or shorter than the original.
  * The source string and the destination buffer are allowed to overlap.
- * @since_tizen MOBILE 2.3.1
+ * @since_tizen 2.3.1
  *
  * @param[out] dest A buffer for the result string.\n
  * The result will be zero-terminated if the buffer is large enough.
