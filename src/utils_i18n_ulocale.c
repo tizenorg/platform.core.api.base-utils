@@ -85,6 +85,7 @@ const char* i18n_ulocale_get_available (int32_t n)
 
 int32_t i18n_ulocale_count_available (void)
 {
+    set_last_result(I18N_ERROR_NONE);
     return uloc_countAvailable();
 }
 

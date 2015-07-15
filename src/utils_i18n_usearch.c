@@ -74,7 +74,6 @@ int i18n_usearch_create_new ( const i18n_uchar *pattern, int32_t pattern_len, co
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
-    set_last_result(i18n_error);
 
     return i18n_error;
 }

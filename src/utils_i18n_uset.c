@@ -83,7 +83,6 @@ int i18n_uset_destroy ( i18n_uset_h set )
 
 int i18n_uset_clone ( const i18n_uset_h set, i18n_uset_h *set_clone )
 {
-    set_last_result(I18N_ERROR_NONE);
     if (set == NULL || set_clone == NULL) {
         return I18N_ERROR_INVALID_PARAMETER;
     }
@@ -103,7 +102,6 @@ i18n_ubool i18n_uset_is_frozen ( const i18n_uset_h set )
 
 int i18n_uset_freeze ( i18n_uset_h set )
 {
-    set_last_result(I18N_ERROR_NONE);
     if (set == NULL) {
         return I18N_ERROR_INVALID_PARAMETER;
     }
@@ -113,7 +111,6 @@ int i18n_uset_freeze ( i18n_uset_h set )
 
 int i18n_uset_clone_as_thawed ( const i18n_uset_h set, i18n_uset_h *set_copy )
 {
-    set_last_result(I18N_ERROR_NONE);
     if (set == NULL || set_copy == NULL) {
         return I18N_ERROR_INVALID_PARAMETER;
     }
@@ -123,7 +120,6 @@ int i18n_uset_clone_as_thawed ( const i18n_uset_h set, i18n_uset_h *set_copy )
 
 int i18n_uset_set ( i18n_uset_h set, i18n_uchar32 start, i18n_uchar32 end )
 {
-    set_last_result(I18N_ERROR_NONE);
     if (set == NULL) {
         return I18N_ERROR_INVALID_PARAMETER;
     }

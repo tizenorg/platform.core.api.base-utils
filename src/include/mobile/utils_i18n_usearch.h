@@ -110,9 +110,6 @@ int i18n_usearch_create ( const i18n_uchar *pattern, int32_t pattern_len, const 
  * @details A collator will be created in the process, which will be owned by
  * this search and will be deleted in i18n_usearch_destroy().
  * @remarks Must release @a search_iter using i18n_usearch_destroy().
- *
- * The specific error code can be also obtained using the get_last_result() method.
- * Error codes are described in Exceptions section and in #i18n_error_code_e description.
  * @since_tizen 2.3.1
  *
  * @param[in] pattern The pattern for matching
@@ -128,9 +125,6 @@ int i18n_usearch_create ( const i18n_uchar *pattern, int32_t pattern_len, const 
  *
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
- *
- * @exception #I18N_ERROR_NONE Successful
- * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
 int i18n_usearch_create_new ( const i18n_uchar *pattern, int32_t pattern_len, const i18n_uchar *text,
         int32_t text_len, const char *locale, i18n_ubreak_iterator_h break_iter, i18n_usearch_h *search_iter);

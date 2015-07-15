@@ -472,8 +472,6 @@ int32_t i18n_ustring_compare_binary_order( const i18n_uchar *s1, int32_t length1
  * In code unit order, high BMP code points sort after supplementary code points because they are stored as pairs of surrogates which are at U+d800..U+dfff.\n
  * This functions works with strings of different explicitly specified lengths unlike the ANSI C-like #i18n_ustring_compare() and i18n_ustring_mem_compare() etc.
  * NULL-terminated strings are possible with length arguments of -1.
- * @remarks The specific error code can be also obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section and in #i18n_error_code_e description.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
  * @param[in] s1 First source string.
@@ -899,8 +897,6 @@ i18n_uchar32 i18n_ustring_unescape_at ( i18n_ustring_unescape_char_at_cb char_at
  * @details Casing is locale-dependent and context-sensitive.
  * The result may be longer or shorter than the original.
  * The source string and the destination buffer are allowed to overlap.
- * @remarks The specific error code can be also obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section and in #i18n_error_code_e description.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
  * @param[out] dest A buffer for the result string\n The result will be zero-terminated if
@@ -926,8 +922,6 @@ int32_t i18n_ustring_to_upper ( i18n_uchar *dest, int32_t dest_capacity, const i
  * @details Casing is locale-dependent and context-sensitive. The result may be longer or shorter than the original. The source string and the destination buffer are allowed to overlap.
  * The result may be longer or shorter than the original.
  * The source string and the destination buffer are allowed to overlap.
- * @remarks The specific error code can be also obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section and in #i18n_error_code_e description.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
  * @param[out] dest A buffer for the result string. The result will be zero-terminated if the buffer is large enough.
@@ -952,9 +946,7 @@ int32_t i18n_ustring_to_lower ( i18n_uchar *dest, int32_t dest_capacity, const i
  * Titlecasing uses a break iterator to find the first characters of words
  * that are to be titlecased. It titlecases those characters and lowercases
  * all others.
- * @remarks The specific error code can be also obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section and in #i18n_error_code_e description.
- *          The titlecase break iterator can be provided to customize arbitrary
+ * @remarks The titlecase break iterator can be provided to customize arbitrary
  * styles, using rules and dictionaries beyond the standard iterators.
  * It may be more efficient to always provide an iterator to avoid
  * opening and closing one for each string.
@@ -1022,6 +1014,7 @@ int32_t i18n_ustring_to_title ( i18n_uchar *dest, int32_t dest_capacity, const i
  * @param[in] locale The locale to consider, or "" for the root locale or @c NULL for the default locale.
  * @return The length of the result string. It may be greater than dest_capacity. In that case,
  * only some of the result were written to the destination buffer.
+ * @exception #I18N_ERROR_NONE Success
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  * @see i18n_ustring_to_title()
  */
@@ -1033,8 +1026,6 @@ int32_t i18n_ustring_to_title_new ( i18n_uchar *dest, int32_t dest_capacity, con
  * but there is an option for whether to include or exclude mappings for dotted I and dotless i.\n
  * The result may be longer or shorter than the original.
  * The source string and the destination buffer are allowed to overlap.
- * @remarks The specific error code can be also obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section and in #i18n_error_code_e description.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
  * @param[out] dest A buffer for the result string\n
@@ -1058,8 +1049,6 @@ int32_t i18n_ustring_fold_case ( i18n_uchar *dest, int32_t dest_capacity, const 
  * @brief Convert a UTF-16 string to a wchar_t string.
  * @details If it is known at compile time that wchar_t strings are in UTF-16 or UTF-32, then this function simply calls the fast, dedicated function for that.
  * Otherwise, two conversions UTF-16 -> default charset -> wchar_t* are performed.
- * @remarks The specific error code can be also obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section and in #i18n_error_code_e description.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
  * @param[out] dest A buffer for the result string. The result will be zero-terminated if the buffer is large enough.
@@ -1082,8 +1071,6 @@ wchar_t* i18n_ustring_to_WCS ( wchar_t *dest, int32_t dest_capacity, int32_t *de
  * @brief Convert a wchar_t string to UTF-16.
  * @details If it is known at compile time that wchar_t strings are in UTF-16 or UTF-32, then this function simply calls the fast, dedicated function for that.
  * Otherwise, two conversions wchar_t* -> default charset -> UTF-16 are performed.
- * @remarks The specific error code can be also obtained using the get_last_result() method.
-*           Error codes are described in Exceptions section and in #i18n_error_code_e description.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
  * @param[out] dest A buffer for the result string. The result will be zero-terminated if the buffer is large enough.
@@ -1105,8 +1092,6 @@ i18n_uchar* i18n_ustring_from_WCS ( i18n_uchar *dest, int32_t dest_capacity, int
 /**
  * @brief Converts a UTF-16 string to UTF-8.
  * @details If the input string is not well-formed, then the #I18N_ERROR_INVALID_CHAR_FOUND error code is set.
- * @remarks The specific error code can be also obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section and in #i18n_error_code_e description.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
  * @param[out] dest A buffer for the result string.\n
@@ -1133,8 +1118,6 @@ char* i18n_ustring_to_UTF8 ( char *dest, int32_t dest_capacity, int32_t *dest_le
 /**
  * @brief Converts a UTF-8 string to UTF-16.
  * @details If the input string is not well-formed, then the #I18N_ERROR_INVALID_CHAR_FOUND error code is set.
- * @remarks The specific error code can be also obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section and in #i18n_error_code_e description.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
  * @param[out] dest A buffer for the result string.\n
@@ -1161,8 +1144,6 @@ i18n_uchar* i18n_ustring_from_UTF8 ( i18n_uchar *dest, int32_t dest_capacity, in
  * @brief Convert a UTF-16 string to UTF-8.
  * @details If the input string is not well-formed, then the #I18N_ERROR_INVALID_CHAR_FOUND error code is set.
  * Same as #i18n_ustring_to_UTF8() except for the additional sub_char which is output for illegal input sequences, instead of stopping with the #I18N_ERROR_INVALID_CHAR_FOUND error code.
- * @remarks The specific error code can be also obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section and in #i18n_error_code_e description.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
  * @param[out] dest A buffer for the result string.\n
@@ -1196,8 +1177,6 @@ char* i18n_ustring_to_UTF8_with_sub ( char *dest, int32_t dest_capacity, int32_t
 /**
  * @brief Convert a UTF-8 string to UTF-16.
  * @details Same as #i18n_ustring_from_UTF8() except for the additional sub_char which is output for illegal input sequences, instead of stopping with the #I18N_ERROR_INVALID_CHAR_FOUND error code.
- * @remarks The specific error code can be also obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section and in #i18n_error_code_e description.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
  * @param[out] dest A buffer for the result string.\n
@@ -1241,8 +1220,6 @@ i18n_uchar* i18n_ustring_from_UTF8_with_sub ( i18n_uchar *dest, int32_t dest_cap
  * - Non-shortest forms are not detected and will result in "spoofing" output.\n
  * For further performance improvement, if src_len is given (>=0), then it must be dest_capacity>=src_len.\n
  * There is no inverse i18n_ustring_to_UTF8_lenient() function because there is practically no performance gain from not checking that a UTF-16 string is well-formed.
- * @remarks The specific error code can be also obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section and in #i18n_error_code_e description.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
  * @param[out] dest A buffer for the result string.\n
@@ -1275,8 +1252,6 @@ i18n_uchar* i18n_ustring_from_UTF8_lenient ( i18n_uchar *dest, int32_t dest_capa
 /**
  * @brief Convert a UTF-16 string to UTF-32.
  * @details If the input string is not well-formed, then the #I18N_ERROR_INVALID_CHAR_FOUND error code is set.
- * @remarks The specific error code can be also obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section and in #i18n_error_code_e description.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
  * @param[out] dest A buffer for the result string.\n
@@ -1303,8 +1278,6 @@ i18n_uchar32* i18n_ustring_to_UTF32 ( i18n_uchar32 *dest, int32_t dest_capacity,
 /**
  * @brief Convert a UTF-32 string to UTF-16.
  * @details If the input string is not well-formed, then the #I18N_ERROR_INVALID_CHAR_FOUND error code is set.
- * @remarks The specific error code can be also obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section and in #i18n_error_code_e description.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
  * @param[out] dest A buffer for the result string.\n
@@ -1332,8 +1305,6 @@ i18n_uchar* i18n_ustring_from_UTF32 ( i18n_uchar *dest, int32_t dest_capacity, i
 /**
  * @brief Convert a UTF-16 string to UTF-32.
  * @details Same as #i18n_ustring_to_UTF32() except for the additional sub_char which is output for illegal input sequences, instead of stopping with the #I18N_ERROR_INVALID_CHAR_FOUND error code.
- * @remarks The specific error code can be also obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section and in #i18n_error_code_e description.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
  * @param[out] dest A buffer for the result string.\n
@@ -1368,8 +1339,6 @@ i18n_uchar32* i18n_ustring_to_UTF32_with_sub ( i18n_uchar32 *dest, int32_t dest_
  * @brief Convert a UTF-32 string to UTF-16.
  * @details If the input string is not well-formed, then the #I18N_ERROR_INVALID_CHAR_FOUND error code is set.
  * Same as #i18n_ustring_from_UTF32() except for the additional sub_char which is output for illegal input sequences, instead of stopping with the #I18N_ERROR_INVALID_CHAR_FOUND error code.
- * @remarks The specific error code can be also obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section and in #i18n_error_code_e description.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
  * @param[out] dest A buffer for the result string.\n

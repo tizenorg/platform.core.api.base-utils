@@ -244,7 +244,6 @@ int i18n_unumber_apply_pattern (i18n_unumber_format_h format, i18n_ubool localiz
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
-    set_last_result(i18n_error);
     return i18n_error;
 }
 

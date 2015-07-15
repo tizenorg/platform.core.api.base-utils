@@ -230,8 +230,8 @@ const i18n_uchar *i18n_udatepg_get_date_time_format ( const i18n_udatepg_h dtpg,
         return NULL;
     }
 
+    set_last_result(I18N_ERROR_NONE);
     return udatpg_getDateTimeFormat((UDateTimePatternGenerator *)dtpg, pattern_length);
-    return I18N_ERROR_NONE;
 }
 
 int i18n_udatepg_set_decimal ( i18n_udatepg_h dtpg, const i18n_uchar *decimal, int32_t length )

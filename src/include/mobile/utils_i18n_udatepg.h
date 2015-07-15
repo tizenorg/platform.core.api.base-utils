@@ -220,8 +220,6 @@ int i18n_udatepg_get_best_pattern ( i18n_udatepg_h dtpg, const i18n_uchar *skele
 
 /**
  * @brief Creates an empty generator, to be constructed with i18n_udatepg_add_pattern() etc.
- * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in #i18n_error_code_e description.
  * @since_tizen 2.3.1
  *
  * @param[out] dtpg     A pointer to the #i18n_udatepg_h handle.
@@ -234,8 +232,6 @@ int i18n_udatepg_create_empty (i18n_udatepg_h *dtpg);
 
 /**
  * @brief Creates a copy of a generator.
- * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in #i18n_error_code_e description.
  * @since_tizen 2.3.1
  *
  * @param[in] dtpg          An #i18n_udatepg_h handle to be copied. Must not be @c NULL.
@@ -369,8 +365,6 @@ int32_t  i18n_udatepg_add_pattern ( i18n_udatepg_h dtpg, const i18n_uchar *patte
  *          There are actually three available variables : {0} is the pattern so far,
  *          {1} is the element we are adding, and {2} is the name of the element. <br>
  *          This reflects the way that the CLDR data is organized.
- * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in #i18n_error_code_e description.
  * @since_tizen 2.3.1
  *
  * @param[in] dtpg      An #i18n_udatepg_h handle. Must not be @c NULL.
@@ -410,8 +404,6 @@ const i18n_uchar *i18n_udatepg_get_append_item_format ( const i18n_udatepg_h dtp
  * @brief Sets the name of field, e.g. "era" in English for ERA.
  * @details These are only used if the corresponding append_item_format is used, and if it contains a {2} variable.
  *          This reflects the way that the CLDR data is organized.
- * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in #i18n_error_code_e description.
  * @since_tizen 2.3.1
  *
  * @param[in] dtpg      An #i18n_udatepg_h handle. Must not be @c NULL.
@@ -458,8 +450,6 @@ const i18n_uchar *i18n_udatepg_get_append_item_name ( const i18n_udatepg_h dtpg,
  *        and its date time format is the default "{0} {1}". Then if the input skeleton is "MMMdhmm",
  *        there is not an exact match, so the input skeleton is broken up into two components "MMMd" and "hmm".
  *        There are close matches for those two skeletons, so the result is put together with this pattern, resulting in "d-MMM h:mm".
- * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in #i18n_error_code_e description.
  * @since_tizen 2.3.1
  *
  * @param[in] dtpg              An #i18n_udate_format_h handle. Must not be @c NULL.
@@ -499,8 +489,6 @@ const i18n_uchar *i18n_udatepg_get_date_time_format ( const i18n_udatepg_h dtpg,
  *          For example, suppose that the input pattern is "hhmmssSSSS",
  *          and the best matching pattern internally is "H:mm:ss", and the decimal string is ",".
  *          Then the resulting pattern is modified to be "H:mm:ss,SSSS"
- * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in #i18n_error_code_e description.
  * @since_tizen 2.3.1
  *
  * @param[in] dtpg      The #i18n_udate_format_h handle. Must not be @c NULL.
@@ -599,8 +587,6 @@ int32_t i18n_udatepg_replace_field_types_with_options ( i18n_udatepg_h dtpg, con
 /**
  * @brief Creates an #i18n_uenumeration_h for list of all the skeletons in canonical form.
  * @details Call i18n_udatepg_get_pattern_for_skeleton() to get the corresponding pattern.
- * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in #i18n_error_code_e description.
  * @since_tizen 2.3.1
  *
  * @param[in] dtpg      An #i18n_udate_format_h handle. Must not be @c NULL.
@@ -614,8 +600,6 @@ int i18n_udatepg_skeletons_create ( const i18n_udatepg_h dtpg, i18n_uenumeration
 
 /**
  * @brief Creates an #i18n_uenumeration_h for list of all the base skeletons in canonical form.
- * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in #i18n_error_code_e description.
  * @since_tizen 2.3.1
  *
  * @param[in] dtpg      An #i18n_udate_format_h handle. Must not be @c NULL.

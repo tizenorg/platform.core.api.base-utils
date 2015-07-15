@@ -197,6 +197,7 @@ int32_t i18n_unumber_format (const i18n_unumber_format_h fmt, int32_t number, i1
  *
  * @return The total buffer size needed; if greater than @a result_length, the output was truncated.
  *
+ * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  * @exception #I18N_WARNING_STRING_NOT_TERMINATED If the formatted number fits into @a result but cannot be NULL-terminated (<code>length == result_length</code>)
  * @exception #I18N_ERROR_BUFFER_OVERFLOW If the formatted number doesn't fit into the @a result buffer
@@ -224,6 +225,7 @@ int32_t i18n_unumber_format_int64 (const i18n_unumber_format_h fmt, int64_t numb
  *
  * @return The total buffer size needed; if greater than @a result_length, the output was truncated.
  *
+ * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  * @exception #I18N_WARNING_STRING_NOT_TERMINATED If the formatted number fits into @a result but cannot be NULL-terminated (<code>length == result_length</code>)
  * @exception #I18N_ERROR_BUFFER_OVERFLOW If the formatted number doesn't fit into the @a result buffer
@@ -254,6 +256,7 @@ int32_t i18n_unumber_format_double (const i18n_unumber_format_h fmt, double numb
  *
  * @return The total buffer size needed; if greater than @a result_length, the output was truncated.
  *
+ * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  * @exception #I18N_WARNING_STRING_NOT_TERMINATED If the formatted number fits into @a result but cannot be NULL-terminated (<code>length == result_length</code>)
  * @exception #I18N_ERROR_BUFFER_OVERFLOW If the formatted number doesn't fit into the @a result buffer
@@ -283,6 +286,7 @@ int32_t i18n_unumber_format_decimal (const i18n_unumber_format_h fmt, const char
  *
  * @return The total buffer size needed; if greater than @a result_length, the output was truncated.
  *
+ * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  * @exception #I18N_WARNING_STRING_NOT_TERMINATED If the formatted number fits into @a result but cannot be NULL-terminated (<code>length == result_length</code>)
  * @exception #I18N_ERROR_BUFFER_OVERFLOW If the formatted number doesn't fit into the @a result buffer
@@ -304,6 +308,7 @@ int32_t i18n_unumber_format_double_currency (const i18n_unumber_format_h fmt, do
  *
  * @return The value of the parsed integer
  *
+ * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
 int32_t i18n_unumber_parse (const i18n_unumber_format_h fmt, const i18n_uchar *text, int32_t text_length, int32_t *parse_pos);
@@ -323,6 +328,7 @@ int32_t i18n_unumber_parse (const i18n_unumber_format_h fmt, const i18n_uchar *t
  *
  * @return The value of the parsed integer
  *
+ * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
 int64_t i18n_unumber_parse_int64 (const i18n_unumber_format_h fmt, const i18n_uchar *text, int32_t text_length, int32_t *parse_pos);
@@ -342,6 +348,7 @@ int64_t i18n_unumber_parse_int64 (const i18n_unumber_format_h fmt, const i18n_uc
  *
  * @return The value of the parsed double
  *
+ * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
 double i18n_unumber_parse_double (const i18n_unumber_format_h fmt, const i18n_uchar *text, int32_t text_length, int32_t *parse_pos);
@@ -367,6 +374,7 @@ double i18n_unumber_parse_double (const i18n_unumber_format_h fmt, const i18n_uc
  *
  * @return The length of the output string, not including any terminating NULL.
  *
+ * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
 int32_t i18n_unumber_parse_decimal (const i18n_unumber_format_h fmt, const i18n_uchar *text, int32_t text_length, int32_t *parse_pos, char *out_buf, int32_t out_buf_length);
@@ -390,6 +398,7 @@ int32_t i18n_unumber_parse_decimal (const i18n_unumber_format_h fmt, const i18n_
  *
  * @return The parsed double
  *
+ * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
 double i18n_unumber_parse_double_currency (const i18n_unumber_format_h fmt, const i18n_uchar *text, int32_t text_length, int32_t *parse_pos, i18n_uchar *currency);
@@ -541,6 +550,7 @@ int i18n_unumber_set_double_attribute (i18n_unumber_format_h fmt, i18n_unumber_f
  *
  * @return The total buffer size needed; if greater than @a result_length, the output was truncated.
  *
+ * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
 int32_t i18n_unumber_get_text_attribute (const i18n_unumber_format_h fmt, i18n_unumber_format_text_attribute_e tag, i18n_uchar *result, int32_t result_length);
@@ -580,6 +590,7 @@ int i18n_unumber_set_text_attribute (const i18n_unumber_format_h fmt, i18n_unumb
  *
  * @return The total buffer size needed; if greater than @a result_length, the output was truncated.
  *
+ * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
 int32_t i18n_unumber_to_pattern (const i18n_unumber_format_h fmt, i18n_ubool is_pattern_localized, i18n_uchar *result, int32_t result_length);
@@ -614,6 +625,7 @@ int i18n_unumber_set_symbol (i18n_unumber_format_h fmt, i18n_unumber_format_symb
  *
  * @return The locale name
  *
+ * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
 const char *i18n_unumber_get_locale_by_type (const i18n_unumber_format_h fmt, i18n_ulocale_data_locale_type_e type);

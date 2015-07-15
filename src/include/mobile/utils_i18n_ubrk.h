@@ -239,9 +239,13 @@ int32_t i18n_ubrk_following (i18n_ubreak_iterator_h break_iter, int32_t offset);
  * @brief Gets a locale for which text breaking information is available.
  * @details A #i18n_ubreak_iterator_h in a locale returned by this function will perform the correct
  *      text breaking for the locale.
+ * @remarks The specific error code can be obtained using the get_last_result() method.
+ *          Error codes are described in Exceptions section.
  * @since_tizen 2.3.1
  * @param[in] index The index of the desired locale.
  * @return A locale for which number text breaking information is available, or @c 0 if none.
+ * @exception #I18N_ERROR_NONE Successful
+ * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  * @see i18n_ubrk_count_available()
  */
 const char *i18n_ubrk_get_available (int32_t index);
@@ -250,8 +254,11 @@ const char *i18n_ubrk_get_available (int32_t index);
  * @brief Determines how many locales have text breaking information available.
  * @details This function is most useful as determining the loop ending condition for
  *      calls to i18n_ubrk_get_available().
+ * @remarks The specific error code can be obtained using the get_last_result() method.
+ *          Error codes are described in Exceptions section.
  * @since_tizen 2.3.1
  * @return The number of locales for which text breaking information is available.
+ * @exception #I18N_ERROR_NONE Successful
  * @see i18n_ubrk_get_available()
  */
 int32_t i18n_ubrk_count_available (void);

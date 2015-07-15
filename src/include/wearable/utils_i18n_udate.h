@@ -421,7 +421,9 @@ int i18n_udate_set_number_format ( i18n_udate_format_h format, const i18n_unumbe
  * @param[in] locale_index     The index of the desired locale.
  *
  * @return A locale for which date/time formatting patterns are available, or 0 if none.
- *
+ * @exception #I18N_ERROR_NONE Successful
+ * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
+
  * @see i18n_udate_count_available()
  */
 const char *i18n_udate_get_available ( int32_t locale_index );
@@ -488,6 +490,7 @@ int i18n_udate_set_2digit_year_start ( i18n_udate_format_h format, i18n_udate da
  *
  * @return The total buffer size needed; if greater than result_length, the output was truncated.
  *
+ * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  *
  * @see i18n_udate_apply_pattern()
@@ -536,6 +539,7 @@ int i18n_udate_apply_pattern ( i18n_udate_format_h format, i18n_ubool localized,
  *
  * @return The total buffer size needed; if greater than result_length, the output was truncated.
  *
+ * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  *
  * @see i18n_udate_count_symbols()

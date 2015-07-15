@@ -234,9 +234,12 @@ int i18n_timezone_set_default( i18n_timezone_h timezone );
 
 /**
  * @brief Returns the timezone data version currently used by I18N.
+ * @remarks The specific error code can be obtained using the get_last_result()
+ *      method. Error codes are described in #i18n_error_code_e description.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
  * @return the version string, such as "2007f"
+ * @exception #I18N_ERROR_NONE Successful
  */
 const char* i18n_timezone_get_tzdata_version(void);
 

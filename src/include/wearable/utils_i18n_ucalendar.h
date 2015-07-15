@@ -471,14 +471,16 @@ int i18n_ucalendar_country_timezones_create (const char *country, i18n_uenumerat
  * @details The default is determined initially by querying the host operating system.
  *      It may be changed with i18n_ucalendar_set_default_timezone()
  *      or with the C++ TimeZone API.
+ * @remarks The specific error code can be obtained using the get_last_result()
+ *      method. Error codes are described in #i18n_error_code_e description.
  * @since_tizen 2.3.1
  *
  * @param[out] result A buffer to receive the result, or @c NULL
  * @param[in]     result_capacity The capacity of the @c result buffer
  *
  * @return The @c result string length, not including the terminating @c NULL.
- * @remarks The specific error code can be obtained using the get_last_result()
- *      method. Error codes are described in #i18n_error_code_e description.
+ * @exception #I18N_ERROR_NONE Successful
+ * @exception #I18N_ERROR_INVALID_PARAMETER Invalid parameter
  */
 int32_t i18n_ucalendar_get_default_timezone (i18n_uchar *result, int32_t result_capacity);
 
@@ -499,6 +501,9 @@ int i18n_ucalendar_set_timezone ( i18n_ucalendar_h calendar, const i18n_uchar *z
 
 /**
  * @brief Gets the ID of the calendar's time zone.
+ * @remarks The specific error code can be obtained using the get_last_result()
+ *      method. Error codes are described in Exceptions section and
+ *      #i18n_error_code_e description.
  * @since_tizen 2.3.1
  *
  * @param[in] calendar The #i18n_ucalendar_h to query.
@@ -506,9 +511,6 @@ int i18n_ucalendar_set_timezone ( i18n_ucalendar_h calendar, const i18n_uchar *z
  * @param[in] result_length The maximum size of the @c result.
  *
  * @return The total buffer size needed; if greater than @c result_length, the output was truncated.
- * @remarks The specific error code can be obtained using the get_last_result()
- *      method. Error codes are described in Exceptions section and
- *      #i18n_error_code_e description.
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
@@ -560,13 +562,13 @@ int i18n_ucalendar_get_gregorian_change (const i18n_ucalendar_h calendar, i18n_u
  * @brief Gets a locale for which calendars are available.
  * @details A #i18n_ucalendar_h in a locale returned by this function will contain
  *      the correct day and month names for the locale.
+ * @remarks The specific error code can be obtained using the get_last_result() method.
+ *          Error codes are described in Exceptions section.
  * @since_tizen 2.3.1
  *
  * @param[in] locale_index The index of the desired locale.
  *
  * @return A locale for which calendars are available, or 0 if none.
- * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section.
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid parameter
  * @see i18n_ucalendar_count_available()
@@ -576,11 +578,11 @@ const char * i18n_ucalendar_get_available (int32_t locale_index);
 /**
  * @brief Determines how many locales have calendars available.
  * @details This function is most useful as determining the loop ending condition for calls to i18n_ucalendar_get_available().
+ * @remarks The specific error code can be obtained using the get_last_result() method.
+ *          Error codes are described in Exceptions section.
  * @since_tizen 2.3.1
  *
  * @return The number of locales for which calendars are available.
- * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section.
  * @exception #I18N_ERROR_NONE Successful
  * @see i18n_ucalendar_get_available()
  */
@@ -647,6 +649,8 @@ int i18n_ucalendar_roll (i18n_ucalendar_h calendar, i18n_ucalendar_date_fields_e
 /**
  * @brief Determines if a field in a #i18n_ucalendar_h is set.
  * @details All fields are represented as 32-bit integers.
+ * @remarks The specific error code can be obtained using the get_last_result()
+ *      method. Error codes are described in Exceptions section.
  * @since_tizen 2.3.1
  *
  * @param[in] calendar The #i18n_ucalendar_h to query.
@@ -658,9 +662,8 @@ int i18n_ucalendar_roll (i18n_ucalendar_h calendar, i18n_ucalendar_date_fields_e
  *      #I18N_UCALENDAR_SECOND, #I18N_UCALENDAR_MILLISECOND, #I18N_UCALENDAR_ZONE_OFFSET,
  *      #I18N_UCALENDAR_DST_OFFSET.
  * @return @c true if field is set, @c false otherwise.
- * @remarks The specific error code can be obtained using the get_last_result()
- *      method. Error codes are described in Exceptions section.
  * @exception #I18N_ERROR_NONE Successful
+ * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  * @see i18n_ucalendar_get()
  * @see i18n_ucalendar_set()
  * @see i18n_ucalendar_clear_field()
@@ -715,6 +718,9 @@ int i18n_ucalendar_clear (i18n_ucalendar_h calendar);
 /**
  * @brief Determines a limit for a field in a #i18n_ucalendar_h.
  * @details A limit is a maximum or minimum value for a field.
+ * @remarks The specific error code can be obtained using the get_last_result()
+ *      method. Error codes are described in Exceptions section and
+ *      #i18n_error_code_e description.
  * @since_tizen 2.3.1
  *
  * @param[in] calendar The #i18n_ucalendar_h to query.
@@ -726,9 +732,6 @@ int i18n_ucalendar_clear (i18n_ucalendar_h calendar);
  * @param[in] type The desired critical point; one of #I18N_UCALENDAR_MINIMUM, #I18N_UCALENDAR_MAXIMUM,
  *      #I18N_UCALENDAR_GREATEST_MINIMUM, #I18N_UCALENDAR_LEAST_MAXIMUM, #I18N_UCALENDAR_ACTUAL_MINIMUM,
  *       #I18N_UCALENDAR_ACTUAL_MAXIMUM
- * @remarks The specific error code can be obtained using the get_last_result()
- *      method. Error codes are described in Exceptions section and
- *      #i18n_error_code_e description.
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  *
@@ -739,15 +742,15 @@ int32_t i18n_ucalendar_get_limit (const i18n_ucalendar_h calendar, i18n_ucalenda
 /**
  * @brief Gets the locale for this @c calendar object.
  * @details You can choose between valid and actual locale.
+ * @remarks The specific error code can be obtained using the get_last_result()
+ *      method. Error codes are described in Exceptions section and
+ *      #i18n_error_code_e description.
  * @since_tizen 2.3.1
  *
  * @param[in] calendar The calendar object
  * @param[in] type Type of the locale we're looking for (valid or actual)
  *
  * @return The requested value.
- * @remarks The specific error code can be obtained using the get_last_result()
- *      method. Error codes are described in Exceptions section and
- *      #i18n_error_code_e description.
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
@@ -755,16 +758,20 @@ const char *i18n_ucalendar_get_locale_by_type (const i18n_ucalendar_h calendar, 
 
 /**
  * @brief Returns the timezone data version currently used by ICU.
+ * @remarks The specific error code can be obtained using the get_last_result()
+ *      method. Error codes are described in #i18n_error_code_e description.
  * @since_tizen 2.3.1
  *
  * @return The version string, such as "2007f".
- * @remarks The specific error code can be obtained using the get_last_result()
- *      method. Error codes are described in #i18n_error_code_e description.
+ * @exception #I18N_ERROR_NONE Successful
  */
 const char *i18n_ucalendar_get_tz_data_version (void);
 
 /**
  * @brief Returns the canonical system timezone ID or the normalized custom time zone ID for the given time zone ID.
+ * @remarks The specific error code can be obtained using the get_last_result()
+ *      method. Error codes are described in Exceptions section and
+ *      #i18n_error_code_e description.
  * @since_tizen 2.3.1
  *
  * @param[in] id The input timezone ID to be canonicalized.
@@ -774,9 +781,6 @@ const char *i18n_ucalendar_get_tz_data_version (void);
  * @param[out] is_system_id Receives if the given @c id is a known system timezone ID.
  *
  * @return The result string length, not including the terminating NULL.
- * @remarks The specific error code can be obtained using the get_last_result()
- *      method. Error codes are described in Exceptions section and
- *      #i18n_error_code_e description.
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
@@ -784,14 +788,14 @@ int32_t i18n_ucalendar_get_canonical_timezone_id (const i18n_uchar *id, int32_t 
 
 /**
  * @brief Gets the resource keyword value string designating the calendar type for the #i18n_ucalendar_h.
+ * @remarks The specific error code can be obtained using the get_last_result()
+ *      method. Error codes are described in Exceptions section and
+ *      #i18n_error_code_e description.
  * @since_tizen 2.3.1
  *
  * @param[in] calendar The #i18n_ucalendar_h to query.
  *
  * @return The resource keyword value string.
- * @remarks The specific error code can be obtained using the get_last_result()
- *      method. Error codes are described in Exceptions section and
- *      #i18n_error_code_e description.
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
@@ -849,15 +853,15 @@ int i18n_ucalendar_get_day_of_week_type (const i18n_ucalendar_h calendar, i18n_u
  *      the specified @c day_of_week, return the time at which the weekend ends. If
  *      i18n_ucalendar_get_day_of_week_type() returns some other #i18n_ucalendar_weekday_type_e
  *      for the specified @c day_of_week, it is an error condition (#I18N_ERROR_INVALID_PARAMETER).
+ * @remarks The specific error code can be obtained using the get_last_result()
+ *      method. Error codes are described in Exceptions section and
+ *      #i18n_error_code_e description.
  * @since_tizen 2.3.1
  *
  * @param[in] calendar The #i18n_ucalendar_h to query.
  * @param[in] day_of_week The day of the week whose type is desired (#I18N_UCALENDAR_SUNDAY..#I18N_UCALENDAR_SATURDAY).
  *
  * @return The milliseconds after midnight at which the weekend begins or ends.
- * @remarks The specific error code can be obtained using the get_last_result()
- *      method. Error codes are described in Exceptions section and
- *      #i18n_error_code_e description.
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
@@ -865,15 +869,15 @@ int32_t  i18n_ucalendar_get_weekend_transition (const i18n_ucalendar_h calendar,
 
 /**
  * @brief Returns @c true if the given #i18n_udate is in the weekend in this calendar system.
+ * @remarks The specific error code can be obtained using the get_last_result()
+ *      method. Error codes are described in Exceptions section and
+ *      #i18n_error_code_e description.
  * @since_tizen 2.3.1
  *
  * @param[in] calendar The #i18n_ucalendar_h to query.
  * @param[in] date The #i18n_udate in question.
   *
  * @return @c true if the given #i18n_udate is in the weekend in this calendar system, @c false otherwise.
- * @remarks The specific error code can be obtained using the get_last_result()
- *      method. Error codes are described in Exceptions section and
- *      #i18n_error_code_e description.
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
@@ -884,6 +888,9 @@ i18n_ubool i18n_ucalendar_is_weekend (i18n_ucalendar_h calendar, i18n_udate date
  *      to the calendar's current date, in the time zone to which the calendar is currently set.
  * @details If there is no known time zone transition of the requested type relative
  *      to the calendar's date, the function returns @c false.
+ * @remarks The specific error code can be obtained using the get_last_result()
+ *      method. Error codes are described in Exceptions section and
+ *      #i18n_error_code_e description.
  * @since_tizen 2.3.1
  *
  * @param[in] calendar The #i18n_ucalendar_h to query.
@@ -892,9 +899,6 @@ i18n_ubool i18n_ucalendar_is_weekend (i18n_ucalendar_h calendar, i18n_udate date
  *      If the function returns @c false, the value set is unspecified.
  *
  * @return @c true if the given #i18n_udate is in the weekend in this calendar system, @c false otherwise.
- * @remarks The specific error code can be obtained using the get_last_result()
- *      method. Error codes are described in Exceptions section and
- *      #i18n_error_code_e description.
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */

@@ -194,19 +194,26 @@ int i18n_ulocale_get_display_name ( const char *locale_id, const char *in_locale
  *          Both this array and the pointers it contains are owned by I18N
  *          and should not be deleted or written through by the caller.
  *          The locale name is terminated by a null pointer.
+ * @remarks The specific error code can be obtained using the get_last_result() method.
+ *          Error codes are described in Exceptions section.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
  * @param[in] n     The specific locale name index of the available locale list
  *
  * @return A specified locale name of all available locales
+ * @exception #I18N_ERROR_NONE Success
+ * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
 const char* i18n_ulocale_get_available ( int32_t n );
 
 /**
  * @brief Gets the size of the all available locale list.
+ * @remarks The specific error code can be obtained using the get_last_result() method.
+ *          Error codes are described in Exceptions section.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
  * @return The size of the locale list
+ * @exception #I18N_ERROR_NONE Success
  */
 int32_t i18n_ulocale_count_available ( void );
 
@@ -269,6 +276,8 @@ int32_t i18n_ulocale_get_variant ( const char *locale_id, char *variant, int32_t
  *
  * @return The actual buffer size needed for the full name. If it's greater than @a name_capacity,
  *         the returned full name will be truncated.
+ * @exception #I18N_ERROR_NONE Successful
+ * @exception #I18N_ERROR_BUFFER_OVERFLOW A result would not fit in the supplied buffer
  */
 int32_t i18n_ulocale_get_name ( const char *locale_id, char *name, int32_t name_capacity );
 
@@ -289,6 +298,8 @@ int32_t i18n_ulocale_get_name ( const char *locale_id, char *name, int32_t name_
  *
  * @return The actual buffer size needed for the full name. If it's greater than @a name_capacity,
  *         the returned full name will be truncated.
+ * @exception #I18N_ERROR_NONE Successful
+ * @exception #I18N_ERROR_BUFFER_OVERFLOW A result would not fit in the supplied buffer
  */
 int32_t i18n_ulocale_canonicalize ( const char *locale_id, char *name, int32_t name_capacity );
 
@@ -575,6 +586,8 @@ int32_t i18n_ulocale_get_parent ( const char *locale_id, char *parent, int32_t p
  *
  * @return The actual buffer size needed for the full name. If it's greater than @a name_capacity,
  *         the returned full name will be truncated.
+ * @exception #I18N_ERROR_NONE Successful
+ * @exception #I18N_ERROR_BUFFER_OVERFLOW A result would not fit in the supplied buffer
  */
 int32_t i18n_ulocale_get_base_name ( const char *locale_id, char *name, int32_t name_capacity );
 
@@ -719,6 +732,8 @@ int32_t i18n_ulocale_get_locale_for_lcid ( uint32_t host_id, char *locale, int32
  * @return The actual buffer size needed for the maximized locale. If it's
  *         greater than @a maximized_lacale_id_capacity, the returned ID will be truncated.
  *         On error, the return value is -1.
+ * @exception #I18N_ERROR_NONE Successful
+ * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
 int32_t i18n_ulocale_add_likely_subtags ( const char *locale_id, char *maximized_locale_id, int32_t maximized_locale_id_capacity );
 
@@ -750,6 +765,8 @@ int32_t i18n_ulocale_add_likely_subtags ( const char *locale_id, char *maximized
  * @return The actual buffer size needed for the minimized locale. If it's
  *         greater than @a minimized_locale_id_capacity, the returned ID will be truncated.
  *         On error, the return value is -1.
+ * @exception #I18N_ERROR_NONE Successful
+ * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
 int32_t i18n_ulocale_minimize_subtags ( const char *locale_id, char *minimized_locale_id, int32_t minimized_locale_id_capacity );
 

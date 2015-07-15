@@ -1516,7 +1516,6 @@ typedef void* i18n_unumber_format_h;
 /**
  * @brief Definition of context length.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
- * @internal This is internal API
  */
 #define I18N_U_PARSE_CONTEXT_LEN 16
 
@@ -1525,10 +1524,10 @@ typedef void* i18n_unumber_format_h;
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  */
 typedef struct {
-    int32_t    line;
-    int32_t    offset;
-    i18n_uchar preContext[I18N_U_PARSE_CONTEXT_LEN];
-    i18n_uchar postContext[I18N_U_PARSE_CONTEXT_LEN];
+    int32_t    line;                                    /**< The line on which the error occured. */
+    int32_t    offset;                                  /**< The character offset to the error */
+    i18n_uchar preContext[I18N_U_PARSE_CONTEXT_LEN];    /**< Textual context before the error */
+    i18n_uchar postContext[I18N_U_PARSE_CONTEXT_LEN];   /**< The error itself and/or textual context after the error */
 } i18n_uparse_error_s;
 
 /**
