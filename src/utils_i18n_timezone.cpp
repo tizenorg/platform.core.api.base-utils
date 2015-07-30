@@ -400,7 +400,7 @@ int i18n_timezone_in_daylight_time(i18n_timezone_h timezone, i18n_udate date, i1
 
 int i18n_timezone_has_same_rule(i18n_timezone_h timezone, i18n_timezone_h other, i18n_ubool *same_rule)
 {
-    retv_if(timezone == NULL || same_rule == NULL, I18N_ERROR_INVALID_PARAMETER);
+    retv_if(timezone == NULL || other == NULL || same_rule == NULL, I18N_ERROR_INVALID_PARAMETER);
 
     *same_rule = ((TimeZone*)timezone)->hasSameRules(*(TimeZone*)other);
 

@@ -61,6 +61,14 @@ extern "C" {
  *    <td>The Timezone module represents a time zone offset, and also figures out daylight savings.</td>
  * </tr>
  * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UENUMERATION_MODULE</td>
+ *    <td>UEnumeration defines functions for handling String Enumeration.</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UBRK_MODULE</td>
+ *    <td>Ubrk module defines methods for finding the location of boundaries in text.</td>
+ * </tr>
+ * <tr>
  *    <td>@ref CAPI_BASE_UTILS_I18N_UCOLLATOR_MODULE</td>
  *    <td>Ucollator module performs locale-sensitive string comparison. It builds searching and sorting routines for natural language text and provides correct sorting orders for most locales.</td>
  * </tr>
@@ -75,6 +83,10 @@ extern "C" {
  * <tr>
  *    <td>@ref CAPI_BASE_UTILS_I18N_USEARCH_MODULE</td>
  *    <td>Usearch module provides language-sensitive text searching based on the comparison rules defined in a ucollator data struct.</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_USET_MODULE</td>
+ *    <td>Uset module allows to specify a subset of character used in strings.</td>
  * </tr>
  * <tr>
  *    <td>@ref CAPI_BASE_UTILS_I18N_USTRING_MODULE</td>
@@ -247,6 +259,131 @@ extern "C" {
  *    <td>getDSTSavings</td>
  * </tr>
  * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UENUMERATION_MODULE</td>
+ *    <td>#i18n_uenumeration_destroy</td>
+ *    <td>uenum_close</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UENUMERATION_MODULE</td>
+ *    <td>#i18n_uenumeration_count</td>
+ *    <td>uenum_count</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UENUMERATION_MODULE</td>
+ *    <td>#i18n_uenumeration_unext</td>
+ *    <td>uenum_unext</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UENUMERATION_MODULE</td>
+ *    <td>#i18n_uenumeration_next</td>
+ *    <td>uenum_next</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UENUMERATION_MODULE</td>
+ *    <td>#i18n_uenumeration_reset</td>
+ *    <td>uenum_reset</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UENUMERATION_MODULE</td>
+ *    <td>#i18n_uenumeration_uchar_strings_enumeration_create</td>
+ *    <td>uenum_openUCharStringsEnumeration</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UENUMERATION_MODULE</td>
+ *    <td>#i18n_uenumeration_char_strings_enumeration_create</td>
+ *    <td>uenum_openCharStringsEnumeration</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UBRK_MODULE</td>
+ *    <td>#i18n_ubrk_create</td>
+ *    <td>ubrk_open</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UBRK_MODULE</td>
+ *    <td>#i18n_ubrk_create_rules</td>
+ *    <td>ubrk_openRules</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UBRK_MODULE</td>
+ *    <td>#i18n_ubrk_safe_clone</td>
+ *    <td>ubrk_safeClone</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UBRK_MODULE</td>
+ *    <td>#i18n_ubrk_destroy</td>
+ *    <td>ubrk_close</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UBRK_MODULE</td>
+ *    <td>#i18n_ubrk_set_text</td>
+ *    <td>ubrk_setText</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UBRK_MODULE</td>
+ *    <td>#i18n_ubrk_current</td>
+ *    <td>ubrk_current</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UBRK_MODULE</td>
+ *    <td>#i18n_ubrk_next</td>
+ *    <td>ubrk_next</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UBRK_MODULE</td>
+ *    <td>#i18n_ubrk_preceding</td>
+ *    <td>ubrk_preceding</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UBRK_MODULE</td>
+ *    <td>#i18n_ubrk_previous</td>
+ *    <td>ubrk_previous</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UBRK_MODULE</td>
+ *    <td>#i18n_ubrk_first</td>
+ *    <td>ubrk_first</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UBRK_MODULE</td>
+ *    <td>#i18n_ubrk_last</td>
+ *    <td>ubrk_last</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UBRK_MODULE</td>
+ *    <td>#i18n_ubrk_following</td>
+ *    <td>ubrk_following</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UBRK_MODULE</td>
+ *    <td>#i18n_ubrk_get_available</td>
+ *    <td>ubrk_getAvailable</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UBRK_MODULE</td>
+ *    <td>#i18n_ubrk_count_available</td>
+ *    <td>ubrk_countAvailable</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UBRK_MODULE</td>
+ *    <td>#i18n_ubrk_is_boundary</td>
+ *    <td>ubrk_isBoundary</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UBRK_MODULE</td>
+ *    <td>#i18n_ubrk_get_rule_status</td>
+ *    <td>ubrk_getRuleStatus</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UBRK_MODULE</td>
+ *    <td>#i18n_ubrk_get_rule_status_vec</td>
+ *    <td>ubrk_getRuleStatusVec</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UBRK_MODULE</td>
+ *    <td>#i18n_ubrk_get_locale_by_type</td>
+ *    <td>ubrk_getLocaleByType</td>
+ * </tr>
+ * <tr>
  *    <td>@ref CAPI_BASE_UTILS_I18N_UCALENDAR_MODULE</td>
  *    <td>#i18n_ucalendar_set_default_timezone</td>
  *    <td>ucal_setDefaultTimeZone</td>
@@ -327,6 +464,136 @@ extern "C" {
  *    <td>ucal_get</td>
  * </tr>
  * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UCALENDAR_MODULE</td>
+ *    <td>#i18n_ucalendar_clear</td>
+ *    <td>ucal_clear</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UCALENDAR_MODULE</td>
+ *    <td>#i18n_ucalendar_clear_field</td>
+ *    <td>ucal_clearField</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UCALENDAR_MODULE</td>
+ *    <td>#i18n_ucalendar_count_available</td>
+ *    <td>ucal_countAvailable</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UCALENDAR_MODULE</td>
+ *    <td>#i18n_ucalendar_country_timezones_create</td>
+ *    <td>ucal_openCountryTimeZones</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UCALENDAR_MODULE</td>
+ *    <td>#i18n_ucalendar_get_available</td>
+ *    <td>ucal_getAvailable</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UCALENDAR_MODULE</td>
+ *    <td>#i18n_ucalendar_get_canonical_timezone_id</td>
+ *    <td>ucal_getCanonicalTimeZoneID</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UCALENDAR_MODULE</td>
+ *    <td>#i18n_ucalendar_get_day_of_week_type</td>
+ *    <td>ucal_getDayOfWeekType</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UCALENDAR_MODULE</td>
+ *    <td>#i18n_ucalendar_get_default_timezone</td>
+ *    <td>ucal_getDefaultTimeZone</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UCALENDAR_MODULE</td>
+ *    <td>#i18n_ucalendar_get_field_difference</td>
+ *    <td>ucal_getFieldDifference</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UCALENDAR_MODULE</td>
+ *    <td>#i18n_ucalendar_get_gregorian_change</td>
+ *    <td>ucal_getGregorianChange</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UCALENDAR_MODULE</td>
+ *    <td>#i18n_ucalendar_get_keyword_values_for_locale</td>
+ *    <td>ucal_getKeywordValuesForLocale</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UCALENDAR_MODULE</td>
+ *    <td>#i18n_ucalendar_get_limit</td>
+ *    <td>ucal_getLimit</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UCALENDAR_MODULE</td>
+ *    <td>#i18n_ucalendar_get_locale_by_type</td>
+ *    <td>ucal_getLocaleByType</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UCALENDAR_MODULE</td>
+ *    <td>#i18n_ucalendar_get_timezone_id</td>
+ *    <td>ucal_getTimeZoneID</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UCALENDAR_MODULE</td>
+ *    <td>#i18n_ucalendar_get_timezone_transition_date</td>
+ *    <td>ucal_getTimeZoneTransitionDate</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UCALENDAR_MODULE</td>
+ *    <td>#i18n_ucalendar_get_type</td>
+ *    <td>ucal_getType</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UCALENDAR_MODULE</td>
+ *    <td>#i18n_ucalendar_get_tz_data_version</td>
+ *    <td>ucal_getTZDataVersion</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UCALENDAR_MODULE</td>
+ *    <td>#i18n_ucalendar_get_weekend_transition</td>
+ *    <td>ucal_getWeekendTransition</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UCALENDAR_MODULE</td>
+ *    <td>#i18n_ucalendar_is_set</td>
+ *    <td>ucal_isSet</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UCALENDAR_MODULE</td>
+ *    <td>#i18n_ucalendar_is_weekend</td>
+ *    <td>ucal_isWeekend</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UCALENDAR_MODULE</td>
+ *    <td>#i18n_ucalendar_roll</td>
+ *    <td>ucal_roll</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UCALENDAR_MODULE</td>
+ *    <td>#i18n_ucalendar_set_date</td>
+ *    <td>ucal_setDate</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UCALENDAR_MODULE</td>
+ *    <td>#i18n_ucalendar_set_gregorian_change</td>
+ *    <td>ucal_setGregorianChange</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UCALENDAR_MODULE</td>
+ *    <td>#i18n_ucalendar_set_timezone</td>
+ *    <td>ucal_setTimeZone</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UCALENDAR_MODULE</td>
+ *    <td>#i18n_ucalendar_timezones_create</td>
+ *    <td>ucal_openTimeZones</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UCALENDAR_MODULE</td>
+ *    <td>#i18n_ucalendar_timezone_id_enumeration_create</td>
+ *    <td>ucal_openTimeZoneIDEnumeration</td>
+ * </tr>
+ * <tr>
  *    <td>@ref CAPI_BASE_UTILS_I18N_UCHAR_MODULE</td>
  *    <td>#i18n_uchar_get_int_property_value</td>
  *    <td>u_getIntpropertyValue</td>
@@ -382,6 +649,111 @@ extern "C" {
  *    <td>udat_format</td>
  * </tr>
  * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UDATE_MODULE</td>
+ *    <td>#i18n_udate_apply_pattern</td>
+ *    <td>udat_applyPattern</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UDATE_MODULE</td>
+ *    <td>#i18n_udate_clone</td>
+ *    <td>udat_clone</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UDATE_MODULE</td>
+ *    <td>#i18n_udate_count_available</td>
+ *    <td>udat_countAvailable</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UDATE_MODULE</td>
+ *    <td>#i18n_udate_count_symbols</td>
+ *    <td>udat_countSymbols</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UDATE_MODULE</td>
+ *    <td>#i18n_udate_get_2digit_year_start</td>
+ *    <td>udat_get2DigitYearStart</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UDATE_MODULE</td>
+ *    <td>#i18n_udate_get_available</td>
+ *    <td>udat_getAvailable</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UDATE_MODULE</td>
+ *    <td>#i18n_udate_get_calendar</td>
+ *    <td>udat_getCalendar</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UDATE_MODULE</td>
+ *    <td>#i18n_udate_get_locale_by_type</td>
+ *    <td>udat_getLocaleByType</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UDATE_MODULE</td>
+ *    <td>#i18n_udate_get_number_format</td>
+ *    <td>udat_getNumberFormat</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UDATE_MODULE</td>
+ *    <td>#i18n_udate_get_symbols</td>
+ *    <td>udat_getSymbols</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UDATE_MODULE</td>
+ *    <td>#i18n_udate_is_lenient</td>
+ *    <td>udat_isLenient</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UDATE_MODULE</td>
+ *    <td>#i18n_udate_parse</td>
+ *    <td>udat_parse</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UDATE_MODULE</td>
+ *    <td>#i18n_udate_parse_calendar</td>
+ *    <td>udat_parseCalendar</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UDATE_MODULE</td>
+ *    <td>#i18n_udate_set_2digit_year_start</td>
+ *    <td>udat_set2DigitYearStart</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UDATE_MODULE</td>
+ *    <td>#i18n_udate_set_calendar</td>
+ *    <td>udat_setCalendar</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UDATE_MODULE</td>
+ *    <td>#i18n_udate_set_context</td>
+ *    <td>udat_setContext</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UDATE_MODULE</td>
+ *    <td>#i18n_udate_set_lenient</td>
+ *    <td>udat_setLenient</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UDATE_MODULE</td>
+ *    <td>#i18n_udate_set_number_format</td>
+ *    <td>udat_setNumberFormat</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UDATE_MODULE</td>
+ *    <td>#i18n_udate_set_symbols</td>
+ *    <td>udat_setSymbols</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UDATE_MODULE</td>
+ *    <td>#i18n_udate_to_calendar_date_field</td>
+ *    <td>udat_toCalendarDateField</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UDATE_MODULE</td>
+ *    <td>#i18n_udate_to_pattern</td>
+ *    <td>udat_toPattern</td>
+ * </tr>
+ * <tr>
  *    <td>@ref CAPI_BASE_UTILS_I18N_UDATEPG_MODULE</td>
  *    <td>#i18n_udatepg_create</td>
  *    <td>udatpg_open</td>
@@ -395,6 +767,101 @@ extern "C" {
  *    <td>@ref CAPI_BASE_UTILS_I18N_UDATEPG_MODULE</td>
  *    <td>#i18n_udatepg_get_best_pattern</td>
  *    <td>udatpg_getBestPattern</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UDATEPG_MODULE</td>
+ *    <td>#i18n_udatepg_add_pattern</td>
+ *    <td>udatpg_addPattern</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UDATEPG_MODULE</td>
+ *    <td>#i18n_udatepg_base_skeletons_create</td>
+ *    <td>udatpg_openBaseSkeletons</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UDATEPG_MODULE</td>
+ *    <td>#i18n_udatepg_clone</td>
+ *    <td>udatpg_clone</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UDATEPG_MODULE</td>
+ *    <td>#i18n_udatepg_create_empty</td>
+ *    <td>udatpg_openEmpty</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UDATEPG_MODULE</td>
+ *    <td>#i18n_udatepg_get_append_item_format</td>
+ *    <td>udatpg_getAppendItemFormat</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UDATEPG_MODULE</td>
+ *    <td>#i18n_udatepg_get_append_item_name</td>
+ *    <td>udatpg_getAppendItemName</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UDATEPG_MODULE</td>
+ *    <td>#i18n_udatepg_get_base_skeleton</td>
+ *    <td>udatpg_getBaseSkeleton</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UDATEPG_MODULE</td>
+ *    <td>#i18n_udatepg_get_best_pattern_with_options</td>
+ *    <td>udatpg_getBestPatternWithOptions</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UDATEPG_MODULE</td>
+ *    <td>#i18n_udatepg_get_date_time_format</td>
+ *    <td>udatpg_getDateTimeFormat</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UDATEPG_MODULE</td>
+ *    <td>#i18n_udatepg_get_decimal</td>
+ *    <td>udatpg_getDecimal</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UDATEPG_MODULE</td>
+ *    <td>#i18n_udatepg_get_pattern_for_skeleton</td>
+ *    <td>udatpg_getPatternForSkeleton</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UDATEPG_MODULE</td>
+ *    <td>#i18n_udatepg_get_skeleton</td>
+ *    <td>udatpg_getSkeleton</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UDATEPG_MODULE</td>
+ *    <td>#i18n_udatepg_replace_field_types</td>
+ *    <td>udatpg_replaceFieldTypes</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UDATEPG_MODULE</td>
+ *    <td>#i18n_udatepg_replace_field_types_with_options</td>
+ *    <td>udatpg_replaceFieldTypesWithOptions</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UDATEPG_MODULE</td>
+ *    <td>#i18n_udatepg_set_append_item_format</td>
+ *    <td>udatpg_setAppendItemFormat</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UDATEPG_MODULE</td>
+ *    <td>#i18n_udatepg_set_append_item_name</td>
+ *    <td>udatpg_setAppendItemName</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UDATEPG_MODULE</td>
+ *    <td>#i18n_udatepg_set_date_time_format</td>
+ *    <td>udatpg_setDateTimeFormat</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UDATEPG_MODULE</td>
+ *    <td>#i18n_udatepg_set_decimal</td>
+ *    <td>udatpg_setDecimal</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UDATEPG_MODULE</td>
+ *    <td>#i18n_udatepg_skeletons_create</td>
+ *    <td>udatpg_openSkeletons</td>
  * </tr>
  * <tr>
  *    <td>@ref CAPI_BASE_UTILS_I18N_ULOCALE_MODULE</td>
@@ -420,6 +887,142 @@ extern "C" {
  *    <td>@ref CAPI_BASE_UTILS_I18N_ULOCALE_MODULE</td>
  *    <td>#i18n_ulocale_get_display_name</td>
  *    <td>uloc_getDisplayName</td>
+ * </tr>
+ *
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_ULOCALE_MODULE</td>
+ *    <td>#i18n_ulocale_add_likely_subtags</td>
+ *    <td>uloc_addLikelySubtags</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_ULOCALE_MODULE</td>
+ *    <td>#i18n_ulocale_canonicalize</td>
+ *    <td>uloc_canonicalize</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_ULOCALE_MODULE</td>
+ *    <td>#i18n_ulocale_for_language_tag</td>
+ *    <td>uloc_forLanguageTag</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_ULOCALE_MODULE</td>
+ *    <td>#i18n_ulocale_get_base_name</td>
+ *    <td>uloc_getBaseName</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_ULOCALE_MODULE</td>
+ *    <td>#i18n_ulocale_get_character_orientation</td>
+ *    <td>uloc_getCharacterOrientation</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_ULOCALE_MODULE</td>
+ *    <td>#i18n_ulocale_get_display_country</td>
+ *    <td>uloc_getDisplayCountry</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_ULOCALE_MODULE</td>
+ *    <td>#i18n_ulocale_get_display_keyword</td>
+ *    <td>uloc_getDisplayKeyword</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_ULOCALE_MODULE</td>
+ *    <td>#i18n_ulocale_get_display_keyword_value</td>
+ *    <td>uloc_getDisplayKeywordValue</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_ULOCALE_MODULE</td>
+ *    <td>#i18n_ulocale_get_display_language</td>
+ *    <td>uloc_getDisplayLanguage</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_ULOCALE_MODULE</td>
+ *    <td>#i18n_ulocale_get_display_script</td>
+ *    <td>uloc_getDisplayScript</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_ULOCALE_MODULE</td>
+ *    <td>#i18n_ulocale_get_display_variant</td>
+ *    <td>uloc_getDisplayVariant</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_ULOCALE_MODULE</td>
+ *    <td>#i18n_ulocale_get_iso3_country</td>
+ *    <td>uloc_getISO3Country</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_ULOCALE_MODULE</td>
+ *    <td>#i18n_ulocale_get_iso3_language</td>
+ *    <td>uloc_getISO3Language</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_ULOCALE_MODULE</td>
+ *    <td>#i18n_ulocale_get_iso_countries</td>
+ *    <td>uloc_getISOCountries</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_ULOCALE_MODULE</td>
+ *    <td>#i18n_ulocale_get_iso_languages</td>
+ *    <td>uloc_getISOLanguages</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_ULOCALE_MODULE</td>
+ *    <td>#i18n_ulocale_get_keyword_value</td>
+ *    <td>uloc_getKeywordValue</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_ULOCALE_MODULE</td>
+ *    <td>#i18n_ulocale_get_lcid</td>
+ *    <td>uloc_getLCID</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_ULOCALE_MODULE</td>
+ *    <td>#i18n_ulocale_get_line_orientation</td>
+ *    <td>uloc_getLineOrientation</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_ULOCALE_MODULE</td>
+ *    <td>#i18n_ulocale_get_locale_for_lcid</td>
+ *    <td>uloc_getLocaleForLCID</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_ULOCALE_MODULE</td>
+ *    <td>#i18n_ulocale_get_name</td>
+ *    <td>uloc_getName</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_ULOCALE_MODULE</td>
+ *    <td>#i18n_ulocale_get_parent</td>
+ *    <td>uloc_getParent</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_ULOCALE_MODULE</td>
+ *    <td>#i18n_ulocale_get_script</td>
+ *    <td>uloc_getScript</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_ULOCALE_MODULE</td>
+ *    <td>#i18n_ulocale_get_variant</td>
+ *    <td>uloc_getVariant</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_ULOCALE_MODULE</td>
+ *    <td>#i18n_ulocale_keywords_create</td>
+ *    <td>uloc_openKeywords</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_ULOCALE_MODULE</td>
+ *    <td>#i18n_ulocale_minimize_subtags</td>
+ *    <td>uloc_minimizeSubtags</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_ULOCALE_MODULE</td>
+ *    <td>#i18n_ulocale_set_keyword_value</td>
+ *    <td>uloc_setKeywordValue</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_ULOCALE_MODULE</td>
+ *    <td>#i18n_ulocale_to_language_tag</td>
+ *    <td>uloc_toLanguageTag</td>
  * </tr>
  * <tr>
  *    <td>@ref CAPI_BASE_UTILS_I18N_ULOCALE_MODULE</td>
@@ -457,6 +1060,121 @@ extern "C" {
  *    <td>unum_getSymbol</td>
  * </tr>
  * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UNUMBER_MODULE</td>
+ *    <td>#i18n_unumber_apply_pattern</td>
+ *    <td>unum_applyPattern</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UNUMBER_MODULE</td>
+ *    <td>#i18n_unumber_clone</td>
+ *    <td>unum_clone</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UNUMBER_MODULE</td>
+ *    <td>#i18n_unumber_count_available</td>
+ *    <td>unum_countAvailable</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UNUMBER_MODULE</td>
+ *    <td>#i18n_unumber_format</td>
+ *    <td>unum_format</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UNUMBER_MODULE</td>
+ *    <td>#i18n_unumber_format_decimal</td>
+ *    <td>unum_formatDecimal</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UNUMBER_MODULE</td>
+ *    <td>#i18n_unumber_format_double</td>
+ *    <td>unum_formatDouble</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UNUMBER_MODULE</td>
+ *    <td>#i18n_unumber_format_double_currency</td>
+ *    <td>unum_formatDoubleCurrency</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UNUMBER_MODULE</td>
+ *    <td>#i18n_unumber_format_int64</td>
+ *    <td>unum_formatInt64</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UNUMBER_MODULE</td>
+ *    <td>#i18n_unumber_get_attribute</td>
+ *    <td>unum_getAttribute</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UNUMBER_MODULE</td>
+ *    <td>#i18n_unumber_get_available</td>
+ *    <td>unum_getAvailable</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UNUMBER_MODULE</td>
+ *    <td>#i18n_unumber_get_double_attribute</td>
+ *    <td>unum_getDoubleAttribute</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UNUMBER_MODULE</td>
+ *    <td>#i18n_unumber_get_locale_by_type</td>
+ *    <td>unum_getLocaleByType</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UNUMBER_MODULE</td>
+ *    <td>#i18n_unumber_get_text_attribute</td>
+ *    <td>unum_getTextAttribute</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UNUMBER_MODULE</td>
+ *    <td>#i18n_unumber_parse</td>
+ *    <td>unum_parse</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UNUMBER_MODULE</td>
+ *    <td>#i18n_unumber_parse_decimal</td>
+ *    <td>unum_parseDecimal</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UNUMBER_MODULE</td>
+ *    <td>#i18n_unumber_parse_double</td>
+ *    <td>unum_parseDouble</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UNUMBER_MODULE</td>
+ *    <td>#i18n_unumber_parse_double_currency</td>
+ *    <td>unum_parseDoubleCurrency</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UNUMBER_MODULE</td>
+ *    <td>#i18n_unumber_parse_int64</td>
+ *    <td>unum_parseInt64</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UNUMBER_MODULE</td>
+ *    <td>#i18n_unumber_set_attribute</td>
+ *    <td>unum_setAttribute</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UNUMBER_MODULE</td>
+ *    <td>#i18n_unumber_set_double_attribute</td>
+ *    <td>unum_setDoubleAttribute</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UNUMBER_MODULE</td>
+ *    <td>#i18n_unumber_set_symbol</td>
+ *    <td>unum_setSymbol</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UNUMBER_MODULE</td>
+ *    <td>#i18n_unumber_set_text_attribute</td>
+ *    <td>unum_setTextAttribute</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_UNUMBER_MODULE</td>
+ *    <td>#i18n_unumber_to_pattern</td>
+ *    <td>unum_toPattern</td>
+ * </tr>
+ * <tr>
  *    <td>@ref CAPI_BASE_UTILS_I18N_USEARCH_MODULE</td>
  *    <td>#i18n_usearch_create_new</td>
  *    <td>usearch_open</td>
@@ -480,6 +1198,286 @@ extern "C" {
  *    <td>@ref CAPI_BASE_UTILS_I18N_USEARCH_MODULE</td>
  *    <td>#i18n_usearch_first</td>
  *    <td>usearch_first</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_USET_MODULE</td>
+ *    <td>#i18n_uset_create_empty</td>
+ *    <td>uset_openEmpty</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_USET_MODULE</td>
+ *    <td>#i18n_uset_create</td>
+ *    <td>uset_open</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_USET_MODULE</td>
+ *    <td>#i18n_uset_create_pattern</td>
+ *    <td>uset_openPattern</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_USET_MODULE</td>
+ *    <td>#i18n_uset_create_pattern_options</td>
+ *    <td>uset_openPatternOptions</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_USET_MODULE</td>
+ *    <td>#i18n_uset_destroy</td>
+ *    <td>uset_close</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_USET_MODULE</td>
+ *    <td>#i18n_uset_clone</td>
+ *    <td>uset_clone</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_USET_MODULE</td>
+ *    <td>#i18n_uset_is_frozen</td>
+ *    <td>uset_isFrozen</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_USET_MODULE</td>
+ *    <td>#i18n_uset_freeze</td>
+ *    <td>uset_freeze</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_USET_MODULE</td>
+ *    <td>#i18n_uset_clone_as_thawed</td>
+ *    <td>uset_cloneAsThawed</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_USET_MODULE</td>
+ *    <td>#i18n_uset_set</td>
+ *    <td>uset_set</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_USET_MODULE</td>
+ *    <td>#i18n_uset_apply_pattern</td>
+ *    <td>uset_applyPattern</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_USET_MODULE</td>
+ *    <td>#i18n_uset_apply_int_property_value</td>
+ *    <td>uset_applyIntPropertyValue</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_USET_MODULE</td>
+ *    <td>#i18n_uset_apply_property_alias</td>
+ *    <td>uset_applyPropertyAlias</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_USET_MODULE</td>
+ *    <td>#i18n_uset_resembles_pattern</td>
+ *    <td>uset_resemblesPattern</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_USET_MODULE</td>
+ *    <td>#i18n_uset_to_pattern</td>
+ *    <td>uset_toPattern</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_USET_MODULE</td>
+ *    <td>#i18n_uset_add</td>
+ *    <td>uset_add</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_USET_MODULE</td>
+ *    <td>#i18n_uset_add_all</td>
+ *    <td>uset_addAll</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_USET_MODULE</td>
+ *    <td>#i18n_uset_add_range</td>
+ *    <td>uset_addRange</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_USET_MODULE</td>
+ *    <td>#i18n_uset_add_string</td>
+ *    <td>uset_addString</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_USET_MODULE</td>
+ *    <td>#i18n_uset_add_all_code_points</td>
+ *    <td>uset_addAllCodePoints</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_USET_MODULE</td>
+ *    <td>#i18n_uset_remove</td>
+ *    <td>uset_remove</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_USET_MODULE</td>
+ *    <td>#i18n_uset_remove_range</td>
+ *    <td>uset_removeRange</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_USET_MODULE</td>
+ *    <td>#i18n_uset_remove_string</td>
+ *    <td>uset_removeString</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_USET_MODULE</td>
+ *    <td>#i18n_uset_remove_all</td>
+ *    <td>uset_removeAll</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_USET_MODULE</td>
+ *    <td>#i18n_uset_retain</td>
+ *    <td>uset_retain</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_USET_MODULE</td>
+ *    <td>#i18n_uset_retain_all</td>
+ *    <td>uset_retainAll</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_USET_MODULE</td>
+ *    <td>#i18n_uset_compact</td>
+ *    <td>uset_compact</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_USET_MODULE</td>
+ *    <td>#i18n_uset_complement</td>
+ *    <td>uset_complement</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_USET_MODULE</td>
+ *    <td>#i18n_uset_complement_all</td>
+ *    <td>uset_complementAll</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_USET_MODULE</td>
+ *    <td>#i18n_uset_clear</td>
+ *    <td>uset_clear</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_USET_MODULE</td>
+ *    <td>#i18n_uset_destroy_over</td>
+ *    <td>uset_closeOver</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_USET_MODULE</td>
+ *    <td>#i18n_uset_remove_all_strings</td>
+ *    <td>uset_removeAllStrings</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_USET_MODULE</td>
+ *    <td>#i18n_uset_is_empty</td>
+ *    <td>uset_isEmpty</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_USET_MODULE</td>
+ *    <td>#i18n_uset_contains</td>
+ *    <td>uset_contains</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_USET_MODULE</td>
+ *    <td>#i18n_uset_contains_range</td>
+ *    <td>uset_containsRange</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_USET_MODULE</td>
+ *    <td>#i18n_uset_contains_string</td>
+ *    <td>uset_containsString</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_USET_MODULE</td>
+ *    <td>#i18n_uset_index_of</td>
+ *    <td>uset_indexOf</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_USET_MODULE</td>
+ *    <td>#i18n_uset_char_at</td>
+ *    <td>uset_charAt</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_USET_MODULE</td>
+ *    <td>#i18n_uset_size</td>
+ *    <td>uset_size</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_USET_MODULE</td>
+ *    <td>#i18n_uset_get_item_count</td>
+ *    <td>uset_getItemCount</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_USET_MODULE</td>
+ *    <td>#i18n_uset_get_item</td>
+ *    <td>uset_getItem</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_USET_MODULE</td>
+ *    <td>#i18n_uset_contains_all</td>
+ *    <td>uset_containsAll</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_USET_MODULE</td>
+ *    <td>#i18n_uset_contains_all_code_points</td>
+ *    <td>uset_containsAllCodePoints</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_USET_MODULE</td>
+ *    <td>#i18n_uset_contains_none</td>
+ *    <td>uset_containsNone</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_USET_MODULE</td>
+ *    <td>#i18n_uset_contains_some</td>
+ *    <td>uset_containsSome</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_USET_MODULE</td>
+ *    <td>#i18n_uset_span</td>
+ *    <td>uset_span</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_USET_MODULE</td>
+ *    <td>#i18n_uset_span_back</td>
+ *    <td>uset_spanBack</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_USET_MODULE</td>
+ *    <td>#i18n_uset_span_utf8</td>
+ *    <td>uset_spanUTF8</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_USET_MODULE</td>
+ *    <td>#i18n_uset_span_back_utf8</td>
+ *    <td>uset_spanBackUTF8</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_USET_MODULE</td>
+ *    <td>#i18n_uset_equals</td>
+ *    <td>uset_equals</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_USET_MODULE</td>
+ *    <td>#i18n_uset_serialize</td>
+ *    <td>uset_serialize</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_USET_MODULE</td>
+ *    <td>#i18n_uset_get_serialized_set</td>
+ *    <td>uset_getSerializedSet</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_USET_MODULE</td>
+ *    <td>#i18n_uset_set_serialized_to_one</td>
+ *    <td>uset_setSerializedToOne</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_USET_MODULE</td>
+ *    <td>#i18n_uset_serialized_contains</td>
+ *    <td>uset_serializedContains</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_USET_MODULE</td>
+ *    <td>#i18n_uset_get_serialized_range_count</td>
+ *    <td>uset_getSerializedRangeCount</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_USET_MODULE</td>
+ *    <td>#i18n_uset_get_serialized_range</td>
+ *    <td>uset_getSerializedRange</td>
  * </tr>
  * <tr>
  *    <td>@ref CAPI_BASE_UTILS_I18N_USTRING_MODULE</td>

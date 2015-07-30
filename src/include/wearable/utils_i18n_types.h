@@ -1076,7 +1076,7 @@ typedef enum {
  */
 
 /**
- * @brief i18n_unormalizer_h.
+ * @brief i18n_usearch_h.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  */
 typedef void* i18n_usearch_h;
@@ -1373,7 +1373,7 @@ typedef enum {
     I18N_UDATE_FORMAT_TIMEZONE_LOCALIZED_GMT_OFFSET_FIELD, /**< Timezone localized gmt offset field */
     I18N_UDATE_FORMAT_TIMEZONE_ISO_FIELD,                  /**< Timezone ISO field */
     I18N_UDATE_FORMAT_TIMEZONE_ISO_LOCAL_FIELD,            /**< Timezone ISO local field */
-    I18N_UDATE_FORMAT_FIELD_COUNT = 35                     /**< Field count */
+    I18N_UDATE_FORMAT_FIELD_COUNT                          /**< Field count */
 } i18n_udate_format_field_e;
 
 /**

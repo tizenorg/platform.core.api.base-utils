@@ -203,7 +203,7 @@ int i18n_ucalendar_clone ( const i18n_ucalendar_h cal, i18n_ucalendar_h *identic
  *
  * @param[in] calendar     The #i18n_ucalendar_h to query
  * @param[in] type         The desired display name format \n
- *                          One of #I18N_UCALENDAR_STANDARD, #I18N_UCALENDAR_SHORT_STANDARD, #I18N_UCALENDAR_DST, or #I18N_UCALENDAR_SHORT_DST
+ *                         One of #I18N_UCALENDAR_STANDARD, #I18N_UCALENDAR_SHORT_STANDARD, #I18N_UCALENDAR_DST, or #I18N_UCALENDAR_SHORT_DST
  * @param[in] locale       The desired locale for the display name
  * @param[out] result      A pointer to a buffer to receive the formatted number
  * @param[in] result_len The maximum size of the result
@@ -359,7 +359,7 @@ int i18n_ucalendar_is_equivalent_to ( const i18n_ucalendar_h calendar1, const i1
  * @param[in] field The field to which to add the signed value\n One of #I18N_UCALENDAR_ERA, #I18N_UCALENDAR_YEAR, #I18N_UCALENDAR_MONTH,
  * #I18N_UCALENDAR_WEEK_OF_YEAR, #I18N_UCALENDAR_WEEK_OF_MONTH, #I18N_UCALENDAR_DATE, #I18N_UCALENDAR_DAY_OF_YEAR, #I18N_UCALENDAR_DAY_OF_WEEK,
  * #I18N_UCALENDAR_DAY_OF_WEEK_IN_MONTH, #I18N_UCALENDAR_AM_PM, #I18N_UCALENDAR_HOUR, #I18N_UCALENDAR_HOUR_OF_DAY, #I18N_UCALENDAR_MINUTE, #I18N_UCALENDAR_SECOND,
- * #I18N_UCALENDAR_MILLISECOND, #I18N_UCALENDAR_ZONE_OFFSET, or #I18N_UCALENDAR_DST_OFFSET.
+ * #I18N_UCALENDAR_MILLISECOND.
  * @param[in] amount The signed amount to add to the field \n
  *              If the amount causes the value to exceed to maximum or minimum values for that field,
  *              other fields are modified to preserve the magnitude of the change.
@@ -410,8 +410,10 @@ int i18n_ucalendar_get ( const i18n_ucalendar_h calendar, i18n_ucalendar_date_fi
  *                     #I18N_UCALENDAR_WEEK_OF_YEAR, #I18N_UCALENDAR_WEEK_OF_MONTH, #I18N_UCALENDAR_DATE,
  *                     #I18N_UCALENDAR_DAY_OF_YEAR, #I18N_UCALENDAR_DAY_OF_WEEK, #I18N_UCALENDAR_DAY_OF_WEEK_IN_MONTH,
  *                     #I18N_UCALENDAR_AM_PM, #I18N_UCALENDAR_HOUR, #I18N_UCALENDAR_HOUR_OF_DAY, #I18N_UCALENDAR_MINUTE,
- *                     #I18N_UCALENDAR_SECOND, #I18N_UCALENDAR_MILLISECOND, #I18N_UCALENDAR_ZONE_OFFSET,
- *                     #I18N_UCALENDAR_DST_OFFSET.
+ *                     #I18N_UCALENDAR_SECOND, #I18N_UCALENDAR_MILLISECOND.
+ *                     <strong>Please note</strong> that the returned value type is int32_t. In case of #I18N_UCALENDAR_MILLISECOND, maximal
+ *                     difference between dates may be equal to the maximal value of the int32_t, which is 2147483647 (about one month difference).
+ *                     If the difference is bigger, then the #I18N_ERROR_INVALID_PARAMETER error will be returned.
  * @param[out] status  A pointer to an i18n_error_code_e to receive any errors
  *
  * @return The date difference for the specified field.
@@ -654,13 +656,8 @@ int i18n_ucalendar_roll (i18n_ucalendar_h calendar, i18n_ucalendar_date_fields_e
  * @since_tizen 2.3.1
  *
  * @param[in] calendar The #i18n_ucalendar_h to query.
- * @param[in] field The field to which to add the signed value; one of #I18N_UCALENDAR_ERA,
- *      #I18N_UCALENDAR_YEAR, #I18N_UCALENDAR_MONTH, #I18N_UCALENDAR_WEEK_OF_YEAR,
- *      #I18N_UCALENDAR_WEEK_OF_MONTH, #I18N_UCALENDAR_DATE, #I18N_UCALENDAR_DAY_OF_YEAR,
- *      #I18N_UCALENDAR_DAY_OF_WEEK, #I18N_UCALENDAR_DAY_OF_WEEK_IN_MONTH, #I18N_UCALENDAR_AM_PM,
- *      #I18N_UCALENDAR_HOUR, #I18N_UCALENDAR_HOUR_OF_DAY, #I18N_UCALENDAR_MINUTE,
- *      #I18N_UCALENDAR_SECOND, #I18N_UCALENDAR_MILLISECOND, #I18N_UCALENDAR_ZONE_OFFSET,
- *      #I18N_UCALENDAR_DST_OFFSET.
+ * @param[in] field    The desired field.
+ *
  * @return @c true if field is set, @c false otherwise.
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
@@ -678,13 +675,7 @@ i18n_ubool i18n_ucalendar_is_set (const i18n_ucalendar_h calendar, i18n_ucalenda
  * @since_tizen 2.3.1
  *
  * @param[in] calendar The #i18n_ucalendar_h containing the field to clear.
- * @param[in] field The field to which to add the signed value; one of #I18N_UCALENDAR_ERA,
- *      #I18N_UCALENDAR_YEAR, #I18N_UCALENDAR_MONTH, #I18N_UCALENDAR_WEEK_OF_YEAR,
- *      #I18N_UCALENDAR_WEEK_OF_MONTH, #I18N_UCALENDAR_DATE, #I18N_UCALENDAR_DAY_OF_YEAR,
- *      #I18N_UCALENDAR_DAY_OF_WEEK, #I18N_UCALENDAR_DAY_OF_WEEK_IN_MONTH, #I18N_UCALENDAR_AM_PM,
- *      #I18N_UCALENDAR_HOUR, #I18N_UCALENDAR_HOUR_OF_DAY, #I18N_UCALENDAR_MINUTE,
- *      #I18N_UCALENDAR_SECOND, #I18N_UCALENDAR_MILLISECOND, #I18N_UCALENDAR_ZONE_OFFSET,
- *      #I18N_UCALENDAR_DST_OFFSET.
+ * @param[in] field    The field to clear.
  *
  * @return Error code
  * @retval #I18N_ERROR_NONE Successful
@@ -716,22 +707,25 @@ int i18n_ucalendar_clear_field (i18n_ucalendar_h calendar, i18n_ucalendar_date_f
 int i18n_ucalendar_clear (i18n_ucalendar_h calendar);
 
 /**
- * @brief Determines a limit for a field in a #i18n_ucalendar_h.
+ * @brief Determines a limit for a field in an #i18n_ucalendar_h.
  * @details A limit is a maximum or minimum value for a field.
- * @remarks The specific error code can be obtained using the get_last_result()
- *      method. Error codes are described in Exceptions section and
- *      #i18n_error_code_e description.
+ * @remarks The specific error code can be obtained using the get_last_result() method.
+ *          Error codes are described in Exceptions section and #i18n_error_code_e description.
  * @since_tizen 2.3.1
  *
  * @param[in] calendar The #i18n_ucalendar_h to query.
- * @param[in] field The desired field; one of #I18N_UCALENDAR_ERA, #I18N_UCALENDAR_YEAR, #I18N_UCALENDAR_MONTH,
- *      #I18N_UCALENDAR_WEEK_OF_YEAR, #I18N_UCALENDAR_WEEK_OF_MONTH, #I18N_UCALENDAR_DATE, #I18N_UCALENDAR_DAY_OF_YEAR,
- *      #I18N_UCALENDAR_DAY_OF_WEEK, #I18N_UCALENDAR_DAY_OF_WEEK_IN_MONTH, #I18N_UCALENDAR_AM_PM, #I18N_UCALENDAR_HOUR,
- *      #I18N_UCALENDAR_HOUR_OF_DAY, #I18N_UCALENDAR_MINUTE, #I18N_UCALENDAR_SECOND, #I18N_UCALENDAR_MILLISECOND,
- *      #I18N_UCALENDAR_ZONE_OFFSET, #I18N_UCALENDAR_DST_OFFSET.
- * @param[in] type The desired critical point; one of #I18N_UCALENDAR_MINIMUM, #I18N_UCALENDAR_MAXIMUM,
- *      #I18N_UCALENDAR_GREATEST_MINIMUM, #I18N_UCALENDAR_LEAST_MAXIMUM, #I18N_UCALENDAR_ACTUAL_MINIMUM,
- *       #I18N_UCALENDAR_ACTUAL_MAXIMUM
+ * @param[in] field    The desired field; one of #I18N_UCALENDAR_ERA, #I18N_UCALENDAR_YEAR, #I18N_UCALENDAR_MONTH,
+ *                     #I18N_UCALENDAR_WEEK_OF_YEAR, #I18N_UCALENDAR_WEEK_OF_MONTH, #I18N_UCALENDAR_DATE,
+ *                     #I18N_UCALENDAR_DAY_OF_YEAR, #I18N_UCALENDAR_DAY_OF_WEEK, #I18N_UCALENDAR_DAY_OF_WEEK_IN_MONTH,
+ *                     #I18N_UCALENDAR_AM_PM, #I18N_UCALENDAR_HOUR, #I18N_UCALENDAR_HOUR_OF_DAY,
+ *                     #I18N_UCALENDAR_MINUTE, #I18N_UCALENDAR_SECOND, #I18N_UCALENDAR_MILLISECOND,
+ *                     #I18N_UCALENDAR_ZONE_OFFSET, #I18N_UCALENDAR_DST_OFFSET, #I18N_UCALENDAR_YEAR_WOY,
+ *                     #I18N_UCALENDAR_DOW_LOCAL, #I18N_UCALENDAR_EXTENDED_YEAR, #I18N_UCALENDAR_JULIAN_DAY,
+ *                     #I18N_UCALENDAR_MILLISECONDS_IN_DAY, #I18N_UCALENDAR_IS_LEAP_MONTH.
+ * @param[in] type     The desired critical point; one of #I18N_UCALENDAR_MINIMUM, #I18N_UCALENDAR_MAXIMUM,
+ *                     #I18N_UCALENDAR_GREATEST_MINIMUM, #I18N_UCALENDAR_LEAST_MAXIMUM,
+ *                     #I18N_UCALENDAR_ACTUAL_MINIMUM, #I18N_UCALENDAR_ACTUAL_MAXIMUM.
+ *
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  *

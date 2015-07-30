@@ -32,13 +32,14 @@ extern "C" {
 /**
  * @ingroup CAPI_BASE_UTILS_I18N_MODULE
  * @defgroup CAPI_BASE_UTILS_I18N_UENUMERATION_MODULE UEnumeration
- * @brief Ubrk defines methods for finding the location of boundaries in text.
+ * @brief UEnumeration defines functions for handling String Enumeration.
  *
  * @section CAPI_BASE_UTILS_I18N_UENUMERATION_MODULE_HEADER Required Header
  *  \#include <utils_i18n.h>
  *
  * @section CAPI_BASE_UTILS_I18N_UENUMERATION_MODULE_OVERVIEW Overview
- * @details Pointer to a UBreakIterator maintain a current position and scan over text returning the index of characters where boundaries occur.
+ * @details The UEnumeration module allows to create String Enumeration
+ *          from chars and uchars.
  *
 */
 

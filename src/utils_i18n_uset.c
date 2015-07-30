@@ -86,7 +86,9 @@ int i18n_uset_clone ( const i18n_uset_h set, i18n_uset_h *set_clone )
     if (set == NULL || set_clone == NULL) {
         return I18N_ERROR_INVALID_PARAMETER;
     }
+
     *set_clone = (i18n_uset_h)uset_clone((const USet*)set);
+
     return I18N_ERROR_NONE;
 }
 
@@ -114,7 +116,9 @@ int i18n_uset_clone_as_thawed ( const i18n_uset_h set, i18n_uset_h *set_copy )
     if (set == NULL || set_copy == NULL) {
         return I18N_ERROR_INVALID_PARAMETER;
     }
+
     *set_copy = (i18n_uset_h)uset_cloneAsThawed((const USet*)set);
+
     return I18N_ERROR_NONE;
 }
 
@@ -213,7 +217,7 @@ i18n_ubool i18n_uset_resembles_pattern ( const i18n_uchar *pattern, int32_t patt
 
 int32_t i18n_uset_to_pattern ( const i18n_uset_h set, i18n_uchar *result, int32_t result_capacity, i18n_ubool escape_unprintable )
 {
-    if (set == NULL || result_capacity < 0) {
+    if (set == NULL || result == NULL || result_capacity < 0) {
        set_last_result(I18N_ERROR_INVALID_PARAMETER);
        return 0;
     }
@@ -647,7 +651,7 @@ int32_t i18n_uset_serialize ( const i18n_uset_h set, uint16_t *dest, int32_t des
 
 i18n_ubool i18n_uset_get_serialized_set ( const uint16_t *src, int32_t src_length, i18n_userialized_set_s *fill_set )
 {
-    if (src == NULL || src_length < 0) {
+    if (src == NULL || src_length < 0 || fill_set == NULL) {
        set_last_result(I18N_ERROR_INVALID_PARAMETER);
        return 0;
     }

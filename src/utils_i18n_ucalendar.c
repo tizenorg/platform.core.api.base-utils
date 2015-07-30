@@ -183,13 +183,19 @@ int32_t i18n_ucalendar_get_field_difference ( i18n_ucalendar_h calendar, i18n_ud
 {
     if(calendar == NULL)
     {
-        *status = I18N_ERROR_INVALID_PARAMETER;
+        if(NULL != status) {
+            *status = I18N_ERROR_INVALID_PARAMETER;
+        }
         return 0;
     }
 
-    int32_t result = 0;
-    result =  ucal_getFieldDifference(calendar, target, field, (UErrorCode*)status);
-    *status = _i18n_error_mapping(*status);
+    UErrorCode icu_error = U_ZERO_ERROR;
+    int32_t result = ucal_getFieldDifference(calendar, target, field, &icu_error);
+    ERR("Error code: %d", icu_error);
+
+    if(NULL != status) {
+        ERR_MAPPING(icu_error, *status);
+    }
 
     return result;
 }
@@ -381,37 +387,17 @@ int i18n_ucalendar_clear ( i18n_ucalendar_h calendar )
 
 int32_t i18n_ucalendar_get_limit ( const i18n_ucalendar_h calendar, i18n_ucalendar_date_fields_e field, i18n_ucalendar_limit_type_e type)
 {
-    if (calendar == NULL) {
+    if (calendar == NULL || field < I18N_UCALENDAR_ERA || field >= I18N_UCALENDAR_FIELD_COUNT) {
         set_last_result(I18N_ERROR_INVALID_PARAMETER);
         return 0;
     }
 
-    int32_t result_ucal_getLimit = 0;
-    switch (field) {
-        case I18N_UCALENDAR_YEAR_WOY:
-        case I18N_UCALENDAR_DOW_LOCAL:
-        case I18N_UCALENDAR_EXTENDED_YEAR:
-        case I18N_UCALENDAR_JULIAN_DAY:
-        case I18N_UCALENDAR_MILLISECONDS_IN_DAY:
-        case I18N_UCALENDAR_IS_LEAP_MONTH:
-        case I18N_UCALENDAR_FIELD_COUNT:
-            {
-                set_last_result(I18N_ERROR_INVALID_PARAMETER);
-                ERR("Unsupported filed");
-                break;               
-            }
-        default:
-            {
-                i18n_error_code_e i18n_error = I18N_ERROR_NONE;
-                UErrorCode icu_error = U_ZERO_ERROR;
-                int32_t limit = ucal_getLimit(calendar, field, type, &icu_error);
-                ERR("ErrorCode : %d", icu_error);
-                ERR_MAPPING(icu_error, i18n_error);
-                set_last_result(i18n_error);
-                if(i18n_error == I18N_ERROR_NONE)
-                    result_ucal_getLimit = limit;                
-            }
-    }
+    i18n_error_code_e i18n_error = I18N_ERROR_NONE;
+    UErrorCode icu_error = U_ZERO_ERROR;
+    int32_t result_ucal_getLimit = ucal_getLimit(calendar, field, type, &icu_error);
+    ERR("ErrorCode : %d", icu_error);
+    ERR_MAPPING(icu_error, i18n_error);
+    set_last_result(i18n_error);
 
     return result_ucal_getLimit;
 }

@@ -272,7 +272,7 @@ int32_t i18n_unumber_format_decimal (const i18n_unumber_format_h fmt, const char
  *
  * @param[in] fmt               The formatter to use.
  * @param[in] number            The number to format.
- * @param[in] currency          The length of the input @a number, or -1 if the input is NULL-terminated.
+ * @param[in] currency          The 3-letter NULL-terminated ISO 4217 currency code.
  * @param[out] result           A pointer to a buffer to receive the NULL-terminated formatted number.
  *                              If the formatted number fits into @a result but cannot be NULL-terminated (<code>length == result_length</code>)
  *                              then the error code is set to #I18N_WARNING_STRING_NOT_TERMINATED.
@@ -467,7 +467,7 @@ int32_t i18n_unumber_count_available (void);
  *                      #I18N_UNUMBER_ROUNDING_MODE, #I18N_UNUMBER_FORMAT_WIDTH, #I18N_UNUMBER_PADDING_POSITION,
  *                      #I18N_UNUMBER_SECONDARY_GROUPING_SIZE, #I18N_UNUM_SCALE.
  *
- * @return The value of @a attr.
+ * @return The value of @a attr or @c -1 if the given attribute is not supported.
  *
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
@@ -478,7 +478,7 @@ int32_t i18n_unumber_get_attribute (const i18n_unumber_format_h fmt, i18n_unumbe
  * @brief Sets a numeric attribute associated with an #i18n_unumber_format_h.
  * @details An example of a numeric attribute is the number of integer digits a formatter will produce.
  *          If the formatter does not understand the attribute, the call is ignored. Rule-based formatters only understand
- *          the lenient-parse attribute.
+ *          the lenient-parse attribute. The #I18N_UNUMBER_ROUNDING_INCREMENT attribute is not supported.
  * @remarks Error codes are described in #i18n_error_code_e description.
  * @since_tizen 2.3.1
  *
@@ -488,7 +488,9 @@ int32_t i18n_unumber_get_attribute (const i18n_unumber_format_h fmt, i18n_unumbe
  *                       #I18N_UNUMBER_INTEGER_DIGITS, #I18N_UNUMBER_MAX_FRACTION_DIGITS, #I18N_UNUMBER_MIN_FRACTION_DIGITS,
  *                       #I18N_UNUMBER_FRACTION_DIGITS, #I18N_UNUMBER_MULTIPLIER, #I18N_UNUMBER_GROUPING_SIZE,
  *                       #I18N_UNUMBER_ROUNDING_MODE, #I18N_UNUMBER_FORMAT_WIDTH, #I18N_UNUMBER_PADDING_POSITION,
- *                       #I18N_UNUMBER_SECONDARY_GROUPING_SIZE, #I18N_UNUM_SCALE.
+ *                       #I18N_UNUMBER_SECONDARY_GROUPING_SIZE, #I18N_UNUMBER_SIGNIFICANT_DIGITS_USED, #I18N_UNUMBER_MIN_SIGNIFICANT_DIGITS,
+ *                       #I18N_UNUMBER_MAX_SIGNIFICANT_DIGITS, #I18N_UNUMBER_LENIENT_PARSE, #I18N_UNUM_SCALE,
+ *                       #I18N_UNUM_FORMAT_FAIL_IF_MORE_THAN_MAX_DIGITS, #I18N_UNUM_PARSE_NO_EXPONENT.
  * @param[in] new_value  The new value of @a attr.
  *
  * @return The obtained error code.
@@ -523,7 +525,7 @@ double i18n_unumber_get_double_attribute (const i18n_unumber_format_h fmt, i18n_
  * @since_tizen 2.3.1
  *
  * @param[in] fmt        The formatter to set.
- * @param[in] attr       The attribute to query; e.g. #I18N_UNUMBER_ROUNDING_INCREMENT.
+ * @param[in] attr       The attribute to query; Only #I18N_UNUMBER_ROUNDING_INCREMENT is supported.
  * @param[in] new_value  The new value of @a attr.
  *
  * @return The obtained error code.
@@ -558,16 +560,16 @@ int32_t i18n_unumber_get_text_attribute (const i18n_unumber_format_h fmt, i18n_u
 /**
  * @brief Sets a text attribute associated with an #i18n_unumber_format_h.
  * @details An example of a text attribute is the suffix for positive numbers. Rule-based formatters only understand
- *          #I18N_UNUMBER_DEFAULT_RULESET.
+ *          #I18N_UNUMBER_DEFAULT_RULESET. The #I18N_UNUMBER_PUBLIC_RULESETS tag is not supported.
  * @remarks Error codes are described in #i18n_error_code_e description.
  * @since_tizen 2.3.1
  *
- * @param[in] fmt                The formatter to query.
- * @param[in] tag                The attribute to query; one of #I18N_UNUMBER_POSITIVE_PREFIX, #I18N_UNUMBER_POSITIVE_SUFFIX,
+ * @param[in] fmt                The formatter to set.
+ * @param[in] tag                The attribute to set; one of #I18N_UNUMBER_POSITIVE_PREFIX, #I18N_UNUMBER_POSITIVE_SUFFIX,
  *                               #I18N_UNUMBER_NEGATIVE_PREFIX, #I18N_UNUMBER_NEGATIVE_SUFFIX, #I18N_UNUMBER_PADDING_CHARACTER,
- *                               #I18N_UNUMBER_CURRENCY_CODE, #I18N_UNUMBER_DEFAULT_RULESET, or #I18N_UNUMBER_PUBLIC_RULESETS.
- * @param[out] new_value         A pointer to a buffer to receive the attribute.
- * @param[in] new_value_length   The maximum size of @a new_value.
+ *                               #I18N_UNUMBER_CURRENCY_CODE, #I18N_UNUMBER_DEFAULT_RULESET.
+ * @param[in] new_value          The new value of @a tag.
+ * @param[in] new_value_length   The length of new_value, or -1 if NULL-terminated.
  *
  * @return The obtained error code.
  * @retval #I18N_ERROR_NONE Successful.

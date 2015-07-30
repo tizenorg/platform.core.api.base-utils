@@ -243,7 +243,6 @@ int32_t i18n_ustring_case_compare_with_length( const i18n_uchar *s1, int32_t len
     UErrorCode icu_error = U_ZERO_ERROR;
     int32_t result = u_strCaseCompare(s1, length1, s2, length2, options, &icu_error);
     *i18n_error = _i18n_error_mapping(icu_error);
-    set_last_result(*i18n_error);
 
     return result;
 }
@@ -495,7 +494,6 @@ int32_t i18n_ustring_to_upper ( i18n_uchar *dest, int32_t dest_capacity, const i
    UErrorCode icu_error = U_ZERO_ERROR;
     int32_t result = u_strToUpper (dest, dest_capacity, src, src_len, locale, &icu_error);
     *i18n_error = _i18n_error_mapping(icu_error);
-    set_last_result(*i18n_error);
 
     return result;
 }
@@ -505,7 +503,6 @@ int32_t i18n_ustring_to_lower ( i18n_uchar *dest, int32_t dest_capacity, const i
    UErrorCode icu_error = U_ZERO_ERROR;
     int32_t result = u_strToLower (dest, dest_capacity, src, src_len, locale, &icu_error);
     *i18n_error = _i18n_error_mapping(icu_error);
-    set_last_result(*i18n_error);
 
     return result;
 }
@@ -514,7 +511,6 @@ int32_t i18n_ustring_to_title ( i18n_uchar *dest, int32_t dest_capacity, const i
         const char *locale, i18n_error_code_e *i18n_error )
 {
     if(src == NULL) {
-        set_last_result(I18N_ERROR_INVALID_PARAMETER);
         *i18n_error = I18N_ERROR_INVALID_PARAMETER;
         return 0;
     }
@@ -522,7 +518,6 @@ int32_t i18n_ustring_to_title ( i18n_uchar *dest, int32_t dest_capacity, const i
     UErrorCode icu_error = U_ZERO_ERROR;
     int32_t result = u_strToTitle (dest, dest_capacity, src, src_len, (UBreakIterator*)title_iter, locale, &icu_error);
     *i18n_error = _i18n_error_mapping(icu_error);
-    set_last_result(*i18n_error);
 
     return result;
 }
@@ -540,7 +535,6 @@ int32_t i18n_ustring_to_title_new ( i18n_uchar *dest, int32_t dest_capacity, con
 int32_t i18n_ustring_fold_case ( i18n_uchar *dest, int32_t dest_capacity, const i18n_uchar *src, int32_t src_len, uint32_t options, i18n_error_code_e *i18n_error )
 {
     if(src == NULL) {
-        set_last_result(I18N_ERROR_INVALID_PARAMETER);
         *i18n_error = I18N_ERROR_INVALID_PARAMETER;
         return 0;
     }
@@ -548,7 +542,6 @@ int32_t i18n_ustring_fold_case ( i18n_uchar *dest, int32_t dest_capacity, const 
    UErrorCode icu_error = U_ZERO_ERROR;
     int32_t result =u_strFoldCase (dest, dest_capacity, src, src_len, options, &icu_error);
     *i18n_error = _i18n_error_mapping(icu_error);
-    set_last_result(*i18n_error);
 
     return result;
 }
@@ -556,7 +549,6 @@ int32_t i18n_ustring_fold_case ( i18n_uchar *dest, int32_t dest_capacity, const 
 wchar_t* i18n_ustring_to_WCS ( wchar_t *dest, int32_t dest_capacity, int32_t *dest_len, const i18n_uchar *src, int32_t src_len, i18n_error_code_e *i18n_error )
 {
     if(src == NULL) {
-        set_last_result(I18N_ERROR_INVALID_PARAMETER);
         *i18n_error = I18N_ERROR_INVALID_PARAMETER;
         return NULL;
     }
@@ -564,7 +556,6 @@ wchar_t* i18n_ustring_to_WCS ( wchar_t *dest, int32_t dest_capacity, int32_t *de
    UErrorCode icu_error = U_ZERO_ERROR;
     wchar_t* result = u_strToWCS (dest, dest_capacity, dest_len, src, src_len, &icu_error);
     *i18n_error = _i18n_error_mapping(icu_error);
-    set_last_result(*i18n_error);
 
     return result;
 }
@@ -572,7 +563,6 @@ wchar_t* i18n_ustring_to_WCS ( wchar_t *dest, int32_t dest_capacity, int32_t *de
 i18n_uchar* i18n_ustring_from_WCS ( i18n_uchar *dest, int32_t dest_capacity, int32_t *dest_len, const wchar_t *src, int32_t src_len, i18n_error_code_e *i18n_error )
 {
     if(src == NULL) {
-        set_last_result(I18N_ERROR_INVALID_PARAMETER);
         *i18n_error = I18N_ERROR_INVALID_PARAMETER;
         return NULL;
     }
@@ -580,7 +570,6 @@ i18n_uchar* i18n_ustring_from_WCS ( i18n_uchar *dest, int32_t dest_capacity, int
    UErrorCode icu_error = U_ZERO_ERROR;
     i18n_uchar* result = u_strFromWCS (dest, dest_capacity, dest_len, src, src_len, &icu_error);
     *i18n_error = _i18n_error_mapping(icu_error);
-    set_last_result(*i18n_error);
 
     return result;
 }
@@ -588,7 +577,6 @@ i18n_uchar* i18n_ustring_from_WCS ( i18n_uchar *dest, int32_t dest_capacity, int
 char* i18n_ustring_to_UTF8 ( char *dest, int32_t dest_capacity, int32_t *dest_len, const i18n_uchar *src, int32_t src_len, i18n_error_code_e *i18n_error )
 {
     if(src == NULL) {
-        set_last_result(I18N_ERROR_INVALID_PARAMETER);
         *i18n_error = I18N_ERROR_INVALID_PARAMETER;
         return NULL;
     }
@@ -596,7 +584,6 @@ char* i18n_ustring_to_UTF8 ( char *dest, int32_t dest_capacity, int32_t *dest_le
    UErrorCode icu_error = U_ZERO_ERROR;
     char* result = u_strToUTF8 (dest, dest_capacity, dest_len, src, src_len, &icu_error);
     *i18n_error = _i18n_error_mapping(icu_error);
-    set_last_result(*i18n_error);
 
     return result;
 }
@@ -604,7 +591,6 @@ char* i18n_ustring_to_UTF8 ( char *dest, int32_t dest_capacity, int32_t *dest_le
 i18n_uchar* i18n_ustring_from_UTF8 ( i18n_uchar *dest, int32_t dest_capacity, int32_t *dest_len, const char *src, int32_t src_len, i18n_error_code_e *i18n_error )
 {
     if(src == NULL) {
-        set_last_result(I18N_ERROR_INVALID_PARAMETER);
         *i18n_error = I18N_ERROR_INVALID_PARAMETER;
         return NULL;
     }
@@ -612,7 +598,6 @@ i18n_uchar* i18n_ustring_from_UTF8 ( i18n_uchar *dest, int32_t dest_capacity, in
    UErrorCode icu_error = U_ZERO_ERROR;
     i18n_uchar* result = u_strFromUTF8 (dest, dest_capacity, dest_len, src, src_len, &icu_error);
     *i18n_error = _i18n_error_mapping(icu_error);
-    set_last_result(*i18n_error);
 
     return result;
 }
@@ -620,7 +605,6 @@ i18n_uchar* i18n_ustring_from_UTF8 ( i18n_uchar *dest, int32_t dest_capacity, in
 char* i18n_ustring_to_UTF8_with_sub ( char *dest, int32_t dest_capacity, int32_t *dest_len, const i18n_uchar *src, int32_t src_len, i18n_uchar32 sub_char, int32_t *num_substitutions, i18n_error_code_e *i18n_error )
 {
     if(src == NULL) {
-        set_last_result(I18N_ERROR_INVALID_PARAMETER);
         *i18n_error = I18N_ERROR_INVALID_PARAMETER;
         return NULL;
     }
@@ -628,7 +612,6 @@ char* i18n_ustring_to_UTF8_with_sub ( char *dest, int32_t dest_capacity, int32_t
     UErrorCode icu_error = U_ZERO_ERROR;
     char* result = u_strToUTF8WithSub (dest, dest_capacity, dest_len, src, src_len, sub_char, num_substitutions, &icu_error);
     *i18n_error = _i18n_error_mapping(icu_error);
-    set_last_result(*i18n_error);
 
     return result;
 }
@@ -637,7 +620,6 @@ i18n_uchar* i18n_ustring_from_UTF8_with_sub ( i18n_uchar *dest, int32_t dest_cap
     int32_t *num_substitutions, i18n_error_code_e *i18n_error )
 {
     if(src == NULL) {
-        set_last_result(I18N_ERROR_INVALID_PARAMETER);
         *i18n_error = I18N_ERROR_INVALID_PARAMETER;
         return NULL;
     }
@@ -645,7 +627,6 @@ i18n_uchar* i18n_ustring_from_UTF8_with_sub ( i18n_uchar *dest, int32_t dest_cap
    UErrorCode icu_error = U_ZERO_ERROR;
     i18n_uchar* result = u_strFromUTF8WithSub (dest, dest_capacity, dest_len, src, src_len, sub_char, num_substitutions, &icu_error);
     *i18n_error = _i18n_error_mapping(icu_error);
-    set_last_result(*i18n_error);
 
     return result;
 }
@@ -653,7 +634,6 @@ i18n_uchar* i18n_ustring_from_UTF8_with_sub ( i18n_uchar *dest, int32_t dest_cap
 i18n_uchar* i18n_ustring_from_UTF8_lenient ( i18n_uchar *dest, int32_t dest_capacity, int32_t *dest_len, const char *src, int32_t src_len, i18n_error_code_e *i18n_error )
 {
     if(src == NULL) {
-        set_last_result(I18N_ERROR_INVALID_PARAMETER);
         *i18n_error = I18N_ERROR_INVALID_PARAMETER;
         return NULL;
     }
@@ -661,7 +641,6 @@ i18n_uchar* i18n_ustring_from_UTF8_lenient ( i18n_uchar *dest, int32_t dest_capa
    UErrorCode icu_error = U_ZERO_ERROR;
     i18n_uchar* result = u_strFromUTF8Lenient (dest, dest_capacity, dest_len, src, src_len, &icu_error);
     *i18n_error = _i18n_error_mapping(icu_error);
-    set_last_result(*i18n_error);
 
     return result;
 }
@@ -669,7 +648,6 @@ i18n_uchar* i18n_ustring_from_UTF8_lenient ( i18n_uchar *dest, int32_t dest_capa
 i18n_uchar32* i18n_ustring_to_UTF32 ( i18n_uchar32 *dest, int32_t dest_capacity, int32_t *dest_len, const i18n_uchar *src, int32_t src_len, i18n_error_code_e *i18n_error )
 {
     if(src == NULL) {
-        set_last_result(I18N_ERROR_INVALID_PARAMETER);
         *i18n_error = I18N_ERROR_INVALID_PARAMETER;
         return NULL;
     }
@@ -677,7 +655,6 @@ i18n_uchar32* i18n_ustring_to_UTF32 ( i18n_uchar32 *dest, int32_t dest_capacity,
    UErrorCode icu_error = U_ZERO_ERROR;
     i18n_uchar32* result = u_strToUTF32 (dest, dest_capacity, dest_len, src, src_len, &icu_error);
     *i18n_error = _i18n_error_mapping(icu_error);
-    set_last_result(*i18n_error);
 
     return result;
 }
@@ -685,7 +662,6 @@ i18n_uchar32* i18n_ustring_to_UTF32 ( i18n_uchar32 *dest, int32_t dest_capacity,
 i18n_uchar* i18n_ustring_from_UTF32 ( i18n_uchar *dest, int32_t dest_capacity, int32_t *dest_len, const i18n_uchar32 *src, int32_t src_len, i18n_error_code_e *i18n_error )
 {
     if(src == NULL) {
-        set_last_result(I18N_ERROR_INVALID_PARAMETER);
         *i18n_error = I18N_ERROR_INVALID_PARAMETER;
         return NULL;
     }
@@ -693,7 +669,6 @@ i18n_uchar* i18n_ustring_from_UTF32 ( i18n_uchar *dest, int32_t dest_capacity, i
    UErrorCode icu_error = U_ZERO_ERROR;
     i18n_uchar* result = u_strFromUTF32 (dest, dest_capacity, dest_len, src, src_len, &icu_error);
     *i18n_error = _i18n_error_mapping(icu_error);
-    set_last_result(*i18n_error);
 
     return result;
 }
@@ -702,7 +677,6 @@ i18n_uchar32* i18n_ustring_to_UTF32_with_sub ( i18n_uchar32 *dest, int32_t dest_
         i18n_uchar32 sub_char, int32_t *num_substitutions, i18n_error_code_e *i18n_error )
 {
     if(src == NULL) {
-        set_last_result(I18N_ERROR_INVALID_PARAMETER);
         *i18n_error = I18N_ERROR_INVALID_PARAMETER;
         return NULL;
     }
@@ -710,7 +684,6 @@ i18n_uchar32* i18n_ustring_to_UTF32_with_sub ( i18n_uchar32 *dest, int32_t dest_
    UErrorCode icu_error = U_ZERO_ERROR;
     i18n_uchar32* result = u_strToUTF32WithSub (dest, dest_capacity, dest_len, src, src_len, sub_char, num_substitutions, &icu_error);
     *i18n_error = _i18n_error_mapping(icu_error);
-    set_last_result(*i18n_error);
 
     return result;
 }
@@ -718,7 +691,6 @@ i18n_uchar32* i18n_ustring_to_UTF32_with_sub ( i18n_uchar32 *dest, int32_t dest_
 i18n_uchar* i18n_ustring_from_UTF32_with_sub ( i18n_uchar *dest, int32_t dest_capacity, int32_t *dest_len, const i18n_uchar32 *src, int32_t src_len, i18n_uchar32 sub_char, int32_t *num_substitutions, i18n_error_code_e *i18n_error )
 {
     if(src == NULL) {
-        set_last_result(I18N_ERROR_INVALID_PARAMETER);
         *i18n_error = I18N_ERROR_INVALID_PARAMETER;
         return NULL;
     }
@@ -726,7 +698,6 @@ i18n_uchar* i18n_ustring_from_UTF32_with_sub ( i18n_uchar *dest, int32_t dest_ca
     UErrorCode icu_error = U_ZERO_ERROR;
     i18n_uchar* result = u_strFromUTF32WithSub (dest, dest_capacity, dest_len, src, src_len, sub_char, num_substitutions, (UErrorCode*)&icu_error);
     *i18n_error = _i18n_error_mapping(icu_error);
-    set_last_result(*i18n_error);
 
     return result;
 }

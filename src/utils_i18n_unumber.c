@@ -67,15 +67,19 @@ int i18n_unumber_clone(const i18n_unumber_format_h fmt, i18n_unumber_format_h *f
 
 int32_t i18n_unumber_format (const i18n_unumber_format_h fmt, int32_t number, i18n_uchar *result, int32_t result_length, i18n_ufield_position_s *pos, i18n_error_code_e *status)
 {
-    if(fmt == NULL) {
-        *status = I18N_ERROR_INVALID_PARAMETER;
+    if(NULL == fmt) {
+        if(NULL != status) {
+            *status = I18N_ERROR_INVALID_PARAMETER;
+        }
         return 0;
     }
-    UErrorCode err;
-    ERR_MAPPING_REVERSE(*status, err);
-    int32_t result_unum_format= unum_format (fmt, number, (UChar*)result, result_length, (UFieldPosition*)pos, &err);
-    ERR("pErrorCode : %d", err);
-    ERR_MAPPING(err, *status);
+
+    UErrorCode icu_error = U_ZERO_ERROR;
+    int32_t result_unum_format = unum_format (fmt, number, (UChar*)result, result_length, (UFieldPosition*)pos, &icu_error);
+    ERR("Error code : %d", icu_error);
+    if(NULL != status) {
+        ERR_MAPPING(icu_error, *status);
+    }
     return result_unum_format;
 }
 
@@ -149,7 +153,7 @@ int32_t i18n_unumber_format_double_currency (const i18n_unumber_format_h fmt, do
 
 int32_t i18n_unumber_parse (const i18n_unumber_format_h fmt, const i18n_uchar *text, int32_t text_length, int32_t *parse_pos)
 {
-    if(fmt == NULL || text == NULL) {
+    if(fmt == NULL || text == NULL || text_length < -1) {
         set_last_result(I18N_ERROR_INVALID_PARAMETER);
         return 0;
     }
@@ -166,7 +170,7 @@ int32_t i18n_unumber_parse (const i18n_unumber_format_h fmt, const i18n_uchar *t
 
 int64_t i18n_unumber_parse_int64 (const i18n_unumber_format_h fmt, const i18n_uchar *text, int32_t text_length, int32_t *parse_pos)
 {
-    if(fmt == NULL || text == NULL) {
+    if(fmt == NULL || text == NULL || text_length < -1) {
         set_last_result(I18N_ERROR_INVALID_PARAMETER);
         return 0;
     }
@@ -183,7 +187,7 @@ int64_t i18n_unumber_parse_int64 (const i18n_unumber_format_h fmt, const i18n_uc
 
 double i18n_unumber_parse_double (const i18n_unumber_format_h fmt, const i18n_uchar *text, int32_t text_length, int32_t *parse_pos)
 {
-    if(fmt == NULL || text == NULL) {
+    if(fmt == NULL || text == NULL || text_length < -1) {
         set_last_result(I18N_ERROR_INVALID_PARAMETER);
         return 0;
     }
@@ -200,7 +204,7 @@ double i18n_unumber_parse_double (const i18n_unumber_format_h fmt, const i18n_uc
 
 int32_t i18n_unumber_parse_decimal (const i18n_unumber_format_h fmt, const i18n_uchar *text, int32_t text_length, int32_t *parse_pos, char *out_buf, int32_t out_buf_length)
 {
-    if(fmt == NULL || text == NULL) {
+    if(fmt == NULL || text == NULL || text_length < -1 || out_buf == NULL) {
         set_last_result(I18N_ERROR_INVALID_PARAMETER);
         return 0;
     }
@@ -217,7 +221,7 @@ int32_t i18n_unumber_parse_decimal (const i18n_unumber_format_h fmt, const i18n_
 
 double i18n_unumber_parse_double_currency (const i18n_unumber_format_h fmt, const i18n_uchar *text, int32_t text_length, int32_t *parse_pos, i18n_uchar *currency)
 {
-    if(fmt == NULL || text == NULL || currency == NULL) {
+    if(fmt == NULL || text == NULL || text_length < -1 || currency == NULL) {
         set_last_result(I18N_ERROR_INVALID_PARAMETER);
         return 0;
     }
@@ -277,7 +281,7 @@ int32_t i18n_unumber_get_attribute (const i18n_unumber_format_h fmt, i18n_unumbe
 
 int i18n_unumber_set_attribute (i18n_unumber_format_h fmt, i18n_unumber_format_attribute_e attr, int32_t new_value)
 {
-    if(fmt == NULL) {
+    if(fmt == NULL || attr == I18N_UNUMBER_ROUNDING_INCREMENT) {
         return I18N_ERROR_INVALID_PARAMETER;
     }
 
@@ -287,7 +291,7 @@ int i18n_unumber_set_attribute (i18n_unumber_format_h fmt, i18n_unumber_format_a
 
 double i18n_unumber_get_double_attribute (const i18n_unumber_format_h fmt, i18n_unumber_format_attribute_e attr)
 {
-    if(fmt == NULL) {
+    if(fmt == NULL || I18N_UNUMBER_ROUNDING_INCREMENT != attr) {
         set_last_result(I18N_ERROR_INVALID_PARAMETER);
         return 0;
     }
@@ -298,7 +302,7 @@ double i18n_unumber_get_double_attribute (const i18n_unumber_format_h fmt, i18n_
 
 int i18n_unumber_set_double_attribute (i18n_unumber_format_h fmt, i18n_unumber_format_attribute_e attr, double new_value)
 {
-    if(fmt == NULL) {
+    if(fmt == NULL || attr != I18N_UNUMBER_ROUNDING_INCREMENT) {
         return I18N_ERROR_INVALID_PARAMETER;
     }
 
@@ -325,7 +329,7 @@ int32_t i18n_unumber_get_text_attribute (const i18n_unumber_format_h fmt, i18n_u
 
 int i18n_unumber_set_text_attribute (const i18n_unumber_format_h fmt, i18n_unumber_format_text_attribute_e tag, const i18n_uchar *new_value, int32_t new_value_length)
 {
-    if(fmt == NULL) {
+    if(fmt == NULL || new_value == NULL || new_value_length < -1) {
         return I18N_ERROR_INVALID_PARAMETER;
     }
 

@@ -124,7 +124,7 @@ int32_t i18n_udatepg_get_skeleton ( i18n_udatepg_h dtpg, const i18n_uchar *patte
 int32_t i18n_udatepg_get_base_skeleton ( i18n_udatepg_h dtpg, const i18n_uchar *pattern, int32_t length,
         i18n_uchar *base_skeleton, int32_t capacity )
 {
-    if (dtpg == NULL || pattern == NULL || capacity < 0)
+    if (dtpg == NULL || pattern == NULL || length < -1 || capacity < 0)
     {
         set_last_result(I18N_ERROR_INVALID_PARAMETER);
         return 0;

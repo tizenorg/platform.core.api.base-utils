@@ -127,7 +127,7 @@ int i18n_usearch_destroy ( i18n_usearch_h search_iter );
  * is not possible.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
- * @param[in]  search_iter The search iterator data struct
+ * @param[in]  search_iter The search iterator handle
  * @param[out] result i18n_uchar The buffer to store the matched string
  * @param[in]  result_capacity The length of the result buffer
  * @param[out] len_matched_text The exact length of the matched text, not counting the NULL-termination
@@ -145,7 +145,7 @@ int i18n_usearch_get_matched_text ( const i18n_usearch_h search_iter, i18n_uchar
  * i18n_usearch_destroy() will delete the collator if this search owns it.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
- * @param[in] search_iter The search iterator data struct
+ * @param[in] search_iter The search iterator handle
  * @param[out] collator The collator
  *
  * @retval #I18N_ERROR_NONE Successful
@@ -161,7 +161,7 @@ int i18n_usearch_get_collator ( const i18n_usearch_h search_iter, i18n_ucollator
  * the iterator will be adjusted to the index #I18N_USEARCH_DONE.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
- * @param[in] search_iter The search iterator data struct
+ * @param[in] search_iter The search iterator handle
  * @param[out] index_first The character index of the first match,
  * otherwise #I18N_USEARCH_DONE if there are no matches.
  *

@@ -36,13 +36,13 @@ extern "C" {
 /**
  * @ingroup CAPI_BASE_UTILS_I18N_MODULE
  * @defgroup CAPI_BASE_UTILS_I18N_USET_MODULE Uset
- * @brief C API: Unicode Set.
+ * @brief Uset module allows to specify a subset of character used in strings.
  *
  * @section CAPI_BASE_UTILS_I18N_USET_MODULE_HEADER Required Header
  *  \#include <utils_i18n.h>
  *
  * @section CAPI_BASE_UTILS_I18N_USET_MODULE_OVERVIEW Overview
- * @details The Uset module is a C wrapper around the C++ UnicodeSet class.
+ * @details Uset module allows to specify a subset of character used in strings.
  */
 
 /**
@@ -1056,7 +1056,7 @@ i18n_ubool i18n_uset_equals (const i18n_uset_h set1, const i18n_uset_h set2);
  * @since_tizen 2.3.1
  *
  * @param[in] set               the set. Must not be @c NULL.
- * @param[in] dest              pointer to buffer of @a dest_capacity 16-bit integers
+ * @param[out] dest             pointer to buffer of @a dest_capacity 16-bit integers
  *                              May be NULL only if @a dest_capacity is zero.
  * @param[in] dest_capacity     size of @a dest, or zero
  *                              Must not be negative.

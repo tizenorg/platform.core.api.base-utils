@@ -47,7 +47,7 @@ int i18n_ulocale_get_language (const char *locale_id, char *language, int32_t la
 
 int32_t i18n_ulocale_get_country (const char *locale_id, char *country, int32_t country_capacity, int *error)
 {
-    if(NULL == country) {
+    if(NULL == country || country_capacity < 0) {
         if(NULL != error) {
             *error = I18N_ERROR_INVALID_PARAMETER;
         }

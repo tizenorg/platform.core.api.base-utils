@@ -65,7 +65,7 @@ int i18n_udate_to_calendar_date_field ( i18n_udate_format_field_e field, i18n_uc
         case I18N_UDATE_FORMAT_TIMEZONE_ISO_FIELD:
         case I18N_UDATE_FORMAT_TIMEZONE_ISO_LOCAL_FIELD:
         case I18N_UDATE_FORMAT_FIELD_COUNT:
-            ERR("Unsupported filed");
+            ERR("Unsupported field");
             return I18N_ERROR_INVALID_PARAMETER;
         default:
             *date_field_type = (i18n_ucalendar_date_fields_e)udat_toCalendarDateField(field);
@@ -92,7 +92,7 @@ int i18n_udate_clone ( const i18n_udate_format_h format, i18n_udate_format_h *fo
 
 int i18n_udate_parse ( const i18n_udate_format_h format, const i18n_uchar *text, int32_t text_length, int32_t *parse_pos, i18n_udate *parsed_date )
 {
-    if (format == NULL || text == NULL || parsed_date == NULL)
+    if (format == NULL || text == NULL || text_length < -1 || parsed_date == NULL)
     {
         return I18N_ERROR_INVALID_PARAMETER;
     }
@@ -264,7 +264,7 @@ int i18n_udate_apply_pattern ( i18n_udate_format_h format, i18n_ubool localized,
 
 int32_t i18n_udate_get_symbols ( const i18n_udate_format_h format, i18n_udate_format_symbol_type_e type, int32_t symbol_index, i18n_uchar *result, int32_t result_length )
 {
-    if (format == NULL)
+    if (format == NULL || type < I18N_UDATE_FORMAT_SYMBOL_TYPE_ERAS || type > I18N_UDATE_FORMAT_SYMBOL_TYPE_STANDALONE_SHORTER_WEEKDAYS || symbol_index < 0)
     {
         set_last_result(I18N_ERROR_INVALID_PARAMETER);
         return -1;
@@ -294,7 +294,7 @@ int32_t i18n_udate_count_symbols ( const i18n_udate_format_h format, i18n_udate_
 
 int i18n_udate_set_symbols ( i18n_udate_format_h format, i18n_udate_format_symbol_type_e type, int32_t symbol_index, i18n_uchar *value, int32_t value_length )
 {
-    if (format == NULL || symbol_index < 0)
+    if (format == NULL || symbol_index < 0 || value_length < -1)
     {
         return I18N_ERROR_INVALID_PARAMETER;
     }
