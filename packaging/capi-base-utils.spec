@@ -1,6 +1,6 @@
 Name:       capi-base-utils
 Summary:    Base Utils
-Version:    1.0.5
+Version:    1.0.7
 Release:    1
 Group:      Base
 License:    Apache-2.0 and ICU
