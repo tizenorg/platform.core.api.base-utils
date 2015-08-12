@@ -39,10 +39,10 @@ int32_t i18n_uenumeration_count ( i18n_uenumeration_h enumeration )
 
     UErrorCode icu_error = U_ZERO_ERROR;
     int32_t number_of_elements = uenum_count((UEnumeration *)enumeration, &icu_error);
-    ERR("Error code : %d", icu_error);
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
     set_last_result(i18n_error);
     return number_of_elements;
 }
@@ -57,10 +57,10 @@ const i18n_uchar *i18n_uenumeration_unext ( i18n_uenumeration_h enumeration, int
 
     UErrorCode icu_error = U_ZERO_ERROR;
     const UChar *ustring = uenum_unext((UEnumeration *)enumeration, result_length, &icu_error);
-    ERR("Error code : %d", icu_error);
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
     set_last_result(i18n_error);
     return ustring;
 }
@@ -75,10 +75,10 @@ const char *i18n_uenumeration_next ( i18n_uenumeration_h enumeration, int32_t *r
 
     UErrorCode icu_error = U_ZERO_ERROR;
     const char *string = uenum_next((UEnumeration *)enumeration, result_length, &icu_error);
-    ERR("Error code : %d", icu_error);
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
     set_last_result(i18n_error);
     return string;
 }
@@ -92,10 +92,10 @@ int i18n_uenumeration_reset ( i18n_uenumeration_h enumeration )
 
     UErrorCode icu_error = U_ZERO_ERROR;
     uenum_reset((UEnumeration *)enumeration, &icu_error);
-    ERR("Error code : %d", icu_error);
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
     return i18n_error;
 }
 
@@ -108,10 +108,10 @@ int i18n_uenumeration_uchar_strings_enumeration_create ( const i18n_uchar *const
 
     UErrorCode icu_error = U_ZERO_ERROR;
     *enumeration = uenum_openUCharStringsEnumeration(strings, count, &icu_error);
-    ERR("Error code : %d", icu_error);
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
     return i18n_error;
 }
 
@@ -124,9 +124,9 @@ int i18n_uenumeration_char_strings_enumeration_create ( const char *const string
 
     UErrorCode icu_error = U_ZERO_ERROR;
     *enumeration = (i18n_uenumeration_h)uenum_openCharStringsEnumeration(strings, count, &icu_error);
-    ERR("Error code : %d", icu_error);
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
     return i18n_error;
 }

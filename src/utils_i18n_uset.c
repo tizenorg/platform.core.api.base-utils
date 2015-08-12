@@ -49,8 +49,9 @@ int i18n_uset_create_pattern ( const i18n_uchar *pattern, int32_t pattern_length
     }
 
     *set = (i18n_uset_h)uset_openPattern(pattern, pattern_length, &icu_error);
-    ERR("Error code: %d", icu_error);
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
+
     return i18n_error;
 }
 
@@ -67,8 +68,8 @@ int i18n_uset_create_pattern_options ( const i18n_uchar *pattern, int32_t patter
     }
 
     *set = (i18n_uset_h)uset_openPatternOptions(pattern, pattern_length, options, &icu_error);
-    ERR("Error code: %d", icu_error);
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
     return i18n_error;
 }
 
@@ -150,8 +151,8 @@ int32_t i18n_uset_apply_pattern ( i18n_uset_h set, const i18n_uchar *pattern, in
     i18n_error_code_e i18n_error;
 
     int32_t result_uset_applyPattern = uset_applyPattern ((USet*)set, pattern, pattern_length, options, &icu_error);
-    ERR("Error code: %d", icu_error);
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
 
     set_last_result(i18n_error);
     return result_uset_applyPattern;
@@ -176,8 +177,8 @@ int i18n_uset_apply_int_property_value ( i18n_uset_h set, i18n_uchar_uproperty_e
     i18n_error_code_e i18n_error;
 
     uset_applyIntPropertyValue((USet *)set, prop, value, &icu_error);
-    ERR("Error code: %d", icu_error);
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
 
     return i18n_error;
 }
@@ -198,8 +199,8 @@ int i18n_uset_apply_property_alias ( i18n_uset_h set, const i18n_uchar *prop, in
     i18n_error_code_e i18n_error;
 
     uset_applyPropertyAlias ((USet*)set, prop, prop_length, value, value_length, &icu_error);
-    ERR("Error code: %d", icu_error);
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
 
     return i18n_error;
 
@@ -226,8 +227,8 @@ int32_t i18n_uset_to_pattern ( const i18n_uset_h set, i18n_uchar *result, int32_
     i18n_error_code_e i18n_error;
 
     int32_t result_uset_toPattern = uset_toPattern((const USet*)set, result, result_capacity, escape_unprintable, &icu_error);
-    ERR("Error code: %d", icu_error);
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
 
     set_last_result(i18n_error);
     return result_uset_toPattern;
@@ -495,8 +496,8 @@ int32_t i18n_uset_get_item ( const i18n_uset_h set, int32_t item_index, i18n_uch
     i18n_error_code_e i18n_error;
 
     int32_t result_uset_getItem = uset_getItem((const USet*)set, item_index, start, end, str, str_capacity, &icu_error);
-    ERR("Error code: %d", icu_error);
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
 
     set_last_result(i18n_error);
     return result_uset_getItem;
@@ -642,8 +643,8 @@ int32_t i18n_uset_serialize ( const i18n_uset_h set, uint16_t *dest, int32_t des
 
     UErrorCode icu_error = U_ZERO_ERROR;
     int32_t result_uset_serialize =  uset_serialize((const USet*)set, dest, dest_capacity, &icu_error);
-    ERR("Error code: %d", icu_error);
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
 
     set_last_result(i18n_error);
     return result_uset_serialize;

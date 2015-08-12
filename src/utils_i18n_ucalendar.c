@@ -25,8 +25,9 @@ int i18n_ucalendar_create ( const i18n_uchar *zone_id, int32_t len, const char *
     i18n_error_code_e i18n_error;
     UErrorCode icu_error = U_ZERO_ERROR;
     *calendar = ucal_open(zone_id, len, locale, type, &icu_error);
-    ERR("Error code: %d", icu_error);
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
+
     return i18n_error;
 }
 
@@ -45,8 +46,9 @@ int i18n_ucalendar_clone ( const i18n_ucalendar_h cal, i18n_ucalendar_h *identic
     i18n_error_code_e i18n_error;
     UErrorCode icu_error = U_ZERO_ERROR;
     *identical_to_cal =  ucal_clone(cal, &icu_error);
-    ERR("Error code: %d", icu_error);
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
+
     return i18n_error;
 }
 
@@ -57,8 +59,9 @@ int i18n_ucalendar_add ( i18n_ucalendar_h calendar, i18n_ucalendar_date_fields_e
     i18n_error_code_e i18n_error;
     UErrorCode icu_error = U_ZERO_ERROR;
     ucal_add(calendar, field, amount, &icu_error);
-    ERR("Error code: %d", icu_error);
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
+
     return i18n_error;
 }
 
@@ -77,8 +80,9 @@ int i18n_ucalendar_get_milliseconds ( const i18n_ucalendar_h calendar, i18n_udat
     i18n_error_code_e i18n_error;
     UErrorCode icu_error = U_ZERO_ERROR;
     *date = ucal_getMillis(calendar, &icu_error);
-    ERR("Error code: %d", icu_error);
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
+
     return i18n_error;
 }
 
@@ -89,8 +93,9 @@ int i18n_ucalendar_get ( const i18n_ucalendar_h calendar, i18n_ucalendar_date_fi
     i18n_error_code_e i18n_error;
     UErrorCode icu_error = U_ZERO_ERROR;
     *val = ucal_get(calendar, field, &icu_error);
-    ERR("Error code: %d", icu_error);
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
+
     return i18n_error;
 }
 
@@ -110,8 +115,9 @@ int i18n_ucalendar_get_timezone_displayname ( const i18n_ucalendar_h calendar, i
     i18n_error_code_e i18n_error;
     UErrorCode icu_error = U_ZERO_ERROR;
     *buf_size_needed = ucal_getTimeZoneDisplayName(calendar, type, locale, result, result_len, &icu_error);
-    ERR("Error code: %d", icu_error);
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
+    
     return i18n_error;
 }
 
@@ -122,8 +128,9 @@ int i18n_ucalendar_is_in_daylight_time ( const i18n_ucalendar_h calendar, i18n_u
     i18n_error_code_e i18n_error;
     UErrorCode icu_error = U_ZERO_ERROR;
     *is_in = ucal_inDaylightTime(calendar, &icu_error);
-    ERR("Error code: %d", icu_error);
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
+
     return i18n_error;
 }
 
@@ -150,8 +157,9 @@ int i18n_ucalendar_set_date_time ( i18n_ucalendar_h calendar, int32_t year, int3
     i18n_error_code_e i18n_error;
     UErrorCode icu_error = U_ZERO_ERROR;
     ucal_setDateTime(calendar, year, month, date, hour, min, sec, &icu_error);
-    ERR("Error code: %d", icu_error);
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
+
     return i18n_error;
 }
 
@@ -162,8 +170,9 @@ int i18n_ucalendar_set_milliseconds ( i18n_ucalendar_h calendar, i18n_udate mill
     i18n_error_code_e i18n_error;
     UErrorCode icu_error = U_ZERO_ERROR;
     ucal_setMillis(calendar, milliseconds, &icu_error);
-    ERR("Error code: %d", icu_error);
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
+
     return i18n_error;
 }
 
@@ -174,8 +183,9 @@ int i18n_ucalendar_set_default_timezone ( const i18n_uchar *zone_id )
     i18n_error_code_e i18n_error;
     UErrorCode icu_error = U_ZERO_ERROR;
     ucal_setDefaultTimeZone(zone_id, &icu_error);
-    ERR("Error code: %d", icu_error);
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
+
     return i18n_error;
 }
 
@@ -191,10 +201,10 @@ int32_t i18n_ucalendar_get_field_difference ( i18n_ucalendar_h calendar, i18n_ud
 
     UErrorCode icu_error = U_ZERO_ERROR;
     int32_t result = ucal_getFieldDifference(calendar, target, field, &icu_error);
-    ERR("Error code: %d", icu_error);
 
     if(NULL != status) {
         ERR_MAPPING(icu_error, *status);
+        I18N_ERR(*status);
     }
 
     return result;
@@ -217,8 +227,9 @@ int i18n_ucalendar_timezone_id_enumeration_create ( i18n_system_timezone_type_e 
     i18n_error_code_e i18n_error;
     UErrorCode icu_error = U_ZERO_ERROR;
     *enumeration = (i18n_uenumeration_h)ucal_openTimeZoneIDEnumeration (zone_type, region, raw_offset, &icu_error);
-    ERR("Error code: %d", icu_error);
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
+
     return i18n_error;
 }
 
@@ -230,8 +241,9 @@ int i18n_ucalendar_timezones_create (i18n_uenumeration_h *enumeration)
     i18n_error_code_e i18n_error;
     UErrorCode icu_error = U_ZERO_ERROR;
     *enumeration = (i18n_uenumeration_h)ucal_openTimeZones(&icu_error);
-    ERR("ErrorCode : %d", icu_error);
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
+
     return i18n_error;
 }
 
@@ -243,8 +255,9 @@ int i18n_ucalendar_country_timezones_create (const char *country, i18n_uenumerat
     i18n_error_code_e i18n_error;
     UErrorCode icu_error = U_ZERO_ERROR;
     *enumeration = (i18n_uenumeration_h)ucal_openCountryTimeZones(country, &icu_error);
-    ERR("ErrorCode : %d", icu_error);
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
+
     return i18n_error;
 }
 
@@ -253,8 +266,8 @@ int32_t i18n_ucalendar_get_default_timezone (i18n_uchar *result, int32_t result_
     i18n_error_code_e i18n_error;
     UErrorCode icu_error = U_ZERO_ERROR;
     int32_t result_ucal_getDefaultTimeZone = ucal_getDefaultTimeZone(result, result_capacity, &icu_error);
-    ERR("ErrorCode : %d", icu_error);
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
     set_last_result(i18n_error);
     return result_ucal_getDefaultTimeZone;
 }
@@ -267,8 +280,9 @@ int i18n_ucalendar_set_timezone ( i18n_ucalendar_h calendar, const i18n_uchar *z
     i18n_error_code_e i18n_error;
     UErrorCode icu_error = U_ZERO_ERROR;
     ucal_setTimeZone(calendar, zone_id, length, &icu_error);
-    ERR("ErrorCode : %d", icu_error);
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
+
     return i18n_error;
 }
 
@@ -281,8 +295,9 @@ int32_t i18n_ucalendar_get_timezone_id (const  i18n_ucalendar_h calendar, i18n_u
     i18n_error_code_e i18n_error;
     UErrorCode icu_error = U_ZERO_ERROR;
     int32_t result_ucal_getTimeZoneID = ucal_getTimeZoneID(calendar, result, result_length, &icu_error);
-    ERR("ErrorCode : %d", icu_error);
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
+
     set_last_result(i18n_error);
     return result_ucal_getTimeZoneID;
 }
@@ -295,8 +310,9 @@ int i18n_ucalendar_set_gregorian_change ( i18n_ucalendar_h calendar, i18n_udate 
     i18n_error_code_e i18n_error;
     UErrorCode icu_error = U_ZERO_ERROR;
     ucal_setGregorianChange(calendar, date, &icu_error);
-    ERR("ErrorCode : %d", icu_error);
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
+
     return i18n_error;
 
 }
@@ -309,8 +325,9 @@ int i18n_ucalendar_get_gregorian_change ( const  i18n_ucalendar_h calendar, i18n
     i18n_error_code_e i18n_error;
     UErrorCode icu_error = U_ZERO_ERROR;
     *date = ucal_getGregorianChange(calendar, &icu_error);
-    ERR("ErrorCode : %d", icu_error);
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
+
     return i18n_error;
 }
 
@@ -339,8 +356,9 @@ int i18n_ucalendar_set_date ( i18n_ucalendar_h calendar, int32_t year, int32_t m
     i18n_error_code_e i18n_error;
     UErrorCode icu_error = U_ZERO_ERROR;
     ucal_setDate(calendar, year, month, date, &icu_error);
-    ERR("ErrorCode : %d", icu_error);
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
+
     return i18n_error;
 }
 
@@ -352,8 +370,9 @@ int i18n_ucalendar_roll ( i18n_ucalendar_h calendar, i18n_ucalendar_date_fields_
     i18n_error_code_e i18n_error;
     UErrorCode icu_error = U_ZERO_ERROR;
     ucal_roll(calendar, field, amount, &icu_error);
-    ERR("ErrorCode : %d", icu_error);
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
+
     return i18n_error;
 }
 
@@ -395,8 +414,9 @@ int32_t i18n_ucalendar_get_limit ( const i18n_ucalendar_h calendar, i18n_ucalend
     i18n_error_code_e i18n_error = I18N_ERROR_NONE;
     UErrorCode icu_error = U_ZERO_ERROR;
     int32_t result_ucal_getLimit = ucal_getLimit(calendar, field, type, &icu_error);
-    ERR("ErrorCode : %d", icu_error);
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
+
     set_last_result(i18n_error);
 
     return result_ucal_getLimit;
@@ -411,8 +431,9 @@ const char *i18n_ucalendar_get_locale_by_type ( const i18n_ucalendar_h calendar,
     i18n_error_code_e i18n_error;
     UErrorCode icu_error = U_ZERO_ERROR;
     const char *result_ucal_getLocaleByType = ucal_getLocaleByType(calendar, type, &icu_error);
-    ERR("ErrorCode : %d", icu_error);
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
+
     set_last_result(i18n_error);
     return result_ucal_getLocaleByType;
 }
@@ -422,8 +443,9 @@ const char *i18n_ucalendar_get_tz_data_version (void)
     i18n_error_code_e i18n_error;
     UErrorCode icu_error = U_ZERO_ERROR;
     const char *result_ucal_getTZDataVersion = ucal_getTZDataVersion(&icu_error);
-    ERR("ErrorCode : %d", icu_error);
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
+
     set_last_result(i18n_error);
     return result_ucal_getTZDataVersion;
 }
@@ -437,8 +459,9 @@ int32_t i18n_ucalendar_get_canonical_timezone_id ( const i18n_uchar *id, int32_t
     i18n_error_code_e i18n_error;
     UErrorCode icu_error = U_ZERO_ERROR;
     int32_t result_ucal_getCanonicalTimeZoneID = ucal_getCanonicalTimeZoneID(id, length, result, result_capacity, is_system_id, &icu_error);
-    ERR("ErrorCode : %d", icu_error);
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
+
     set_last_result(i18n_error);
     return result_ucal_getCanonicalTimeZoneID ;
 }
@@ -452,8 +475,9 @@ const char *i18n_ucalendar_get_type ( const i18n_ucalendar_h calendar )
     i18n_error_code_e i18n_error;
     UErrorCode icu_error = U_ZERO_ERROR;
     const char *result_ucal_getType = ucal_getType(calendar, &icu_error);
-    ERR("ErrorCode : %d", icu_error);
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
+
     set_last_result(i18n_error);
     return result_ucal_getType;
 }
@@ -466,8 +490,9 @@ int i18n_ucalendar_get_keyword_values_for_locale ( const char *key, const char *
     i18n_error_code_e i18n_error;
     UErrorCode icu_error = U_ZERO_ERROR;
     *enumeration = (i18n_uenumeration_h )ucal_getKeywordValuesForLocale(key, locale, commonly_used, &icu_error);
-    ERR("ErrorCode : %d", icu_error);
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
+
     return i18n_error;
 }
 
@@ -479,8 +504,9 @@ int i18n_ucalendar_get_day_of_week_type ( const i18n_ucalendar_h calendar, i18n_
     i18n_error_code_e i18n_error;
     UErrorCode icu_error = U_ZERO_ERROR;
     *weekday_type = ucal_getDayOfWeekType(calendar, day_of_week, &icu_error);
-    ERR("ErrorCode : %d", icu_error);
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
+
     return i18n_error;
 }
 
@@ -493,8 +519,9 @@ int32_t i18n_ucalendar_get_weekend_transition ( const i18n_ucalendar_h calendar,
     i18n_error_code_e i18n_error;
     UErrorCode icu_error = U_ZERO_ERROR;
     int32_t result_ucal_getWeekendTransition = ucal_getWeekendTransition(calendar, day_of_week, &icu_error);
-    ERR("ErrorCode : %d", icu_error);
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
+
     set_last_result(i18n_error);
     return result_ucal_getWeekendTransition;
 }
@@ -508,8 +535,9 @@ i18n_ubool i18n_ucalendar_is_weekend ( i18n_ucalendar_h calendar, i18n_udate dat
     i18n_error_code_e i18n_error;
     UErrorCode icu_error = U_ZERO_ERROR;
     i18n_ubool result_ucal_isWeekend = ucal_isWeekend(calendar, date, &icu_error);
-    ERR("ErrorCode : %d", icu_error);
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
+
     set_last_result(i18n_error);
     return result_ucal_isWeekend;
 }
@@ -523,8 +551,9 @@ i18n_ubool i18n_ucalendar_get_timezone_transition_date ( const i18n_ucalendar_h 
     i18n_error_code_e i18n_error;
     UErrorCode icu_error = U_ZERO_ERROR;
     i18n_ubool result_ucal_getTimeZoneTransitionDate = ucal_getTimeZoneTransitionDate(calendar, type, transition, &icu_error);
-    ERR("ErrorCode : %d", icu_error);
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
+
     set_last_result(i18n_error);
     return result_ucal_getTimeZoneTransitionDate;
 }

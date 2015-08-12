@@ -58,10 +58,10 @@ int i18n_unumber_clone(const i18n_unumber_format_h fmt, i18n_unumber_format_h *f
 
     UErrorCode icu_error = U_ZERO_ERROR;
     *fmt_clone = (i18n_unumber_format_h)unum_clone(fmt, &icu_error);
-    ERR("Error code : %d", icu_error);
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
     return i18n_error;
 }
 
@@ -76,9 +76,9 @@ int32_t i18n_unumber_format (const i18n_unumber_format_h fmt, int32_t number, i1
 
     UErrorCode icu_error = U_ZERO_ERROR;
     int32_t result_unum_format = unum_format (fmt, number, (UChar*)result, result_length, (UFieldPosition*)pos, &icu_error);
-    ERR("Error code : %d", icu_error);
     if(NULL != status) {
         ERR_MAPPING(icu_error, *status);
+        I18N_ERR(*status);
     }
     return result_unum_format;
 }
@@ -92,11 +92,11 @@ int32_t i18n_unumber_format_int64 (const i18n_unumber_format_h fmt, int64_t numb
 
     UErrorCode icu_error = U_ZERO_ERROR;
     int32_t result_unum_formatInt64 = unum_formatInt64 (fmt, number, result, result_length, (UFieldPosition*)pos, &icu_error);
-    ERR("Error code : %d", icu_error);
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
     set_last_result(i18n_error);
+    I18N_ERR(i18n_error);
     return result_unum_formatInt64;
 }
 
@@ -109,10 +109,10 @@ int32_t i18n_unumber_format_double (const i18n_unumber_format_h fmt, double numb
 
     UErrorCode icu_error = U_ZERO_ERROR;
     int32_t result_unum_formatDouble = unum_formatDouble(fmt, number, result, result_length, (UFieldPosition*)pos, &icu_error);
-    ERR("Error code : %d", icu_error);
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
     set_last_result(i18n_error);
     return result_unum_formatDouble;
 }
@@ -126,10 +126,10 @@ int32_t i18n_unumber_format_decimal (const i18n_unumber_format_h fmt, const char
 
     UErrorCode icu_error = U_ZERO_ERROR;
     int32_t result_unum_formatDecimal = unum_formatDecimal (fmt, number, length, result, result_length, (UFieldPosition*)pos, &icu_error);
-    ERR("Error code : %d", icu_error);
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
     set_last_result(i18n_error);
     return result_unum_formatDecimal;
 }
@@ -143,10 +143,10 @@ int32_t i18n_unumber_format_double_currency (const i18n_unumber_format_h fmt, do
 
     UErrorCode icu_error = U_ZERO_ERROR;
     int32_t result_unum_formatDoubleCurrency = unum_formatDoubleCurrency (fmt, number, currency, result, result_length, (UFieldPosition*)pos, &icu_error);
-    ERR("Error code : %d", icu_error);
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
     set_last_result(i18n_error);
     return result_unum_formatDoubleCurrency;
 }
@@ -160,10 +160,10 @@ int32_t i18n_unumber_parse (const i18n_unumber_format_h fmt, const i18n_uchar *t
 
     UErrorCode icu_error = U_ZERO_ERROR;
     int32_t result_unum_parse = unum_parse (fmt, text, text_length, parse_pos, &icu_error);
-    ERR("Error code : %d", icu_error);
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
     set_last_result(i18n_error);
     return result_unum_parse;
 }
@@ -177,10 +177,10 @@ int64_t i18n_unumber_parse_int64 (const i18n_unumber_format_h fmt, const i18n_uc
 
     UErrorCode icu_error = U_ZERO_ERROR;
     int64_t result_unum_parseInt64 = unum_parseInt64 (fmt, text, text_length, parse_pos, &icu_error);
-    ERR("Error code : %d", icu_error);
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
     set_last_result(i18n_error);
     return result_unum_parseInt64;
 }
@@ -194,10 +194,10 @@ double i18n_unumber_parse_double (const i18n_unumber_format_h fmt, const i18n_uc
 
     UErrorCode icu_error = U_ZERO_ERROR;
     double result_unum_parseDouble = unum_parseDouble (fmt, text, text_length, parse_pos, &icu_error);
-    ERR("Error code : %d", icu_error);
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
     set_last_result(i18n_error);
     return result_unum_parseDouble;
 }
@@ -211,10 +211,10 @@ int32_t i18n_unumber_parse_decimal (const i18n_unumber_format_h fmt, const i18n_
 
     UErrorCode icu_error = U_ZERO_ERROR;
     int32_t result_unum_parseDecimal = unum_parseDecimal (fmt, text, text_length, parse_pos, out_buf, out_buf_length, &icu_error);
-    ERR("Error code : %d", icu_error);
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
     set_last_result(i18n_error);
     return result_unum_parseDecimal;
 }
@@ -228,10 +228,10 @@ double i18n_unumber_parse_double_currency (const i18n_unumber_format_h fmt, cons
 
     UErrorCode icu_error = U_ZERO_ERROR;
     int32_t result_unum_parseDoubleCurrency = unum_parseDoubleCurrency (fmt, text, text_length, parse_pos, currency, &icu_error);
-    ERR("Error code : %d", icu_error);
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
     set_last_result(i18n_error);
     return result_unum_parseDoubleCurrency;
 }
@@ -244,10 +244,11 @@ int i18n_unumber_apply_pattern (i18n_unumber_format_h format, i18n_ubool localiz
 
     UErrorCode icu_error = U_ZERO_ERROR;
     unum_applyPattern (format, localized, pattern, pattern_length, (UParseError*)parse_error, &icu_error);
-    ERR("Error code : %d", icu_error);
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
+
     return i18n_error;
 }
 
@@ -319,10 +320,10 @@ int32_t i18n_unumber_get_text_attribute (const i18n_unumber_format_h fmt, i18n_u
 
     UErrorCode icu_error = U_ZERO_ERROR;
     int32_t result_unum_getTextAttribute = unum_getTextAttribute (fmt, tag, result, result_length, &icu_error);
-    ERR("Error code : %d", icu_error);
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
     set_last_result(i18n_error);
     return result_unum_getTextAttribute;
 }
@@ -335,10 +336,10 @@ int i18n_unumber_set_text_attribute (const i18n_unumber_format_h fmt, i18n_unumb
 
     UErrorCode icu_error = U_ZERO_ERROR;
     unum_setTextAttribute((UNumberFormat*)fmt, tag, new_value, new_value_length, &icu_error);
-    ERR("Error code : %d", icu_error);
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
     return i18n_error;
 }
 
@@ -351,10 +352,10 @@ int32_t i18n_unumber_to_pattern (const i18n_unumber_format_h fmt, i18n_ubool is_
 
     UErrorCode icu_error = U_ZERO_ERROR;
     int32_t result_unum_toPattern = unum_toPattern(fmt, is_pattern_localized, result, result_length, &icu_error);
-    ERR("Error code : %d", icu_error);
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
     set_last_result(i18n_error);
     return result_unum_toPattern;
 }
@@ -367,10 +368,10 @@ int i18n_unumber_set_symbol (i18n_unumber_format_h fmt, i18n_unumber_format_symb
 
     UErrorCode icu_error = U_ZERO_ERROR;
     unum_setSymbol(fmt, symbol, value, length, &icu_error);
-    ERR("Error code : %d", icu_error);
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
     return i18n_error;
 }
 
@@ -383,10 +384,10 @@ const char *i18n_unumber_get_locale_by_type (const i18n_unumber_format_h fmt, i1
 
     UErrorCode icu_error = U_ZERO_ERROR;
     const char *result_unum_getLocaleByType = unum_getLocaleByType (fmt, type, &icu_error);
-    ERR("Error code : %d", icu_error);
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
     set_last_result(i18n_error);
     return result_unum_getLocaleByType;
 }

@@ -33,7 +33,7 @@ int i18n_usearch_first ( i18n_usearch_h strsrch, int32_t *index_first )
     UErrorCode err = U_ZERO_ERROR;
     *index_first = usearch_first ( strsrch, &err );
     int result = _i18n_error_mapping ( err );
-    ERR("ErrorCode : %d", result);
+    I18N_ERR(result);
 
     return result;
 }
@@ -51,7 +51,7 @@ int i18n_usearch_get_matched_text ( const i18n_usearch_h strsrch, i18n_uchar *re
     UErrorCode err = U_ZERO_ERROR;
     *len_matched_text = usearch_getMatchedText ( strsrch, result_w, result_capacity, &err );
     int result = _i18n_error_mapping ( err );
-    ERR("ErrorCode : %d", result);
+    I18N_ERR(result);
 
     return result;
 }
@@ -73,10 +73,10 @@ int i18n_usearch_create_new ( const i18n_uchar *pattern, int32_t pattern_len, co
     retv_if ( search_iter == NULL, I18N_ERROR_INVALID_PARAMETER );
     UErrorCode icu_error = U_ZERO_ERROR;
     *search_iter = (i18n_usearch_h)usearch_open(pattern, pattern_len, text, text_len, locale, (UBreakIterator*)break_iter, &icu_error);
-    ERR("Error code : %d", icu_error);
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
 
     return i18n_error;
 }

@@ -542,6 +542,7 @@ int32_t i18n_ustring_fold_case ( i18n_uchar *dest, int32_t dest_capacity, const 
    UErrorCode icu_error = U_ZERO_ERROR;
     int32_t result =u_strFoldCase (dest, dest_capacity, src, src_len, options, &icu_error);
     *i18n_error = _i18n_error_mapping(icu_error);
+    I18N_ERR(*i18n_error);
 
     return result;
 }

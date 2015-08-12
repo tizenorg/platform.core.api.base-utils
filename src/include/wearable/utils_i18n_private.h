@@ -24,7 +24,6 @@
 
 /**
  * @file utils_i18n_private.h
- * @version 0.1
  * @brief utils_i18n_private
  */
 
@@ -37,7 +36,13 @@ extern "C" {
 #endif
 #define LOG_TAG "BASE_UTILS"
 
-#define ERR(fmt, arg...) SLOGE("%s:%d " fmt, __FUNCTION__, __LINE__, ##arg)
+#define I18N_ERR(ret) do { \
+    if (ret != I18N_ERROR_NONE) { \
+        LOGE("err(%d): %s", ret, get_error_message(ret)); \
+    } \
+} while (0)
+
+#define ERR(fmt, arg...) LOGE(fmt, ##arg)
 
 #define ret_if(expr) do { \
     if (expr) { \
@@ -45,18 +50,21 @@ extern "C" {
         return; \
     } \
 } while (0)
+
 #define retv_if(expr, val) do { \
     if (expr) { \
         ERR("(%s)", #expr); \
         return (val); \
     } \
 } while (0)
+
 #define retm_if(expr, fmt, arg...) do { \
     if (expr) { \
         ERR(fmt, ##arg); \
         return; \
     } \
 } while (0)
+
 #define retvm_if(expr, val, fmt, arg...) do { \
     if (expr) { \
         ERR(fmt, ##arg); \
@@ -70,7 +78,7 @@ extern "C" {
          val; \
          goto CATCH; \
       } \
-    } while (0);
+} while (0);
 
 #define ERR_MAPPING_REVERSE(BASE_UTILS_ERROR, ICU_ERROR) ICU_ERROR = \
     (UErrorCode)_i18n_error_mapping_reverse((int)BASE_UTILS_ERROR)

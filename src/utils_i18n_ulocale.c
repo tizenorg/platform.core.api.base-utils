@@ -100,10 +100,10 @@ int32_t i18n_ulocale_get_script (const char *locale_id, char *script, int32_t sc
 
     UErrorCode icu_error = U_ZERO_ERROR;
     int32_t needed_buffer_size = uloc_getScript(locale_id, script, script_capacity, &icu_error);
-    ERR("Error Code : %d", icu_error);
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
     set_last_result(i18n_error);
     return needed_buffer_size;
 }
@@ -117,10 +117,10 @@ int32_t i18n_ulocale_get_variant (const char *locale_id, char *variant, int32_t 
 
     UErrorCode icu_error = U_ZERO_ERROR;
     int32_t needed_buffer_size = uloc_getVariant(locale_id, variant, variant_capacity, &icu_error);
-    ERR("Error Code : %d", icu_error);
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
     set_last_result(i18n_error);
     return needed_buffer_size;
 }
@@ -129,10 +129,10 @@ int32_t i18n_ulocale_get_name (const char *locale_id, char *name, int32_t name_c
 {
     UErrorCode icu_error = U_ZERO_ERROR;
     int32_t needed_buffer_size = uloc_getName(locale_id, name, name_capacity, &icu_error);
-    ERR("Error Code : %d", icu_error);
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
     set_last_result(i18n_error);
     return needed_buffer_size;
 }
@@ -141,10 +141,10 @@ int32_t i18n_ulocale_canonicalize (const char *locale_id, char *name, int32_t na
 {
     UErrorCode icu_error = U_ZERO_ERROR;
     int32_t needed_buffer_size = uloc_canonicalize(locale_id, name, name_capacity, &icu_error);
-    ERR("Error Code : %d", icu_error);
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
     set_last_result(i18n_error);
     return needed_buffer_size;
 }
@@ -172,10 +172,10 @@ int32_t i18n_ulocale_get_display_language (const char *locale, const char *displ
 {
     UErrorCode icu_error = U_ZERO_ERROR;
     int32_t needed_buffer_size = uloc_getDisplayLanguage(locale, display_locale, language, language_capacity, &icu_error);
-    ERR("Error Code : %d", icu_error);
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
     set_last_result(i18n_error);
     return needed_buffer_size;
 }
@@ -185,10 +185,10 @@ int32_t i18n_ulocale_get_display_script (const char *locale, const char *display
 {
     UErrorCode icu_error = U_ZERO_ERROR;
     int32_t needed_buffer_size = uloc_getDisplayScript(locale, display_locale, script, script_capacity, &icu_error);
-    ERR("Error Code : %d", icu_error);
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
     set_last_result(i18n_error);
     return needed_buffer_size;
 }
@@ -198,10 +198,10 @@ int32_t i18n_ulocale_get_display_country (const char *locale, const char *displa
 {
     UErrorCode icu_error = U_ZERO_ERROR;
     int32_t needed_buffer_size = uloc_getDisplayCountry(locale, display_locale, country, country_capacity, &icu_error);
-    ERR("Error Code : %d", icu_error);
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
     set_last_result(i18n_error);
     return needed_buffer_size;
 }
@@ -211,10 +211,10 @@ int32_t i18n_ulocale_get_display_variant (const char *locale, const char *displa
 {
     UErrorCode icu_error = U_ZERO_ERROR;
     int32_t needed_buffer_size = uloc_getDisplayVariant(locale, display_locale, variant, variant_capacity, &icu_error);
-    ERR("Error Code : %d", icu_error);
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
     set_last_result(i18n_error);
     return needed_buffer_size;
 }
@@ -224,10 +224,10 @@ int32_t i18n_ulocale_get_display_keyword (const char *keyword, const char *displ
 {
     UErrorCode icu_error = U_ZERO_ERROR;
     int32_t needed_buffer_size = uloc_getDisplayKeyword(keyword, display_locale, dest, dest_capacity, &icu_error);
-    ERR("Error Code : %d", icu_error);
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
     set_last_result(i18n_error);
     return needed_buffer_size;
 }
@@ -237,10 +237,10 @@ int32_t i18n_ulocale_get_display_keyword_value (const char *locale, const char *
 {
     UErrorCode icu_error = U_ZERO_ERROR;
     int32_t needed_buffer_size = uloc_getDisplayKeywordValue(locale, keyword, display_locale, dest, dest_capacity, &icu_error);
-    ERR("Error Code : %d", icu_error);
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
     set_last_result(i18n_error);
     return needed_buffer_size;
 }
@@ -266,10 +266,10 @@ int32_t i18n_ulocale_get_parent (const char *locale_id, char *parent, int32_t pa
 
     UErrorCode icu_error = U_ZERO_ERROR;
     int32_t len_of_loc = uloc_getParent(locale_id, parent, parent_capacity, &icu_error);
-    ERR("Error Code : %d", icu_error);
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
     set_last_result(i18n_error);
     return len_of_loc;
 }
@@ -278,10 +278,10 @@ int32_t i18n_ulocale_get_base_name (const char *locale_id, char *name, int32_t n
 {
     UErrorCode icu_error = U_ZERO_ERROR;
     int32_t needed_buffer_size = uloc_getBaseName(locale_id, name, name_capacity, &icu_error);
-    ERR("Error Code : %d", icu_error);
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
     set_last_result(i18n_error);
     return needed_buffer_size;
 }
@@ -293,9 +293,9 @@ int i18n_ulocale_keywords_create (const char *locale_id, i18n_uenumeration_h *en
     }
     UErrorCode icu_error = U_ZERO_ERROR;
     *enumeration = (i18n_uenumeration_h)uloc_openKeywords(locale_id, &icu_error);
-    ERR("Error Code : %d", icu_error);
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
     return i18n_error;
 }
 
@@ -309,10 +309,10 @@ int32_t i18n_ulocale_get_keyword_value (const char *locale_id, const char *keywo
 
     UErrorCode icu_error = U_ZERO_ERROR;
     int32_t len_of_keyword = uloc_getKeywordValue(locale_id, keyword_name, buffer, buffer_capacity, &icu_error);
-    ERR("Error Code : %d", icu_error);
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
     set_last_result(i18n_error);
     return len_of_keyword;
 }
@@ -327,10 +327,10 @@ int32_t i18n_ulocale_set_keyword_value (const char *keyword_name, const char *ke
 
     UErrorCode icu_error = U_ZERO_ERROR;
     int32_t needed_buffer_size = uloc_setKeywordValue(keyword_name, keyword_value, buffer, buffer_capacity, &icu_error);
-    ERR("Error Code : %d", icu_error);
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
     set_last_result(i18n_error);
     return needed_buffer_size;
 }
@@ -342,10 +342,10 @@ int i18n_ulocale_get_character_orientation (const char *locale_id, i18n_ulocale_
     }
     UErrorCode icu_error = U_ZERO_ERROR;
     *layout_type = uloc_getCharacterOrientation(locale_id, &icu_error);
-    ERR("Error Code : %d", icu_error);
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
     return i18n_error;
 }
 
@@ -356,10 +356,10 @@ int i18n_ulocale_get_line_orientation (const char *locale_id, i18n_ulocale_layou
     }
     UErrorCode icu_error = U_ZERO_ERROR;
    *layout_type = uloc_getLineOrientation(locale_id, &icu_error);
-    ERR("Error Code : %d", icu_error);
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
     return i18n_error;
 }
 
@@ -372,10 +372,10 @@ int32_t i18n_ulocale_get_locale_for_lcid (uint32_t host_id, char *locale, int32_
 
     UErrorCode icu_error = U_ZERO_ERROR;
     int32_t needed_buffer_size = uloc_getLocaleForLCID(host_id, locale, locale_capacity, &icu_error);
-    ERR("Error Code : %d", icu_error);
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
     set_last_result(i18n_error);
     return needed_buffer_size;
 }
@@ -385,10 +385,10 @@ int32_t i18n_ulocale_add_likely_subtags (const char *locale_id, char *maximized_
 {
     UErrorCode icu_error = U_ZERO_ERROR;
     int32_t needed_buffer_size = uloc_addLikelySubtags(locale_id, maximized_locale_id, maximized_locale_id_capacity, &icu_error);
-    ERR("Error Code : %d", icu_error);
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
     set_last_result(i18n_error);
     return needed_buffer_size;
 }
@@ -398,10 +398,10 @@ int32_t i18n_ulocale_minimize_subtags (const char *locale_id, char *minimized_lo
 {
     UErrorCode icu_error = U_ZERO_ERROR;
     int32_t needed_buffer_size = uloc_minimizeSubtags(locale_id, minimized_locale_id, minimized_locale_id_capacity, &icu_error);
-    ERR("Error Code : %d", icu_error);
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
     set_last_result(i18n_error);
     return needed_buffer_size;
 }
@@ -416,10 +416,10 @@ int32_t i18n_ulocale_for_language_tag (const char *langtag, char *locale_id, int
 
     UErrorCode icu_error = U_ZERO_ERROR;
     int32_t len_of_loc = uloc_forLanguageTag(langtag, locale_id, locale_id_capacity, parsed_length, &icu_error);
-    ERR("Error Code : %d", icu_error);
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
     set_last_result(i18n_error);
     return len_of_loc;
 }
@@ -434,10 +434,10 @@ int32_t i18n_ulocale_to_language_tag (const char *locale_id, char *langtag, int3
 
     UErrorCode icu_error = U_ZERO_ERROR;
     int32_t len_of_loc = uloc_toLanguageTag(locale_id, langtag, langtag_capacity, strict, &icu_error);
-    ERR("Error Code : %d", icu_error);
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
     set_last_result(i18n_error);
     return len_of_loc;
 }

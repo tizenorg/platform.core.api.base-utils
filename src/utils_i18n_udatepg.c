@@ -60,10 +60,11 @@ int i18n_udatepg_create_empty (i18n_udatepg_h *dtpg)
     }
     UErrorCode icu_error = U_ZERO_ERROR;
     *dtpg = (i18n_udatepg_h)udatpg_openEmpty(&icu_error);
-    ERR("Error code : %d", icu_error);
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
+
     return i18n_error;
 }
 
@@ -76,10 +77,10 @@ int i18n_udatepg_clone ( const i18n_udatepg_h dtpg, i18n_udatepg_h *dtpg_clone )
 
     UErrorCode icu_error = U_ZERO_ERROR;
     *dtpg_clone = (i18n_udatepg_h)udatpg_clone((UDateTimePatternGenerator *)dtpg, &icu_error);
-    ERR("Error code : %d", icu_error);
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
     return i18n_error;
 }
 
@@ -94,10 +95,10 @@ int32_t i18n_udatepg_get_best_pattern_with_options ( i18n_udatepg_h dtpg, const 
 
     UErrorCode icu_error = U_ZERO_ERROR;
     int32_t length_of_best_pattern = udatpg_getBestPatternWithOptions((UDateTimePatternGenerator *)dtpg, skeleton, length, options, best_pattern, capacity, &icu_error);
-    ERR("Error code : %d", icu_error);
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
     set_last_result(i18n_error);
     return length_of_best_pattern;
 }
@@ -113,10 +114,10 @@ int32_t i18n_udatepg_get_skeleton ( i18n_udatepg_h dtpg, const i18n_uchar *patte
 
     UErrorCode icu_error = U_ZERO_ERROR;
     int32_t length_of_skeleton = udatpg_getSkeleton((UDateTimePatternGenerator *)dtpg, pattern, length, skeleton, capacity, &icu_error);
-    ERR("Error code : %d", icu_error);
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
     set_last_result(i18n_error);
     return length_of_skeleton;
 }
@@ -132,10 +133,10 @@ int32_t i18n_udatepg_get_base_skeleton ( i18n_udatepg_h dtpg, const i18n_uchar *
 
     UErrorCode icu_error = U_ZERO_ERROR;
     int32_t length_of_skeleton = udatpg_getBaseSkeleton((UDateTimePatternGenerator *)dtpg, pattern, length, base_skeleton, capacity, &icu_error);
-    ERR("Error code : %d", icu_error);
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
     set_last_result(i18n_error);
     return length_of_skeleton;
 }
@@ -151,10 +152,10 @@ int32_t i18n_udatepg_add_pattern ( i18n_udatepg_h dtpg, const i18n_uchar *patter
     int32_t confliction_pattern_length;
     UErrorCode icu_error = U_ZERO_ERROR;
     *conflict_status = udatpg_addPattern((UDateTimePatternGenerator *)dtpg, pattern, pattern_length, override, conflicting_pattern, capacity, &confliction_pattern_length, &icu_error);
-    ERR("Error code : %d", icu_error);
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
     set_last_result(i18n_error);
     return confliction_pattern_length;
 }
@@ -270,10 +271,10 @@ int32_t i18n_udatepg_replace_field_types ( i18n_udatepg_h dtpg, const i18n_uchar
 
     UErrorCode icu_error = U_ZERO_ERROR;
     int32_t length_of_dest = udatpg_replaceFieldTypes((UDateTimePatternGenerator *)dtpg, pattern, pattern_length, skeleton, skeleton_length, dest, dest_capacity, &icu_error);
-    ERR("Error code : %d", icu_error);
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
     set_last_result(i18n_error);
     return length_of_dest;
 }
@@ -291,10 +292,10 @@ int32_t i18n_udatepg_replace_field_types_with_options ( i18n_udatepg_h dtpg, con
 
     UErrorCode icu_error = U_ZERO_ERROR;
     int32_t length_of_dest = udatpg_replaceFieldTypesWithOptions((UDateTimePatternGenerator *)dtpg, pattern, pattern_length, skeleton, skeleton_length, options, dest, dest_capacity, &icu_error);
-    ERR("Error code : %d", icu_error);
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
     set_last_result(i18n_error);
     return length_of_dest;
 }
@@ -308,10 +309,10 @@ int i18n_udatepg_skeletons_create ( const i18n_udatepg_h dtpg, i18n_uenumeration
 
     UErrorCode icu_error = U_ZERO_ERROR;
     *enumeration = udatpg_openSkeletons((const UDateTimePatternGenerator *)dtpg, &icu_error);
-    ERR("Error code : %d", icu_error);
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
     return i18n_error;
 }
 
@@ -324,10 +325,10 @@ int i18n_udatepg_base_skeletons_create ( const i18n_udatepg_h dtpg, i18n_uenumer
 
     UErrorCode icu_error = U_ZERO_ERROR;
     *enumeration = udatpg_openBaseSkeletons((const UDateTimePatternGenerator *)dtpg, &icu_error);
-    ERR("Error code : %d", icu_error);
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
     return i18n_error;
 }
 

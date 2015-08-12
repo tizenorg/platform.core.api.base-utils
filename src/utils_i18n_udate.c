@@ -24,10 +24,11 @@ int i18n_udate_create ( i18n_udate_format_style_e time_style, i18n_udate_format_
 
     UErrorCode icu_error = U_ZERO_ERROR;
     *format = udat_open(time_style, date_style, locale, tz_id, tz_id_len, pattern, pattern_len, &icu_error);
-    ERR("Error code : %d", icu_error);
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
+
     return i18n_error;
 }
 
@@ -45,10 +46,11 @@ int i18n_udate_format_date ( const i18n_udate_format_h format, i18n_udate date_t
 
     UErrorCode icu_error = U_ZERO_ERROR;
     *buf_size_needed = udat_format(format, date_to_format, result, result_len, (UFieldPosition*)pos, &icu_error);
-    ERR("Error code : %d", icu_error);
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
+
     return i18n_error;
 }
 
@@ -65,7 +67,7 @@ int i18n_udate_to_calendar_date_field ( i18n_udate_format_field_e field, i18n_uc
         case I18N_UDATE_FORMAT_TIMEZONE_ISO_FIELD:
         case I18N_UDATE_FORMAT_TIMEZONE_ISO_LOCAL_FIELD:
         case I18N_UDATE_FORMAT_FIELD_COUNT:
-            ERR("Unsupported field");
+            LOGE("Unsupported field");
             return I18N_ERROR_INVALID_PARAMETER;
         default:
             *date_field_type = (i18n_ucalendar_date_fields_e)udat_toCalendarDateField(field);
@@ -83,10 +85,11 @@ int i18n_udate_clone ( const i18n_udate_format_h format, i18n_udate_format_h *fo
 
     UErrorCode icu_error = U_ZERO_ERROR;
     *format_clone = (i18n_udate_format_h)udat_clone((const UDateFormat *)format, &icu_error);
-    ERR("Error code : %d", icu_error);
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
+
     return i18n_error;
 }
 
@@ -99,10 +102,11 @@ int i18n_udate_parse ( const i18n_udate_format_h format, const i18n_uchar *text,
 
     UErrorCode icu_error = U_ZERO_ERROR;
     *parsed_date = udat_parse((const UDateFormat *)format, text, text_length, parse_pos, &icu_error);
-    ERR("Error code : %d", icu_error);
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
+
     return i18n_error;
 }
 
@@ -115,10 +119,11 @@ int i18n_udate_parse_calendar (const i18n_udate_format_h format, i18n_ucalendar_
 
     UErrorCode icu_error = U_ZERO_ERROR;
     udat_parseCalendar((const UDateFormat *)format, calendar, text, text_length, parse_pos, &icu_error);
-    ERR("Error code : %d", icu_error);
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
+
     return i18n_error;
 }
 
@@ -211,10 +216,11 @@ int i18n_udate_get_2digit_year_start ( const i18n_udate_format_h format, i18n_ud
 
     UErrorCode icu_error = U_ZERO_ERROR;
     *year = (i18n_udate)udat_get2DigitYearStart((const UDateFormat *)format, &icu_error);
-    ERR("Error code : %d", icu_error);
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
+
     return i18n_error;
 }
 
@@ -227,10 +233,11 @@ int i18n_udate_set_2digit_year_start ( i18n_udate_format_h format, i18n_udate da
 
     UErrorCode icu_error = U_ZERO_ERROR;
     udat_set2DigitYearStart((UDateFormat *)format, date, &icu_error);
-    ERR("Error code : %d", icu_error);
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
+
     return i18n_error;
 }
 
@@ -244,10 +251,11 @@ int32_t i18n_udate_to_pattern ( const i18n_udate_format_h format, i18n_ubool loc
 
     UErrorCode icu_error = U_ZERO_ERROR;
     int32_t needed_buffer_size = udat_toPattern((const UDateFormat *)format, localized, result, result_length, &icu_error);
-    ERR("Error code : %d", icu_error);
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
+
     set_last_result(i18n_error);
     return needed_buffer_size;
 }
@@ -272,10 +280,11 @@ int32_t i18n_udate_get_symbols ( const i18n_udate_format_h format, i18n_udate_fo
 
     UErrorCode icu_error = U_ZERO_ERROR;
     int32_t needed_buffer_size = udat_getSymbols((const UDateFormat *)format, type, symbol_index, result, result_length, &icu_error);
-    ERR("Error code : %d", icu_error);
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
+
     set_last_result(i18n_error);
     return needed_buffer_size;
 }
@@ -301,10 +310,11 @@ int i18n_udate_set_symbols ( i18n_udate_format_h format, i18n_udate_format_symbo
 
     UErrorCode icu_error = U_ZERO_ERROR;
     udat_setSymbols((UDateFormat *)format, type, symbol_index, value, value_length, &icu_error);
-    ERR("Error code : %d", icu_error);
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
+
     return i18n_error;
 }
 
@@ -318,10 +328,11 @@ const char *i18n_udate_get_locale_by_type ( const i18n_udate_format_h format, i1
 
     UErrorCode icu_error = U_ZERO_ERROR;
     const char *locale_name = udat_getLocaleByType((const UDateFormat *)format, type, &icu_error);
-    ERR("Error code : %d", icu_error);
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
+
     set_last_result(i18n_error);
     return locale_name;
 }
@@ -335,9 +346,10 @@ int i18n_udate_set_context ( i18n_udate_format_h format, i18n_udisplay_context_e
 
     UErrorCode icu_error = U_ZERO_ERROR;
     udat_setContext((UDateFormat *)format, value, &icu_error);
-    ERR("Error code : %d", icu_error);
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
+
     return i18n_error;
 }

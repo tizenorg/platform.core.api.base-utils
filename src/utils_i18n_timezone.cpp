@@ -390,9 +390,12 @@ int i18n_timezone_in_daylight_time(i18n_timezone_h timezone, i18n_udate date, i1
 {
     retv_if(timezone == NULL || daylight_time == NULL, I18N_ERROR_INVALID_PARAMETER);
 
-    UErrorCode status;
+    UErrorCode status = U_ZERO_ERROR;
 
     *daylight_time = ((TimeZone*)timezone)->inDaylightTime(date, status);
+    i18n_error_code_e i18n_error;
+    ERR_MAPPING(status, i18n_error);
+    I18N_ERR(i18n_error);
 
     return _i18n_error_mapping(status);
 

@@ -29,10 +29,10 @@ int i18n_ubrk_create (i18n_ubreak_iterator_type_e type, const char *locale, cons
     }
     UErrorCode icu_error = U_ZERO_ERROR;
     *break_iter = (i18n_ubreak_iterator_h) ubrk_open((UBreakIteratorType)type, locale, text, text_length, &icu_error);
-    ERR("ErrorCode : %d", icu_error);
-
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
+
     return i18n_error;
 }
 
@@ -44,10 +44,11 @@ int i18n_ubrk_create_rules (const i18n_uchar *rules, int32_t rules_length, const
 
     UErrorCode icu_error = U_ZERO_ERROR;
     *break_iter = (i18n_ubreak_iterator_h) ubrk_openRules (rules, rules_length, text, text_length, (UParseError*)parse_err, &icu_error);
-    ERR("ErrorCode : %d", icu_error);
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
+
     return i18n_error;
 }
 
@@ -58,10 +59,11 @@ int i18n_ubrk_safe_clone (const i18n_ubreak_iterator_h break_iter, void *stack_b
     }
     UErrorCode icu_error = U_ZERO_ERROR;
     *break_iter_clone = (i18n_ubreak_iterator_h) ubrk_safeClone((const UBreakIterator*)break_iter, stack_buffer, p_buffer_size, &icu_error);
-    ERR("ErrorCode : %d", icu_error);
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
+
     return i18n_error;
 }
 
@@ -83,10 +85,11 @@ int i18n_ubrk_set_text (i18n_ubreak_iterator_h break_iter, const i18n_uchar *tex
 
     UErrorCode icu_error = U_ZERO_ERROR;
     ubrk_setText((UBreakIterator*)break_iter, text, text_length, &icu_error);
-    ERR("ErrorCode : %d", icu_error);
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
+
     return i18n_error;
 }
 
@@ -214,10 +217,11 @@ int32_t i18n_ubrk_get_rule_status_vec (i18n_ubreak_iterator_h break_iter, int32_
 
     UErrorCode icu_error = U_ZERO_ERROR;
     int32_t result_ubrk_getRuleStatusVec = ubrk_getRuleStatusVec((UBreakIterator*)break_iter, fill_in_vec, capacity, &icu_error);
-    ERR("ErrorCode : %d", icu_error);
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
+
     set_last_result(i18n_error);
     return result_ubrk_getRuleStatusVec;
 }
@@ -231,10 +235,11 @@ const char *i18n_ubrk_get_locale_by_type (const i18n_ubreak_iterator_h break_ite
     }
     UErrorCode icu_error = U_ZERO_ERROR;
     const char * result_ubrk_getLocaleByType = ubrk_getLocaleByType((const UBreakIterator*)break_iter, type, &icu_error);
-    ERR("ErrorCode : %d", icu_error);
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
+    I18N_ERR(i18n_error);
+
     set_last_result(i18n_error);
     return result_ubrk_getLocaleByType;
 }
