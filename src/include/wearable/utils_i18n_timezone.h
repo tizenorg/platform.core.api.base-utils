@@ -289,8 +289,8 @@ int i18n_timezone_get_offset_with_date(i18n_timezone_h timezone, i18n_udate date
 int i18n_timezone_set_raw_offset(i18n_timezone_h timezone, int32_t offset_milliseconds);
 
 /**
- * @brief Gets the region code associated with the given system time zone ID.
- * @details The region code is either ISO 3166 2-letter country code or UN M.49 3-digit area code. When the time zone is not associated with a specific location, for example - "Etc/UTC", "EST5EDT", then this method returns "001" (UN M.49 area code for World).
+ * @brief Gets the i18n_timezone_h's raw GMT offset (i.e., the number of milliseconds
+ * to add to GMT to get local time, before taking daylight savings time into account).
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
  * @param[in] timezone The i18n_timezone_h to get a raw offset.

@@ -393,12 +393,11 @@ int i18n_timezone_in_daylight_time(i18n_timezone_h timezone, i18n_udate date, i1
     UErrorCode status = U_ZERO_ERROR;
 
     *daylight_time = ((TimeZone*)timezone)->inDaylightTime(date, status);
-    i18n_error_code_e i18n_error;
+    i18n_error_code_e i18n_error = I18N_ERROR_NONE;
     ERR_MAPPING(status, i18n_error);
     I18N_ERR(i18n_error);
 
-    return _i18n_error_mapping(status);
-
+    return i18n_error;
 }
 
 int i18n_timezone_has_same_rule(i18n_timezone_h timezone, i18n_timezone_h other, i18n_ubool *same_rule)

@@ -67,7 +67,7 @@
      i18n_ustring_copy_ua(_tzid, tzid);
 
      // gets length of '_tzid'
-     i18n_ustring_get_length(_tzid, &len);
+     len = i18n_ustring_get_length(_tzid);
      // creates i18n_ucalendar_h
      ret = i18n_ucalendar_create(_tzid, len, "en_US", I18N_UCALENDAR_TRADITIONAL, &ucal);
      if (ret) {
