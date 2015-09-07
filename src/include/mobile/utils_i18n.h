@@ -48,6 +48,15 @@ extern "C" {
  * @defgroup CAPI_BASE_UTILS_I18N_MODULE i18n
  * @brief The i18n module contains uchar, ucollator, unormalization, usearch, ustring, ucalendar, udate, udatepg, ulocale and unumber.
  *     This module provides flexible generation of number or date format patterns and helps you format and parse dates/number for any locale.
+ * The i18n module provides various features based on data from ICU. The following table shows the version of ICU used in each Tizen platform.
+ * <table>
+ *  <tr>
+ *   <td>Tizen 2.3, 2.3.1, 2.4</td>
+ *   <td>ICU 51</td>
+ *   <td>CLDR 23</td>
+ *   <td>Unicode 6.2</td>
+ *  </tr>
+ * </table>
  * @section CAPI_BASE_UTILS_I18N_MODULE_HEADER Required Header
  *  \#include <utils_i18n.h>
  * @section CAPI_BASE_UTILS_I18N_MODULE_OVERVIEW Overview

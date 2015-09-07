@@ -99,48 +99,48 @@ typedef enum {
 
 #define I18N_U_MASK(x)                        ((uint32_t)1<<(x)) /**< Get a single-bit bit set (a flag) from a bit number 0..31. @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif*/
 
-#define I18N_U_GC_CN_MASK                     I18N_U_MASK(I18N_UCHAR_U_GENERAL_OTHER_TYPES)     /**<U_GC_XX_MASK constants are bit flags corresponding to Unicode general category values. @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif*/
-#define I18N_U_GC_LU_MASK                     I18N_U_MASK(I18N_UCHAR_U_UPPERCASE_LETTER)        /**<Mask constant for a #i18n_uchar_category_e. @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif*/
-#define I18N_U_GC_LL_MASK                     I18N_U_MASK(I18N_UCHAR_U_LOWERCASE_LETTER)        /**<Mask constant for a #i18n_uchar_category_e. @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif*/
-#define I18N_U_GC_LT_MASK                     I18N_U_MASK(I18N_UCHAR_U_TITLECASE_LETTER)        /**<Mask constant for a #i18n_uchar_category_e. @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif*/
-#define I18N_U_GC_LM_MASK                     I18N_U_MASK(I18N_UCHAR_U_MODIFIER_LETTER)         /**<Mask constant for a #i18n_uchar_category_e. @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif*/
-#define I18N_U_GC_LO_MASK                     I18N_U_MASK(I18N_UCHAR_U_OTHER_LETTER)            /**<Mask constant for a #i18n_uchar_category_e. @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif*/
-#define I18N_U_GC_MN_MASK                     I18N_U_MASK(I18N_UCHAR_U_NON_SPACING_MARK)        /**<Mask constant for a #i18n_uchar_category_e. @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif*/
-#define I18N_U_GC_ME_MASK                     I18N_U_MASK(I18N_UCHAR_U_ENCLOSING_MARK)          /**<Mask constant for a #i18n_uchar_category_e. @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif*/
-#define I18N_U_GC_MC_MASK                     I18N_U_MASK(I18N_UCHAR_U_COMBINING_SPACING_MARK)  /**<Mask constant for a #i18n_uchar_category_e. @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif*/
-#define I18N_U_GC_ND_MASK                     I18N_U_MASK(I18N_UCHAR_U_DECIMAL_DIGIT_NUMBER)    /**<Mask constant for a #i18n_uchar_category_e. @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif*/
-#define I18N_U_GC_NL_MASK                     I18N_U_MASK(I18N_UCHAR_U_LETTER_NUMBER)           /**<Mask constant for a #i18n_uchar_category_e. @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif*/
-#define I18N_U_GC_NO_MASK                     I18N_U_MASK(I18N_UCHAR_U_OTHER_NUMBER)            /**<Mask constant for a #i18n_uchar_category_e. @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif*/
-#define I18N_U_GC_ZS_MASK                     I18N_U_MASK(I18N_UCHAR_U_SPACE_SEPARATOR)         /**<Mask constant for a #i18n_uchar_category_e. @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif*/
-#define I18N_U_GC_ZL_MASK                     I18N_U_MASK(I18N_UCHAR_U_LINE_SEPARATOR)          /**<Mask constant for a #i18n_uchar_category_e. @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif*/
-#define I18N_U_GC_ZP_MASK                     I18N_U_MASK(I18N_UCHAR_U_PARAGRAPH_SEPARATOR)     /**<Mask constant for a #i18n_uchar_category_e. @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif*/
-#define I18N_U_GC_CC_MASK                     I18N_U_MASK(I18N_UCHAR_U_CONTROL_CHAR)            /**<Mask constant for a #i18n_uchar_category_e. @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif*/
-#define I18N_U_GC_CF_MASK                     I18N_U_MASK(I18N_UCHAR_U_FORMAT_CHAR)             /**<Mask constant for a #i18n_uchar_category_e. @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif*/
-#define I18N_U_GC_CO_MASK                     I18N_U_MASK(I18N_UCHAR_U_PRIVATE_USE_CHAR)        /**<Mask constant for a #i18n_uchar_category_e. @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif*/
-#define I18N_U_GC_CS_MASK                     I18N_U_MASK(I18N_UCHAR_U_SURROGATE)               /**<Mask constant for a #i18n_uchar_category_e. @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif*/
-#define I18N_U_GC_PD_MASK                     I18N_U_MASK(I18N_UCHAR_U_DASH_PUNCTUATION)        /**<Mask constant for a #i18n_uchar_category_e. @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif*/
-#define I18N_U_GC_PS_MASK                     I18N_U_MASK(I18N_UCHAR_U_START_PUNCTUATION)       /**<Mask constant for a #i18n_uchar_category_e. @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif*/
-#define I18N_U_GC_PE_MASK                     I18N_U_MASK(I18N_UCHAR_U_END_PUNCTUATION)         /**<Mask constant for a #i18n_uchar_category_e. @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif*/
-#define I18N_U_GC_PC_MASK                     I18N_U_MASK(I18N_UCHAR_U_CONNECTOR_PUNCTUATION)   /**<Mask constant for a #i18n_uchar_category_e. @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif*/
-#define I18N_U_GC_PO_MASK                     I18N_U_MASK(I18N_UCHAR_U_OTHER_PUNCTUATION)       /**<Mask constant for a #i18n_uchar_category_e. @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif*/
-#define I18N_U_GC_SM_MASK                     I18N_U_MASK(I18N_UCHAR_U_MATH_SYMBOL)             /**<Mask constant for a #i18n_uchar_category_e. @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif*/
-#define I18N_U_GC_SC_MASK                     I18N_U_MASK(I18N_UCHAR_U_CURRENCY_SYMBOL)         /**<Mask constant for a #i18n_uchar_category_e. @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif*/
-#define I18N_U_GC_SK_MASK                     I18N_U_MASK(I18N_UCHAR_U_MODIFIER_SYMBOL)         /**<Mask constant for a #i18n_uchar_category_e. @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif*/
-#define I18N_U_GC_SO_MASK                     I18N_U_MASK(I18N_UCHAR_U_OTHER_SYMBOL)            /**<Mask constant for a #i18n_uchar_category_e. @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif*/
-#define I18N_U_GC_PI_MASK                     I18N_U_MASK(I18N_UCHAR_U_INITIAL_PUNCTUATION)     /**<Mask constant for a #i18n_uchar_category_e. @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif*/
-#define I18N_U_GC_PF_MASK                     I18N_U_MASK(I18N_UCHAR_U_FINAL_PUNCTUATION)       /**<Mask constant for a #i18n_uchar_category_e. @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif*/
+#define I18N_U_GC_CN_MASK                     I18N_U_MASK(I18N_UCHAR_U_GENERAL_OTHER_TYPES)     /**< U_GC_XX_MASK constants are bit flags corresponding to Unicode general category values. @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif*/
+#define I18N_U_GC_LU_MASK                     I18N_U_MASK(I18N_UCHAR_U_UPPERCASE_LETTER)        /**< Mask constant for a #i18n_uchar_category_e. @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif*/
+#define I18N_U_GC_LL_MASK                     I18N_U_MASK(I18N_UCHAR_U_LOWERCASE_LETTER)        /**< Mask constant for a #i18n_uchar_category_e. @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif*/
+#define I18N_U_GC_LT_MASK                     I18N_U_MASK(I18N_UCHAR_U_TITLECASE_LETTER)        /**< Mask constant for a #i18n_uchar_category_e. @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif*/
+#define I18N_U_GC_LM_MASK                     I18N_U_MASK(I18N_UCHAR_U_MODIFIER_LETTER)         /**< Mask constant for a #i18n_uchar_category_e. @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif*/
+#define I18N_U_GC_LO_MASK                     I18N_U_MASK(I18N_UCHAR_U_OTHER_LETTER)            /**< Mask constant for a #i18n_uchar_category_e. @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif*/
+#define I18N_U_GC_MN_MASK                     I18N_U_MASK(I18N_UCHAR_U_NON_SPACING_MARK)        /**< Mask constant for a #i18n_uchar_category_e. @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif*/
+#define I18N_U_GC_ME_MASK                     I18N_U_MASK(I18N_UCHAR_U_ENCLOSING_MARK)          /**< Mask constant for a #i18n_uchar_category_e. @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif*/
+#define I18N_U_GC_MC_MASK                     I18N_U_MASK(I18N_UCHAR_U_COMBINING_SPACING_MARK)  /**< Mask constant for a #i18n_uchar_category_e. @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif*/
+#define I18N_U_GC_ND_MASK                     I18N_U_MASK(I18N_UCHAR_U_DECIMAL_DIGIT_NUMBER)    /**< Mask constant for a #i18n_uchar_category_e. @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif*/
+#define I18N_U_GC_NL_MASK                     I18N_U_MASK(I18N_UCHAR_U_LETTER_NUMBER)           /**< Mask constant for a #i18n_uchar_category_e. @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif*/
+#define I18N_U_GC_NO_MASK                     I18N_U_MASK(I18N_UCHAR_U_OTHER_NUMBER)            /**< Mask constant for a #i18n_uchar_category_e. @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif*/
+#define I18N_U_GC_ZS_MASK                     I18N_U_MASK(I18N_UCHAR_U_SPACE_SEPARATOR)         /**< Mask constant for a #i18n_uchar_category_e. @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif*/
+#define I18N_U_GC_ZL_MASK                     I18N_U_MASK(I18N_UCHAR_U_LINE_SEPARATOR)          /**< Mask constant for a #i18n_uchar_category_e. @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif*/
+#define I18N_U_GC_ZP_MASK                     I18N_U_MASK(I18N_UCHAR_U_PARAGRAPH_SEPARATOR)     /**< Mask constant for a #i18n_uchar_category_e. @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif*/
+#define I18N_U_GC_CC_MASK                     I18N_U_MASK(I18N_UCHAR_U_CONTROL_CHAR)            /**< Mask constant for a #i18n_uchar_category_e. @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif*/
+#define I18N_U_GC_CF_MASK                     I18N_U_MASK(I18N_UCHAR_U_FORMAT_CHAR)             /**< Mask constant for a #i18n_uchar_category_e. @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif*/
+#define I18N_U_GC_CO_MASK                     I18N_U_MASK(I18N_UCHAR_U_PRIVATE_USE_CHAR)        /**< Mask constant for a #i18n_uchar_category_e. @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif*/
+#define I18N_U_GC_CS_MASK                     I18N_U_MASK(I18N_UCHAR_U_SURROGATE)               /**< Mask constant for a #i18n_uchar_category_e. @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif*/
+#define I18N_U_GC_PD_MASK                     I18N_U_MASK(I18N_UCHAR_U_DASH_PUNCTUATION)        /**< Mask constant for a #i18n_uchar_category_e. @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif*/
+#define I18N_U_GC_PS_MASK                     I18N_U_MASK(I18N_UCHAR_U_START_PUNCTUATION)       /**< Mask constant for a #i18n_uchar_category_e. @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif*/
+#define I18N_U_GC_PE_MASK                     I18N_U_MASK(I18N_UCHAR_U_END_PUNCTUATION)         /**< Mask constant for a #i18n_uchar_category_e. @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif*/
+#define I18N_U_GC_PC_MASK                     I18N_U_MASK(I18N_UCHAR_U_CONNECTOR_PUNCTUATION)   /**< Mask constant for a #i18n_uchar_category_e. @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif*/
+#define I18N_U_GC_PO_MASK                     I18N_U_MASK(I18N_UCHAR_U_OTHER_PUNCTUATION)       /**< Mask constant for a #i18n_uchar_category_e. @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif*/
+#define I18N_U_GC_SM_MASK                     I18N_U_MASK(I18N_UCHAR_U_MATH_SYMBOL)             /**< Mask constant for a #i18n_uchar_category_e. @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif*/
+#define I18N_U_GC_SC_MASK                     I18N_U_MASK(I18N_UCHAR_U_CURRENCY_SYMBOL)         /**< Mask constant for a #i18n_uchar_category_e. @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif*/
+#define I18N_U_GC_SK_MASK                     I18N_U_MASK(I18N_UCHAR_U_MODIFIER_SYMBOL)         /**< Mask constant for a #i18n_uchar_category_e. @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif*/
+#define I18N_U_GC_SO_MASK                     I18N_U_MASK(I18N_UCHAR_U_OTHER_SYMBOL)            /**< Mask constant for a #i18n_uchar_category_e. @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif*/
+#define I18N_U_GC_PI_MASK                     I18N_U_MASK(I18N_UCHAR_U_INITIAL_PUNCTUATION)     /**< Mask constant for a #i18n_uchar_category_e. @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif*/
+#define I18N_U_GC_PF_MASK                     I18N_U_MASK(I18N_UCHAR_U_FINAL_PUNCTUATION)       /**< Mask constant for a #i18n_uchar_category_e. @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif*/
 #define I18N_U_GC_L_MASK                      (I18N_U_GC_LU_MASK|I18N_U_GC_LL_MASK|I18N_U_GC_LT_MASK|I18N_U_GC_LM_MASK|I18N_U_GC_LO_MASK)   /**<Mask constant for multiple #i18n_uchar_category_e bits (L Letters). @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif*/
-#define I18N_U_GC_LC_MASK                     (I18N_U_GC_LU_MASK|I18N_U_GC_LL_MASK|I18N_U_GC_LT_MASK)        /**<Mask constant for multiple #i18n_uchar_category_e bits (LC Cased Letters). @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif*/
-#define I18N_U_GC_M_MASK                      (I18N_U_GC_MN_MASK|I18N_U_GC_ME_MASK|I18N_U_GC_MC_MASK)        /**<Mask constant for multiple #i18n_uchar_category_e bits (M Marks). @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif*/
-#define I18N_U_GC_N_MASK                      (I18N_U_GC_ND_MASK|I18N_U_GC_NL_MASK|I18N_U_GC_NO_MASK)        /**<Mask constant for multiple #i18n_uchar_category_e bits (N Numbers). @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif*/
-#define I18N_U_GC_Z_MASK                      (I18N_U_GC_ZS_MASK|I18N_U_GC_ZL_MASK|I18N_U_GC_ZP_MASK)        /**<Mask constant for multiple #i18n_uchar_category_e bits (Z Separators). @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif*/
+#define I18N_U_GC_LC_MASK                     (I18N_U_GC_LU_MASK|I18N_U_GC_LL_MASK|I18N_U_GC_LT_MASK)        /**< Mask constant for multiple #i18n_uchar_category_e bits (LC Cased Letters). @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif*/
+#define I18N_U_GC_M_MASK                      (I18N_U_GC_MN_MASK|I18N_U_GC_ME_MASK|I18N_U_GC_MC_MASK)        /**< Mask constant for multiple #i18n_uchar_category_e bits (M Marks). @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif*/
+#define I18N_U_GC_N_MASK                      (I18N_U_GC_ND_MASK|I18N_U_GC_NL_MASK|I18N_U_GC_NO_MASK)        /**< Mask constant for multiple #i18n_uchar_category_e bits (N Numbers). @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif*/
+#define I18N_U_GC_Z_MASK                      (I18N_U_GC_ZS_MASK|I18N_U_GC_ZL_MASK|I18N_U_GC_ZP_MASK)        /**< Mask constant for multiple #i18n_uchar_category_e bits (Z Separators). @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif*/
 #define I18N_U_GC_C_MASK                      (I18N_U_GC_CN_MASK|I18N_U_GC_CC_MASK|I18N_U_GC_CF_MASK|I18N_U_GC_CO_MASK|I18N_U_GC_CS_MASK)        /**<Mask constant for multiple #i18n_uchar_category_e bits (C Others). @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif*/
 #define I18N_U_GC_P_MASK                      (I18N_U_GC_PD_MASK|I18N_U_GC_PS_MASK|I18N_U_GC_PE_MASK|I18N_U_GC_PC_MASK|I18N_U_GC_PO_MASK|I18N_U_GC_PI_MASK|I18N_U_GC_PF_MASK)   /**<Mask constant for multiple #i18n_uchar_category_e bits (P Punctuation). @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif*/
 #define I18N_U_GC_S_MASK                      (I18N_U_GC_SM_MASK|I18N_U_GC_SC_MASK|I18N_U_GC_SK_MASK|I18N_U_GC_SO_MASK)         /**<Mask constant for multiple #i18n_uchar_category_e bits (S Symbols). @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif   */
 
-#define I18N_U_NO_NUMERIC_VALUE               ((double)-123456789.)         /**<Special value that is returned by i18n_uchar_get_numeric_value()(not implemented yet) when no numeric value is defined for a code point. @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif  */
+#define I18N_U_NO_NUMERIC_VALUE               ((double)-123456789.)         /**< Special value that is returned by i18n_uchar_get_numeric_value()(not implemented yet) when no numeric value is defined for a code point. @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif  */
 
-#define I18N_U_GET_GC_MASK(c)                 I18N_U_MASK(u_charType(c))    /**<Get a single-bit bit set for the general category of a character. @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif  */
+#define I18N_U_GET_GC_MASK(c)                 I18N_U_MASK(u_charType(c))    /**< Get a single-bit bit set for the general category of a character. @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif  */
 
 /**
  * @brief Option value for case folding: use default mappings defined in CaseFolding.txt.
@@ -212,6 +212,7 @@ typedef enum {
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  */
 typedef int32_t i18n_uchar32;
+
 /**
  * @brief i18n_ubool.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
@@ -220,129 +221,362 @@ typedef int8_t i18n_ubool;
 
 /**
  * @brief Enumeration of constants for Unicode properties.
- *        The properties APIs are intended to reflect Unicode properties as defined in the Unicode Character Database (UCD) and Unicode Technical Reports (UTR).
- *        For details about the properties see http://www.unicode.org/ucd/ . For names of Unicode properties see the UCD file PropertyAliases.txt.
+ *        The properties APIs are intended to reflect Unicode properties as defined in the
+ *        Unicode Character Database (UCD) and Unicode Technical Reports (UTR).
+ *        For details about the properties see http://www.unicode.org/ucd/ .
+ *        For names of Unicode properties see the UCD file PropertyAliases.txt.
  *
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  */
 typedef enum {
-    I18N_UCHAR_ALPHABETIC                      = 0,                                    /**<  */
-
-    I18N_UCHAR_BINARY_START                    = I18N_UCHAR_ALPHABETIC,                /**<  */
-    I18N_UCHAR_ASCII_HEX_DIGIT,                                                        /**<  */
-    I18N_UCHAR_BIDI_CONTROL,                                                           /**<  */
-    I18N_UCHAR_BIDI_MIRRORED,                                                          /**<  */
-    I18N_UCHAR_DASH,                                                                   /**<  */
-    I18N_UCHAR_DEFAULT_IGNORABLE_CODE_POINT,                                           /**<  */
-    I18N_UCHAR_DEPRECATED,                                                             /**<  */
-    I18N_UCHAR_DIACRITIC,                                                              /**<  */
-    I18N_UCHAR_EXTENDER,                                                               /**<  */
-    I18N_UCHAR_FULL_COMPOSITION_EXCLUSION,                                             /**<  */
-    I18N_UCHAR_GRAPHEME_BASE,                                                          /**<  */
-    I18N_UCHAR_GRAPHEME_EXTEND,                                                        /**<  */
-    I18N_UCHAR_GRAPHEME_LINK,                                                          /**<  */
-    I18N_UCHAR_HEX_DIGIT,                                                              /**<  */
-    I18N_UCHAR_HYPHEN,                                                                 /**<  */
-    I18N_UCHAR_ID_CONTINUE,                                                            /**<  */
-    I18N_UCHAR_ID_START,                                                               /**<  */
-    I18N_UCHAR_IDEOGRAPHIC,                                                            /**<  */
-    I18N_UCHAR_IDS_BINARY_OPERATOR,                                                    /**<  */
-    I18N_UCHAR_IDS_TRINARY_OPERATOR,                                                   /**<  */
-    I18N_UCHAR_JOIN_CONTROL,                                                           /**<  */
-    I18N_UCHAR_LOGICAL_ORDER_EXCEPTION,                                                /**<  */
-    I18N_UCHAR_LOWERCASE,                                                              /**<  */
-    I18N_UCHAR_MATH,                                                                   /**<  */
-    I18N_UCHAR_NONCHARACTER_CODE_POINT,                                                /**<  */
-    I18N_UCHAR_QUOTATION_MARK,                                                         /**<  */
-    I18N_UCHAR_RADICAL,                                                                /**<  */
-    I18N_UCHAR_SOFT_DOTTED,                                                            /**<  */
-    I18N_UCHAR_TERMINAL_PUNCTUATION,                                                   /**<  */
-    I18N_UCHAR_UNIFIED_IDEOGRAPH,                                                      /**<  */
-    I18N_UCHAR_UPPERCASE,                                                              /**<  */
-    I18N_UCHAR_WHITE_SPACE,                                                            /**<  */
-    I18N_UCHAR_XID_CONTINUE,                                                           /**<  */
-    I18N_UCHAR_XID_START,                                                              /**<  */
-    I18N_UCHAR_CASE_SENSITIVE,                                                         /**<  */
-    I18N_UCHAR_S_TERM,                                                                 /**<  */
-    I18N_UCHAR_VARIATION_SELECTOR,                                                     /**<  */
-    I18N_UCHAR_NFD_INERT,                                                              /**<  */
-    I18N_UCHAR_NFKD_INERT,                                                             /**<  */
-    I18N_UCHAR_NFC_INERT,                                                              /**<  */
-    I18N_UCHAR_NFKC_INERT,                                                             /**<  */
-    I18N_UCHAR_SEGMENT_STARTER,                                                        /**<  */
-    I18N_UCHAR_PATTERN_SYNTAX,                                                         /**<  */
-    I18N_UCHAR_PATTERN_WHITE_SPACE,                                                    /**<  */
-    I18N_UCHAR_POSIX_ALNUM,                                                            /**<  */
-    I18N_UCHAR_POSIX_BLANK,                                                            /**<  */
-    I18N_UCHAR_POSIX_GRAPH,                                                            /**<  */
-    I18N_UCHAR_POSIX_PRINT,                                                            /**<  */
-    I18N_UCHAR_POSIX_XDIGIT,                                                           /**<  */
-    I18N_UCHAR_CASED,                                                                  /**<  */
-    I18N_UCHAR_CASE_IGNORABLE,                                                         /**<  */
-    I18N_UCHAR_CHANGES_WHEN_LOWERCASED,                                                /**<  */
-    I18N_UCHAR_CHANGES_WHEN_UPPERCASED,                                                /**<  */
-    I18N_UCHAR_CHANGES_WHEN_TITLECASED,                                                /**<  */
-    I18N_UCHAR_CHANGES_WHEN_CASEFOLDED,                                                /**<  */
-    I18N_UCHAR_CHANGES_WHEN_CASEMAPPED,                                                /**<  */
-    I18N_UCHAR_CHANGES_WHEN_NFKC_CASEFOLDED,                                           /**<  */
-    I18N_UCHAR_BINARY_LIMIT,                                                           /**<  */
-
-    I18N_UCHAR_BIDI_CLASS                      = 0x1000,                               /**<  */
-
-    I18N_UCHAR_INT_START                       = I18N_UCHAR_BIDI_CLASS,                /**<  */
-    I18N_UCHAR_BLOCK,                                                                  /**<  */
-    I18N_UCHAR_CANONICAL_COMBINING_CLASS,                                              /**<  */
-    I18N_UCHAR_DECOMPOSITION_TYPE,                                                     /**<  */
-    I18N_UCHAR_EAST_ASIAN_WIDTH,                                                       /**<  */
-    I18N_UCHAR_GENERAL_CATEGORY,                                                       /**<  */
-    I18N_UCHAR_JOINING_GROUP,                                                          /**<  */
-    I18N_UCHAR_JOINING_TYPE,                                                           /**<  */
-    I18N_UCHAR_LINE_BREAK,                                                             /**<  */
-    I18N_UCHAR_NUMERIC_TYPE,                                                           /**<  */
-    I18N_UCHAR_SCRIPT,                                                                 /**<  */
-    I18N_UCHAR_HANGUL_SYLLABLE_TYPE,                                                   /**<  */
-    I18N_UCHAR_NFD_QUICK_CHECK,                                                        /**<  */
-    I18N_UCHAR_NFKD_QUICK_CHECK,                                                       /**<  */
-    I18N_UCHAR_NFC_QUICK_CHECK,                                                        /**<  */
-    I18N_UCHAR_NFKC_QUICK_CHECK,                                                       /**<  */
-    I18N_UCHAR_LEAD_CANONICAL_COMBINING_CLASS,                                         /**<  */
-    I18N_UCHAR_TRAIL_CANONICAL_COMBINING_CLASS,                                        /**<  */
-    I18N_UCHAR_GRAPHEME_CLUSTER_BREAK,                                                 /**<  */
-    I18N_UCHAR_SENTENCE_BREAK,                                                         /**<  */
-    I18N_UCHAR_WORD_BREAK,                                                             /**<  */
-    I18N_UCHAR_BIDI_PAIRED_BRACKET_TYPE,                                               /**<  */
-    I18N_UCHAR_INT_LIMIT,                                                              /**<  */
-
-    I18N_UCHAR_GENERAL_CATEGORY_MASK           = 0x2000,                               /**<  */
-
-    I18N_UCHAR_MASK_START                      = I18N_UCHAR_GENERAL_CATEGORY_MASK,     /**<  */
-    I18N_UCHAR_MASK_LIMIT,                                                             /**<  */
-
-    I18N_UCHAR_NUMERIC_VALUE                   = 0x3000,                               /**<  */
-    I18N_UCHAR_DOUBLE_START                    = I18N_UCHAR_NUMERIC_VALUE,             /**<  */
-    I18N_UCHAR_DOUBLE_LIMIT,                                                           /**<  */
-
-    I18N_UCHAR_AGE                             = 0x4000,                               /**<  */
-    I18N_UCHAR_STRING_START                    = I18N_UCHAR_AGE,                       /**<  */
-    I18N_UCHAR_BIDI_MIRRORING_GLYPH,                                                   /**<  */
-    I18N_UCHAR_CASE_FOLDING,                                                           /**<  */
-
-    I18N_UCHAR_LOWERCASE_MAPPING               = 0x4004,                               /**<  */
-    I18N_UCHAR_NAME,                                                                   /**<  */
-    I18N_UCHAR_SIMPLE_CASE_FOLDING,                                                    /**<  */
-    I18N_UCHAR_SIMPLE_LOWERCASE_MAPPING,                                               /**<  */
-    I18N_UCHAR_SIMPLE_TITLECASE_MAPPING,                                               /**<  */
-    I18N_UCHAR_SIMPLE_UPPERCASE_MAPPING,                                               /**<  */
-    I18N_UCHAR_TITLECASE_MAPPING,                                                      /**<  */
-
-    I18N_UCHAR_UPPERCASE_MAPPING               = 0x400C,                               /**<  */
-    I18N_UCHAR_BIDI_PAIRED_BRACKET,                                                    /**<  */
-    I18N_UCHAR_STRING_LIMIT,                                                           /**<  */
-
-    I18N_UCHAR_SCRIPT_EXTENSIONS               = 0x7000,                               /**<  */
-    I18N_UCHAR_OTHER_PROPERTY_START            = I18N_UCHAR_SCRIPT_EXTENSIONS,         /**<  */
-    I18N_UCHAR_OTHER_PROPERTY_LIMIT,                                                   /**<  */
-    I18N_UCHAR_INVALID_CODE                    = -1                                    /**<  */
+    I18N_UCHAR_ALPHABETIC                      = 0,
+        /**< Binary property Alphabetic. \n
+             Lu+Ll+Lt+Lm+Lo+Nl+Other_Alphabetic
+         */
+    I18N_UCHAR_BINARY_START                    = I18N_UCHAR_ALPHABETIC,
+        /**< First constant for binary Unicode properties. */
+    I18N_UCHAR_ASCII_HEX_DIGIT,
+        /**< Binary property ASCII_Hex_Digit. \n
+             0-9 A-F a-f
+         */
+    I18N_UCHAR_BIDI_CONTROL,
+	/**< Binary property Bidi_Control. \n
+	 Format controls which have specific functions in the Bidi Algorithm.
+	 */
+    I18N_UCHAR_BIDI_MIRRORED,
+        /**< Binary property Bidi_Mirrored. \n
+             Characters that may change display in RTL text. See Bidi Algorithm, UTR 9.
+         */
+    I18N_UCHAR_DASH,
+        /**< Binary property Dash. \n
+             Variations of dashes.
+         */
+    I18N_UCHAR_DEFAULT_IGNORABLE_CODE_POINT,
+        /**< Binary property Default_Ignorable_Code_Point (new in Unicode 3.2). \n
+             Ignorable in most processing. &lt;2060..206F, FFF0..FFFB, E0000..E0FFF&gt;+Other_Default_Ignorable_Code_Point+(Cf+Cc+Cs-White_Space)
+         */
+    I18N_UCHAR_DEPRECATED,
+        /**< Binary property Deprecated (new in Unicode 3.2). \n
+             The usage of deprecated characters is strongly discouraged.
+         */
+    I18N_UCHAR_DIACRITIC,
+        /**< Binary property Diacritic. \n
+             Characters that linguistically modify the meaning of another character to which they apply.
+         */
+    I18N_UCHAR_EXTENDER,
+        /**< Binary property Extender. \n
+             Extend the value or shape of a preceding alphabetic character, e.g. length and iteration marks.
+         */
+    I18N_UCHAR_FULL_COMPOSITION_EXCLUSION,
+        /**< Binary property Full_Composition_Exclusion. \n
+             CompositionExclusions.txt+Singleton Decompositions+ Non-Starter Decompositions.
+         */
+    I18N_UCHAR_GRAPHEME_BASE,
+        /**< Binary property Grapheme_Base (new in Unicode 3.2). \n
+             For programmatic determination of grapheme cluster boundaries. [0..10FFFF]-Cc-Cf-Cs-Co-Cn-Zl-Zp-Grapheme_Link-Grapheme_Extend-CGJ
+         */
+    I18N_UCHAR_GRAPHEME_EXTEND,
+        /**< Binary property Grapheme_Extend (new in Unicode 3.2). \n
+             For programmatic determination of grapheme cluster boundaries. Me+Mn+Mc+Other_Grapheme_Extend-Grapheme_Link-CGJ
+         */
+    I18N_UCHAR_GRAPHEME_LINK,
+        /**< Binary property Grapheme_Link (new in Unicode 3.2). \n
+             For programmatic determination of grapheme cluster boundaries.
+         */
+    I18N_UCHAR_HEX_DIGIT,
+        /**< Binary property Hex_Digit. \n
+             Characters commonly used for hexadecimal numbers.
+         */
+    I18N_UCHAR_HYPHEN,
+        /**< Binary property Hyphen. \n
+             Dashes used to mark connections between pieces of words, plus the Katakana middle dot.
+         */
+    I18N_UCHAR_ID_CONTINUE,
+        /**< Binary property ID_Continue. \n
+             Characters that can continue an identifier. DerivedCoreProperties.txt also says "NOTE: Cf characters should be filtered out." ID_Start+Mn+Mc+Nd+Pc
+         */
+    I18N_UCHAR_ID_START,
+        /**< Binary property ID_Start. \n
+             Characters that can start an identifier. Lu+Ll+Lt+Lm+Lo+Nl
+         */
+    I18N_UCHAR_IDEOGRAPHIC,
+        /**< Binary property Ideographic. \n
+             CJKV ideographs.
+         */
+    I18N_UCHAR_IDS_BINARY_OPERATOR,
+        /**< Binary property IDS_Binary_Operator (new in Unicode 3.2). \n
+             For programmatic determination of Ideographic Description Sequences.
+         */
+    I18N_UCHAR_IDS_TRINARY_OPERATOR,
+        /**< Binary property IDS_Trinary_Operator (new in Unicode 3.2). \n
+             For programmatic determination of Ideographic Description Sequences.
+         */
+    I18N_UCHAR_JOIN_CONTROL,
+        /**< Binary property Join_Control. \n
+             Format controls for cursive joining and ligation.
+         */
+    I18N_UCHAR_LOGICAL_ORDER_EXCEPTION,
+        /**< Binary property Logical_Order_Exception (new in Unicode 3.2). \n
+             Characters that do not use logical order and require special handling in most processing.
+         */
+    I18N_UCHAR_LOWERCASE,
+        /**< Binary property Lowercase. \n
+             Ll+Other_Lowercase
+         */
+    I18N_UCHAR_MATH,
+        /**< Binary property Math. \n
+             Sm+Other_Math
+         */
+    I18N_UCHAR_NONCHARACTER_CODE_POINT,
+        /**< Binary property Noncharacter_Code_Point. \n
+             Code points that are explicitly defined as illegal for the encoding of characters.
+         */
+    I18N_UCHAR_QUOTATION_MARK,
+        /**< Binary property Quotation_Mark. \n
+         */
+    I18N_UCHAR_RADICAL,
+        /**< Binary property Radical (new in Unicode 3.2). \n
+             For programmatic determination of Ideographic Description Sequences.
+         */
+    I18N_UCHAR_SOFT_DOTTED,
+        /**< Binary property Soft_Dotted (new in Unicode 3.2). \n
+             Characters with a "soft dot", like i or j. An accent placed on these characters causes the dot to disappear.
+         */
+    I18N_UCHAR_TERMINAL_PUNCTUATION,
+        /**< Binary property Terminal_Punctuation. \n
+             Punctuation characters that generally mark the end of textual units.
+         */
+    I18N_UCHAR_UNIFIED_IDEOGRAPH,
+        /**< Binary property Unified_Ideograph (new in Unicode 3.2). \n
+             For programmatic determination of Ideographic Description Sequences.
+         */
+    I18N_UCHAR_UPPERCASE,
+        /**< Binary property Uppercase. \n
+             Lu+Other_Uppercase
+         */
+    I18N_UCHAR_WHITE_SPACE,
+        /**< Binary property White_Space. \n
+             Space characters+TAB+CR+LF-ZWSP-ZWNBSP
+         */
+    I18N_UCHAR_XID_CONTINUE,
+        /**< Binary property XID_Continue. \n
+             ID_Continue modified to allow closure under normalization forms NFKC and NFKD.
+         */
+    I18N_UCHAR_XID_START,
+        /**< Binary property XID_Start. \n
+             ID_Start modified to allow closure under normalization forms NFKC and NFKD.
+         */
+    I18N_UCHAR_CASE_SENSITIVE,
+        /**< Binary property Case_Sensitive. \n
+             Either the source of a case mapping or <em>in</em> the target of a case mapping. Not the same as the general category Cased_Letter.
+         */
+    I18N_UCHAR_S_TERM,
+        /**< Binary property STerm (new in Unicode 4.0.1). \n
+         */
+    I18N_UCHAR_VARIATION_SELECTOR,
+        /**< Binary property Variation_Selector (new in Unicode 4.0.1). \n
+             Indicates all those characters that qualify as Variation Selectors.
+                  */
+    I18N_UCHAR_NFD_INERT,
+        /**< Binary property NFD_Inert. \n
+             ICU-specific property for characters that are inert under NFD, i.e., they do not interact with adjacent characters.
+         */
+    I18N_UCHAR_NFKD_INERT,
+        /**< Binary property NFKD_Inert. \n
+             ICU-specific property for characters that are inert under NFKD, i.e., they do not interact with adjacent characters.
+         */
+    I18N_UCHAR_NFC_INERT,
+        /**< Binary property NFC_Inert. \n
+             ICU-specific property for characters that are inert under NFC, i.e., they do not interact with adjacent characters.
+         */
+    I18N_UCHAR_NFKC_INERT,
+        /**< Binary property NFKC_Inert. \n
+             ICU-specific property for characters that are inert under NFKC, i.e., they do not interact with adjacent characters.
+         */
+    I18N_UCHAR_SEGMENT_STARTER,
+        /**< Binary Property Segment_Starter. \n
+             Property for characters that are starters in terms of Unicode normalization and combining character sequences.
+             They have ccc=0 and do not occur in non-initial position of the canonical decomposition of any character
+             (like a-umlaut in NFD and a Jamo T in an NFD(Hangul LVT)).
+         */
+    I18N_UCHAR_PATTERN_SYNTAX,
+        /**< Binary property Pattern_Syntax (new in Unicode 4.1). \n
+         */
+    I18N_UCHAR_PATTERN_WHITE_SPACE,
+        /**< Binary property Pattern_White_Space (new in Unicode 4.1). \n
+         */
+    I18N_UCHAR_POSIX_ALNUM,
+        /**< Binary property alnum (a C/POSIX character class).*/
+    I18N_UCHAR_POSIX_BLANK,
+        /**< Binary property blank (a C/POSIX character class).*/
+    I18N_UCHAR_POSIX_GRAPH,
+        /**< Binary property graph (a C/POSIX character class). */
+    I18N_UCHAR_POSIX_PRINT,
+        /**< Binary property print (a C/POSIX character class). */
+    I18N_UCHAR_POSIX_XDIGIT,
+        /**< Binary property xdigit (a C/POSIX character class). */
+    I18N_UCHAR_CASED,
+        /**< Binary property Cased. \n
+             For Lowercase, Uppercase and Titlecase characters.
+         */
+    I18N_UCHAR_CASE_IGNORABLE,
+        /**< Binary property Case_Ignorable. \n
+             Used in context-sensitive case mappings.
+         */
+    I18N_UCHAR_CHANGES_WHEN_LOWERCASED,
+        /**< Binary property Changes_When_Lowercased. */
+    I18N_UCHAR_CHANGES_WHEN_UPPERCASED,
+        /**< Binary property Changes_When_Uppercased. */
+    I18N_UCHAR_CHANGES_WHEN_TITLECASED,
+        /**< Binary property Changes_When_Titlecased. */
+    I18N_UCHAR_CHANGES_WHEN_CASEFOLDED,
+        /**< Binary property Changes_When_Casefolded. */
+    I18N_UCHAR_CHANGES_WHEN_CASEMAPPED,
+        /**< Binary property Changes_When_Casemapped. */
+    I18N_UCHAR_CHANGES_WHEN_NFKC_CASEFOLDED,
+        /**< Binary property Changes_When_NFKC_Casefolded. */
+    I18N_UCHAR_BINARY_LIMIT,
+        /**< One more than the last constant for binary Unicode properties. */
+    I18N_UCHAR_BIDI_CLASS                      = 0x1000,
+        /**< Enumerated property Bidi_Class. \n
+             Same as u_charDirection, returns #i18n_uchar_direction_e values.
+         */
+    I18N_UCHAR_INT_START                       = I18N_UCHAR_BIDI_CLASS,
+        /**< First constant for enumerated/integer Unicode properties. */
+    I18N_UCHAR_BLOCK,
+        /**< Enumerated property Block. \n
+             Returns #i18n_uchar_ublock_code_e values.
+         */
+    I18N_UCHAR_CANONICAL_COMBINING_CLASS,
+        /**< Enumerated property Canonical_Combining_Class. \n
+             Returns 8-bit numeric values.
+         */
+    I18N_UCHAR_DECOMPOSITION_TYPE,
+        /**< Enumerated property Decomposition_Type. \n
+             Returns #i18n_uchar_u_decomposition_type_e values.
+         */
+    I18N_UCHAR_EAST_ASIAN_WIDTH,
+        /**< Enumerated property East_Asian_Width. \n
+              Returns #i18n_uchar_u_east_asian_width_e values.
+         */
+    I18N_UCHAR_GENERAL_CATEGORY,
+        /**< Enumerated property General_Category. \n
+             Returns #i18n_uchar_category_e values.
+         */
+    I18N_UCHAR_JOINING_GROUP,
+        /**< Enumerated property Joining_Group. \n
+             Returns #i18n_uchar_u_joining_group_e values.
+         */
+    I18N_UCHAR_JOINING_TYPE,
+        /**< Enumerated property Joining_Type. \n
+             Returns #i18n_uchar_u_joining_type_e values.
+         */
+    I18N_UCHAR_LINE_BREAK,
+        /**< Enumerated property Line_Break. \n
+             Returns #i18n_uchar_u_line_break_e values.
+         */
+    I18N_UCHAR_NUMERIC_TYPE,
+        /**< Enumerated property Numeric_Type. \n
+             Returns #i18n_uchar_u_numeric_type_e values.
+         */
+    I18N_UCHAR_SCRIPT,
+        /**< Enumerated property Script. \n
+             Returns #i18n_uscript_code_e values.
+         */
+    I18N_UCHAR_HANGUL_SYLLABLE_TYPE,
+        /**< Enumerated property Hangul_Syllable_Type, new in Unicode 4. \n
+             Returns #i18n_uchar_u_hangul_syllable_type_e values.
+         */
+    I18N_UCHAR_NFD_QUICK_CHECK,
+        /**< Enumerated property NFD_Quick_Check. \n
+             Returns #i18n_unormalization_check_result_e values.
+         */
+    I18N_UCHAR_NFKD_QUICK_CHECK,
+        /**< Enumerated property NFKD_Quick_Check. \n
+             Returns #i18n_unormalization_check_result_e values.
+         */
+    I18N_UCHAR_NFC_QUICK_CHECK,
+        /**< Enumerated property NFC_Quick_Check. \n
+             Returns #i18n_unormalization_check_result_e values.
+         */
+    I18N_UCHAR_NFKC_QUICK_CHECK,
+        /**< Enumerated property NFKC_Quick_Check. \n
+             Returns #i18n_unormalization_check_result_e values.
+         */
+    I18N_UCHAR_LEAD_CANONICAL_COMBINING_CLASS,
+        /**< Enumerated property Lead_Canonical_Combining_Class. \n
+             Returns 8-bit numeric values like #UCHAR_CANONICAL_COMBINING_CLASS.
+         */
+    I18N_UCHAR_TRAIL_CANONICAL_COMBINING_CLASS,
+        /**< Enumerated property Trail_Canonical_Combining_Class. \n
+             Returns 8-bit numeric values like #UCHAR_CANONICAL_COMBINING_CLASS.
+         */
+    I18N_UCHAR_GRAPHEME_CLUSTER_BREAK,
+        /**< Enumerated property Grapheme_Cluster_Break (new in Unicode 4.1). \n
+             Returns #i18n_uchar_u_grapheme_cluster_break_e values.
+         */
+    I18N_UCHAR_SENTENCE_BREAK,
+        /**< Enumerated property Sentence_Break (new in Unicode 4.1). \n
+             Returns #i18n_uchar_u_sentence_break_e values.
+         */
+    I18N_UCHAR_WORD_BREAK,
+        /**< Enumerated property Word_Break (new in Unicode 4.1). \n
+             Returns #i18n_uchar_u_word_break_values_e values.
+         */
+    I18N_UCHAR_BIDI_PAIRED_BRACKET_TYPE,
+        /**< Unsupported yet. Please do not use.  */
+    I18N_UCHAR_INT_LIMIT,
+        /**< One more than the last constant for enumerated/integer Unicode properties. */
+    I18N_UCHAR_GENERAL_CATEGORY_MASK           = 0x2000,
+        /**< Bitmask property General_Category_Mask. \n
+             Mask values should be cast to uint32_t.
+         */
+    I18N_UCHAR_MASK_START                      = I18N_UCHAR_GENERAL_CATEGORY_MASK,
+        /**< First constant for bit-mask Unicode properties. */
+    I18N_UCHAR_MASK_LIMIT,
+        /**< One more than the last constant for bit-mask Unicode properties. */
+    I18N_UCHAR_NUMERIC_VALUE                   = 0x3000,
+        /**< Double property Numeric_Value. */
+    I18N_UCHAR_DOUBLE_START                    = I18N_UCHAR_NUMERIC_VALUE,
+        /**< First constant for double Unicode properties. */
+    I18N_UCHAR_DOUBLE_LIMIT,
+        /**< One more than the last constant for double Unicode properties. */
+    I18N_UCHAR_AGE                             = 0x4000,
+        /**< String property Age. */
+    I18N_UCHAR_STRING_START                    = I18N_UCHAR_AGE,
+        /**< First constant for string Unicode properties. */
+    I18N_UCHAR_BIDI_MIRRORING_GLYPH,
+        /**< String property Bidi_Mirroring_Glyph. */
+    I18N_UCHAR_CASE_FOLDING,
+        /**< String property Case_Folding. */
+    I18N_UCHAR_LOWERCASE_MAPPING               = 0x4004,
+        /**< String property Lowercase_Mapping. */
+    I18N_UCHAR_NAME,
+        /**< String property Name. */
+    I18N_UCHAR_SIMPLE_CASE_FOLDING,
+        /**< String property Simple_Case_Folding. */
+    I18N_UCHAR_SIMPLE_LOWERCASE_MAPPING,
+        /**< String property Simple_Lowercase_Mapping. */
+    I18N_UCHAR_SIMPLE_TITLECASE_MAPPING,
+        /**< String property Simple_Titlecase_Mapping. */
+    I18N_UCHAR_SIMPLE_UPPERCASE_MAPPING,
+        /**< String property Simple_Uppercase_Mapping. */
+    I18N_UCHAR_TITLECASE_MAPPING,
+        /**< String property Titlecase_Mapping. */
+    I18N_UCHAR_UPPERCASE_MAPPING               = 0x400C,
+        /**< String property Uppercase_Mapping. */
+    I18N_UCHAR_BIDI_PAIRED_BRACKET,
+        /**< Unsupported yet. Please do not use. */
+    I18N_UCHAR_STRING_LIMIT,
+        /**< One more than the last constant for string Unicode properties. */
+    I18N_UCHAR_SCRIPT_EXTENSIONS               = 0x7000,
+        /**< Provisional property Script_Extensions (new in Unicode 6.0). */
+    I18N_UCHAR_OTHER_PROPERTY_START            = I18N_UCHAR_SCRIPT_EXTENSIONS,
+        /**< First constant for Unicode properties with unusual value types. */
+    I18N_UCHAR_OTHER_PROPERTY_LIMIT,
+        /**< One more than the last constant for Unicode properties with unusual value types. */
+    I18N_UCHAR_INVALID_CODE                    = -1
+        /**< Represents a nonexistent or invalid property or property value. */
 } i18n_uchar_uproperty_e;
 
 /**
@@ -351,235 +585,228 @@ typedef enum {
  *
  */
 typedef enum {
-    I18N_UCHAR_UBLOCK_NO_BLOCK,                                                  /**<  */
-    I18N_UCHAR_UBLOCK_BASIC_LATIN,                                               /**<  */
-    I18N_UCHAR_UBLOCK_LATIN_1_SUPPLEMENT,                                        /**<  */
-    I18N_UCHAR_UBLOCK_LATIN_EXTENDED_A,                                          /**<  */
-    I18N_UCHAR_UBLOCK_LATIN_EXTENDED_B,                                          /**<  */
-    I18N_UCHAR_UBLOCK_IPA_EXTENSIONS,                                            /**<  */
-    I18N_UCHAR_UBLOCK_SPACING_MODIFIER_LETTERS,                                  /**<  */
-    I18N_UCHAR_UBLOCK_COMBINING_DIACRITICAL_MARKS,                               /**<  */
-    I18N_UCHAR_UBLOCK_GREEK,                                                     /**<  */
-    I18N_UCHAR_UBLOCK_CYRILLIC,                                                  /**<  */
-    I18N_UCHAR_UBLOCK_ARMENIAN,                                                  /**<  */
-    I18N_UCHAR_UBLOCK_HEBREW,                                                    /**<  */
-    I18N_UCHAR_UBLOCK_ARABIC,                                                    /**<  */
-    I18N_UCHAR_UBLOCK_SYRIAC,                                                    /**<  */
-    I18N_UCHAR_UBLOCK_THAANA,                                                    /**<  */
-    I18N_UCHAR_UBLOCK_DEVANAGARI,                                                /**<  */
-    I18N_UCHAR_UBLOCK_BENGALI,                                                   /**<  */
-    I18N_UCHAR_UBLOCK_GURMUKHI,                                                  /**<  */
-    I18N_UCHAR_UBLOCK_GUJARATI,                                                  /**<  */
-    I18N_UCHAR_UBLOCK_ORIYA,                                                     /**<  */
-    I18N_UCHAR_UBLOCK_TAMIL,                                                     /**<  */
-    I18N_UCHAR_UBLOCK_TELUGU,                                                    /**<  */
-    I18N_UCHAR_UBLOCK_KANNADA,                                                   /**<  */
-    I18N_UCHAR_UBLOCK_MALAYALAM,                                                 /**<  */
-    I18N_UCHAR_UBLOCK_SINHALA,                                                   /**<  */
-    I18N_UCHAR_UBLOCK_THAI,                                                      /**<  */
-    I18N_UCHAR_UBLOCK_LAO,                                                       /**<  */
-    I18N_UCHAR_UBLOCK_TIBETAN,                                                   /**<  */
-    I18N_UCHAR_UBLOCK_MYANMAR,                                                   /**<  */
-    I18N_UCHAR_UBLOCK_GEORGIAN,                                                  /**<  */
-    I18N_UCHAR_UBLOCK_HANGUL_JAMO,                                               /**<  */
-    I18N_UCHAR_UBLOCK_ETHIOPIC,                                                  /**<  */
-    I18N_UCHAR_UBLOCK_CHEROKEE,                                                  /**<  */
-    I18N_UCHAR_UBLOCK_UNIFIED_CANADIAN_ABORIGINAL_SYLLABICS,                     /**<  */
-    I18N_UCHAR_UBLOCK_OGHAM,                                                     /**<  */
-    I18N_UCHAR_UBLOCK_RUNIC,                                                     /**<  */
-    I18N_UCHAR_UBLOCK_KHMER,                                                     /**<  */
-    I18N_UCHAR_UBLOCK_MONGOLIAN,                                                 /**<  */
-    I18N_UCHAR_UBLOCK_LATIN_EXTENDED_ADDITIONAL,                                 /**<  */
-    I18N_UCHAR_UBLOCK_GREEK_EXTENDED,                                            /**<  */
-    I18N_UCHAR_UBLOCK_GENERAL_PUNCTUATION,                                       /**<  */
-    I18N_UCHAR_UBLOCK_SUPERSCRIPTS_AND_SUBSCRIPTS,                               /**<  */
-    I18N_UCHAR_UBLOCK_CURRENCY_SYMBOLS,                                          /**<  */
-    I18N_UCHAR_UBLOCK_COMBINING_MARKS_FOR_SYMBOLS,                               /**<  */
-    I18N_UCHAR_UBLOCK_LETTERLIKE_SYMBOLS,                                        /**<  */
-    I18N_UCHAR_UBLOCK_NUMBER_FORMS,                                              /**<  */
-    I18N_UCHAR_UBLOCK_ARROWS,                                                    /**<  */
-    I18N_UCHAR_UBLOCK_MATHEMATICAL_OPERATORS,                                    /**<  */
-    I18N_UCHAR_UBLOCK_MISCELLANEOUS_TECHNICAL,                                   /**<  */
-    I18N_UCHAR_UBLOCK_CONTROL_PICTURES,                                          /**<  */
-    I18N_UCHAR_UBLOCK_OPTICAL_CHARACTER_RECOGNITION,                             /**<  */
-    I18N_UCHAR_UBLOCK_ENCLOSED_ALPHANUMERICS,                                    /**<  */
-    I18N_UCHAR_UBLOCK_BOX_DRAWING,                                               /**<  */
-    I18N_UCHAR_UBLOCK_BLOCK_ELEMENTS,                                            /**<  */
-    I18N_UCHAR_UBLOCK_GEOMETRIC_SHAPES,                                          /**<  */
-    I18N_UCHAR_UBLOCK_MISCELLANEOUS_SYMBOLS,                                     /**<  */
-    I18N_UCHAR_UBLOCK_DINGBATS,                                                  /**<  */
-    I18N_UCHAR_UBLOCK_BRAILLE_PATTERNS,                                          /**<  */
-    I18N_UCHAR_UBLOCK_CJK_RADICALS_SUPPLEMENT,                                   /**<  */
-    I18N_UCHAR_UBLOCK_KANGXI_RADICALS,                                           /**<  */
-    I18N_UCHAR_UBLOCK_IDEOGRAPHIC_DESCRIPTION_CHARACTERS,                        /**<  */
-    I18N_UCHAR_UBLOCK_CJK_SYMBOLS_AND_PUNCTUATION,                               /**<  */
-    I18N_UCHAR_UBLOCK_HIRAGANA,                                                  /**<  */
-    I18N_UCHAR_UBLOCK_KATAKANA,                                                  /**<  */
-    I18N_UCHAR_UBLOCK_BOPOMOFO,                                                  /**<  */
-    I18N_UCHAR_UBLOCK_HANGUL_COMPATIBILITY_JAMO,                                 /**<  */
-    I18N_UCHAR_UBLOCK_KANBUN,                                                    /**<  */
-    I18N_UCHAR_UBLOCK_BOPOMOFO_EXTENDED,                                         /**<  */
-    I18N_UCHAR_UBLOCK_ENCLOSED_CJK_LETTERS_AND_MONTHS,                           /**<  */
-    I18N_UCHAR_UBLOCK_CJK_COMPATIBILITY,                                         /**<  */
-    I18N_UCHAR_UBLOCK_CJK_UNIFIED_IDEOGRAPHS_EXTENSION_A,                        /**<  */
-    I18N_UCHAR_UBLOCK_CJK_UNIFIED_IDEOGRAPHS,                                    /**<  */
-    I18N_UCHAR_UBLOCK_YI_SYLLABLES,                                              /**<  */
-    I18N_UCHAR_UBLOCK_YI_RADICALS,                                               /**<  */
-    I18N_UCHAR_UBLOCK_HANGUL_SYLLABLES,                                          /**<  */
-    I18N_UCHAR_UBLOCK_HIGH_SURROGATES,                                           /**<  */
-    I18N_UCHAR_UBLOCK_HIGH_PRIVATE_USE_SURROGATES,                               /**<  */
-    I18N_UCHAR_UBLOCK_LOW_SURROGATES,                                            /**<  */
-    I18N_UCHAR_UBLOCK_PRIVATE_USE_AREA,                                          /**<  */
-    I18N_UCHAR_UBLOCK_PRIVATE_USE,                                               /**<  */
-    I18N_UCHAR_UBLOCK_CJK_COMPATIBILITY_IDEOGRAPHS,                              /**<  */
+    I18N_UCHAR_UBLOCK_NO_BLOCK,                                                  /**< No Block */
+    I18N_UCHAR_UBLOCK_BASIC_LATIN,                                               /**< Basic Latin */
+    I18N_UCHAR_UBLOCK_LATIN_1_SUPPLEMENT,                                        /**< Latin_1 Supplement */
+    I18N_UCHAR_UBLOCK_LATIN_EXTENDED_A,                                          /**< Latin Extended A */
+    I18N_UCHAR_UBLOCK_LATIN_EXTENDED_B,                                          /**< Latin Extended B */
+    I18N_UCHAR_UBLOCK_IPA_EXTENSIONS,                                            /**< IPA Extensions */
+    I18N_UCHAR_UBLOCK_SPACING_MODIFIER_LETTERS,                                  /**< Spacing Modifier Letters */
+    I18N_UCHAR_UBLOCK_COMBINING_DIACRITICAL_MARKS,                               /**< Combining Diacritical Marks */
+    I18N_UCHAR_UBLOCK_GREEK,                                                     /**< Greek */
+    I18N_UCHAR_UBLOCK_CYRILLIC,                                                  /**< Cyrillic */
+    I18N_UCHAR_UBLOCK_ARMENIAN,                                                  /**< Armenian */
+    I18N_UCHAR_UBLOCK_HEBREW,                                                    /**< Hebrew */
+    I18N_UCHAR_UBLOCK_ARABIC,                                                    /**< Arabic */
+    I18N_UCHAR_UBLOCK_SYRIAC,                                                    /**< Syriac */
+    I18N_UCHAR_UBLOCK_THAANA,                                                    /**< Thaana */
+    I18N_UCHAR_UBLOCK_DEVANAGARI,                                                /**< Devanagari */
+    I18N_UCHAR_UBLOCK_BENGALI,                                                   /**< Bengali */
+    I18N_UCHAR_UBLOCK_GURMUKHI,                                                  /**< Gurmukhi */
+    I18N_UCHAR_UBLOCK_GUJARATI,                                                  /**< Gujarati */
+    I18N_UCHAR_UBLOCK_ORIYA,                                                     /**< Oriya */
+    I18N_UCHAR_UBLOCK_TAMIL,                                                     /**< Tamil */
+    I18N_UCHAR_UBLOCK_TELUGU,                                                    /**< Telugu */
+    I18N_UCHAR_UBLOCK_KANNADA,                                                   /**< Kannada */
+    I18N_UCHAR_UBLOCK_MALAYALAM,                                                 /**< Malayalam */
+    I18N_UCHAR_UBLOCK_SINHALA,                                                   /**< Sinhala */
+    I18N_UCHAR_UBLOCK_THAI,                                                      /**< Thai */
+    I18N_UCHAR_UBLOCK_LAO,                                                       /**< Lao */
+    I18N_UCHAR_UBLOCK_TIBETAN,                                                   /**< Tibetan */
+    I18N_UCHAR_UBLOCK_MYANMAR,                                                   /**< Myanmar */
+    I18N_UCHAR_UBLOCK_GEORGIAN,                                                  /**< Georgian */
+    I18N_UCHAR_UBLOCK_HANGUL_JAMO,                                               /**< Hangul Jamo */
+    I18N_UCHAR_UBLOCK_ETHIOPIC,                                                  /**< Ethiopic */
+    I18N_UCHAR_UBLOCK_CHEROKEE,                                                  /**< Cherokee */
+    I18N_UCHAR_UBLOCK_UNIFIED_CANADIAN_ABORIGINAL_SYLLABICS,                     /**< Unified Canadian Aboriginal Syllabics */
+    I18N_UCHAR_UBLOCK_OGHAM,                                                     /**< Ogham */
+    I18N_UCHAR_UBLOCK_RUNIC,                                                     /**< Runic */
+    I18N_UCHAR_UBLOCK_KHMER,                                                     /**< Khmer */
+    I18N_UCHAR_UBLOCK_MONGOLIAN,                                                 /**< Mongolian */
+    I18N_UCHAR_UBLOCK_LATIN_EXTENDED_ADDITIONAL,                                 /**< Latin Extended Additional */
+    I18N_UCHAR_UBLOCK_GREEK_EXTENDED,                                            /**< Greek Extended */
+    I18N_UCHAR_UBLOCK_GENERAL_PUNCTUATION,                                       /**< General Punctuation */
+    I18N_UCHAR_UBLOCK_SUPERSCRIPTS_AND_SUBSCRIPTS,                               /**< Superscripts And Subscripts */
+    I18N_UCHAR_UBLOCK_CURRENCY_SYMBOLS,                                          /**< Currency Symbols */
+    I18N_UCHAR_UBLOCK_COMBINING_MARKS_FOR_SYMBOLS,                               /**< Combining Marks For Symbols */
+    I18N_UCHAR_UBLOCK_LETTERLIKE_SYMBOLS,                                        /**< Letterlike Symbols */
+    I18N_UCHAR_UBLOCK_NUMBER_FORMS,                                              /**< Number Forms */
+    I18N_UCHAR_UBLOCK_ARROWS,                                                    /**< Arrows */
+    I18N_UCHAR_UBLOCK_MATHEMATICAL_OPERATORS,                                    /**< Mathematical Operators */
+    I18N_UCHAR_UBLOCK_MISCELLANEOUS_TECHNICAL,                                   /**< Miscellaneous Technical */
+    I18N_UCHAR_UBLOCK_CONTROL_PICTURES,                                          /**< Control Pictures */
+    I18N_UCHAR_UBLOCK_OPTICAL_CHARACTER_RECOGNITION,                             /**< Optical Character Recognition */
+    I18N_UCHAR_UBLOCK_ENCLOSED_ALPHANUMERICS,                                    /**< Enclosed Alphanumerics */
+    I18N_UCHAR_UBLOCK_BOX_DRAWING,                                               /**< Box Drawing */
+    I18N_UCHAR_UBLOCK_BLOCK_ELEMENTS,                                            /**< Block Elements */
+    I18N_UCHAR_UBLOCK_GEOMETRIC_SHAPES,                                          /**< Geometric Shapes */
+    I18N_UCHAR_UBLOCK_MISCELLANEOUS_SYMBOLS,                                     /**< Miscellaneous Symbols */
+    I18N_UCHAR_UBLOCK_DINGBATS,                                                  /**< Dingbats */
+    I18N_UCHAR_UBLOCK_BRAILLE_PATTERNS,                                          /**< Braille Patterns */
+    I18N_UCHAR_UBLOCK_CJK_RADICALS_SUPPLEMENT,                                   /**< CJK Radicals Supplement */
+    I18N_UCHAR_UBLOCK_KANGXI_RADICALS,                                           /**< Kangxi Radicals */
+    I18N_UCHAR_UBLOCK_IDEOGRAPHIC_DESCRIPTION_CHARACTERS,                        /**< Ideographic Description Characters */
+    I18N_UCHAR_UBLOCK_CJK_SYMBOLS_AND_PUNCTUATION,                               /**< CJK Symbols And Punctuation */
+    I18N_UCHAR_UBLOCK_HIRAGANA,                                                  /**< Hiragana */
+    I18N_UCHAR_UBLOCK_KATAKANA,                                                  /**< Katakana */
+    I18N_UCHAR_UBLOCK_BOPOMOFO,                                                  /**< Bopomofo */
+    I18N_UCHAR_UBLOCK_HANGUL_COMPATIBILITY_JAMO,                                 /**< Hangul Compatibility Jamo */
+    I18N_UCHAR_UBLOCK_KANBUN,                                                    /**< Kanbun */
+    I18N_UCHAR_UBLOCK_BOPOMOFO_EXTENDED,                                         /**< Bopomofo Extended */
+    I18N_UCHAR_UBLOCK_ENCLOSED_CJK_LETTERS_AND_MONTHS,                           /**< Enclosed CJK Letters And Months */
+    I18N_UCHAR_UBLOCK_CJK_COMPATIBILITY,                                         /**< CJK Compatibility */
+    I18N_UCHAR_UBLOCK_CJK_UNIFIED_IDEOGRAPHS_EXTENSION_A,                        /**< CJK Unified Ideographs Extension A */
+    I18N_UCHAR_UBLOCK_CJK_UNIFIED_IDEOGRAPHS,                                    /**< CJK Unified Ideographs */
+    I18N_UCHAR_UBLOCK_YI_SYLLABLES,                                              /**< Yi Syllables */
+    I18N_UCHAR_UBLOCK_YI_RADICALS,                                               /**< Yi Radicals */
+    I18N_UCHAR_UBLOCK_HANGUL_SYLLABLES,                                          /**< Hangul Syllables */
+    I18N_UCHAR_UBLOCK_HIGH_SURROGATES,                                           /**< High Surrogates */
+    I18N_UCHAR_UBLOCK_HIGH_PRIVATE_USE_SURROGATES,                               /**< High Private Use Surrogates */
+    I18N_UCHAR_UBLOCK_LOW_SURROGATES,                                            /**< Low Surrogates */
+    I18N_UCHAR_UBLOCK_PRIVATE_USE_AREA,                                          /**< Private Use Area */
+    I18N_UCHAR_UBLOCK_PRIVATE_USE,                                               /**< Private Use */
+    I18N_UCHAR_UBLOCK_CJK_COMPATIBILITY_IDEOGRAPHS,                              /**< CJK Compatibility Ideographs */
 
-    I18N_UCHAR_UBLOCK_ALPHABETIC_PRESENTATION_FORMS,                             /**<  */
-    I18N_UCHAR_UBLOCK_ARABIC_PRESENTATION_FORMS_A,                               /**<  */
-    I18N_UCHAR_UBLOCK_COMBINING_HALF_MARKS,                                      /**<  */
-    I18N_UCHAR_UBLOCK_CJK_COMPATIBILITY_FORMS,                                   /**<  */
-    I18N_UCHAR_UBLOCK_SMALL_FORM_VARIANTS,                                       /**<  */
-    I18N_UCHAR_UBLOCK_ARABIC_PRESENTATION_FORMS_B,                               /**<  */
-    I18N_UCHAR_UBLOCK_SPECIALS,                                                  /**<  */
-    I18N_UCHAR_UBLOCK_HALFWIDTH_AND_FULLWIDTH_FORMS,                             /**<  */
-    I18N_UCHAR_UBLOCK_OLD_ITALIC,                                                /**<  */
-    I18N_UCHAR_UBLOCK_GOTHIC,                                                    /**<  */
-    I18N_UCHAR_UBLOCK_DESERET,                                                   /**<  */
-    I18N_UCHAR_UBLOCK_BYZANTINE_MUSICAL_SYMBOLS,                                 /**<  */
-    I18N_UCHAR_UBLOCK_MUSICAL_SYMBOLS,                                           /**<  */
-    I18N_UCHAR_UBLOCK_MATHEMATICAL_ALPHANUMERIC_SYMBOLS,                         /**<  */
-    I18N_UCHAR_UBLOCK_CJK_UNIFIED_IDEOGRAPHS_EXTENSION_B,                        /**<  */
-    I18N_UCHAR_UBLOCK_CJK_COMPATIBILITY_IDEOGRAPHS_SUPPLEMENT,                   /**<  */
-    I18N_UCHAR_UBLOCK_TAGS,                                                      /**<  */
-    I18N_UCHAR_UBLOCK_CYRILLIC_SUPPLEMENT,                                       /**<  */
-    I18N_UCHAR_UBLOCK_CYRILLIC_SUPPLEMENTARY,                                    /**<  */
-    I18N_UCHAR_UBLOCK_TAGALOG,                                                   /**<  */
-    I18N_UCHAR_UBLOCK_HANUNOO,                                                   /**<  */
-    I18N_UCHAR_UBLOCK_BUHID,                                                     /**<  */
-    I18N_UCHAR_UBLOCK_TAGBANWA,                                                  /**<  */
-    I18N_UCHAR_UBLOCK_MISCELLANEOUS_MATHEMATICAL_SYMBOLS_A,                      /**<  */
-    I18N_UCHAR_UBLOCK_SUPPLEMENTAL_ARROWS_A,                                     /**<  */
-    I18N_UCHAR_UBLOCK_SUPPLEMENTAL_ARROWS_B,                                     /**<  */
-    I18N_UCHAR_UBLOCK_MISCELLANEOUS_MATHEMATICAL_SYMBOLS_B,                      /**<  */
-    I18N_UCHAR_UBLOCK_SUPPLEMENTAL_MATHEMATICAL_OPERATORS,                       /**<  */
-    I18N_UCHAR_UBLOCK_KATAKANA_PHONETIC_EXTENSIONS,                              /**<  */
-    I18N_UCHAR_UBLOCK_VARIATION_SELECTORS,                                       /**<  */
-    I18N_UCHAR_UBLOCK_SUPPLEMENTARY_PRIVATE_USE_AREA_A,                          /**<  */
-    I18N_UCHAR_UBLOCK_SUPPLEMENTARY_PRIVATE_USE_AREA_B,                          /**<  */
-    I18N_UCHAR_UBLOCK_LIMBU,                                                     /**<  */
-    I18N_UCHAR_UBLOCK_TAI_LE,                                                    /**<  */
-    I18N_UCHAR_UBLOCK_KHMER_SYMBOLS,                                             /**<  */
-    I18N_UCHAR_UBLOCK_PHONETIC_EXTENSIONS,                                       /**<  */
-    I18N_UCHAR_UBLOCK_MISCELLANEOUS_SYMBOLS_AND_ARROWS,                          /**<  */
-    I18N_UCHAR_UBLOCK_YIJING_HEXAGRAM_SYMBOLS,                                   /**<  */
-    I18N_UCHAR_UBLOCK_LINEAR_B_SYLLABARY,                                        /**<  */
-    I18N_UCHAR_UBLOCK_LINEAR_B_IDEOGRAMS,                                        /**<  */
-    I18N_UCHAR_UBLOCK_AEGEAN_NUMBERS,                                            /**<  */
-    I18N_UCHAR_UBLOCK_UGARITIC,                                                  /**<  */
-    I18N_UCHAR_UBLOCK_SHAVIAN,                                                   /**<  */
-    I18N_UCHAR_UBLOCK_OSMANYA,                                                   /**<  */
-    I18N_UCHAR_UBLOCK_CYPRIOT_SYLLABARY,                                         /**<  */
-    I18N_UCHAR_UBLOCK_TAI_XUAN_JING_SYMBOLS,                                     /**<  */
-    I18N_UCHAR_UBLOCK_VARIATION_SELECTORS_SUPPLEMENT,                            /**<  */
-    I18N_UCHAR_UBLOCK_ANCIENT_GREEK_MUSICAL_NOTATION,                            /**<  */
-    I18N_UCHAR_UBLOCK_ANCIENT_GREEK_NUMBERS,                                     /**<  */
-    I18N_UCHAR_UBLOCK_ARABIC_SUPPLEMENT,                                         /**<  */
-    I18N_UCHAR_UBLOCK_BUGINESE,                                                  /**<  */
-    I18N_UCHAR_UBLOCK_CJK_STROKES,                                               /**<  */
-    I18N_UCHAR_UBLOCK_COMBINING_DIACRITICAL_MARKS_SUPPLEMENT,                    /**<  */
-    I18N_UCHAR_UBLOCK_COPTIC,                                                    /**<  */
-    I18N_UCHAR_UBLOCK_ETHIOPIC_EXTENDED,                                         /**<  */
-    I18N_UCHAR_UBLOCK_ETHIOPIC_SUPPLEMENT,                                       /**<  */
-    I18N_UCHAR_UBLOCK_GEORGIAN_SUPPLEMENT,                                       /**<  */
-    I18N_UCHAR_UBLOCK_GLAGOLITIC,                                                /**<  */
-    I18N_UCHAR_UBLOCK_KHAROSHTHI,                                                /**<  */
-    I18N_UCHAR_UBLOCK_MODIFIER_TONE_LETTERS,                                     /**<  */
-    I18N_UCHAR_UBLOCK_NEW_TAI_LUE,                                               /**<  */
-    I18N_UCHAR_UBLOCK_OLD_PERSIAN,                                               /**<  */
-    I18N_UCHAR_UBLOCK_PHONETIC_EXTENSIONS_SUPPLEMENT,                            /**<  */
-    I18N_UCHAR_UBLOCK_SUPPLEMENTAL_PUNCTUATION,                                  /**<  */
-    I18N_UCHAR_UBLOCK_SYLOTI_NAGRI,                                              /**<  */
-    I18N_UCHAR_UBLOCK_TIFINAGH,                                                  /**<  */
-    I18N_UCHAR_UBLOCK_VERTICAL_FORMS,                                            /**<  */
-    I18N_UCHAR_UBLOCK_NKO,                                                       /**<  */
-    I18N_UCHAR_UBLOCK_BALINESE,                                                  /**<  */
-    I18N_UCHAR_UBLOCK_LATIN_EXTENDED_C,                                          /**<  */
-    I18N_UCHAR_UBLOCK_LATIN_EXTENDED_D,                                          /**<  */
-    I18N_UCHAR_UBLOCK_PHAGS_PA,                                                  /**<  */
-    I18N_UCHAR_UBLOCK_PHOENICIAN,                                                /**<  */
-    I18N_UCHAR_UBLOCK_CUNEIFORM,                                                 /**<  */
-    I18N_UCHAR_UBLOCK_CUNEIFORM_NUMBERS_AND_PUNCTUATION,                         /**<  */
-    I18N_UCHAR_UBLOCK_COUNTING_ROD_NUMERALS,                                     /**<  */
-    I18N_UCHAR_UBLOCK_SUNDANESE,                                                 /**<  */
-    I18N_UCHAR_UBLOCK_LEPCHA,                                                    /**<  */
-    I18N_UCHAR_UBLOCK_OL_CHIKI,                                                  /**<  */
-    I18N_UCHAR_UBLOCK_CYRILLIC_EXTENDED_A,                                       /**<  */
-    I18N_UCHAR_UBLOCK_VAI,                                                       /**<  */
-    I18N_UCHAR_UBLOCK_CYRILLIC_EXTENDED_B,                                       /**<  */
-    I18N_UCHAR_UBLOCK_SAURASHTRA,                                                /**<  */
-    I18N_UCHAR_UBLOCK_KAYAH_LI,                                                  /**<  */
-    I18N_UCHAR_UBLOCK_REJANG,                                                    /**<  */
-    I18N_UCHAR_UBLOCK_CHAM,                                                      /**<  */
-    I18N_UCHAR_UBLOCK_ANCIENT_SYMBOLS,                                           /**<  */
-    I18N_UCHAR_UBLOCK_PHAISTOS_DISC,                                             /**<  */
-    I18N_UCHAR_UBLOCK_LYCIAN,                                                    /**<  */
-    I18N_UCHAR_UBLOCK_CARIAN,                                                    /**<  */
-    I18N_UCHAR_UBLOCK_LYDIAN,                                                    /**<  */
-    I18N_UCHAR_UBLOCK_MAHJONG_TILES,                                             /**<  */
-    I18N_UCHAR_UBLOCK_DOMINO_TILES,                                              /**<  */
-    I18N_UCHAR_UBLOCK_SAMARITAN,                                                 /**<  */
-    I18N_UCHAR_UBLOCK_UNIFIED_CANADIAN_ABORIGINAL_SYLLABICS_EXTENDED,            /**<  */
-    I18N_UCHAR_UBLOCK_TAI_THAM,                                                  /**<  */
-    I18N_UCHAR_UBLOCK_VEDIC_EXTENSIONS,                                          /**<  */
-    I18N_UCHAR_UBLOCK_LISU,                                                      /**<  */
-    I18N_UCHAR_UBLOCK_BAMUM,                                                     /**<  */
-    I18N_UCHAR_UBLOCK_COMMON_INDIC_NUMBER_FORMS,                                 /**<  */
-    I18N_UCHAR_UBLOCK_DEVANAGARI_EXTENDED,                                       /**<  */
-    I18N_UCHAR_UBLOCK_HANGUL_JAMO_EXTENDED_A,                                    /**<  */
-    I18N_UCHAR_UBLOCK_JAVANESE,                                                  /**<  */
-    I18N_UCHAR_UBLOCK_MYANMAR_EXTENDED_A,                                        /**<  */
-    I18N_UCHAR_UBLOCK_TAI_VIET,                                                  /**<  */
-    I18N_UCHAR_UBLOCK_MEETEI_MAYEK,                                              /**<  */
-    I18N_UCHAR_UBLOCK_HANGUL_JAMO_EXTENDED_B,                                    /**<  */
-    I18N_UCHAR_UBLOCK_IMPERIAL_ARAMAIC,                                          /**<  */
-    I18N_UCHAR_UBLOCK_OLD_SOUTH_ARABIAN,                                         /**<  */
-    I18N_UCHAR_UBLOCK_AVESTAN,                                                   /**<  */
-    I18N_UCHAR_UBLOCK_INSCRIPTIONAL_PARTHIAN,                                    /**<  */
-    I18N_UCHAR_UBLOCK_INSCRIPTIONAL_PAHLAVI,                                     /**<  */
-    I18N_UCHAR_UBLOCK_OLD_TURKIC,                                                /**<  */
-    I18N_UCHAR_UBLOCK_RUMI_NUMERAL_SYMBOLS,                                      /**<  */
-    I18N_UCHAR_UBLOCK_KAITHI,                                                    /**<  */
-    I18N_UCHAR_UBLOCK_EGYPTIAN_HIEROGLYPHS,                                      /**<  */
-    I18N_UCHAR_UBLOCK_ENCLOSED_ALPHANUMERIC_SUPPLEMENT,                          /**<  */
-    I18N_UCHAR_UBLOCK_ENCLOSED_IDEOGRAPHIC_SUPPLEMENT,                           /**<  */
-    I18N_UCHAR_UBLOCK_CJK_UNIFIED_IDEOGRAPHS_EXTENSION_C,                        /**<  */
-    I18N_UCHAR_UBLOCK_MANDAIC,                                                   /**<  */
-    I18N_UCHAR_UBLOCK_BATAK,                                                     /**<  */
-    I18N_UCHAR_UBLOCK_ETHIOPIC_EXTENDED_A,                                       /**<  */
-    I18N_UCHAR_UBLOCK_BRAHMI,                                                    /**<  */
-    I18N_UCHAR_UBLOCK_BAMUM_SUPPLEMENT,                                          /**<  */
-    I18N_UCHAR_UBLOCK_KANA_SUPPLEMENT,                                           /**<  */
-    I18N_UCHAR_UBLOCK_PLAYING_CARDS,                                             /**<  */
-    I18N_UCHAR_UBLOCK_MISCELLANEOUS_SYMBOLS_AND_PICTOGRAPHS,                     /**<  */
-    I18N_UCHAR_UBLOCK_EMOTICONS,                                                 /**<  */
-    I18N_UCHAR_UBLOCK_TRANSPORT_AND_MAP_SYMBOLS,                                 /**<  */
-    I18N_UCHAR_UBLOCK_ALCHEMICAL_SYMBOLS,                                        /**<  */
-    I18N_UCHAR_UBLOCK_CJK_UNIFIED_IDEOGRAPHS_EXTENSION_D,                        /**<  */
-    I18N_UCHAR_UBLOCK_COUNT,                                                     /**<  */
-    I18N_UCHAR_UBLOCK_INVALID_CODE = -1                                          /**<  */
+    I18N_UCHAR_UBLOCK_ALPHABETIC_PRESENTATION_FORMS,                             /**< Alphabetic Presentation Forms */
+    I18N_UCHAR_UBLOCK_ARABIC_PRESENTATION_FORMS_A,                               /**< Arabic Presentation Forms A */
+    I18N_UCHAR_UBLOCK_COMBINING_HALF_MARKS,                                      /**< Combining Half Marks */
+    I18N_UCHAR_UBLOCK_CJK_COMPATIBILITY_FORMS,                                   /**< CJK Compatibility Forms */
+    I18N_UCHAR_UBLOCK_SMALL_FORM_VARIANTS,                                       /**< Small Form Variants */
+    I18N_UCHAR_UBLOCK_ARABIC_PRESENTATION_FORMS_B,                               /**< Arabic Presentation Forms B */
+    I18N_UCHAR_UBLOCK_SPECIALS,                                                  /**< Specials */
+    I18N_UCHAR_UBLOCK_HALFWIDTH_AND_FULLWIDTH_FORMS,                             /**< Halfwidth And Fullwidth Forms */
+    I18N_UCHAR_UBLOCK_OLD_ITALIC,                                                /**< Old Italic */
+    I18N_UCHAR_UBLOCK_GOTHIC,                                                    /**< Gothic */
+    I18N_UCHAR_UBLOCK_DESERET,                                                   /**< Deseret */
+    I18N_UCHAR_UBLOCK_BYZANTINE_MUSICAL_SYMBOLS,                                 /**< Byzantine Musical Symbols */
+    I18N_UCHAR_UBLOCK_MUSICAL_SYMBOLS,                                           /**< Musical Symbols */
+    I18N_UCHAR_UBLOCK_MATHEMATICAL_ALPHANUMERIC_SYMBOLS,                         /**< Mathematical Alphanumeric Symbols */
+    I18N_UCHAR_UBLOCK_CJK_UNIFIED_IDEOGRAPHS_EXTENSION_B,                        /**< CJK Unified Ideographs Extension B */
+    I18N_UCHAR_UBLOCK_CJK_COMPATIBILITY_IDEOGRAPHS_SUPPLEMENT,                   /**< CJK Compatibility Ideographs Supplement */
+    I18N_UCHAR_UBLOCK_TAGS,                                                      /**< Tags */
+    I18N_UCHAR_UBLOCK_CYRILLIC_SUPPLEMENT,                                       /**< Cyrillic Supplement */
+    I18N_UCHAR_UBLOCK_CYRILLIC_SUPPLEMENTARY,                                    /**< Cyrillic Supplementary */
+    I18N_UCHAR_UBLOCK_TAGALOG,                                                   /**< Tagalog */
+    I18N_UCHAR_UBLOCK_HANUNOO,                                                   /**< Hanunoo */
+    I18N_UCHAR_UBLOCK_BUHID,                                                     /**< Buhid */
+    I18N_UCHAR_UBLOCK_TAGBANWA,                                                  /**< Tagbanwa */
+    I18N_UCHAR_UBLOCK_MISCELLANEOUS_MATHEMATICAL_SYMBOLS_A,                      /**< Miscellaneous Mathematical Symbols A */
+    I18N_UCHAR_UBLOCK_SUPPLEMENTAL_ARROWS_A,                                     /**< Supplemental Arrows A */
+    I18N_UCHAR_UBLOCK_SUPPLEMENTAL_ARROWS_B,                                     /**< Supplemental Arrows B */
+    I18N_UCHAR_UBLOCK_MISCELLANEOUS_MATHEMATICAL_SYMBOLS_B,                      /**< Miscellaneous Mathematical Symbols B */
+    I18N_UCHAR_UBLOCK_SUPPLEMENTAL_MATHEMATICAL_OPERATORS,                       /**< Supplemental Mathematical Operators */
+    I18N_UCHAR_UBLOCK_KATAKANA_PHONETIC_EXTENSIONS,                              /**< Katakana Phonetic Extensions */
+    I18N_UCHAR_UBLOCK_VARIATION_SELECTORS,                                       /**< Variation Selectors */
+    I18N_UCHAR_UBLOCK_SUPPLEMENTARY_PRIVATE_USE_AREA_A,                          /**< Supplementary Private Use Area A */
+    I18N_UCHAR_UBLOCK_SUPPLEMENTARY_PRIVATE_USE_AREA_B,                          /**< Supplementary Private Use Area B */
+    I18N_UCHAR_UBLOCK_LIMBU,                                                     /**< Limbu */
+    I18N_UCHAR_UBLOCK_TAI_LE,                                                    /**< Tai Le */
+    I18N_UCHAR_UBLOCK_KHMER_SYMBOLS,                                             /**< Khmer Symbols */
+    I18N_UCHAR_UBLOCK_PHONETIC_EXTENSIONS,                                       /**< Phonetic Extensions */
+    I18N_UCHAR_UBLOCK_MISCELLANEOUS_SYMBOLS_AND_ARROWS,                          /**< Miscellaneous Symbols And Arrows */
+    I18N_UCHAR_UBLOCK_YIJING_HEXAGRAM_SYMBOLS,                                   /**< Yijing Hexagram Symbols */
+    I18N_UCHAR_UBLOCK_LINEAR_B_SYLLABARY,                                        /**< Linear B Syllabary */
+    I18N_UCHAR_UBLOCK_LINEAR_B_IDEOGRAMS,                                        /**< Linear B Ideograms */
+    I18N_UCHAR_UBLOCK_AEGEAN_NUMBERS,                                            /**< Aegean Numbers */
+    I18N_UCHAR_UBLOCK_UGARITIC,                                                  /**< Ugaritic */
+    I18N_UCHAR_UBLOCK_SHAVIAN,                                                   /**< Shavian */
+    I18N_UCHAR_UBLOCK_OSMANYA,                                                   /**< Osmanya */
+    I18N_UCHAR_UBLOCK_CYPRIOT_SYLLABARY,                                         /**< Cypriot Syllabary */
+    I18N_UCHAR_UBLOCK_TAI_XUAN_JING_SYMBOLS,                                     /**< Tai Xuan Jing Symbols */
+    I18N_UCHAR_UBLOCK_VARIATION_SELECTORS_SUPPLEMENT,                            /**< Variation Selectors Supplement */
+    I18N_UCHAR_UBLOCK_ANCIENT_GREEK_MUSICAL_NOTATION,                            /**< Ancient Greek Musical Notation */
+    I18N_UCHAR_UBLOCK_ANCIENT_GREEK_NUMBERS,                                     /**< Ancient Greek Numbers */
+    I18N_UCHAR_UBLOCK_ARABIC_SUPPLEMENT,                                         /**< Arabic Supplement */
+    I18N_UCHAR_UBLOCK_BUGINESE,                                                  /**< Buginese */
+    I18N_UCHAR_UBLOCK_CJK_STROKES,                                               /**< CJK Strokes */
+    I18N_UCHAR_UBLOCK_COMBINING_DIACRITICAL_MARKS_SUPPLEMENT,                    /**< Combining Diacritical Marks Supplement */
+    I18N_UCHAR_UBLOCK_COPTIC,                                                    /**< Coptic */
+    I18N_UCHAR_UBLOCK_ETHIOPIC_EXTENDED,                                         /**< Ethiopic Extended */
+    I18N_UCHAR_UBLOCK_ETHIOPIC_SUPPLEMENT,                                       /**< Ethiopic Supplement */
+    I18N_UCHAR_UBLOCK_GEORGIAN_SUPPLEMENT,                                       /**< Georgian Supplement */
+    I18N_UCHAR_UBLOCK_GLAGOLITIC,                                                /**< Glagolitic */
+    I18N_UCHAR_UBLOCK_KHAROSHTHI,                                                /**< Kharoshthi */
+    I18N_UCHAR_UBLOCK_MODIFIER_TONE_LETTERS,                                     /**< Modifier Tone Letters */
+    I18N_UCHAR_UBLOCK_NEW_TAI_LUE,                                               /**< New Tai Lue */
+    I18N_UCHAR_UBLOCK_OLD_PERSIAN,                                               /**< Old Persian */
+    I18N_UCHAR_UBLOCK_PHONETIC_EXTENSIONS_SUPPLEMENT,                            /**< Phonetic Extensions Supplement */
+    I18N_UCHAR_UBLOCK_SUPPLEMENTAL_PUNCTUATION,                                  /**< Supplemental Punctuation */
+    I18N_UCHAR_UBLOCK_SYLOTI_NAGRI,                                              /**< Syloti Nagri */
+    I18N_UCHAR_UBLOCK_TIFINAGH,                                                  /**< Tifinagh */
+    I18N_UCHAR_UBLOCK_VERTICAL_FORMS,                                            /**< Vertical Forms */
+    I18N_UCHAR_UBLOCK_NKO,                                                       /**< Nko */
+    I18N_UCHAR_UBLOCK_BALINESE,                                                  /**< Balinese */
+    I18N_UCHAR_UBLOCK_LATIN_EXTENDED_C,                                          /**< Latin Extended C */
+    I18N_UCHAR_UBLOCK_LATIN_EXTENDED_D,                                          /**< Latin Extended D */
+    I18N_UCHAR_UBLOCK_PHAGS_PA,                                                  /**< Phags Pa */
+    I18N_UCHAR_UBLOCK_PHOENICIAN,                                                /**< Phoenician */
+    I18N_UCHAR_UBLOCK_CUNEIFORM,                                                 /**< Cuneiform */
+    I18N_UCHAR_UBLOCK_CUNEIFORM_NUMBERS_AND_PUNCTUATION,                         /**< Cuneiform Numbers And Punctuation */
+    I18N_UCHAR_UBLOCK_COUNTING_ROD_NUMERALS,                                     /**< Counting Rod Numerals */
+    I18N_UCHAR_UBLOCK_SUNDANESE,                                                 /**< Sundanese */
+    I18N_UCHAR_UBLOCK_LEPCHA,                                                    /**< Lepcha */
+    I18N_UCHAR_UBLOCK_OL_CHIKI,                                                  /**< Ol Chiki */
+    I18N_UCHAR_UBLOCK_CYRILLIC_EXTENDED_A,                                       /**< Cyrillic Extended A */
+    I18N_UCHAR_UBLOCK_VAI,                                                       /**< Vai */
+    I18N_UCHAR_UBLOCK_CYRILLIC_EXTENDED_B,                                       /**< Cyrillic Extended B */
+    I18N_UCHAR_UBLOCK_SAURASHTRA,                                                /**< Saurashtra */
+    I18N_UCHAR_UBLOCK_KAYAH_LI,                                                  /**< Kayah Li */
+    I18N_UCHAR_UBLOCK_REJANG,                                                    /**< Rejang */
+    I18N_UCHAR_UBLOCK_CHAM,                                                      /**< Cham */
+    I18N_UCHAR_UBLOCK_ANCIENT_SYMBOLS,                                           /**< Ancient Symbols */
+    I18N_UCHAR_UBLOCK_PHAISTOS_DISC,                                             /**< Phaistos Disc */
+    I18N_UCHAR_UBLOCK_LYCIAN,                                                    /**< Lycian */
+    I18N_UCHAR_UBLOCK_CARIAN,                                                    /**< Carian */
+    I18N_UCHAR_UBLOCK_LYDIAN,                                                    /**< Lydian */
+    I18N_UCHAR_UBLOCK_MAHJONG_TILES,                                             /**< Mahjong Tiles */
+    I18N_UCHAR_UBLOCK_DOMINO_TILES,                                              /**< Domino Tiles */
+    I18N_UCHAR_UBLOCK_SAMARITAN,                                                 /**< Samaritan */
+    I18N_UCHAR_UBLOCK_UNIFIED_CANADIAN_ABORIGINAL_SYLLABICS_EXTENDED,            /**< Unified Canadian Aboriginal Syllabics Extended */
+    I18N_UCHAR_UBLOCK_TAI_THAM,                                                  /**< Tai Tham */
+    I18N_UCHAR_UBLOCK_VEDIC_EXTENSIONS,                                          /**< Vedic Extensions */
+    I18N_UCHAR_UBLOCK_LISU,                                                      /**< Lisu */
+    I18N_UCHAR_UBLOCK_BAMUM,                                                     /**< Bamum */
+    I18N_UCHAR_UBLOCK_COMMON_INDIC_NUMBER_FORMS,                                 /**< Common Indic Number Forms */
+    I18N_UCHAR_UBLOCK_DEVANAGARI_EXTENDED,                                       /**< Devanagari Extended */
+    I18N_UCHAR_UBLOCK_HANGUL_JAMO_EXTENDED_A,                                    /**< Hangul Jamo Extended A */
+    I18N_UCHAR_UBLOCK_JAVANESE,                                                  /**< Javanese */
+    I18N_UCHAR_UBLOCK_MYANMAR_EXTENDED_A,                                        /**< Myanmar Extended A */
+    I18N_UCHAR_UBLOCK_TAI_VIET,                                                  /**< Tai Viet */
+    I18N_UCHAR_UBLOCK_MEETEI_MAYEK,                                              /**< Meetei Mayek */
+    I18N_UCHAR_UBLOCK_HANGUL_JAMO_EXTENDED_B,                                    /**< Hangul Jamo Extended B */
+    I18N_UCHAR_UBLOCK_IMPERIAL_ARAMAIC,                                          /**< Imperial Aramaic */
+    I18N_UCHAR_UBLOCK_OLD_SOUTH_ARABIAN,                                         /**< Old South Arabian */
+    I18N_UCHAR_UBLOCK_AVESTAN,                                                   /**< Avestan */
+    I18N_UCHAR_UBLOCK_INSCRIPTIONAL_PARTHIAN,                                    /**< Inscriptional Parthian */
+    I18N_UCHAR_UBLOCK_INSCRIPTIONAL_PAHLAVI,                                     /**< Inscriptional Pahlavi */
+    I18N_UCHAR_UBLOCK_OLD_TURKIC,                                                /**< Old Turkic */
+    I18N_UCHAR_UBLOCK_RUMI_NUMERAL_SYMBOLS,                                      /**< Rumi Numeral Symbols */
+    I18N_UCHAR_UBLOCK_KAITHI,                                                    /**< Kaithi */
+    I18N_UCHAR_UBLOCK_EGYPTIAN_HIEROGLYPHS,                                      /**< Egyptian Hieroglyphs */
+    I18N_UCHAR_UBLOCK_ENCLOSED_ALPHANUMERIC_SUPPLEMENT,                          /**< Enclosed Alphanumeric Supplement */
+    I18N_UCHAR_UBLOCK_ENCLOSED_IDEOGRAPHIC_SUPPLEMENT,                           /**< Enclosed Ideographic Supplement */
+    I18N_UCHAR_UBLOCK_CJK_UNIFIED_IDEOGRAPHS_EXTENSION_C,                        /**< CJK Unified Ideographs Extension C */
+    I18N_UCHAR_UBLOCK_MANDAIC,                                                   /**< Mandaic */
+    I18N_UCHAR_UBLOCK_BATAK,                                                     /**< Batak */
+    I18N_UCHAR_UBLOCK_ETHIOPIC_EXTENDED_A,                                       /**< Ethiopic Extended A */
+    I18N_UCHAR_UBLOCK_BRAHMI,                                                    /**< Brahmi */
+    I18N_UCHAR_UBLOCK_BAMUM_SUPPLEMENT,                                          /**< Bamum Supplement */
+    I18N_UCHAR_UBLOCK_KANA_SUPPLEMENT,                                           /**< Kana Supplement */
+    I18N_UCHAR_UBLOCK_PLAYING_CARDS,                                             /**< Playing Cards */
+    I18N_UCHAR_UBLOCK_MISCELLANEOUS_SYMBOLS_AND_PICTOGRAPHS,                     /**< Miscellaneous Symbols And Pictographs */
+    I18N_UCHAR_UBLOCK_EMOTICONS,                                                 /**< Emoticons */
+    I18N_UCHAR_UBLOCK_TRANSPORT_AND_MAP_SYMBOLS,                                 /**< Transport And Map Symbols */
+    I18N_UCHAR_UBLOCK_ALCHEMICAL_SYMBOLS,                                        /**< Alchemical Symbols */
+    I18N_UCHAR_UBLOCK_CJK_UNIFIED_IDEOGRAPHS_EXTENSION_D,                        /**< CJK Unified Ideographs Extension D */
+    I18N_UCHAR_UBLOCK_COUNT,                                                     /**< Count */
+    I18N_UCHAR_UBLOCK_INVALID_CODE = -1                                          /**< Invalid Code */
 } i18n_uchar_ublock_code_e;
 
 /**
  * @brief Enumeration for the language directional property of a character set.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
- *
  */
 typedef enum {
-/*
- * Note: UCharDirection constants and their API comments are parsed by preparseucd.py.
- * It matches pairs of lines like
- * / ** <Unicode 1..3-letter Bidi_Class value> comment... * /
- * U_<[A-Z_]+> = <integer>,
- */
     I18N_UCHAR_U_LEFT_TO_RIGHT,                                      /**< L */
     I18N_UCHAR_U_RIGHT_TO_LEFT,                                      /**< R */
     I18N_UCHAR_U_EUROPEAN_NUMBER,                                    /**< EN */
@@ -599,7 +826,7 @@ typedef enum {
     I18N_UCHAR_U_POP_DIRECTIONAL_FORMAT,                             /**< PDF */
     I18N_UCHAR_U_DIR_NON_SPACING_MARK,                               /**< NSM */
     I18N_UCHAR_U_BOUNDARY_NEUTRAL,                                   /**< BN */
-    I18N_UCHAR_U_CHAR_DIRECTION_COUNT                                /**<  */
+    I18N_UCHAR_U_CHAR_DIRECTION_COUNT                                /**< Count */
 } i18n_uchar_direction_e;
 
 /**
@@ -607,11 +834,6 @@ typedef enum {
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  */
 typedef enum {
-/*
- * Note: UDecompositionType constants are parsed by preparseucd.py.
- * It matches lines like
- * U_DT_<Unicode Decomposition_Type value name>
- */
     I18N_UCHAR_U_DT_NONE,           /**< [none] */
     I18N_UCHAR_U_DT_CANONICAL,      /**< [can] */
     I18N_UCHAR_U_DT_COMPAT,         /**< [com] */
@@ -691,71 +913,66 @@ typedef enum {
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  */
 typedef enum {
-/*
- * Note: UJoiningGroup constants are parsed by preparseucd.py.
- * It matches lines like
- * U_JG_<Unicode Joining_Group value name>
- */
-    I18N_UCHAR_U_JG_NO_JOINING_GROUP,                                              /**<  */
-    I18N_UCHAR_U_JG_AIN,                                                           /**<  */
-    I18N_UCHAR_U_JG_ALAPH,                                                         /**<  */
-    I18N_UCHAR_U_JG_ALEF,                                                          /**<  */
-    I18N_UCHAR_U_JG_BEH,                                                           /**<  */
-    I18N_UCHAR_U_JG_BETH,                                                          /**<  */
-    I18N_UCHAR_U_JG_DAL,                                                           /**<  */
-    I18N_UCHAR_U_JG_DALATH_RISH,                                                   /**<  */
-    I18N_UCHAR_U_JG_E,                                                             /**<  */
-    I18N_UCHAR_U_JG_FEH,                                                           /**<  */
-    I18N_UCHAR_U_JG_FINAL_SEMKATH,                                                 /**<  */
-    I18N_UCHAR_U_JG_GAF,                                                           /**<  */
-    I18N_UCHAR_U_JG_GAMAL,                                                         /**<  */
-    I18N_UCHAR_U_JG_HAH,                                                           /**<  */
-    I18N_UCHAR_U_JG_TEH_MARBUTA_GOAL,                                              /**<  */
-    I18N_UCHAR_U_JG_HAMZA_ON_HEH_GOAL = I18N_UCHAR_U_JG_TEH_MARBUTA_GOAL,          /**<  */
-    I18N_UCHAR_U_JG_HE,                                                            /**<  */
-    I18N_UCHAR_U_JG_HEH,                                                           /**<  */
-    I18N_UCHAR_U_JG_HEH_GOAL,                                                      /**<  */
-    I18N_UCHAR_U_JG_HETH,                                                          /**<  */
-    I18N_UCHAR_U_JG_KAF,                                                           /**<  */
-    I18N_UCHAR_U_JG_KAPH,                                                          /**<  */
-    I18N_UCHAR_U_JG_KNOTTED_HEH,                                                   /**<  */
-    I18N_UCHAR_U_JG_LAM,                                                           /**<  */
-    I18N_UCHAR_U_JG_LAMADH,                                                        /**<  */
-    I18N_UCHAR_U_JG_MEEM,                                                          /**<  */
-    I18N_UCHAR_U_JG_MIM,                                                           /**<  */
-    I18N_UCHAR_U_JG_NOON,                                                          /**<  */
-    I18N_UCHAR_U_JG_NUN,                                                           /**<  */
-    I18N_UCHAR_U_JG_PE,                                                            /**<  */
-    I18N_UCHAR_U_JG_QAF,                                                           /**<  */
-    I18N_UCHAR_U_JG_QAPH,                                                          /**<  */
-    I18N_UCHAR_U_JG_REH,                                                           /**<  */
-    I18N_UCHAR_U_JG_REVERSED_PE,                                                   /**<  */
-    I18N_UCHAR_U_JG_SAD,                                                           /**<  */
-    I18N_UCHAR_U_JG_SADHE,                                                         /**<  */
-    I18N_UCHAR_U_JG_SEEN,                                                          /**<  */
-    I18N_UCHAR_U_JG_SEMKATH,                                                       /**<  */
-    I18N_UCHAR_U_JG_SHIN,                                                          /**<  */
-    I18N_UCHAR_U_JG_SWASH_KAF,                                                     /**<  */
-    I18N_UCHAR_U_JG_SYRIAC_WAW,                                                    /**<  */
-    I18N_UCHAR_U_JG_TAH,                                                           /**<  */
-    I18N_UCHAR_U_JG_TAW,                                                           /**<  */
-    I18N_UCHAR_U_JG_TEH_MARBUTA,                                                   /**<  */
-    I18N_UCHAR_U_JG_TETH,                                                          /**<  */
-    I18N_UCHAR_U_JG_WAW,                                                           /**<  */
-    I18N_UCHAR_U_JG_YEH,                                                           /**<  */
-    I18N_UCHAR_U_JG_YEH_BARREE,                                                    /**<  */
-    I18N_UCHAR_U_JG_YEH_WITH_TAIL,                                                 /**<  */
-    I18N_UCHAR_U_JG_YUDH,                                                          /**<  */
-    I18N_UCHAR_U_JG_YUDH_HE,                                                       /**<  */
-    I18N_UCHAR_U_JG_ZAIN,                                                          /**<  */
-    I18N_UCHAR_U_JG_FE,                                                            /**<  */
-    I18N_UCHAR_U_JG_KHAPH,                                                         /**<  */
-    I18N_UCHAR_U_JG_ZHAIN,                                                         /**<  */
-    I18N_UCHAR_U_JG_BURUSHASKI_YEH_BARREE,                                         /**<  */
-    I18N_UCHAR_U_JG_FARSI_YEH,                                                     /**<  */
-    I18N_UCHAR_U_JG_NYA,                                                           /**<  */
-    I18N_UCHAR_U_JG_ROHINGYA_YEH,
-    I18N_UCHAR_U_JG_COUNT                                                          /**<  */
+    I18N_UCHAR_U_JG_NO_JOINING_GROUP,                                              /**< No Joining Group */
+    I18N_UCHAR_U_JG_AIN,                                                           /**< Ain */
+    I18N_UCHAR_U_JG_ALAPH,                                                         /**< Alaph */
+    I18N_UCHAR_U_JG_ALEF,                                                          /**< Alef */
+    I18N_UCHAR_U_JG_BEH,                                                           /**< Beh */
+    I18N_UCHAR_U_JG_BETH,                                                          /**< Beth */
+    I18N_UCHAR_U_JG_DAL,                                                           /**< Dal */
+    I18N_UCHAR_U_JG_DALATH_RISH,                                                   /**< Dalath Rish */
+    I18N_UCHAR_U_JG_E,                                                             /**< E */
+    I18N_UCHAR_U_JG_FEH,                                                           /**< Feh */
+    I18N_UCHAR_U_JG_FINAL_SEMKATH,                                                 /**< Final Semkath */
+    I18N_UCHAR_U_JG_GAF,                                                           /**< Gaf */
+    I18N_UCHAR_U_JG_GAMAL,                                                         /**< Gamal */
+    I18N_UCHAR_U_JG_HAH,                                                           /**< Hah */
+    I18N_UCHAR_U_JG_TEH_MARBUTA_GOAL,                                              /**< Teh Marbuta Goal */
+    I18N_UCHAR_U_JG_HAMZA_ON_HEH_GOAL = I18N_UCHAR_U_JG_TEH_MARBUTA_GOAL,          /**< Hamza On Heh Goal */
+    I18N_UCHAR_U_JG_HE,                                                            /**< He */
+    I18N_UCHAR_U_JG_HEH,                                                           /**< Heh */
+    I18N_UCHAR_U_JG_HEH_GOAL,                                                      /**< Heh Goal */
+    I18N_UCHAR_U_JG_HETH,                                                          /**< Heth */
+    I18N_UCHAR_U_JG_KAF,                                                           /**< Kaf */
+    I18N_UCHAR_U_JG_KAPH,                                                          /**< Kaph */
+    I18N_UCHAR_U_JG_KNOTTED_HEH,                                                   /**< Knotted Heh */
+    I18N_UCHAR_U_JG_LAM,                                                           /**< Lam */
+    I18N_UCHAR_U_JG_LAMADH,                                                        /**< Lamadh */
+    I18N_UCHAR_U_JG_MEEM,                                                          /**< Meem */
+    I18N_UCHAR_U_JG_MIM,                                                           /**< Mim */
+    I18N_UCHAR_U_JG_NOON,                                                          /**< Noon */
+    I18N_UCHAR_U_JG_NUN,                                                           /**< Nun */
+    I18N_UCHAR_U_JG_PE,                                                            /**< Pe */
+    I18N_UCHAR_U_JG_QAF,                                                           /**< Qaf */
+    I18N_UCHAR_U_JG_QAPH,                                                          /**< Qaph */
+    I18N_UCHAR_U_JG_REH,                                                           /**< Reh */
+    I18N_UCHAR_U_JG_REVERSED_PE,                                                   /**< Reversed Pe */
+    I18N_UCHAR_U_JG_SAD,                                                           /**< Sad */
+    I18N_UCHAR_U_JG_SADHE,                                                         /**< Sadhe */
+    I18N_UCHAR_U_JG_SEEN,                                                          /**< Seen */
+    I18N_UCHAR_U_JG_SEMKATH,                                                       /**< Semkath */
+    I18N_UCHAR_U_JG_SHIN,                                                          /**< Shin */
+    I18N_UCHAR_U_JG_SWASH_KAF,                                                     /**< Swash Kaf */
+    I18N_UCHAR_U_JG_SYRIAC_WAW,                                                    /**< Syriac Waw */
+    I18N_UCHAR_U_JG_TAH,                                                           /**< Tah */
+    I18N_UCHAR_U_JG_TAW,                                                           /**< Taw */
+    I18N_UCHAR_U_JG_TEH_MARBUTA,                                                   /**< Teh Marbuta */
+    I18N_UCHAR_U_JG_TETH,                                                          /**< Teth */
+    I18N_UCHAR_U_JG_WAW,                                                           /**< Waw */
+    I18N_UCHAR_U_JG_YEH,                                                           /**< Yeh */
+    I18N_UCHAR_U_JG_YEH_BARREE,                                                    /**< Yeh Barree */
+    I18N_UCHAR_U_JG_YEH_WITH_TAIL,                                                 /**< Yeh With Tail */
+    I18N_UCHAR_U_JG_YUDH,                                                          /**< Yudh */
+    I18N_UCHAR_U_JG_YUDH_HE,                                                       /**< Yudh He */
+    I18N_UCHAR_U_JG_ZAIN,                                                          /**< Zain */
+    I18N_UCHAR_U_JG_FE,                                                            /**< Fe */
+    I18N_UCHAR_U_JG_KHAPH,                                                         /**< Khaph */
+    I18N_UCHAR_U_JG_ZHAIN,                                                         /**< Zhain */
+    I18N_UCHAR_U_JG_BURUSHASKI_YEH_BARREE,                                         /**< Burushaski Yeh Barree */
+    I18N_UCHAR_U_JG_FARSI_YEH,                                                     /**< Farsi Yeh */
+    I18N_UCHAR_U_JG_NYA,                                                           /**< Nya */
+    I18N_UCHAR_U_JG_ROHINGYA_YEH,                                                  /**< Rohingya Yeh */
+    I18N_UCHAR_U_JG_COUNT                                                          /**< Count */
  } i18n_uchar_u_joining_group_e;
 
 /**
@@ -763,11 +980,6 @@ typedef enum {
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  */
 typedef enum {
-/*
- * Note: i18n_uchar_u_joining_type_e constants are parsed by preparseucd.py.
- * It matches lines like
- * U_JT_<Unicode Joining_Type value name>
- */
     I18N_UCHAR_U_JT_NON_JOINING,        /**< [U] */
     I18N_UCHAR_U_JT_JOIN_CAUSING,       /**< [C] */
     I18N_UCHAR_U_JT_DUAL_JOINING,       /**< [D] */
@@ -782,11 +994,6 @@ typedef enum {
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  */
 typedef enum {
-/*
- * Note: i18n_uchar_u_line_break_e constants are parsed by preparseucd.py.
- * It matches lines like
- * U_LB_<Unicode Line_Break value name>
- */
     I18N_UCHAR_U_LB_UNKNOWN,                                                         /**< [XX] */
     I18N_UCHAR_U_LB_AMBIGUOUS,                                                       /**< [AI] */
     I18N_UCHAR_U_LB_ALPHABETIC,                                                      /**< [AL] */
@@ -833,11 +1040,6 @@ typedef enum {
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  */
 typedef enum {
-/*
- * Note: i18n_uchar_u_numeric_type_e constants are parsed by preparseucd.py.
- * It matches lines like
- * U_NT_<Unicode Numeric_Type value name>
- */
     I18N_UCHAR_U_NT_NONE,         /**< [None] */
     I18N_UCHAR_U_NT_DECIMAL,      /**< [de] */
     I18N_UCHAR_U_NT_DIGIT,        /**< [di] */
@@ -850,11 +1052,6 @@ typedef enum {
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  */
 typedef enum {
-/*
- * Note: i18n_uchar_u_hangul_syllable_type_e constants are parsed by preparseucd.py.
- * It matches lines like
- * U_HST_<Unicode Hangul_Syllable_Type value name>
- */
     I18N_UCHAR_U_HST_NOT_APPLICABLE,     /**< [NA] */
     I18N_UCHAR_U_HST_LEADING_JAMO,       /**< [L] */
     I18N_UCHAR_U_HST_VOWEL_JAMO,         /**< [V] */
@@ -869,11 +1066,6 @@ typedef enum {
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  */
 typedef enum {
-/*
- * Note: i18n_uchar_u_sentence_break_e constants are parsed by preparseucd.py.
- * It matches lines like
- * U_SB_<Unicode Sentence_Break value name>
- */
     I18N_UCHAR_U_SB_OTHER,         /**< [XX] */
     I18N_UCHAR_U_SB_ATERM,         /**< [AT] */
     I18N_UCHAR_U_SB_CLOSE,         /**< [CL] */
@@ -897,11 +1089,6 @@ typedef enum {
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  */
 typedef enum {
-/*
- * Note: i18n_uchar_u_word_break_values_e constants are parsed by preparseucd.py.
- * It matches lines like
- * U_WB_<Unicode Word_Break value name>
- */
     I18N_UCHAR_U_WB_OTHER,              /**< [XX] */
     I18N_UCHAR_U_WB_ALETTER,            /**< [LE] */
     I18N_UCHAR_U_WB_FORMAT,             /**< [FO] */
@@ -923,11 +1110,6 @@ typedef enum {
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  */
 typedef enum {
-/*
- * Note: i18n_uchar_u_grapheme_cluster_break_e constants are parsed by preparseucd.py.
- * It matches lines like
- * U_GCB_<Unicode Grapheme_Cluster_Break value name>
- */
     I18N_UCHAR_U_GCB_OTHER,                    /**< [XX] */
     I18N_UCHAR_U_GCB_CONTROL,                  /**< [CN] */
     I18N_UCHAR_U_GCB_CR,                       /**< [CR] */
@@ -1064,6 +1246,17 @@ typedef enum {
                                                    The result will conform to FCD which is useful for processing. Not a standard Unicode normalization form.
                                                    For details see http://www.unicode.org/notes/tn5/#FCC  */
 } i18n_unormalization_mode_e;
+
+/**
+ * @brief Result values for normalization quick check functions.
+ *
+ * @since_tizen 2.4
+ */
+typedef enum {
+	I18N_UNORMALIZATION_NO,		/**< The input string is not in the normalization form. */
+	I18N_UNORMALIZATION_YES,	/**< The input string is in the normalization form. */
+	I18N_UNORMALIZATION_MAYBE 	/**< The input string may or may not be in the normalization form. */
+} i18n_unormalization_check_result_e;
 
 /**
  * @}
@@ -1981,6 +2174,183 @@ typedef void* i18n_uenumeration_h;
  * @}
  * @}
  */
+
+
+/**
+ * @addtogroup CAPI_BASE_UTILS_I18N_UCHAR_MODULE
+ * @{
+ */
+
+/**
+ * @brief Constants for ISO 15924 script codes.
+ * @since_tizen 2.4
+ */
+typedef enum {
+   I18N_USCRIPT_INVALID_CODE = -1,
+   I18N_USCRIPT_COMMON       =  0,  /**< Zyyy */
+   I18N_USCRIPT_INHERITED    =  1,  /**< Zinh, "Code for inherited script", for non-spacing combining marks; also Qaai */
+   I18N_USCRIPT_ARABIC       =  2,  /**< Arab */
+   I18N_USCRIPT_ARMENIAN     =  3,  /**< Armn */
+   I18N_USCRIPT_BENGALI      =  4,  /**< Beng */
+   I18N_USCRIPT_BOPOMOFO     =  5,  /**< Bopo */
+   I18N_USCRIPT_CHEROKEE     =  6,  /**< Cher */
+   I18N_USCRIPT_COPTIC       =  7,  /**< Copt */
+   I18N_USCRIPT_CYRILLIC     =  8,  /**< Cyrl */
+   I18N_USCRIPT_DESERET      =  9,  /**< Dsrt */
+   I18N_USCRIPT_DEVANAGARI   = 10,  /**< Deva */
+   I18N_USCRIPT_ETHIOPIC     = 11,  /**< Ethi */
+   I18N_USCRIPT_GEORGIAN     = 12,  /**< Geor */
+   I18N_USCRIPT_GOTHIC       = 13,  /**< Goth */
+   I18N_USCRIPT_GREEK        = 14,  /**< Grek */
+   I18N_USCRIPT_GUJARATI     = 15,  /**< Gujr */
+   I18N_USCRIPT_GURMUKHI     = 16,  /**< Guru */
+   I18N_USCRIPT_HAN          = 17,  /**< Hani */
+   I18N_USCRIPT_HANGUL       = 18,  /**< Hang */
+   I18N_USCRIPT_HEBREW       = 19,  /**< Hebr */
+   I18N_USCRIPT_HIRAGANA     = 20,  /**< Hira */
+   I18N_USCRIPT_KANNADA      = 21,  /**< Knda */
+   I18N_USCRIPT_KATAKANA     = 22,  /**< Kana */
+   I18N_USCRIPT_KHMER        = 23,  /**< Khmr */
+   I18N_USCRIPT_LAO          = 24,  /**< Laoo */
+   I18N_USCRIPT_LATIN        = 25,  /**< Latn */
+   I18N_USCRIPT_MALAYALAM    = 26,  /**< Mlym */
+   I18N_USCRIPT_MONGOLIAN    = 27,  /**< Mong */
+   I18N_USCRIPT_MYANMAR      = 28,  /**< Mymr */
+   I18N_USCRIPT_OGHAM        = 29,  /**< Ogam */
+   I18N_USCRIPT_OLD_ITALIC   = 30,  /**< Ital */
+   I18N_USCRIPT_ORIYA        = 31,  /**< Orya */
+   I18N_USCRIPT_RUNIC        = 32,  /**< Runr */
+   I18N_USCRIPT_SINHALA      = 33,  /**< Sinh */
+   I18N_USCRIPT_SYRIAC       = 34,  /**< Syrc */
+   I18N_USCRIPT_TAMIL        = 35,  /**< Taml */
+   I18N_USCRIPT_TELUGU       = 36,  /**< Telu */
+   I18N_USCRIPT_THAANA       = 37,  /**< Thaa */
+   I18N_USCRIPT_THAI         = 38,  /**< Thai */
+   I18N_USCRIPT_TIBETAN      = 39,  /**< Tibt */
+   I18N_USCRIPT_CANADIAN_ABORIGINAL = 40,  /**< Cans, Canadian_Aboriginal script. */
+   I18N_USCRIPT_UCAS         = I18N_USCRIPT_CANADIAN_ABORIGINAL, /**< Canadian_Aboriginal script (alias). */
+   I18N_USCRIPT_YI           = 41,  /**< Yiii */
+   I18N_USCRIPT_TAGALOG      = 42,  /**< Tglg */
+   I18N_USCRIPT_HANUNOO      = 43,  /**< Hano */
+   I18N_USCRIPT_BUHID        = 44,  /**< Buhd */
+   I18N_USCRIPT_TAGBANWA     = 45,  /**< Tagb */
+   I18N_USCRIPT_BRAILLE      = 46,  /**< Brai */
+   I18N_USCRIPT_CYPRIOT      = 47,  /**< Cprt */
+   I18N_USCRIPT_LIMBU        = 48,  /**< Limb */
+   I18N_USCRIPT_LINEAR_B     = 49,  /**< Linb */
+   I18N_USCRIPT_OSMANYA      = 50,  /**< Osma */
+   I18N_USCRIPT_SHAVIAN      = 51,  /**< Shaw */
+   I18N_USCRIPT_TAI_LE       = 52,  /**< Tale */
+   I18N_USCRIPT_UGARITIC     = 53,  /**< Ugar */
+   I18N_USCRIPT_KATAKANA_OR_HIRAGANA = 54,/**<Hrkt */
+   I18N_USCRIPT_BUGINESE      = 55, /**< Bugi */
+   I18N_USCRIPT_GLAGOLITIC    = 56, /**< Glag */
+   I18N_USCRIPT_KHAROSHTHI    = 57, /**< Khar */
+   I18N_USCRIPT_SYLOTI_NAGRI  = 58, /**< Sylo */
+   I18N_USCRIPT_NEW_TAI_LUE   = 59, /**< Talu */
+   I18N_USCRIPT_TIFINAGH      = 60, /**< Tfng */
+   I18N_USCRIPT_OLD_PERSIAN   = 61, /**< Xpeo */
+   I18N_USCRIPT_BALINESE                      = 62, /**< Bali */
+   I18N_USCRIPT_BATAK                         = 63, /**< Batk */
+   I18N_USCRIPT_BLISSYMBOLS                   = 64, /**< Blis */
+   I18N_USCRIPT_BRAHMI                        = 65, /**< Brah */
+   I18N_USCRIPT_CHAM                          = 66, /**< Cham */
+   I18N_USCRIPT_CIRTH                         = 67, /**< Cirt */
+   I18N_USCRIPT_OLD_CHURCH_SLAVONIC_CYRILLIC  = 68, /**< Cyrs */
+   I18N_USCRIPT_DEMOTIC_EGYPTIAN              = 69, /**< Egyd */
+   I18N_USCRIPT_HIERATIC_EGYPTIAN             = 70, /**< Egyh */
+   I18N_USCRIPT_EGYPTIAN_HIEROGLYPHS          = 71, /**< Egyp */
+   I18N_USCRIPT_KHUTSURI                      = 72, /**< Geok */
+   I18N_USCRIPT_SIMPLIFIED_HAN                = 73, /**< Hans */
+   I18N_USCRIPT_TRADITIONAL_HAN               = 74, /**< Hant */
+   I18N_USCRIPT_PAHAWH_HMONG                  = 75, /**< Hmng */
+   I18N_USCRIPT_OLD_HUNGARIAN                 = 76, /**< Hung */
+   I18N_USCRIPT_HARAPPAN_INDUS                = 77, /**< Inds */
+   I18N_USCRIPT_JAVANESE                      = 78, /**< Java */
+   I18N_USCRIPT_KAYAH_LI                      = 79, /**< Kali */
+   I18N_USCRIPT_LATIN_FRAKTUR                 = 80, /**< Latf */
+   I18N_USCRIPT_LATIN_GAELIC                  = 81, /**< Latg */
+   I18N_USCRIPT_LEPCHA                        = 82, /**< Lepc */
+   I18N_USCRIPT_LINEAR_A                      = 83, /**< Lina */
+   I18N_USCRIPT_MANDAIC                       = 84, /**< Mand */
+   I18N_USCRIPT_MANDAEAN                      = I18N_USCRIPT_MANDAIC,
+   I18N_USCRIPT_MAYAN_HIEROGLYPHS             = 85, /**< Maya */
+   I18N_USCRIPT_MEROITIC_HIEROGLYPHS          = 86, /**< Mero */
+   I18N_USCRIPT_MEROITIC                      = I18N_USCRIPT_MEROITIC_HIEROGLYPHS,
+   I18N_USCRIPT_NKO                           = 87, /**< Nkoo */
+   I18N_USCRIPT_ORKHON                        = 88, /**< Orkh */
+   I18N_USCRIPT_OLD_PERMIC                    = 89, /**< Perm */
+   I18N_USCRIPT_PHAGS_PA                      = 90, /**< Phag */
+   I18N_USCRIPT_PHOENICIAN                    = 91, /**< Phnx */
+   I18N_USCRIPT_PHONETIC_POLLARD              = 92, /**< Plrd */
+   I18N_USCRIPT_RONGORONGO                    = 93, /**< Roro */
+   I18N_USCRIPT_SARATI                        = 94, /**< Sara */
+   I18N_USCRIPT_ESTRANGELO_SYRIAC             = 95, /**< Syre */
+   I18N_USCRIPT_WESTERN_SYRIAC                = 96, /**< Syrj */
+   I18N_USCRIPT_EASTERN_SYRIAC                = 97, /**< Syrn */
+   I18N_USCRIPT_TENGWAR                       = 98, /**< Teng */
+   I18N_USCRIPT_VAI                           = 99, /**< Vaii */
+   I18N_USCRIPT_VISIBLE_SPEECH                = 100,/**< Visp */
+   I18N_USCRIPT_CUNEIFORM                     = 101,/**< Xsux */
+   I18N_USCRIPT_UNWRITTEN_LANGUAGES           = 102,/**< Zxxx */
+   I18N_USCRIPT_UNKNOWN                       = 103,/**< Zzzz, Unknown="Code for uncoded script", for unassigned code points */
+   I18N_USCRIPT_CARIAN                        = 104,/**< Cari */
+   I18N_USCRIPT_JAPANESE                      = 105,/**< Jpan */
+   I18N_USCRIPT_LANNA                         = 106,/**< Lana */
+   I18N_USCRIPT_LYCIAN                        = 107,/**< Lyci */
+   I18N_USCRIPT_LYDIAN                        = 108,/**< Lydi */
+   I18N_USCRIPT_OL_CHIKI                      = 109,/**< Olck */
+   I18N_USCRIPT_REJANG                        = 110,/**< Rjng */
+   I18N_USCRIPT_SAURASHTRA                    = 111,/**< Saur */
+   I18N_USCRIPT_SIGN_WRITING                  = 112,/**< Sgnw */
+   I18N_USCRIPT_SUNDANESE                     = 113,/**< Sund */
+   I18N_USCRIPT_MOON                          = 114,/**< Moon */
+   I18N_USCRIPT_MEITEI_MAYEK                  = 115,/**< Mtei */
+   I18N_USCRIPT_IMPERIAL_ARAMAIC              = 116,/**< Armi */
+   I18N_USCRIPT_AVESTAN                       = 117,/**< Avst */
+   I18N_USCRIPT_CHAKMA                        = 118,/**< Cakm */
+   I18N_USCRIPT_KOREAN                        = 119,/**< Kore */
+   I18N_USCRIPT_KAITHI                        = 120,/**< Kthi */
+   I18N_USCRIPT_MANICHAEAN                    = 121,/**< Mani */
+   I18N_USCRIPT_INSCRIPTIONAL_PAHLAVI         = 122,/**< Phli */
+   I18N_USCRIPT_PSALTER_PAHLAVI               = 123,/**< Phlp */
+   I18N_USCRIPT_BOOK_PAHLAVI                  = 124,/**< Phlv */
+   I18N_USCRIPT_INSCRIPTIONAL_PARTHIAN        = 125,/**< Prti */
+   I18N_USCRIPT_SAMARITAN                     = 126,/**< Samr */
+   I18N_USCRIPT_TAI_VIET                      = 127,/**< Tavt */
+   I18N_USCRIPT_MATHEMATICAL_NOTATION         = 128,/**< Zmth */
+   I18N_USCRIPT_SYMBOLS                       = 129,/**< Zsym */
+   I18N_USCRIPT_BAMUM                         = 130,/**< Bamu */
+   I18N_USCRIPT_LISU                          = 131,/**< Lisu */
+   I18N_USCRIPT_NAKHI_GEBA                    = 132,/**< Nkgb */
+   I18N_USCRIPT_OLD_SOUTH_ARABIAN             = 133,/**< Sarb */
+   I18N_USCRIPT_BASSA_VAH                     = 134,/**< Bass */
+   I18N_USCRIPT_DUPLOYAN_SHORTAND             = 135,/**< Dupl */
+   I18N_USCRIPT_ELBASAN                       = 136,/**< Elba */
+   I18N_USCRIPT_GRANTHA                       = 137,/**< Gran */
+   I18N_USCRIPT_KPELLE                        = 138,/**< Kpel */
+   I18N_USCRIPT_LOMA                          = 139,/**< Loma */
+   I18N_USCRIPT_MENDE                         = 140,/**< Mend */
+   I18N_USCRIPT_MEROITIC_CURSIVE              = 141,/**< Merc */
+   I18N_USCRIPT_OLD_NORTH_ARABIAN             = 142,/**< Narb */
+   I18N_USCRIPT_NABATAEAN                     = 143,/**< Nbat */
+   I18N_USCRIPT_PALMYRENE                     = 144,/**< Palm */
+   I18N_USCRIPT_SINDHI                        = 145,/**< Sind */
+   I18N_USCRIPT_WARANG_CITI                   = 146,/**< Wara */
+   I18N_USCRIPT_AFAKA                         = 147,/**< Afak */
+   I18N_USCRIPT_JURCHEN                       = 148,/**< Jurc */
+   I18N_USCRIPT_MRO                           = 149,/**< Mroo */
+   I18N_USCRIPT_NUSHU                         = 150,/**< Nshu */
+   I18N_USCRIPT_SHARADA                       = 151,/**< Shrd */
+   I18N_USCRIPT_SORA_SOMPENG                  = 152,/**< Sora */
+   I18N_USCRIPT_TAKRI                         = 153,/**< Takr */
+   I18N_USCRIPT_TANGUT                        = 154,/**< Tang */
+   I18N_USCRIPT_WOLEAI                        = 155,/**< Wole */
+   I18N_USCRIPT_ANATOLIAN_HIEROGLYPHS         = 156,/**< Hluw */
+   I18N_USCRIPT_KHOJKI                        = 157,/**< Khoj */
+   I18N_USCRIPT_TIRHUTA                       = 158,/**< Tirh */
+I18N_USCRIPT_CODE_LIMIT    					 = 159 /**< Count of i18n_uscript_code_e enumerators*/
+} i18n_uscript_code_e;
 
 #ifdef __cplusplus
 }

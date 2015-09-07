@@ -976,7 +976,6 @@ int32_t i18n_ustring_to_lower ( i18n_uchar *dest, int32_t dest_capacity, const i
  * only some of the result were written to the destination buffer.
  * @exception #I18N_ERROR_NONE Success
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
- * @see i18n_ustring_to_title()
  */
 int32_t i18n_ustring_to_title_new ( i18n_uchar *dest, int32_t dest_capacity, const i18n_uchar *src, int32_t src_len, i18n_ubreak_iterator_h title_iter, const char *locale);
 

@@ -106,7 +106,7 @@ int i18n_usearch_create_new ( const i18n_uchar *pattern, int32_t pattern_len, co
 
 /**
  * @brief Destroys and cleans up the i18n_usearch_h.
- * @details If a collator is created in i18n_usearch_create(), it will be destroyed here.
+ * @details If a collator is created in i18n_usearch_create_new(), it will be destroyed here.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
  * @param[in] search_iter The i18n_usearch_h to clean up
