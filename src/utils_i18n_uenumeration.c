@@ -18,27 +18,24 @@
 #include <utils_i18n_uenumeration.h>
 #include <utils_i18n_private.h>
 
-int i18n_uenumeration_destroy ( i18n_uenumeration_h enumeration )
+int i18n_uenumeration_destroy(i18n_uenumeration_h enumeration)
 {
     if (enumeration == NULL)
-    {
         return I18N_ERROR_INVALID_PARAMETER;
-    }
 
-    uenum_close((UEnumeration *)enumeration);
+    uenum_close((UEnumeration *) enumeration);
     return I18N_ERROR_NONE;
 }
 
-int32_t i18n_uenumeration_count ( i18n_uenumeration_h enumeration )
+int32_t i18n_uenumeration_count(i18n_uenumeration_h enumeration)
 {
-    if (enumeration == NULL)
-    {
+    if (enumeration == NULL) {
         set_last_result(I18N_ERROR_INVALID_PARAMETER);
         return -1;
     }
 
     UErrorCode icu_error = U_ZERO_ERROR;
-    int32_t number_of_elements = uenum_count((UEnumeration *)enumeration, &icu_error);
+    int32_t number_of_elements = uenum_count((UEnumeration *) enumeration, &icu_error);
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
@@ -47,16 +44,15 @@ int32_t i18n_uenumeration_count ( i18n_uenumeration_h enumeration )
     return number_of_elements;
 }
 
-const i18n_uchar *i18n_uenumeration_unext ( i18n_uenumeration_h enumeration, int32_t *result_length )
+const i18n_uchar *i18n_uenumeration_unext(i18n_uenumeration_h enumeration, int32_t *result_length)
 {
-    if (enumeration == NULL)
-    {
+    if (enumeration == NULL) {
         set_last_result(I18N_ERROR_INVALID_PARAMETER);
         return NULL;
     }
 
     UErrorCode icu_error = U_ZERO_ERROR;
-    const UChar *ustring = uenum_unext((UEnumeration *)enumeration, result_length, &icu_error);
+    const UChar *ustring = uenum_unext((UEnumeration *) enumeration, result_length, &icu_error);
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
@@ -65,16 +61,15 @@ const i18n_uchar *i18n_uenumeration_unext ( i18n_uenumeration_h enumeration, int
     return ustring;
 }
 
-const char *i18n_uenumeration_next ( i18n_uenumeration_h enumeration, int32_t *result_length )
+const char *i18n_uenumeration_next(i18n_uenumeration_h enumeration, int32_t *result_length)
 {
-    if (enumeration == NULL)
-    {
+    if (enumeration == NULL) {
         set_last_result(I18N_ERROR_INVALID_PARAMETER);
         return NULL;
     }
 
     UErrorCode icu_error = U_ZERO_ERROR;
-    const char *string = uenum_next((UEnumeration *)enumeration, result_length, &icu_error);
+    const char *string = uenum_next((UEnumeration *) enumeration, result_length, &icu_error);
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
@@ -83,15 +78,13 @@ const char *i18n_uenumeration_next ( i18n_uenumeration_h enumeration, int32_t *r
     return string;
 }
 
-int i18n_uenumeration_reset ( i18n_uenumeration_h enumeration )
+int i18n_uenumeration_reset(i18n_uenumeration_h enumeration)
 {
     if (enumeration == NULL)
-    {
         return I18N_ERROR_INVALID_PARAMETER;
-    }
 
     UErrorCode icu_error = U_ZERO_ERROR;
-    uenum_reset((UEnumeration *)enumeration, &icu_error);
+    uenum_reset((UEnumeration *) enumeration, &icu_error);
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);
@@ -99,12 +92,12 @@ int i18n_uenumeration_reset ( i18n_uenumeration_h enumeration )
     return i18n_error;
 }
 
-int i18n_uenumeration_uchar_strings_enumeration_create ( const i18n_uchar *const strings[], int32_t count, i18n_uenumeration_h *enumeration )
+int i18n_uenumeration_uchar_strings_enumeration_create(const i18n_uchar *const strings[],
+                                                       int32_t count,
+                                                       i18n_uenumeration_h *enumeration)
 {
     if (count < 0 || NULL == enumeration)
-    {
         return I18N_ERROR_INVALID_PARAMETER;
-    }
 
     UErrorCode icu_error = U_ZERO_ERROR;
     *enumeration = uenum_openUCharStringsEnumeration(strings, count, &icu_error);
@@ -115,15 +108,15 @@ int i18n_uenumeration_uchar_strings_enumeration_create ( const i18n_uchar *const
     return i18n_error;
 }
 
-int i18n_uenumeration_char_strings_enumeration_create ( const char *const strings[], int32_t count, i18n_uenumeration_h *enumeration )
+int i18n_uenumeration_char_strings_enumeration_create(const char *const strings[], int32_t count,
+                                                      i18n_uenumeration_h *enumeration)
 {
     if (count < 0 || NULL == enumeration)
-    {
         return I18N_ERROR_INVALID_PARAMETER;
-    }
 
     UErrorCode icu_error = U_ZERO_ERROR;
-    *enumeration = (i18n_uenumeration_h)uenum_openCharStringsEnumeration(strings, count, &icu_error);
+    *enumeration =
+        (i18n_uenumeration_h) uenum_openCharStringsEnumeration(strings, count, &icu_error);
 
     i18n_error_code_e i18n_error;
     ERR_MAPPING(icu_error, i18n_error);

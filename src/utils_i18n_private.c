@@ -16,11 +16,14 @@
 
 #include <utils_i18n_private.h>
 
-int _i18n_error_mapping ( int err )
+int _i18n_error_mapping(int err)
 {
-    if(err == U_STRING_NOT_TERMINATED_WARNING) return I18N_WARNING_STRING_NOT_TERMINATED;
-    else if(err == U_SORT_KEY_TOO_SHORT_WARNING) return I18N_WARNING_SORT_KEY_TOO_SHORT;
-    else if(err <= U_ZERO_ERROR) return I18N_ERROR_NONE;
+    if (err == U_STRING_NOT_TERMINATED_WARNING)
+        return I18N_WARNING_STRING_NOT_TERMINATED;
+    else if (err == U_SORT_KEY_TOO_SHORT_WARNING)
+        return I18N_WARNING_SORT_KEY_TOO_SHORT;
+    else if (err <= U_ZERO_ERROR)
+        return I18N_ERROR_NONE;
 
     switch (err) {
     case U_ILLEGAL_ARGUMENT_ERROR      : return I18N_ERROR_INVALID_PARAMETER;
@@ -60,7 +63,7 @@ int _i18n_error_mapping ( int err )
     }
 }
 
-int _i18n_error_mapping_reverse ( int err )
+int _i18n_error_mapping_reverse(int err)
 {
     switch (err) {
     case I18N_ERROR_NONE                        : return U_ZERO_ERROR;
