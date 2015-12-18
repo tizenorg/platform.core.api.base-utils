@@ -95,10 +95,10 @@ int i18n_ubrk_create_rules (const i18n_uchar *rules, int32_t rules_length, const
  * @remarks Error codes are described in #i18n_error_code_e description.
  * @since_tizen 2.3.1
  * @param[in] break_iter iterator to be cloned. Must not be @c NULL.
- * @param[in] stack_buffer  User allocated space for the new clone. If @c NULL new memory will be allocated.
+ * @param[in] stack_buffer  (Deprecated Since 3.0. Use NULL instead.) User allocated space for the new clone. If @c NULL new memory will be allocated.
  *                          If buffer is not large enough, new memory will be allocated.
  *                          Clients can use the #I18N_U_BRK_SAFECLONE_BUFFERSIZE. This will probably be enough to avoid memory allocations.
- * @param[in] p_buffer_size A pointer to size of allocated space.
+ * @param[in] p_buffer_size (Deprecated Since 3.0. Use NULL instead.) A pointer to size of allocated space.
  *                          If <code>*p_buffer_size == 0</code>, a sufficient size for use in cloning will
  *                          be returned ('pre-flighting')
  *                          If *p_buffer_size is not enough for a stack-based safe clone,
