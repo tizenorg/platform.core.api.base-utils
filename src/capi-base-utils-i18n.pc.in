@@ -1,13 +1,11 @@
 # Package Information for pkg-config
 
-prefix=/usr
-exec_prefix=${prefix}
-libdir=${prefix}/lib
-includedir=${prefix}/include/base
+libdir=@LIB_INSTALL_DIR@
+includedir=@INCLUDE_INSTALL_DIR@
 
 Name: base-utils
-Description: base-utils
+Description: The base utils library for internationalization and localization
 Version: @VERSION@
 Requires: @PC_REQUIRED@
 Libs: -L${libdir} -lbase-utils-i18n
-Cflags: -I${includedir}
+Cflags: -I${includedir}/base
