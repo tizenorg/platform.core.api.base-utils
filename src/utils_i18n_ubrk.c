@@ -18,6 +18,7 @@
 #include <utils_i18n_ubrk.h>
 #include <utils_i18n_private.h>
 
+
 int i18n_ubrk_create(i18n_ubreak_iterator_type_e type, const char *locale, const i18n_uchar *text,
                      int32_t text_length, i18n_ubreak_iterator_h *break_iter)
 {
