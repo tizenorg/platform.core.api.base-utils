@@ -74,8 +74,8 @@ extern "C" {
 
 /**
  * @brief Creates and returns a new unumber_format_h for formatting and parsing numbers.
- * @details A unumber_format_style_e may be used to format numbers by calling {@link i18n_unumber_create()}.
- * The caller must call {@link #i18n_unumber_destroy() } when done to release resources used by this object.
+ * @details A unumber_format_style_e may be used to format numbers by calling i18n_unumber_create().
+ * The caller must call i18n_unumber_destroy() when done to release resources used by this object.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  * @remarks Must release @a num_format using i18n_unumber_destroy().
  *
@@ -84,6 +84,8 @@ extern "C" {
  * #I18N_UNUMBER_CURRENCY,
  * #I18N_UNUMBER_PERCENT,
  * #I18N_UNUMBER_SCIENTIFIC,
+ * #I18N_UNUMBER_CURRENCY_ISO,
+ * #I18N_UNUMBER_CURRENCY_PLURAL,
  * #I18N_UNUMBER_SPELLOUT,
  * #I18N_UNUMBER_ORDINAL,
  * #I18N_UNUMBER_DURATION,

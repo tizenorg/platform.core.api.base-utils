@@ -24,6 +24,7 @@ int i18n_unumber_create(i18n_unumber_format_style_e style, const i18n_uchar *pat
                         i18n_unumber_format_h *num_format)
 {
     retv_if(num_format == NULL, I18N_ERROR_INVALID_PARAMETER);
+    retv_if(style > I18N_UNUMBER_CURRENCY_PLURAL, I18N_ERROR_INVALID_PARAMETER);
 
     UErrorCode icu_error = U_ZERO_ERROR;
     *num_format =

@@ -240,9 +240,9 @@ typedef enum {
              0-9 A-F a-f
          */
     I18N_UCHAR_BIDI_CONTROL,
-	/**< Binary property Bidi_Control. \n
-	 Format controls which have specific functions in the Bidi Algorithm.
-	 */
+    /**< Binary property Bidi_Control. \n
+     Format controls which have specific functions in the Bidi Algorithm.
+     */
     I18N_UCHAR_BIDI_MIRRORED,
         /**< Binary property Bidi_Mirrored. \n
              Characters that may change display in RTL text. See Bidi Algorithm, UTR 9.
@@ -524,7 +524,9 @@ typedef enum {
              Returns #i18n_uchar_u_word_break_values_e values.
          */
     I18N_UCHAR_BIDI_PAIRED_BRACKET_TYPE,
-        /**< Unsupported yet. Please do not use.  */
+        /**< Enumerated property Bidi_Paired_Bracket_Type. \n
+             Returns #i18n_uchar_u_bidi_paired_bracket_type_e values .
+         */
     I18N_UCHAR_INT_LIMIT,
         /**< One more than the last constant for enumerated/integer Unicode properties. */
     I18N_UCHAR_GENERAL_CATEGORY_MASK           = 0x2000,
@@ -565,8 +567,8 @@ typedef enum {
         /**< String property Titlecase_Mapping. */
     I18N_UCHAR_UPPERCASE_MAPPING               = 0x400C,
         /**< String property Uppercase_Mapping. */
-    I18N_UCHAR_BIDI_PAIRED_BRACKET,
-        /**< Unsupported yet. Please do not use. */
+    I18N_UCHAR_BIDI_PAIRED_BRACKET                = 0x400D,
+        /**< String property Bidi_Paired_Bracket. (Since 3.0) */
     I18N_UCHAR_STRING_LIMIT,
         /**< One more than the last constant for string Unicode properties. */
     I18N_UCHAR_SCRIPT_EXTENSIONS               = 0x7000,
@@ -578,6 +580,22 @@ typedef enum {
     I18N_UCHAR_INVALID_CODE                    = -1
         /**< Represents a nonexistent or invalid property or property value. */
 } i18n_uchar_uproperty_e;
+
+/**
+ * @brief Bidi Paired Bracket Type constants.
+ * @since_tizen 3.0
+ * @see I18N_UCHAR_BIDI_PAIRED_BRACKET_TYPE
+ *
+ */
+typedef enum {
+    U_BPT_NONE,/**< Not a paired bracket. */
+
+    U_BPT_OPEN,    /**< Open paired bracket. */
+
+    U_BPT_CLOSE,    /**< Close paired bracket. */
+
+    U_BPT_COUNT /**< Count */
+} i18n_uchar_u_bidi_paired_bracket_type_e;
 
 /**
  * @brief Constants for Unicode blocks, see the Unicode Data file Blocks.txt.
@@ -798,6 +816,38 @@ typedef enum {
     I18N_UCHAR_UBLOCK_TRANSPORT_AND_MAP_SYMBOLS,                                 /**< Transport And Map Symbols */
     I18N_UCHAR_UBLOCK_ALCHEMICAL_SYMBOLS,                                        /**< Alchemical Symbols */
     I18N_UCHAR_UBLOCK_CJK_UNIFIED_IDEOGRAPHS_EXTENSION_D,                        /**< CJK Unified Ideographs Extension D */
+    I18N_UCHAR_UBLOCK_BASSA_VAH = 221,                  						 /**< Bassa Vah (Since 3.0) */
+    I18N_UCHAR_UBLOCK_CAUCASIAN_ALBANIAN = 222,         						 /**< Caucasian Albanian (Since 3.0) */
+    I18N_UCHAR_UBLOCK_COPTIC_EPACT_NUMBERS = 223,       						 /**< Coptic Epact Numbers (Since 3.0) */
+    I18N_UCHAR_UBLOCK_COMBINING_DIACRITICAL_MARKS_EXTENDED = 224, 				 /**< Combining Diacritical Marks Extended (Since 3.0) */
+    I18N_UCHAR_UBLOCK_DUPLOYAN = 225,                   						 /**< Duployan (Since 3.0) */
+    I18N_UCHAR_UBLOCK_ELBASAN = 226,                    						 /**< Elbasan (Since 3.0) */
+    I18N_UCHAR_UBLOCK_GEOMETRIC_SHAPES_EXTENDED = 227,  						 /**< Geometric Shapes Extended (Since 3.0) */
+    I18N_UCHAR_UBLOCK_GRANTHA = 228,                    						 /**< Grantha (Since 3.0) */
+    I18N_UCHAR_UBLOCK_KHOJKI = 229,                     						 /**< Khojki (Since 3.0) */
+    I18N_UCHAR_UBLOCK_KHUDAWADI = 230,                  						 /**< Khudawadi (Since 3.0) */
+    I18N_UCHAR_UBLOCK_LATIN_EXTENDED_E = 231,           						 /**< Latin Extended E (Since 3.0) */
+    I18N_UCHAR_UBLOCK_LINEAR_A = 232,                   						 /**< Linear A (Since 3.0) */
+    I18N_UCHAR_UBLOCK_MAHAJANI = 233,                   						 /**< Mahajani (Since 3.0) */
+    I18N_UCHAR_UBLOCK_MANICHAEAN = 234,                 						 /**< Manichaean (Since 3.0) */
+    I18N_UCHAR_UBLOCK_MENDE_KIKAKUI = 235,              						 /**< Mende Kikakui (Since 3.0) */
+    I18N_UCHAR_UBLOCK_MODI = 236,                       						 /**< Modi (Since 3.0) */
+    I18N_UCHAR_UBLOCK_MRO = 237,                        						 /**< Mro (Since 3.0) */
+    I18N_UCHAR_UBLOCK_MYANMAR_EXTENDED_B = 238,         						 /**< Myanmar Extended B (Since 3.0) */
+    I18N_UCHAR_UBLOCK_NABATAEAN = 239,                  						 /**< Nabataean (Since 3.0) */
+    I18N_UCHAR_UBLOCK_OLD_NORTH_ARABIAN = 240,          						 /**< Old North Arabian (Since 3.0) */
+    I18N_UCHAR_UBLOCK_OLD_PERMIC = 241,                 						 /**< Old Permic (Since 3.0) */
+    I18N_UCHAR_UBLOCK_ORNAMENTAL_DINGBATS = 242,        						 /**< Ornamental Dingbats (Since 3.0) */
+    I18N_UCHAR_UBLOCK_PAHAWH_HMONG = 243,               						 /**< Pahawh Hmong (Since 3.0) */
+    I18N_UCHAR_UBLOCK_PALMYRENE = 244,                  						 /**< Palmyrene (Since 3.0) */
+    I18N_UCHAR_UBLOCK_PAU_CIN_HAU = 245,                						 /**< Pau Cin Hau (Since 3.0) */
+    I18N_UCHAR_UBLOCK_PSALTER_PAHLAVI = 246,            						 /**< Psalter Pahlavi (Since 3.0) */
+    I18N_UCHAR_UBLOCK_SHORTHAND_FORMAT_CONTROLS = 247,  						 /**< Shorthand Format Controls (Since 3.0) */
+    I18N_UCHAR_UBLOCK_SIDDHAM = 248,                    						 /**< Siddham (Since 3.0) */
+    I18N_UCHAR_UBLOCK_SINHALA_ARCHAIC_NUMBERS = 249,    						 /**< Sinhala Archaic Numbers (Since 3.0) */
+    I18N_UCHAR_UBLOCK_SUPPLEMENTAL_ARROWS_C = 250,      						 /**< Supplemental Arrows C (Since 3.0) */
+    I18N_UCHAR_UBLOCK_TIRHUTA = 251,                    						 /**< Tirhuta (Since 3.0) */
+    I18N_UCHAR_UBLOCK_WARANG_CITI = 252,                						 /**< Warang Citi (Since 3.0) */
     I18N_UCHAR_UBLOCK_COUNT,                                                     /**< Count */
     I18N_UCHAR_UBLOCK_INVALID_CODE = -1                                          /**< Invalid Code */
 } i18n_uchar_ublock_code_e;
@@ -826,6 +876,10 @@ typedef enum {
     I18N_UCHAR_U_POP_DIRECTIONAL_FORMAT,                             /**< PDF */
     I18N_UCHAR_U_DIR_NON_SPACING_MARK,                               /**< NSM */
     I18N_UCHAR_U_BOUNDARY_NEUTRAL,                                   /**< BN */
+    I18N_UCHAR_U_FIRST_STRONG_ISOLATE,                               /**< FSI (Since 3.0) */
+    I18N_UCHAR_U_LEFT_TO_RIGHT_ISOLATE,                              /**< FSI (Since 3.0) */
+    I18N_UCHAR_U_RIGHT_TO_LEFT_ISOLATE,                              /**< RLI (Since 3.0) */
+    I18N_UCHAR_U_POP_DIRECTIONAL_ISOLATE,                            /**< PDI (Since 3.0) */
     I18N_UCHAR_U_CHAR_DIRECTION_COUNT                                /**< Count */
 } i18n_uchar_direction_e;
 
@@ -972,6 +1026,34 @@ typedef enum {
     I18N_UCHAR_U_JG_FARSI_YEH,                                                     /**< Farsi Yeh */
     I18N_UCHAR_U_JG_NYA,                                                           /**< Nya */
     I18N_UCHAR_U_JG_ROHINGYA_YEH,                                                  /**< Rohingya Yeh */
+    I18N_UCHAR_U_JG_MANICHAEAN_ALEPH,                                              /**< Manichaean Aleph (Since 3.0) */
+    I18N_UCHAR_U_JG_MANICHAEAN_AYIN,                                               /**< Manichaean Ayin (Since 3.0) */
+    I18N_UCHAR_U_JG_MANICHAEAN_BETH,                                               /**< Manichaean Beth (Since 3.0) */
+    I18N_UCHAR_U_JG_MANICHAEAN_DALETH,                                             /**< Manichaean Daleth (Since 3.0) */
+    I18N_UCHAR_U_JG_MANICHAEAN_DHAMEDH,                                            /**< Manichaean Dhamedh (Since 3.0) */
+    I18N_UCHAR_U_JG_MANICHAEAN_FIVE,                                               /**< Manichaean Five (Since 3.0) */
+    I18N_UCHAR_U_JG_MANICHAEAN_GIMEL,                                              /**< Manichaean Gimel (Since 3.0) */
+    I18N_UCHAR_U_JG_MANICHAEAN_HETH,                                               /**< Manichaean Heth (Since 3.0) */
+    I18N_UCHAR_U_JG_MANICHAEAN_HUNDRED,                                            /**< Manichaean Hundred (Since 3.0) */
+    I18N_UCHAR_U_JG_MANICHAEAN_KAPH,                                               /**< Manichaean Kaph (Since 3.0) */
+    I18N_UCHAR_U_JG_MANICHAEAN_LAMEDH,                                             /**< Manichaean Lamedh (Since 3.0) */
+    I18N_UCHAR_U_JG_MANICHAEAN_MEM,                                                /**< Manichaean Mem (Since 3.0) */
+    I18N_UCHAR_U_JG_MANICHAEAN_NUN,                                                /**< Manichaean Nun (Since 3.0) */
+    I18N_UCHAR_U_JG_MANICHAEAN_ONE,                                                /**< Manichaean One (Since 3.0) */
+    I18N_UCHAR_U_JG_MANICHAEAN_PE,                                                 /**< Manichaean Pe (Since 3.0) */
+    I18N_UCHAR_U_JG_MANICHAEAN_QOPH,                                               /**< Manichaean Qoph (Since 3.0) */
+    I18N_UCHAR_U_JG_MANICHAEAN_RESH,                                               /**< Manichaean Resh (Since 3.0) */
+    I18N_UCHAR_U_JG_MANICHAEAN_SADHE,                                              /**< Manichaean Sadhe (Since 3.0) */
+    I18N_UCHAR_U_JG_MANICHAEAN_SAMEKH,                                             /**< Manichaean Samekh (Since 3.0) */
+    I18N_UCHAR_U_JG_MANICHAEAN_TAW,                                                /**< Manichaean Taw (Since 3.0) */
+    I18N_UCHAR_U_JG_MANICHAEAN_TEN,                                                /**< Manichaean Ten (Since 3.0) */
+    I18N_UCHAR_U_JG_MANICHAEAN_TETH,                                               /**< Manichaean Teth (Since 3.0) */
+    I18N_UCHAR_U_JG_MANICHAEAN_THAMEDH,                                            /**< Manichaean Thamedh (Since 3.0) */
+    I18N_UCHAR_U_JG_MANICHAEAN_TWENTY,                                             /**< Manichaean Twenty (Since 3.0) */
+    I18N_UCHAR_U_JG_MANICHAEAN_WAW,                                                /**< Manichaean Waw (Since 3.0) */
+    I18N_UCHAR_U_JG_MANICHAEAN_YODH,                                               /**< Manichaean Yodh (Since 3.0) */
+    I18N_UCHAR_U_JG_MANICHAEAN_ZAYIN,                                              /**< Manichaean Zayin (Since 3.0) */
+    I18N_UCHAR_U_JG_STRAIGHT_WAW,                                                  /**< Manichaean Waw (Since 3.0) */
     I18N_UCHAR_U_JG_COUNT                                                          /**< Count */
  } i18n_uchar_u_joining_group_e;
 
@@ -1102,6 +1184,10 @@ typedef enum {
     I18N_UCHAR_U_WB_LF,                 /**< [LF] */
     I18N_UCHAR_U_WB_MIDNUMLET,          /**< [MB] */
     I18N_UCHAR_U_WB_NEWLINE,            /**< [NL] */
+    I18N_UCHAR_U_WB_REGIONAL_INDICATOR, /**< [RI] (Since 3.0) */
+    I18N_UCHAR_U_WB_HEBREW_LETTER,      /**< [HL] (Since 3.0) */
+    I18N_UCHAR_U_WB_SINGLE_QUOTE,       /**< [SQ] (Since 3.0) */
+    I18N_UCHAR_U_WB_DOUBLE_QUOTE,       /**< [DQ] (Since 3.0) */
     I18N_UCHAR_U_WB_COUNT               /**<  */
 } i18n_uchar_u_word_break_values_e;
 
@@ -1253,9 +1339,9 @@ typedef enum {
  * @since_tizen 2.4
  */
 typedef enum {
-	I18N_UNORMALIZATION_NO,		/**< The input string is not in the normalization form. */
-	I18N_UNORMALIZATION_YES,	/**< The input string is in the normalization form. */
-	I18N_UNORMALIZATION_MAYBE 	/**< The input string may or may not be in the normalization form. */
+    I18N_UNORMALIZATION_NO,     /**< The input string is not in the normalization form. */
+    I18N_UNORMALIZATION_YES,    /**< The input string is in the normalization form. */
+    I18N_UNORMALIZATION_MAYBE   /**< The input string may or may not be in the normalization form. */
 } i18n_unormalization_check_result_e;
 
 /**
@@ -1626,6 +1712,281 @@ typedef enum {
     I18N_UDISPLAY_CONTEXT_CAPITALIZATION_FOR_STANDALONE            = (I18N_UDISPCTX_TYPE_CAPITALIZATION<<8) + 4,   /**< Capitalization: For standalone */
 } i18n_udisplay_context_e;
 
+/* Skeletons for dates. */
+
+/**
+ * @brief Constant for date skeleton with year.
+ * @since_tizen 3.0
+ * @see i18n_udatepg_get_best_pattern()
+ */
+
+#define I18N_UDATE_YEAR                       "y"
+
+/**
+ * @brief Constant for date skeleton with quarter.
+ * @since_tizen 3.0
+ * @see i18n_udatepg_get_best_pattern()
+ */
+
+#define I18N_UDATE_QUARTER                    "QQQQ"
+
+/**
+ * @brief Constant for date skeleton with abbreviated quarter.
+ * @since_tizen 3.0
+ * @see i18n_udatepg_get_best_pattern()
+ */
+
+#define I18N_UDATE_ABBR_QUARTER               "QQQ"
+
+/**
+ * @brief Constant for date skeleton with year and quarter.
+ * @since_tizen 3.0
+ * @see i18n_udatepg_get_best_pattern()
+ */
+
+#define I18N_UDATE_YEAR_QUARTER               "yQQQQ"
+
+/**
+ * @brief Constant for date skeleton with year and abbreviated quarter.
+ * @since_tizen 3.0
+ * @see i18n_udatepg_get_best_pattern()
+ */
+
+#define I18N_UDATE_YEAR_ABBR_QUARTER          "yQQQ"
+
+/**
+ * @brief Constant for date skeleton with month.
+ * @since_tizen 3.0
+ * @see i18n_udatepg_get_best_pattern()
+ */
+
+#define I18N_UDATE_MONTH                      "MMMM"
+
+/**
+ * @brief Constant for date skeleton with abbreviated month.
+ * @since_tizen 3.0
+ * @see i18n_udatepg_get_best_pattern()
+ */
+
+#define I18N_UDATE_ABBR_MONTH                 "MMM"
+
+/**
+ * @brief Constant for date skeleton with numeric month.
+ * @since_tizen 3.0
+ * @see i18n_udatepg_get_best_pattern()
+ */
+#define I18N_UDATE_NUM_MONTH                  "M"
+
+/**
+ * @brief Constant for date skeleton with year and month.
+ * @since_tizen 3.0
+ * @see i18n_udatepg_get_best_pattern()
+ */
+#define I18N_UDATE_YEAR_MONTH                 "yMMMM"
+
+/**
+ * @brief Constant for date skeleton with year and abbreviated month.
+ * @since_tizen 3.0
+ * @see i18n_udatepg_get_best_pattern()
+ */
+#define I18N_UDATE_YEAR_ABBR_MONTH            "yMMM"
+
+/**
+ * @brief Constant for date skeleton with year and numeric month.
+ * @since_tizen 3.0
+ * @see i18n_udatepg_get_best_pattern()
+ */
+#define I18N_UDATE_YEAR_NUM_MONTH             "yM"
+
+/**
+ * @brief Constant for date skeleton with day.
+ * @since_tizen 3.0
+ * @see i18n_udatepg_get_best_pattern()
+ */
+#define I18N_UDATE_DAY                        "d"
+
+/**
+ * @brief Constant for date skeleton with year, month, and day.
+ * @details Used in combinations date + time, date + time + zone, or time + zone.
+ * @since_tizen 3.0
+ * @see i18n_udatepg_get_best_pattern()
+ */
+#define I18N_UDATE_YEAR_MONTH_DAY             "yMMMMd"
+
+/**
+ * @brief Constant for date skeleton with year, abbreviated month, and day.
+ * @details Used in combinations date + time, date + time + zone, or time + zone.
+ * @since_tizen 3.0
+ * @see i18n_udatepg_get_best_pattern()
+ */
+#define I18N_UDATE_YEAR_ABBR_MONTH_DAY        "yMMMd"
+
+/**
+ * @brief Constant for date skeleton with year, numeric month, and day.
+ * @details Used in combinations date + time, date + time + zone, or time + zone.
+ * @since_tizen 3.0
+ * @see i18n_udatepg_get_best_pattern()
+ */
+#define I18N_UDATE_YEAR_NUM_MONTH_DAY         "yMd"
+
+/**
+ * @brief Constant for date skeleton with weekday.
+ * @since_tizen 3.0
+ * @see i18n_udatepg_get_best_pattern()
+ */
+#define I18N_UDATE_WEEKDAY                    "EEEE"
+
+/**
+ * @brief Constant for date skeleton with abbreviated weekday.
+ * @since_tizen 3.0
+ * @see i18n_udatepg_get_best_pattern()
+ */
+#define I18N_UDATE_ABBR_WEEKDAY               "E"
+
+/**
+ * @brief Constant for date skeleton with year, month, weekday, and day.
+ * @details Used in combinations date + time, date + time + zone, or time + zone.
+ * @since_tizen 3.0
+ * @see i18n_udatepg_get_best_pattern()
+ */
+#define I18N_UDATE_YEAR_MONTH_WEEKDAY_DAY     "yMMMMEEEEd"
+
+/**
+ * @brief Constant for date skeleton with year, abbreviated month, weekday, and day.
+ * @details Used in combinations date + time, date + time + zone, or time + zone.
+ * @since_tizen 3.0
+ * @see i18n_udatepg_get_best_pattern()
+ */
+#define I18N_UDATE_YEAR_ABBR_MONTH_WEEKDAY_DAY "yMMMEd"
+
+/**
+ * @brief Constant for date skeleton with year, numeric month, weekday, and day.
+ * @details Used in combinations date + time, date + time + zone, or time + zone.
+ * @since_tizen 3.0
+ * @see i18n_udatepg_get_best_pattern()
+ */
+#define I18N_UDATE_YEAR_NUM_MONTH_WEEKDAY_DAY "yMEd"
+
+/**
+ * @brief Constant for date skeleton with long month and day.
+ * @details Used in combinations date + time, date + time + zone, or time + zone.
+ * @since_tizen 3.0
+ * @see i18n_udatepg_get_best_pattern()
+ */
+#define I18N_UDATE_MONTH_DAY                  "MMMMd"
+
+/**
+ * @brief Constant for date skeleton with abbreviated month and day.
+ * @details Used in combinations date + time, date + time + zone, or time + zone.
+ * @since_tizen 3.0
+ * @see i18n_udatepg_get_best_pattern()
+ */
+#define I18N_UDATE_ABBR_MONTH_DAY             "MMMd"
+
+/**
+ * @brief Constant for date skeleton with numeric month and day.
+ * @details Used in combinations date + time, date + time + zone, or time + zone.
+ * @since_tizen 3.0
+ * @see i18n_udatepg_get_best_pattern()
+ */
+#define I18N_UDATE_NUM_MONTH_DAY              "Md"
+
+/**
+ * @brief Constant for date skeleton with month, weekday, and day.
+ * @details Used in combinations date + time, date + time + zone, or time + zone.
+ * @since_tizen 3.0
+ * @see i18n_udatepg_get_best_pattern()
+ */
+#define I18N_UDATE_MONTH_WEEKDAY_DAY          "MMMMEEEEd"
+
+/**
+ * @brief Constant for date skeleton with abbreviated month, weekday, and day.
+ * @details Used in combinations date + time, date + time + zone, or time + zone.
+ * @since_tizen 3.0
+ * @see i18n_udatepg_get_best_pattern()
+ */
+#define I18N_UDATE_ABBR_MONTH_WEEKDAY_DAY     "MMMEd"
+
+/**
+ * @brief Constant for date skeleton with numeric month, weekday, and day.
+ * @details Used in combinations date + time, date + time + zone, or time + zone.
+ * @since_tizen 3.0
+ * @see i18n_udatepg_get_best_pattern()
+ */
+#define I18N_UDATE_NUM_MONTH_WEEKDAY_DAY      "MEd"
+
+/* Skeletons for times. */
+
+/**
+ * @brief Constant for date skeleton with hour, with the locale's preferred hour format (12 or 24).
+ * @since_tizen 3.0
+ * @see i18n_udatepg_get_best_pattern()
+ */
+#define I18N_UDATE_HOUR                       "j"
+
+/**
+ * @brief Constant for date skeleton with hour in 24-hour presentation.
+ * @since_tizen 3.0
+ * @see i18n_udatepg_get_best_pattern()
+ */
+#define I18N_UDATE_HOUR24                     "H"
+
+/**
+ * @brief Constant for date skeleton with minute.
+ * @since_tizen 3.0
+ * @see i18n_udatepg_get_best_pattern()
+ */
+#define I18N_UDATE_MINUTE                     "m"
+
+/**
+ * @brief Constant for date skeleton with hour and minute, with the locale's preferred hour format (12 or 24).
+ * @details Used in combinations date + time, date + time + zone, or time + zone.
+ * @since_tizen 3.0
+ * @see i18n_udatepg_get_best_pattern()
+ */
+#define I18N_UDATE_HOUR_MINUTE                "jm"
+
+/**
+ * @brief Constant for date skeleton with hour and minute in 24-hour presentation.
+ * @details Used in combinations date + time, date + time + zone, or time + zone.
+ * @since_tizen 3.0
+ * @see i18n_udatepg_get_best_pattern()
+ */
+#define I18N_UDATE_HOUR24_MINUTE              "Hm"
+
+/**
+ * @brief Constant for date skeleton with second.
+ * @since_tizen 3.0
+ * @see i18n_udatepg_get_best_pattern()
+ */
+#define I18N_UDATE_SECOND                     "s"
+
+/**
+ * @brief Constant for date skeleton with hour, minute, and second,
+ * with the locale's preferred hour format (12 or 24).
+ * @details Used in combinations date + time, date + time + zone, or time + zone.
+ * @since_tizen 3.0
+ * @see i18n_udatepg_get_best_pattern()
+ */
+#define I18N_UDATE_HOUR_MINUTE_SECOND         "jms"
+
+/**
+ * @brief Constant for date skeleton with hour, minute, and second in
+ * 24-hour presentation.
+ * @details Used in combinations date + time, date + time + zone, or time + zone.
+ * @since_tizen 3.0
+ * @see i18n_udatepg_get_best_pattern()
+ */
+#define I18N_UDATE_HOUR24_MINUTE_SECOND       "Hms"
+
+/**
+ * @brief Constant for date skeleton with minute and second.
+ * @details Used in combinations date + time, date + time + zone, or time + zone.
+ * @since_tizen 3.0
+ * @see i18n_udatepg_get_best_pattern()
+ */
+#define I18N_UDATE_MINUTE_SECOND              "ms"
+
 /**
  * @}
  * @}
@@ -1741,7 +2102,7 @@ typedef enum {
     I18N_UNUMBER_CURRENCY_ISO,              /**< Currency format with an ISO currency code, e.g., "USD1.00" */
     I18N_UNUMBER_CURRENCY_PLURAL,           /**< Currency format with a pluralized currency name, e.g., "1.00 US dollar" and "3.00 US dollars" */
 
-    I18N_UNUMBER_FORMAT_STYLE_COUNT   = I18N_UNUMBER_CURRENCY_PLURAL + 2,   /**< One more than the highest number format style constant */
+    I18N_UNUMBER_FORMAT_STYLE_COUNT,									    /**< One more than the highest number format style constant */
     I18N_UNUMBER_DEFAULT              = I18N_UNUMBER_DECIMAL,               /**< Default format */
     I18N_UNUMBER_IGNORE               = I18N_UNUMBER_PATTERN_DECIMAL        /**< Alias for #I18N_UNUMBER_PATTERN_DECIMAL */
  } i18n_unumber_format_style_e;
@@ -1778,7 +2139,7 @@ typedef enum {
     I18N_UNUMBER_SEVEN_DIGIT_SYMBOL                  = 24,      /**< Seven */
     I18N_UNUMBER_EIGHT_DIGIT_SYMBOL                  = 25,      /**< Eight */
     I18N_UNUMBER_NINE_DIGIT_SYMBOL                   = 26,      /**< Nine */
-    I18N_UNUMBER_FORMAT_SYMBOL_COUNT                 = 27       /**< Number of enumerators */
+    I18N_UNUMBER_FORMAT_SYMBOL_COUNT       						/**< Number of enumerators */
  } i18n_unumber_format_symbol_e;
 
 /**
@@ -1823,17 +2184,21 @@ typedef enum {
  * @since_tizen 2.3.1
  */
 typedef enum {
-    I18N_UNUMBER_POSITIVE_PREFIX,               /**< Positive prefix */
-    I18N_UNUMBER_POSITIVE_SUFFIX,               /**< Positive suffix */
-    I18N_UNUMBER_NEGATIVE_PREFIX,               /**< Negative prefix */
-    I18N_UNUMBER_NEGATIVE_SUFFIX,               /**< Negative suffix */
-    I18N_UNUMBER_PADDING_CHARACTER,             /**< The character used to pad to the format width */
-    I18N_UNUMBER_CURRENCY_CODE,                 /**< The ISO currency code */
-    I18N_UNUMBER_DEFAULT_RULESET,               /**< The default rule set, such as "%spellout-numbering-year:", "%spellout-cardinal:", "%spellout-ordinal-masculine-plural:", "%spellout-ordinal-feminine:", or "%spellout-ordinal-neuter:".
-                                                     The available public rulesets can be listed using i18n_unumber_get_text_attribute() with #I18N_UNUMBER_PUBLIC_RULESETS. This is only available with rule-based formatters */
-    I18N_UNUMBER_PUBLIC_RULESETS,               /**< The public rule sets. This is only available with rule-based formatters. This is a read-only attribute.
-                                                     The public rulesets are returned as a single string, with each ruleset name delimited by ';' (semicolon).
-                                                     See the CLDR LDML spec for more information about RBNF rulesets: http://www.unicode.org/reports/tr35/tr35-numbers.html#Rule-Based_Number_Formatting */
+    I18N_UNUMBER_POSITIVE_PREFIX,      /**< Positive prefix */
+    I18N_UNUMBER_POSITIVE_SUFFIX,      /**< Positive suffix */
+    I18N_UNUMBER_NEGATIVE_PREFIX,      /**< Negative prefix */
+    I18N_UNUMBER_NEGATIVE_SUFFIX,      /**< Negative suffix */
+    I18N_UNUMBER_PADDING_CHARACTER,    /**< The character used to pad to the format width */
+    I18N_UNUMBER_CURRENCY_CODE,        /**< The ISO currency code */
+    I18N_UNUMBER_DEFAULT_RULESET,      /**< The default rule set, such as "%spellout-numbering-year:", "%spellout-cardinal:",
+    									 "%spellout-ordinal-masculine-plural:", "%spellout-ordinal-feminine:"
+    									 or "%spellout-ordinal-neuter:".
+                                         The available public rulesets can be listed using i18n_unumber_get_text_attribute()
+                                         with #I18N_UNUMBER_PUBLIC_RULESETS. This is only available with rule-based formatters */
+    I18N_UNUMBER_PUBLIC_RULESETS,      /**< The public rule sets. This is only available with rule-based formatters. This is a read-only attribute.
+                                         The public rulesets are returned as a single string, with each ruleset name delimited by ';' (semicolon).
+                                         See the CLDR LDML spec for more information about RBNF rulesets:
+                                         http://www.unicode.org/reports/tr35/tr35-numbers.html#Rule-Based_Number_Formatting */
 } i18n_unumber_format_text_attribute_e;
 
 /**
@@ -1867,6 +2232,99 @@ typedef enum {
 #define I18N_ULOCALE_TAIWAN                    "zh_TW"      /**< Useful constant for zh_TW. @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif*/
 #define I18N_ULOCALE_UK                        "en_GB"      /**< Useful constant for en_GB. @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif*/
 #define I18N_ULOCALE_US                        "en_US"      /**< Useful constant for en_US. @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif*/
+
+/**
+ * @brief Useful constant for the maximum size of the language part of a locale ID.
+ * (including the terminating NULL).
+ * @since_tizen 3.0
+ * @see i18n_ulocale_get_keyword_value()
+ * @see i18n_ulocale_get_language()
+ */
+#define I18N_ULOCALE_LANG_CAPACITY 12
+
+/**
+ * @brief Useful constant for the maximum size of the country part of a locale ID
+ * (including the terminating NULL).
+ * @since_tizen 3.0
+ * @see i18n_ulocale_get_keyword_value()
+ * @see i18n_ulocale_get_country()
+ */
+#define I18N_ULOCALE_COUNTRY_CAPACITY 4
+/**
+ * @brief Useful constant for the maximum size of the whole locale ID
+ * (including the terminating NULL and all keywords).
+ * @since_tizen 3.0
+ * @see i18n_ulocale_get_keyword_value()
+ */
+#define I18N_ULOCALE_FULLNAME_CAPACITY 157
+
+/**
+ * @brief Useful constant for the maximum size of the script part of a locale ID
+ * (including the terminating NULL).
+ * @since_tizen 3.0
+ * @see i18n_ulocale_get_keyword_value()
+ * @see i18n_ulocale_get_script()
+ */
+#define I18N_ULOCALE_SCRIPT_CAPACITY 6
+
+/**
+ * @brief Useful constant for the maximum size of keywords in a locale
+ * @since_tizen 3.0
+ * @see i18n_ulocale_get_keyword_value()
+ */
+#define I18N_ULOCALE_KEYWORDS_CAPACITY 96
+
+/**
+ * @brief Useful constant for the maximum total size of keywords and their values in a locale
+ * @since_tizen 3.0
+ * @see i18n_ulocale_get_keyword_value()
+ */
+#define I18N_ULOCALE_KEYWORD_AND_VALUES_CAPACITY 100
+
+/**
+ * @brief Invariant character separating keywords from the locale string
+ * @since_tizen 3.0
+ * @see i18n_ulocale_get_keyword_value()
+ */
+#define I18N_ULOCALE_KEYWORD_SEPARATOR '@'
+
+/**
+ * @brief Unicode code point for '@' separating keywords from the locale string.
+ * @since_tizen 3.0
+ * @see #I18N_ULOCALE_KEYWORD_SEPARATOR
+ * @see i18n_ulocale_get_keyword_value()
+ */
+#define I18N_ULOCALE_KEYWORD_SEPARATOR_UNICODE 0x40
+
+/**
+ * @brief Invariant character for assigning value to a keyword
+ * @since_tizen 3.0
+ * @see i18n_ulocale_get_keyword_value()
+ */
+#define I18N_ULOCALE_KEYWORD_ASSIGN '='
+
+/**
+ * @brief Unicode code point for '=' for assigning value to a keyword.
+ * @since_tizen 3.0
+ * @see #I18N_ULOCALE_KEYWORD_ASSIGN
+ * @see i18n_ulocale_get_keyword_value()
+ */
+#define I18N_ULOCALE_KEYWORD_ASSIGN_UNICODE 0x3D
+
+/**
+ * @brief Invariant character separating keywords
+ * @since_tizen 3.0
+ * @see i18n_ulocale_get_keyword_value()
+ */
+#define I18N_ULOCALE_KEYWORD_ITEM_SEPARATOR ';'
+
+/**
+ * @brief Unicode code point for ';' separating keywords
+ * @since_tizen 3.0
+ * @see #I18N_ULOCALE_KEYWORD_ITEM_SEPARATOR
+ * @see i18n_ulocale_get_keyword_value()
+ */
+#define I18N_ULOCALE_KEYWORD_ITEM_SEPARATOR_UNICODE 0x3B
 
 /**
  * @brief Enumeration for the 'out_result' parameter return value
@@ -1924,7 +2382,7 @@ typedef enum {
  *
  * @retval  character   the character represented by the escape sequence at offset
  *
- * @see #i18n_ustring_unescape_at()
+ * @see i18n_ustring_unescape_at()
  */
 typedef i18n_uchar(* i18n_ustring_unescape_char_at_cb)(int32_t offset, void *context);
 
@@ -2018,6 +2476,7 @@ typedef void* i18n_ubreak_iterator_s;
 typedef void* i18n_ubreak_iterator_h;
 
 /**
+ * @deprecated Deprecated since Tizen 3.0
  * @brief A recommended size (in bytes) for the memory buffer to be passed to i18n_ubrk_safe_clone().
  * @since_tizen 2.3.1
  */
@@ -2349,11 +2808,11 @@ typedef enum {
    I18N_USCRIPT_ANATOLIAN_HIEROGLYPHS         = 156,/**< Hluw */
    I18N_USCRIPT_KHOJKI                        = 157,/**< Khoj */
    I18N_USCRIPT_TIRHUTA                       = 158,/**< Tirh */
-I18N_USCRIPT_CODE_LIMIT    					 = 159 /**< Count of i18n_uscript_code_e enumerators*/
+   I18N_USCRIPT_CODE_LIMIT                    = 159 /**< Count of i18n_uscript_code_e enumerators*/
 } i18n_uscript_code_e;
 
 #ifdef __cplusplus
 }
 #endif
 
-#endif	/* __UTILS_I18N_TYPES_H__*/
+#endif    /* __UTILS_I18N_TYPES_H__*/
