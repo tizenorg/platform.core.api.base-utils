@@ -24,6 +24,7 @@ int i18n_unumber_create(i18n_unumber_format_style_e style, const i18n_uchar *pat
                         i18n_unumber_format_h *num_format)
 {
     retv_if(num_format == NULL, I18N_ERROR_INVALID_PARAMETER);
+    retv_if(style > I18N_UNUMBER_CURRENCY_PLURAL, I18N_ERROR_INVALID_PARAMETER);
 
     UErrorCode icu_error = U_ZERO_ERROR;
     *num_format =
@@ -407,6 +408,9 @@ int i18n_unumber_set_symbol(i18n_unumber_format_h fmt, i18n_unumber_format_symbo
                             const i18n_uchar *value, int32_t length)
 {
     if (fmt == NULL)
+        return I18N_ERROR_INVALID_PARAMETER;
+
+    if (symbol > I18N_UNUMBER_FORMAT_SYMBOL_COUNT)
         return I18N_ERROR_INVALID_PARAMETER;
 
     UErrorCode icu_error = U_ZERO_ERROR;

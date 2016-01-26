@@ -1142,7 +1142,6 @@ i18n_uchar* i18n_ustring_from_UTF8 ( i18n_uchar *dest, int32_t dest_capacity, in
 
 /**
  * @brief Convert a UTF-16 string to UTF-8.
- * @details If the input string is not well-formed, then the #I18N_ERROR_INVALID_CHAR_FOUND error code is set.
  * Same as #i18n_ustring_to_UTF8() except for the additional sub_char which is output for illegal input sequences, instead of stopping with the #I18N_ERROR_INVALID_CHAR_FOUND error code.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
@@ -1162,10 +1161,8 @@ i18n_uchar* i18n_ustring_from_UTF8 ( i18n_uchar *dest, int32_t dest_capacity, in
  * A substitution character can be any valid Unicode code point (up to U+10FFFF) except for surrogate code points (U+D800..U+DFFF).
  * The recommended value is U+FFFD "REPLACEMENT CHARACTER".
  * @param[out] num_substitutions Output parameter receiving the number of substitutions if sub_char>=0. Set to 0 if no substitutions occur or sub_char<0. num_substitutions can be NULL.
- * @param[out] error_code Pointer to a standard ICU error code. Its input value must
- * pass the U_SUCCESS() test, or else the function returns
- * immediately. Check for U_FAILURE() on output or use with
- * function chaining. (See User Guide for details.)
+ * @param[out] error_codeMust be a valid pointer to an error code value,
+ * which must not indicate a failure before the function call.
  * @return The pointer to destination buffer.
  * @exception #I18N_ERROR_NONE Success
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
@@ -1176,7 +1173,6 @@ char* i18n_ustring_to_UTF8_with_sub ( char *dest, int32_t dest_capacity, int32_t
 
 /**
  * @brief Convert a UTF-8 string to UTF-16.
- * @details Same as #i18n_ustring_from_UTF8() except for the additional sub_char which is output for illegal input sequences, instead of stopping with the #I18N_ERROR_INVALID_CHAR_FOUND error code.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
  * @param[out] dest A buffer for the result string.\n
@@ -1195,10 +1191,8 @@ char* i18n_ustring_to_UTF8_with_sub ( char *dest, int32_t dest_capacity, int32_t
  * A substitution character can be any valid Unicode code point (up to U+10FFFF) except for surrogate code points (U+D800..U+DFFF).
  * The recommended value is U+FFFD "REPLACEMENT CHARACTER".
  * @param[out] num_substitutions Output parameter receiving the number of substitutions if sub_char>=0. Set to 0 if no substitutions occur or sub_char<0. num_substitutions can be NULL.
- * @param[out] error_code Pointer to a standard ICU error code. Its input value must
- * pass the U_SUCCESS() test, or else the function returns
- * immediately. Check for U_FAILURE() on output or use with
- * function chaining. (See User Guide for details.)
+ * @param[out] error_code Must be a valid pointer to an error code value,
+ * which must not indicate a failure before the function call.
  * @return The pointer to destination buffer.
  * @exception #I18N_ERROR_NONE Success
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
@@ -1236,10 +1230,8 @@ i18n_uchar* i18n_ustring_from_UTF8_with_sub ( i18n_uchar *dest, int32_t dest_cap
  * @param[in] src The original source string
  * @param[in] src_len The length of the original string.\n
  * If @c -1, then @a src must be zero-terminated.
- * @param[out] error_code Pointer to a standard ICU error code. Its input value must
- * pass the U_SUCCESS() test, or else the function returns
- * immediately. Check for U_FAILURE() on output or use with
- * function chaining. (See User Guide for details.)
+ * @param[out] error_code Must be a valid pointer to an error code value,
+ * which must not indicate a failure before the function call.
  * @return The pointer to destination buffer.
  * @exception #I18N_ERROR_NONE Success
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
@@ -1291,7 +1283,6 @@ i18n_uchar32* i18n_ustring_to_UTF32 ( i18n_uchar32 *dest, int32_t dest_capacity,
  * @param[in] src The original source string
  * @param[in] src_len The length of the original string.\n
  * If @c -1, then @a src must be zero-terminated.
- *
  * @param[out] error_code Must be a valid pointer to an error code value,
  * which must not indicate a failure before the function call.
  * @return The pointer to destination buffer.
@@ -1322,10 +1313,8 @@ i18n_uchar* i18n_ustring_from_UTF32 ( i18n_uchar *dest, int32_t dest_capacity, i
  * A substitution character can be any valid Unicode code point (up to U+10FFFF) except for surrogate code points (U+D800..U+DFFF).
  * The recommended value is U+FFFD "REPLACEMENT CHARACTER".
  * @param[out] num_substitutions Output parameter receiving the number of substitutions if sub_char>=0. Set to 0 if no substitutions occur or sub_char<0. num_substitutions can be NULL.
- * @param[out] error_code Pointer to a standard ICU error code. Its input value must
- * pass the U_SUCCESS() test, or else the function returns
- * immediately. Check for U_FAILURE() on output or use with
- * function chaining. (See User Guide for details.)
+ * @param[out] error_code Must be a valid pointer to an error code value,
+ * which must not indicate a failure before the function call.
  * @return The pointer to destination buffer.
  * @exception #I18N_ERROR_NONE Success
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
@@ -1337,7 +1326,6 @@ i18n_uchar32* i18n_ustring_to_UTF32_with_sub ( i18n_uchar32 *dest, int32_t dest_
 
 /**
  * @brief Convert a UTF-32 string to UTF-16.
- * @details If the input string is not well-formed, then the #I18N_ERROR_INVALID_CHAR_FOUND error code is set.
  * Same as #i18n_ustring_from_UTF32() except for the additional sub_char which is output for illegal input sequences, instead of stopping with the #I18N_ERROR_INVALID_CHAR_FOUND error code.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
@@ -1356,11 +1344,9 @@ i18n_uchar32* i18n_ustring_to_UTF32_with_sub ( i18n_uchar32 *dest, int32_t dest_
  * A substitution character can be any valid Unicode code point (up to U+10FFFF) except for surrogate code points (U+D800..U+DFFF).
  * The recommended value is U+FFFD "REPLACEMENT CHARACTER".
  * @param[out] num_substitutions Output parameter receiving the number of substitutions if sub_char>=0. Set to 0 if no substitutions occur or sub_char<0. num_substitutions can be NULL.
- * @param[out] error_code Pointer to a standard ICU error code. Its input value must
- * pass the U_SUCCESS() test, or else the function returns
- * immediately. Check for U_FAILURE() on output or use with
- * function chaining. (See User Guide for details.)
- * @return[out] The pointer to destination buffer.
+ * @param[out] error_code Must be a valid pointer to an error code value,
+ * which must not indicate a failure before the function call.
+ * @return The pointer to destination buffer.
  *
  * @exception #I18N_ERROR_NONE Success
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter

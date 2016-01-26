@@ -177,13 +177,12 @@ int32_t i18n_ubrk_next (i18n_ubreak_iterator_h break_iter);
 int32_t i18n_ubrk_previous (i18n_ubreak_iterator_h break_iter);
 
 /**
- * @brief Sets the iterator position to the index of the first character in the text being scanned.
- * @details This is not always the same as index @c 0 of the text.
- * @remarks The specific error code can be obtained using the get_last_result() method.
+ * @brief Sets the iterator position to zero, the start of the text being scanned.
+ * * @remarks The specific error code can be obtained using the get_last_result() method.
  *          Error codes are described in Exceptions section.
  * @since_tizen 2.3.1
  * @param[in] break_iter The break iterator to use. Must not be @c NULL.
- * @return The character index of the first character in the text being scanned.
+ * @return The new iterator position (zero).
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  * @see i18n_ubrk_last()
