@@ -37,7 +37,8 @@
  * @details The Udatepg module provides flexible generation of date format patterns,
  * like "yy-MM-dd". The user can build up the generator by adding successive patterns.
  * Once that is done, a query can be made using a "skeleton", which is a pattern that
- * just includes the desired fields and lengths. The generator will return the
+ * just includes the desired fields and lengths(Since Tizen 3.0 constants for skeletons are available -
+ * see #I18N_UDATE_YEAR and many, many others). The generator will return the
  * "best fit" pattern corresponding to that skeleton.\n
  * The main method people will use is i18n_udatepg_get_best_pattern(), since normally
  * #i18n_udatepg_h is pre-built with data from a particular locale.
