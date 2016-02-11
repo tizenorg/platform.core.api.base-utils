@@ -125,7 +125,14 @@ extern "C" {
 
 /**
  * @brief Creates a i18n_ucollator_h for comparing strings.
- * @details The i18n_ucollator_h is used in all the calls to the Collation service.\n
+ * @details For some languages, multiple collation types are available;
+ * for example, "de@collation=phonebook".
+ * Collation attributes can be specified via locale keywords as well,
+ * in the old locale extension syntax ("el@colCaseFirst=upper")
+ * or in language tag syntax ("el-u-kf-upper").
+ * See <a href="http://userguide.icu-project.org/collation/api">User Guide: Collation API</a>.
+ *
+ * The i18n_ucollator_h is used in all the calls to the Collation service.\n
  * After finished, collator must be disposed off by calling {@link #i18n_ucollator_destroy()}.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  * @remarks Must release @a collator using i18n_ucollator_destroy().

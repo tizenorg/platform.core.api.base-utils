@@ -442,7 +442,8 @@ int32_t i18n_ulocale_get_display_variant ( const char *locale, const char *displ
  *    int32_t keyword_count = 0;
  *    i18n_uchar display_keyword[256];
  *    int32_t display_keyword_len = 0;
- *    i18n_uenumeration_h keyword_enum = i18n_ulocale_keywords_create("de_DE@collation=PHONEBOOK;calendar=TRADITIONAL");
+ *    i18n_uenumeration_h keyword_enum;
+ *    i18n_ulocale_keywords_create("en_US@collation=PHONEBOOK;calendar=TRADITIONAL", &keyword_enum);
  *
  *    for(keyword_count = i18n_uenumeration_count(keyword_enum); keyword_count > 0; keyword_count--){
  *          status = get_last_result();
@@ -484,7 +485,8 @@ int32_t i18n_ulocale_get_display_keyword ( const char *keyword, const char *disp
 
 /**
  * @brief Gets the value of the keyword suitable for display for the specified locale.
- * @details E.g : for the locale string de_DE\@collation=PHONEBOOK, this API gets the display string for PHONEBOOK, in the display locale, when "collation" is specified as the keyword.
+ * @details E.g : for the locale string de_DE\@collation=PHONEBOOK, this API gets the display string for PHONEBOOK,
+ * in the display locale, when "collation" is specified as the keyword.
  * @remarks The specific error code can be obtained using the get_last_result() method.
  *          Error codes are described in Exceptions section and #i18n_error_code_e description.
  * @since_tizen 2.3.1
@@ -567,7 +569,7 @@ const char * const *i18n_ulocale_get_iso_countries ( void );
 int32_t i18n_ulocale_get_parent ( const char *locale_id, char *parent, int32_t parent_capacity );
 
 /**
- * @brief Gets the full name for the specified locale.
+ * @brief Gets the full name for the specified locale, like i18n_ulocale_get_name(), but without keywords.
  * @details Note : This has the effect of 'canonicalizing' the string to a certain extent.
  *          Upper and lower case are set as needed,
  *          and if the components were in 'POSIX' format they are changed to I18N format.
@@ -628,13 +630,61 @@ int32_t i18n_ulocale_get_keyword_value ( const char *locale_id, const char *keyw
 
 /**
  * @brief Sets or removes the value of the specified keyword.
- * @details For removing all keywords, use i18n_ulocale_get_base_name().
+ * @details For removing all keywords(retrieving only locale base name associated with the keywords),
+ * use i18n_ulocale_get_base_name().
  *
  *          NOTE : Unlike almost every other I18N function which takes a
  *          buffer, this function will NOT truncate the output text. If a
  *          #I18N_ERROR_BUFFER_OVERFLOW is received, it means that the original
  *          buffer is untouched. This is done to prevent incorrect or possibly
  *          even malformed locales from being generated and used.
+ *
+ * Below code prints following logs in SDK:
+ *
+ * Locale and keywords: en_US@abc=12;def=34
+ * keyword1: abc
+ * keyword2: def
+ * Locale: en_US
+ * Keyword1 value: 12
+ *
+ * @code
+ *    int32_t buff_size = 50;
+ *    int32_t sub_buff_size = 45;
+ *    char *buff = malloc(sizeof(char)*buff_size);
+ *    char *sub_buff = malloc(sizeof(char)*sub_buff_size);
+ *    char *locale = "en_US";
+ *
+ *    snprintf(buff, buff_size, "%s%s",locale, sub_buff);
+ *
+ *    i18n_ulocale_set_keyword_value("abc", "cba", buff, buff_size);
+ *    i18n_ulocale_set_keyword_value("def", "34", buff, buff_size);
+ *
+ *    i18n_uenumeration_h keyword_enum;
+ *    i18n_ulocale_keywords_create(buff, &keyword_enum);
+ *
+ *    int32_t res_len = 0;
+ *    const char *keyw = i18n_uenumeration_next(keyword_enum, &res_len);
+ *    const char *keyw2 = i18n_uenumeration_next(keyword_enum, &res_len);
+ *
+ *    char *only_locale = malloc(sizeof(char)*10);
+ *    i18n_ulocale_get_base_name(buff, only_locale, 10);
+ *
+ *    int32_t buff_size_get = 50;
+ *    char *buff_out = malloc(sizeof(char)*buff_size_get);
+ *    i18n_ulocale_get_keyword_value(buff, "abc", buff_out, buff_size_get);
+ *
+ *    dlog_print(DLOG_DEBUG, "test", "Locale and keywords: %s", buff);
+ *    dlog_print(DLOG_DEBUG, "test", "keyword1: %s", keyw);
+ *    dlog_print(DLOG_DEBUG, "test", "keyword2: %s", keyw2);
+ *    dlog_print(DLOG_DEBUG, "test", "Locale: %s", only_locale);
+ *    dlog_print(DLOG_DEBUG, "test", "Keyword1 value: %s", buff_out);
+ *
+ *    i18n_uenumeration_destroy(keyword_enum)
+ *    free(buff);
+ *    free(sub_buff);
+ *    free(only_locale);
+ *    free(buff_out);
+ * @endcode
  * @remarks The specific error code can be obtained using the get_last_result() method.
  *          Error codes are described in Exceptions section and #i18n_error_code_e description.
  * @since_tizen 2.3.1
