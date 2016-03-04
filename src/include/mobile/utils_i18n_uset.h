@@ -17,6 +17,14 @@
  * and others. All Rights Reserved.
  */
 
+/*
+ ******************************************************************************
+ * Copyright (C) 1996-2014, International Business Machines Corporation and others.
+ * All Rights Reserved.
+ ******************************************************************************
+ */
+
+
 #ifndef __UTILS_I18N_USET_PRODUCT_H__
 #define __UTILS_I18N_USET_PRODUCT_H__
 

@@ -14,6 +14,14 @@
  *    limitations under the License.
  */
 
+/*
+ ******************************************************************************
+ * Copyright (C) 1996-2014, International Business Machines Corporation and others.
+ * All Rights Reserved.
+ ******************************************************************************
+ */
+
+
 #ifndef __UTILS_I18N_UDATEPG_H__
 #define __UTILS_I18N_UDATEPG_H__
 
