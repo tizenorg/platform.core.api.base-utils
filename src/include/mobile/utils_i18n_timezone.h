@@ -76,7 +76,7 @@ int i18n_timezone_create_unknown ( i18n_timezone_h *timezone );
 
 /**
  * @brief The GMT (=UTC) time zone has a raw offset of zero and does not use daylight savings time.
- * @details This is a commonly used time zone.\n
+ * @details This is a commonly used time zone. 'timezone' must not be modified and/or deleted.
  * Note: For backward compatibility reason, the ID used by the time zone returned by this method is "GMT", although the I18N's canonical ID for the GMT time zone is "Etc/GMT".
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
