@@ -49,9 +49,6 @@ int i18n_timezone_create_gmt(i18n_timezone_h *timezone)
 
     *timezone = gmt->clone();
 
-    if (gmt != NULL)
-        delete gmt;
-
     retv_if(timezone == NULL, I18N_ERROR_OUT_OF_MEMORY);
 
     return I18N_ERROR_NONE;
