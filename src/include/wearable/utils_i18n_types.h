@@ -169,20 +169,20 @@ typedef enum {
 
 #if !defined(U_WCHAR_IS_UTF16) && !defined(U_WCHAR_IS_UTF32)
 #   ifdef __STDC_ISO_10646__
-#       if (U_SIZEOF_WCHAR_T==2)
+#       if (U_SIZEOF_WCHAR_T == 2)
 #           define U_WCHAR_IS_UTF16
-#       elif (U_SIZEOF_WCHAR_T==4)
+#       elif (U_SIZEOF_WCHAR_T == 4)
 #           define  U_WCHAR_IS_UTF32
 #       endif
 #   elif defined __UCS2__
-#       if (U_PF_OS390 <= U_PLATFORM && U_PLATFORM <= U_PF_OS400) && (U_SIZEOF_WCHAR_T==2)
+#       if (U_PF_OS390 <= U_PLATFORM && U_PLATFORM <= U_PF_OS400) && (U_SIZEOF_WCHAR_T == 2)
 #           define U_WCHAR_IS_UTF16
 #       endif
 #   elif defined(__UCS4__) || (U_PLATFORM == U_PF_OS400 && defined(__UTF32__))
-#       if (U_SIZEOF_WCHAR_T==4)
+#       if (U_SIZEOF_WCHAR_T == 4)
 #           define U_WCHAR_IS_UTF32
 #       endif
-#   elif U_PLATFORM_IS_DARWIN_BASED || (U_SIZEOF_WCHAR_T==4 && U_PLATFORM_IS_LINUX_BASED)
+#   elif U_PLATFORM_IS_DARWIN_BASED || (U_SIZEOF_WCHAR_T == 4 && U_PLATFORM_IS_LINUX_BASED)
 #       define U_WCHAR_IS_UTF32
 #   elif U_PLATFORM_HAS_WIN32_API
 #       define U_WCHAR_IS_UTF16
@@ -198,7 +198,7 @@ typedef enum {
     typedef UCHAR_TYPE i18n_uchar;
 /* Not #elif U_HAVE_CHAR16_T -- because that is type-incompatible with pre-C++11 callers
     typedef char16_t i18n_uchar;  */
-#elif U_SIZEOF_WCHAR_T==2
+#elif U_SIZEOF_WCHAR_T == 2
     typedef wchar_t i18n_uchar;
 #elif defined(__CHAR16_TYPE__)
     typedef __CHAR16_TYPE__ i18n_uchar;
@@ -1592,7 +1592,7 @@ typedef struct {
  * @brief Handle to struct representing a range of text containing a specific field.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  */
-typedef i18n_ufield_position_s* i18n_ufield_position_h;
+typedef i18n_ufield_position_s *i18n_ufield_position_h;
 
 /**
  * @brief Enumeration for the possible date/time format styles.
@@ -1690,7 +1690,7 @@ typedef enum {
  * @since_tizen 2.3.1
 
  */
-typedef enum{
+typedef enum {
     I18N_UDISPCTX_TYPE_DIALECT_HANDLING,        /**<Type to retrieve the dialect handling setting, e.g. UDISPCTX_STANDARD_NAMES or UDISPCTX_DIALECT_NAMES.   */
     I18N_UDISPCTX_TYPE_CAPITALIZATION,          /**<Type to retrieve the capitalization context setting, e.g. UDISPCTX_CAPITALIZATION_NONE, UDISPCTX_CAPITALIZATION_FOR_MIDDLE_OF_SENTENCE, UDISPCTX_CAPITALIZATION_FOR_BEGINNING_OF_SENTENCE, etc.   */
 #ifndef U_HIDE_DRAFT_API
@@ -2384,7 +2384,7 @@ typedef enum {
  *
  * @see i18n_ustring_unescape_at()
  */
-typedef i18n_uchar(* i18n_ustring_unescape_char_at_cb)(int32_t offset, void *context);
+typedef i18n_uchar(*i18n_ustring_unescape_char_at_cb)(int32_t offset, void *context);
 
 /**
  * @brief Option value for case folding: use default mappings defined in CaseFolding.txt.
@@ -2451,7 +2451,7 @@ typedef enum {
     I18N_TIMEZONE_DISPLAY_TYPE_LONG_GMT,            /**< Selector for long display name derived from time zone offset */
     I18N_TIMEZONE_DISPLAY_TYPE_SHORT_COMMONLY_USED, /**< Selector for short display name derived from the time zone's fallback name */
     I18N_TIMEZONE_DISPLAY_TYPE_GENERIC_LOCATION     /**< Selector for long display name derived from the time zone's fallback name */
-}i18n_timezone_display_type_e;
+} i18n_timezone_display_type_e;
 
 /**
  * @}

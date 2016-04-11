@@ -81,7 +81,7 @@ extern "C" {
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_unormalization_get_instance (const char *package_name, const char *name, i18n_unormalization_mode_e mode, 
+int i18n_unormalization_get_instance(const char *package_name, const char *name, i18n_unormalization_mode_e mode, 
     i18n_unormalizer_h *normalizer);
 
 /**
@@ -100,7 +100,7 @@ int i18n_unormalization_get_instance (const char *package_name, const char *name
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_unormalization_normalize (i18n_unormalizer_h normalizer, const i18n_uchar *src, int32_t len, i18n_uchar *dest, int32_t capacity, int32_t *len_deststr);
+int i18n_unormalization_normalize(i18n_unormalizer_h normalizer, const i18n_uchar *src, int32_t len, i18n_uchar *dest, int32_t capacity, int32_t *len_deststr);
 
 #ifdef __cplusplus
 }

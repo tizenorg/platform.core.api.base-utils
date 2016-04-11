@@ -106,21 +106,21 @@
 
     // creates new i18n_udate_format to format dates and times
     ret = i18n_udate_create(I18N_UDATE_FULL , I18N_UDATE_FULL , locale, utf16_timezone_KR, -1, bestPattern, -1, &formatter_KR);
-    if ( ret != I18N_ERROR_NONE ) {
+    if (ret != I18N_ERROR_NONE) {
         dlog_print(DLOG_INFO, LOG_TAG, "i18n_udate_create failed !!! \n");
     }
     if (!formatter_KR) {
         dlog_print(DLOG_INFO, LOG_TAG, "formatter is NULL\n");
     }
     ret = i18n_udate_create(I18N_UDATE_FULL , I18N_UDATE_FULL , locale, utf16_timezone_LA, -1, bestPattern, -1, &formatter_LA);
-    if ( ret != I18N_ERROR_NONE ) {
+    if (ret != I18N_ERROR_NONE) {
         dlog_print(DLOG_INFO, LOG_TAG, "i18n_udate_create failed !!! \n");
     }
     if (!formatter_LA) {
         dlog_print(DLOG_INFO, LOG_TAG, "formatter is NULL\n");
     }
     ret = i18n_udate_create(I18N_UDATE_PATTERN , I18N_UDATE_PATTERN , locale, utf16_timezone_SaoPaulo, -1, bestPattern, -1, &formatter_SaoPaulo);
-    if ( ret != I18N_ERROR_NONE ) {
+    if (ret != I18N_ERROR_NONE) {
         dlog_print(DLOG_INFO, LOG_TAG, "i18n_udate_create failed !!! \n");
     }
     if (!formatter_LA) {
@@ -178,7 +178,7 @@ extern "C" {
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_udatepg_create ( const char *locale, i18n_udatepg_h *dtpg );
+int i18n_udatepg_create(const char *locale, i18n_udatepg_h *dtpg);
 
 /**
  * @brief Destroys a generator.
@@ -189,7 +189,7 @@ int i18n_udatepg_create ( const char *locale, i18n_udatepg_h *dtpg );
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_udatepg_destroy ( i18n_udatepg_h dtpg );
+int i18n_udatepg_destroy(i18n_udatepg_h dtpg);
 
 /**
  * @brief Gets the best pattern matching the input skeleton.
@@ -213,7 +213,7 @@ int i18n_udatepg_destroy ( i18n_udatepg_h dtpg );
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  * @retval #I18N_ERROR_BUFFER_OVERFLOW A result would not fit in the supplied buffer
  */
-int i18n_udatepg_get_best_pattern ( i18n_udatepg_h dtpg, const i18n_uchar *skeleton, int32_t len, i18n_uchar *best_pattern, int32_t capacity, int32_t *best_pattern_len );
+int i18n_udatepg_get_best_pattern(i18n_udatepg_h dtpg, const i18n_uchar *skeleton, int32_t len, i18n_uchar *best_pattern, int32_t capacity, int32_t *best_pattern_len);
 
 
 // Newly Added APIs
@@ -229,7 +229,7 @@ int i18n_udatepg_get_best_pattern ( i18n_udatepg_h dtpg, const i18n_uchar *skele
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_udatepg_create_empty (i18n_udatepg_h *dtpg);
+int i18n_udatepg_create_empty(i18n_udatepg_h *dtpg);
 
 /**
  * @brief Creates a copy of a generator.
@@ -242,7 +242,7 @@ int i18n_udatepg_create_empty (i18n_udatepg_h *dtpg);
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_udatepg_clone ( const i18n_udatepg_h dtpg, i18n_udatepg_h * dtpg_clone);
+int i18n_udatepg_clone(const i18n_udatepg_h dtpg, i18n_udatepg_h * dtpg_clone);
 
 /**
  * @brief Gets the best pattern matching the input @a skeleton.
@@ -273,8 +273,8 @@ int i18n_udatepg_clone ( const i18n_udatepg_h dtpg, i18n_udatepg_h * dtpg_clone)
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int32_t i18n_udatepg_get_best_pattern_with_options ( i18n_udatepg_h dtpg, const i18n_uchar *skeleton, int32_t length,
-        i18n_udatepg_date_time_pattern_match_options_e options, i18n_uchar *best_pattern, int32_t capacity );
+int32_t i18n_udatepg_get_best_pattern_with_options(i18n_udatepg_h dtpg, const i18n_uchar *skeleton, int32_t length,
+        i18n_udatepg_date_time_pattern_match_options_e options, i18n_uchar *best_pattern, int32_t capacity);
 
 /**
  * @brief Gets a unique skeleton from a given pattern. For example, both "MMM-dd" and "dd/MMM" produce the skeleton "MMMdd".
@@ -298,7 +298,7 @@ int32_t i18n_udatepg_get_best_pattern_with_options ( i18n_udatepg_h dtpg, const 
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int32_t i18n_udatepg_get_skeleton ( i18n_udatepg_h dtpg, const i18n_uchar *pattern, int32_t length, i18n_uchar *skeleton, int32_t capacity );
+int32_t i18n_udatepg_get_skeleton(i18n_udatepg_h dtpg, const i18n_uchar *pattern, int32_t length, i18n_uchar *skeleton, int32_t capacity);
 
 /**
  * @brief Gets a unique base skeleton from a given pattern.
@@ -325,7 +325,7 @@ int32_t i18n_udatepg_get_skeleton ( i18n_udatepg_h dtpg, const i18n_uchar *patte
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int32_t i18n_udatepg_get_base_skeleton ( i18n_udatepg_h dtpg, const i18n_uchar *pattern, int32_t length, i18n_uchar *base_skeleton, int32_t capacity );
+int32_t i18n_udatepg_get_base_skeleton(i18n_udatepg_h dtpg, const i18n_uchar *pattern, int32_t length, i18n_uchar *base_skeleton, int32_t capacity);
 
 /**
  * @brief Adds a pattern to the generator.
@@ -353,7 +353,7 @@ int32_t i18n_udatepg_get_base_skeleton ( i18n_udatepg_h dtpg, const i18n_uchar *
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int32_t  i18n_udatepg_add_pattern ( i18n_udatepg_h dtpg, const i18n_uchar *pattern, int32_t pattern_length, i18n_ubool override, i18n_uchar *conflicting_pattern, int32_t capacity, i18n_udatepg_date_time_pattern_conflict_e * conflict_status );
+int32_t  i18n_udatepg_add_pattern(i18n_udatepg_h dtpg, const i18n_uchar *pattern, int32_t pattern_length, i18n_ubool override, i18n_uchar *conflicting_pattern, int32_t capacity, i18n_udatepg_date_time_pattern_conflict_e * conflict_status);
 
 /**
  * @brief An append_item_format is a pattern used to append a field if there is no good match.
@@ -379,7 +379,7 @@ int32_t  i18n_udatepg_add_pattern ( i18n_udatepg_h dtpg, const i18n_uchar *patte
  *
  * @see i18n_udatepg_get_append_item_format()
  */
-int i18n_udatepg_set_append_item_format ( i18n_udatepg_h dtpg, i18n_udatepg_date_time_pattern_field_e field, const i18n_uchar *value, int32_t length );
+int i18n_udatepg_set_append_item_format(i18n_udatepg_h dtpg, i18n_udatepg_date_time_pattern_field_e field, const i18n_uchar *value, int32_t length);
 
 /**
  * @brief Getter corresponding to i18n_udatepg_set_append_item_format().
@@ -399,7 +399,7 @@ int i18n_udatepg_set_append_item_format ( i18n_udatepg_h dtpg, i18n_udatepg_date
  *
  * @see i18n_udatepg_set_append_item_format()
  */
-const i18n_uchar *i18n_udatepg_get_append_item_format ( const i18n_udatepg_h dtpg, i18n_udatepg_date_time_pattern_field_e field, int32_t *pattern_length );
+const i18n_uchar *i18n_udatepg_get_append_item_format(const i18n_udatepg_h dtpg, i18n_udatepg_date_time_pattern_field_e field, int32_t *pattern_length);
 
 /**
  * @brief Sets the name of field, e.g. "era" in English for ERA.
@@ -418,8 +418,8 @@ const i18n_uchar *i18n_udatepg_get_append_item_format ( const i18n_udatepg_h dtp
  *
  * @see i18n_udatepg_get_append_item_name()
  */
-int i18n_udatepg_set_append_item_name ( i18n_udatepg_h dtpg, i18n_udatepg_date_time_pattern_field_e field, const i18n_uchar *value,
-        int32_t length );
+int i18n_udatepg_set_append_item_name(i18n_udatepg_h dtpg, i18n_udatepg_date_time_pattern_field_e field, const i18n_uchar *value,
+        int32_t length);
 
 /**
  * @brief Getter corresponding to i18n_udatepg_set_append_item_name().
@@ -439,8 +439,8 @@ int i18n_udatepg_set_append_item_name ( i18n_udatepg_h dtpg, i18n_udatepg_date_t
  *
  * @see i18n_udatepg_set_append_item_name()
  */
-const i18n_uchar *i18n_udatepg_get_append_item_name ( const i18n_udatepg_h dtpg, i18n_udatepg_date_time_pattern_field_e field,
-        int32_t *pattern_length );
+const i18n_uchar *i18n_udatepg_get_append_item_name(const i18n_udatepg_h dtpg, i18n_udatepg_date_time_pattern_field_e field,
+        int32_t *pattern_length);
 
 /**
  * @brief The date time format is a message format pattern used to compose date and time patterns.
@@ -464,7 +464,7 @@ const i18n_uchar *i18n_udatepg_get_append_item_name ( const i18n_udatepg_h dtpg,
  *
  * @see i18n_udatepg_get_date_time_format()
  */
-int i18n_udatepg_set_date_time_format ( const i18n_udatepg_h dtpg, const i18n_uchar *date_time_format, int32_t length );
+int i18n_udatepg_set_date_time_format(const i18n_udatepg_h dtpg, const i18n_uchar *date_time_format, int32_t length);
 
 /**
  * @brief Getter corresponding to i18n_udatepg_set_date_time_format().
@@ -482,7 +482,7 @@ int i18n_udatepg_set_date_time_format ( const i18n_udatepg_h dtpg, const i18n_uc
  *
  * @see i18n_udatepg_set_date_time_format()
  */
-const i18n_uchar *i18n_udatepg_get_date_time_format ( const i18n_udatepg_h dtpg, int32_t *pattern_length );
+const i18n_uchar *i18n_udatepg_get_date_time_format(const i18n_udatepg_h dtpg, int32_t *pattern_length);
 
 /**
  * @brief The decimal value is used in formatting fractions of seconds.
@@ -502,7 +502,7 @@ const i18n_uchar *i18n_udatepg_get_date_time_format ( const i18n_udatepg_h dtpg,
  *
  * @see i18n_udatepg_get_decimal()
  */
-int i18n_udatepg_set_decimal ( i18n_udatepg_h dtpg, const i18n_uchar *decimal, int32_t length );
+int i18n_udatepg_set_decimal(i18n_udatepg_h dtpg, const i18n_uchar *decimal, int32_t length);
 
 /**
  * @brief Getter corresponding to i18n_udatepg_set_decimal().
@@ -520,7 +520,7 @@ int i18n_udatepg_set_decimal ( i18n_udatepg_h dtpg, const i18n_uchar *decimal, i
  *
  * @see i18n_udatepg_set_decimal()
  */
-const i18n_uchar *i18n_udatepg_get_decimal ( const i18n_udatepg_h dtpg, int32_t *pattern_length );
+const i18n_uchar *i18n_udatepg_get_decimal(const i18n_udatepg_h dtpg, int32_t *pattern_length);
 
 /**
  * @brief Adjusts the field types (width and subtype) of a @a pattern to match what is in a @a skeleton.
@@ -548,8 +548,8 @@ const i18n_uchar *i18n_udatepg_get_decimal ( const i18n_udatepg_h dtpg, int32_t 
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int32_t i18n_udatepg_replace_field_types ( i18n_udatepg_h dtpg, const i18n_uchar *pattern, int32_t pattern_length,
-        const i18n_uchar *skeleton, int32_t skeleton_length, i18n_uchar *dest, int32_t dest_capacity );
+int32_t i18n_udatepg_replace_field_types(i18n_udatepg_h dtpg, const i18n_uchar *pattern, int32_t pattern_length,
+        const i18n_uchar *skeleton, int32_t skeleton_length, i18n_uchar *dest, int32_t dest_capacity);
 
 /**
  * @brief Adjusts the field types (width and subtype) of a pattern to match what is in a @a skeleton.
@@ -581,9 +581,9 @@ int32_t i18n_udatepg_replace_field_types ( i18n_udatepg_h dtpg, const i18n_uchar
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int32_t i18n_udatepg_replace_field_types_with_options ( i18n_udatepg_h dtpg, const i18n_uchar *pattern, int32_t pattern_length,
+int32_t i18n_udatepg_replace_field_types_with_options(i18n_udatepg_h dtpg, const i18n_uchar *pattern, int32_t pattern_length,
         const i18n_uchar *skeleton, int32_t skeleton_length, i18n_udatepg_date_time_pattern_match_options_e options,
-        i18n_uchar *dest, int32_t dest_capacity );
+        i18n_uchar *dest, int32_t dest_capacity);
 
 /**
  * @brief Creates an #i18n_uenumeration_h for list of all the skeletons in canonical form.
@@ -597,7 +597,7 @@ int32_t i18n_udatepg_replace_field_types_with_options ( i18n_udatepg_h dtpg, con
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_udatepg_skeletons_create ( const i18n_udatepg_h dtpg, i18n_uenumeration_h *enumeration );
+int i18n_udatepg_skeletons_create(const i18n_udatepg_h dtpg, i18n_uenumeration_h *enumeration);
 
 /**
  * @brief Creates an #i18n_uenumeration_h for list of all the base skeletons in canonical form.
@@ -610,7 +610,7 @@ int i18n_udatepg_skeletons_create ( const i18n_udatepg_h dtpg, i18n_uenumeration
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_udatepg_base_skeletons_create ( const i18n_udatepg_h dtpg, i18n_uenumeration_h *enumeration );
+int i18n_udatepg_base_skeletons_create(const i18n_udatepg_h dtpg, i18n_uenumeration_h *enumeration);
 
 /**
  * @brief Gets the pattern corresponding to a given skeleton.
@@ -628,7 +628,7 @@ int i18n_udatepg_base_skeletons_create ( const i18n_udatepg_h dtpg, i18n_uenumer
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-const i18n_uchar *i18n_udatepg_get_pattern_for_skeleton ( const i18n_udatepg_h dtpg, const i18n_uchar *skeleton, int32_t skeleton_length, int32_t *pattern_length );
+const i18n_uchar *i18n_udatepg_get_pattern_for_skeleton(const i18n_udatepg_h dtpg, const i18n_uchar *skeleton, int32_t skeleton_length, int32_t *pattern_length);
 
 
 #ifdef __cplusplus

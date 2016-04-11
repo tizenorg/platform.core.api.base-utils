@@ -73,7 +73,7 @@ extern "C" {
 } while (0)
 
 #define retex_if(expr, val, fmt, arg...) do { \
-      if(expr) { \
+      if (expr) { \
          ERR(fmt, ##arg); \
          val; \
          goto CATCH; \
@@ -86,8 +86,8 @@ extern "C" {
 #define ERR_MAPPING(ICU_ERROR, BASE_UTILS_ERROR) BASE_UTILS_ERROR = \
     (i18n_error_code_e)_i18n_error_mapping((int)ICU_ERROR)
 
-int _i18n_error_mapping ( int err );
-int _i18n_error_mapping_reverse ( int err );
+int _i18n_error_mapping(int err);
+int _i18n_error_mapping_reverse(int err);
 
 #ifdef __cplusplus
 }

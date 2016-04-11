@@ -101,7 +101,7 @@ extern "C" {
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_usearch_create_new ( const i18n_uchar *pattern, int32_t pattern_len, const i18n_uchar *text,
+int i18n_usearch_create_new(const i18n_uchar *pattern, int32_t pattern_len, const i18n_uchar *text,
         int32_t text_len, const char *locale, i18n_ubreak_iterator_h break_iter, i18n_usearch_h *search_iter);
 
 /**
@@ -114,7 +114,7 @@ int i18n_usearch_create_new ( const i18n_uchar *pattern, int32_t pattern_len, co
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_usearch_destroy ( i18n_usearch_h search_iter );
+int i18n_usearch_destroy(i18n_usearch_h search_iter);
 
 /**
  * @brief Returns the text that matches by the most recent call to i18n_usearch_first(), or so on.
@@ -136,7 +136,7 @@ int i18n_usearch_destroy ( i18n_usearch_h search_iter );
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  * @retval #I18N_ERROR_BUFFER_OVERFLOW A result would not fit in the supplied buffer
  */
-int i18n_usearch_get_matched_text ( const i18n_usearch_h search_iter, i18n_uchar *result, int32_t result_capacity, int32_t *len_matched_text );
+int i18n_usearch_get_matched_text(const i18n_usearch_h search_iter, i18n_uchar *result, int32_t result_capacity, int32_t *len_matched_text);
 
 /**
  * @brief Gets the collator used for the language rules.
@@ -151,7 +151,7 @@ int i18n_usearch_get_matched_text ( const i18n_usearch_h search_iter, i18n_uchar
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_usearch_get_collator ( const i18n_usearch_h search_iter, i18n_ucollator_h *collator );
+int i18n_usearch_get_collator(const i18n_usearch_h search_iter, i18n_ucollator_h *collator);
 
 /**
  * @brief Returns the first index at which the string text matches the search pattern.
@@ -168,7 +168,7 @@ int i18n_usearch_get_collator ( const i18n_usearch_h search_iter, i18n_ucollator
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_usearch_first ( i18n_usearch_h search_iter, int32_t *index_first );
+int i18n_usearch_first(i18n_usearch_h search_iter, int32_t *index_first);
 
 #ifdef __cplusplus
 }

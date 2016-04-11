@@ -107,21 +107,21 @@
 
     // creates new i18n_udate_format_h to format dates and times
     ret = i18n_udate_create(I18N_UDATE_FULL , I18N_UDATE_FULL , locale, utf16_timezone_KR, -1, bestPattern, -1, &formatter_KR);
-    if ( ret != I18N_ERROR_NONE ) {
+    if (ret != I18N_ERROR_NONE) {
         dlog_print(DLOG_INFO, LOG_TAG, "i18n_udate_create failed !!! \n");
     }
     if (!formatter_KR) {
         dlog_print(DLOG_INFO, LOG_TAG, "formatter is NULL\n");
     }
     ret = i18n_udate_create(I18N_UDATE_FULL , I18N_UDATE_FULL , locale, utf16_timezone_LA, -1, bestPattern, -1, &formatter_LA);
-    if ( ret != I18N_ERROR_NONE ) {
+    if (ret != I18N_ERROR_NONE) {
         dlog_print(DLOG_INFO, LOG_TAG, "i18n_udate_create failed !!! \n");
     }
     if (!formatter_LA) {
         dlog_print(DLOG_INFO, LOG_TAG, "formatter is NULL\n");
     }
     ret = i18n_udate_create(I18N_UDATE_PATTERN , I18N_UDATE_PATTERN , locale, utf16_timezone_SaoPaulo, -1, bestPattern, -1, &formatter_SaoPaulo);
-    if ( ret != I18N_ERROR_NONE ) {
+    if (ret != I18N_ERROR_NONE) {
         dlog_print(DLOG_INFO, LOG_TAG, "i18n_udate_create failed !!! \n");
     }
     if (!formatter_LA) {
@@ -195,7 +195,7 @@ extern "C" {
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_udate_create ( i18n_udate_format_style_e time_style, i18n_udate_format_style_e date_style, const char *locale, const i18n_uchar *tz_id, int32_t tz_id_len, const i18n_uchar *pattern, int pattern_len, i18n_udate_format_h *format );
+int i18n_udate_create(i18n_udate_format_style_e time_style, i18n_udate_format_style_e date_style, const char *locale, const i18n_uchar *tz_id, int32_t tz_id_len, const i18n_uchar *pattern, int pattern_len, i18n_udate_format_h *format);
 
 /**
  * @brief Destroys an #i18n_udate_format_h.
@@ -207,7 +207,7 @@ int i18n_udate_create ( i18n_udate_format_style_e time_style, i18n_udate_format_
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_udate_destroy ( i18n_udate_format_h format );
+int i18n_udate_destroy(i18n_udate_format_h format);
 
 /**
  * @brief Formats a date using an #i18n_udate_format_h.
@@ -231,7 +231,7 @@ int i18n_udate_destroy ( i18n_udate_format_h format );
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_udate_format_date ( const i18n_udate_format_h format, i18n_udate date_to_format, i18n_uchar *result, int32_t result_len, i18n_ufield_position_h pos, int32_t *buf_size_needed );
+int i18n_udate_format_date(const i18n_udate_format_h format, i18n_udate date_to_format, i18n_uchar *result, int32_t result_len, i18n_ufield_position_h pos, int32_t *buf_size_needed);
 
 
 // Newly Added APIs
@@ -250,7 +250,7 @@ int i18n_udate_format_date ( const i18n_udate_format_h format, i18n_udate date_t
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_udate_to_calendar_date_field ( i18n_udate_format_field_e field, i18n_ucalendar_date_fields_e *date_field_type );
+int i18n_udate_to_calendar_date_field(i18n_udate_format_field_e field, i18n_ucalendar_date_fields_e *date_field_type);
 
 /**
  * @brief Creates a copy of an #i18n_udate_format_h.
@@ -264,7 +264,7 @@ int i18n_udate_to_calendar_date_field ( i18n_udate_format_field_e field, i18n_uc
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_udate_clone ( const i18n_udate_format_h format, i18n_udate_format_h *format_clone );
+int i18n_udate_clone(const i18n_udate_format_h format, i18n_udate_format_h *format_clone);
 
 /**
  * @brief Parses a string into an date/time using an #i18n_udate_format_h.
@@ -290,7 +290,7 @@ int i18n_udate_clone ( const i18n_udate_format_h format, i18n_udate_format_h *fo
  *
  * @see i18n_udate_format_date()
  */
-int i18n_udate_parse ( const i18n_udate_format_h format, const i18n_uchar *text, int32_t text_length, int32_t *parse_pos, i18n_udate *parsed_date );
+int i18n_udate_parse(const i18n_udate_format_h format, const i18n_uchar *text, int32_t text_length, int32_t *parse_pos, i18n_udate *parsed_date);
 
 /**
  * @brief Parses a string into an date/time using an #i18n_udate_format_h.
@@ -314,8 +314,8 @@ int i18n_udate_parse ( const i18n_udate_format_h format, const i18n_uchar *text,
  *
  * @see i18n_udate_format_date()
  */
-int i18n_udate_parse_calendar (const i18n_udate_format_h format, i18n_ucalendar_h *calendar, const i18n_uchar *text,
-        int32_t text_length, int32_t *parse_pos );
+int i18n_udate_parse_calendar(const i18n_udate_format_h format, i18n_ucalendar_h *calendar, const i18n_uchar *text,
+        int32_t text_length, int32_t *parse_pos);
 
 /**
  * @brief Determines if an #i18n_udate_format_h will perform lenient parsing.
@@ -333,7 +333,7 @@ int i18n_udate_parse_calendar (const i18n_udate_format_h format, i18n_ucalendar_
  *
  * @see i18n_udate_set_lenient()
  */
-i18n_ubool i18n_udate_is_lenient ( const i18n_udate_format_h format );
+i18n_ubool i18n_udate_is_lenient(const i18n_udate_format_h format);
 
 /**
  * @brief Specifies whether an #i18n_udate_format_h will perform lenient parsing.
@@ -350,7 +350,7 @@ i18n_ubool i18n_udate_is_lenient ( const i18n_udate_format_h format );
  *
  * @see i18n_udate_is_lenient()
  */
-int i18n_udate_set_lenient ( i18n_udate_format_h format, i18n_ubool is_lenient );
+int i18n_udate_set_lenient(i18n_udate_format_h format, i18n_ubool is_lenient);
 
 /**
  * @brief Gets the #i18n_ucalendar_h associated with an #i18n_udate_format_h.
@@ -366,7 +366,7 @@ int i18n_udate_set_lenient ( i18n_udate_format_h format, i18n_ubool is_lenient )
  *
  * @see i18n_udate_set_calendar()
  */
-int i18n_udate_get_calendar ( const i18n_udate_format_h format, i18n_ucalendar_h *calendar);
+int i18n_udate_get_calendar(const i18n_udate_format_h format, i18n_ucalendar_h *calendar);
 
 /**
  * @brief Sets the #i18n_ucalendar_h associated with an #i18n_udate_format_h.
@@ -382,7 +382,7 @@ int i18n_udate_get_calendar ( const i18n_udate_format_h format, i18n_ucalendar_h
  *
  * @see i18n_udate_get_calendar()
  */
-int i18n_udate_set_calendar ( i18n_udate_format_h format, const i18n_ucalendar_h calendar_to_set );
+int i18n_udate_set_calendar(i18n_udate_format_h format, const i18n_ucalendar_h calendar_to_set);
 
 /**
  * @brief Gets the #i18n_unumber_format_h associated with an #i18n_udate_format_h.
@@ -398,7 +398,7 @@ int i18n_udate_set_calendar ( i18n_udate_format_h format, const i18n_ucalendar_h
  *
  * @see i18n_udate_set_number_format()
  */
-int i18n_udate_get_number_format ( const i18n_udate_format_h format, i18n_unumber_format_h *number_format );
+int i18n_udate_get_number_format(const i18n_udate_format_h format, i18n_unumber_format_h *number_format);
 
 /**
  * @brief Sets the #i18n_unumber_format_h associated with an #i18n_udate_format_h.
@@ -414,7 +414,7 @@ int i18n_udate_get_number_format ( const i18n_udate_format_h format, i18n_unumbe
  *
  * @see i18n_udate_get_number_format()
  */
-int i18n_udate_set_number_format ( i18n_udate_format_h format, const i18n_unumber_format_h number_format_to_set );
+int i18n_udate_set_number_format(i18n_udate_format_h format, const i18n_unumber_format_h number_format_to_set);
 
 /**
  * @brief Gets a locale for which date/time formatting patterns are available.
@@ -430,7 +430,7 @@ int i18n_udate_set_number_format ( i18n_udate_format_h format, const i18n_unumbe
 
  * @see i18n_udate_count_available()
  */
-const char *i18n_udate_get_available ( int32_t locale_index );
+const char *i18n_udate_get_available(int32_t locale_index);
 
 /**
  * @brief Determines how many locales have date/time formatting patterns available.
@@ -444,7 +444,7 @@ const char *i18n_udate_get_available ( int32_t locale_index );
  *
  * @see i18n_udate_get_available()
  */
-int32_t i18n_udate_count_available ( void );
+int32_t i18n_udate_count_available(void);
 
 /**
  * @brief Gets the year relative to which all 2-digit years are interpreted.
@@ -461,7 +461,7 @@ int32_t i18n_udate_count_available ( void );
  *
  * @see i18n_udate_set_2digit_year_start()
  */
-int i18n_udate_get_2digit_year_start ( const i18n_udate_format_h format, i18n_udate *year );
+int i18n_udate_get_2digit_year_start(const i18n_udate_format_h format, i18n_udate *year);
 
 /**
  * @brief Sets the year relative to which all 2-digit years will be interpreted.
@@ -478,7 +478,7 @@ int i18n_udate_get_2digit_year_start ( const i18n_udate_format_h format, i18n_ud
  *
  * @see i18n_udate_get_2digit_year_start()
  */
-int i18n_udate_set_2digit_year_start ( i18n_udate_format_h format, i18n_udate date );
+int i18n_udate_set_2digit_year_start(i18n_udate_format_h format, i18n_udate date);
 
 /**
  * @brief Extracts the pattern from an #i18n_udate_format_h.
@@ -499,8 +499,8 @@ int i18n_udate_set_2digit_year_start ( i18n_udate_format_h format, i18n_udate da
  *
  * @see i18n_udate_apply_pattern()
  */
-int32_t i18n_udate_to_pattern ( const i18n_udate_format_h format, i18n_ubool localized, i18n_uchar *result,
-        int32_t result_length );
+int32_t i18n_udate_to_pattern(const i18n_udate_format_h format, i18n_ubool localized, i18n_uchar *result,
+        int32_t result_length);
 
 /**
  * @brief Sets the pattern used by an #i18n_udate_format_h.
@@ -518,8 +518,8 @@ int32_t i18n_udate_to_pattern ( const i18n_udate_format_h format, i18n_ubool loc
  *
  * @see i18n_udate_to_pattern()
  */
-int i18n_udate_apply_pattern ( i18n_udate_format_h format, i18n_ubool localized, const i18n_uchar *pattern,
-        int32_t pattern_length );
+int i18n_udate_apply_pattern(i18n_udate_format_h format, i18n_ubool localized, const i18n_uchar *pattern,
+        int32_t pattern_length);
 
 /**
  * @brief Gets the symbols associated with an #i18n_udate_format_h.
@@ -543,8 +543,8 @@ int i18n_udate_apply_pattern ( i18n_udate_format_h format, i18n_ubool localized,
  * @see i18n_udate_count_symbols()
  * @see #i18n_udate_set_symbols()
  */
-int32_t i18n_udate_get_symbols ( const i18n_udate_format_h format, i18n_udate_format_symbol_type_e type, int32_t symbol_index,
-        i18n_uchar *result, int32_t result_length );
+int32_t i18n_udate_get_symbols(const i18n_udate_format_h format, i18n_udate_format_symbol_type_e type, int32_t symbol_index,
+        i18n_uchar *result, int32_t result_length);
 
 /**
  * @brief Counts the number of particular symbols for an #i18n_udate_format_h.
@@ -564,7 +564,7 @@ int32_t i18n_udate_get_symbols ( const i18n_udate_format_h format, i18n_udate_fo
  * @see i18n_udate_get_symbols()
  * @see #i18n_udate_set_symbols()
  */
-int32_t i18n_udate_count_symbols ( const i18n_udate_format_h format, i18n_udate_format_symbol_type_e type );
+int32_t i18n_udate_count_symbols(const i18n_udate_format_h format, i18n_udate_format_symbol_type_e type);
 
 /**
  * @brief Sets the symbols associated with an #i18n_udate_format_h.
@@ -587,8 +587,8 @@ int32_t i18n_udate_count_symbols ( const i18n_udate_format_h format, i18n_udate_
  * @see i18n_udate_count_symbols()
  * @see #i18n_udate_get_symbols()
  */
-int i18n_udate_set_symbols ( i18n_udate_format_h format, i18n_udate_format_symbol_type_e type, int32_t symbol_index,
-        i18n_uchar *value, int32_t value_length );
+int i18n_udate_set_symbols(i18n_udate_format_h format, i18n_udate_format_symbol_type_e type, int32_t symbol_index,
+        i18n_uchar *value, int32_t value_length);
 
 /**
  * @brief Gets the locale for this date format object.
@@ -605,7 +605,7 @@ int i18n_udate_set_symbols ( i18n_udate_format_h format, i18n_udate_format_symbo
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-const char * i18n_udate_get_locale_by_type ( const i18n_udate_format_h format, i18n_ulocale_data_locale_type_e type );
+const char * i18n_udate_get_locale_by_type(const i18n_udate_format_h format, i18n_ulocale_data_locale_type_e type);
 
 /**
  * @brief Sets a particular #i18n_udisplay_context_e value in the formatter, such as #I18N_UDISPLAY_CONTEXT_CAPITALIZATION_FOR_STANDALONE.
@@ -620,7 +620,7 @@ const char * i18n_udate_get_locale_by_type ( const i18n_udate_format_h format, i
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_udate_set_context ( i18n_udate_format_h format, i18n_udisplay_context_e value );
+int i18n_udate_set_context(i18n_udate_format_h format, i18n_udisplay_context_e value);
 
 
 /**

@@ -63,7 +63,7 @@ extern "C" {
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  * @see i18n_uset_destroy()
  */
-int i18n_uset_create_empty (i18n_uset_h *set);
+int i18n_uset_create_empty(i18n_uset_h *set);
 
 /**
  * @brief Creates an #i18n_uset_h object that contains the range of characters
@@ -81,7 +81,7 @@ int i18n_uset_create_empty (i18n_uset_h *set);
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  * @see i18n_uset_destroy()
  */
-int i18n_uset_create (i18n_uchar32 start, i18n_uchar32 end, i18n_uset_h *set);
+int i18n_uset_create(i18n_uchar32 start, i18n_uchar32 end, i18n_uset_h *set);
 
 /**
  * @brief Creates a set based on a given pattern.
@@ -98,7 +98,7 @@ int i18n_uset_create (i18n_uchar32 start, i18n_uchar32 end, i18n_uset_h *set);
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  * @see i18n_uset_destroy()
  */
-int i18n_uset_create_pattern (const i18n_uchar *pattern, int32_t pattern_length, i18n_uset_h *set);
+int i18n_uset_create_pattern(const i18n_uchar *pattern, int32_t pattern_length, i18n_uset_h *set);
 
 /**
  * @brief Creates a set based on a given pattern.
@@ -117,7 +117,7 @@ int i18n_uset_create_pattern (const i18n_uchar *pattern, int32_t pattern_length,
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  * @see i18n_uset_destroy()
  */
-int i18n_uset_create_pattern_options (const i18n_uchar *pattern, int32_t pattern_length, uint32_t options, i18n_uset_h *set);
+int i18n_uset_create_pattern_options(const i18n_uchar *pattern, int32_t pattern_length, uint32_t options, i18n_uset_h *set);
 
 /**
  * @brief Disposes of the storage used by a #i18n_uset_h object.
@@ -130,7 +130,7 @@ int i18n_uset_create_pattern_options (const i18n_uchar *pattern, int32_t pattern
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_uset_destroy (i18n_uset_h set);
+int i18n_uset_destroy(i18n_uset_h set);
 
 /**
  * @brief Returns a copy of this object.
@@ -146,7 +146,7 @@ int i18n_uset_destroy (i18n_uset_h set);
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  * @see i18n_uset_clone_as_thawed()
  */
-int i18n_uset_clone (const i18n_uset_h set, i18n_uset_h *set_clone);
+int i18n_uset_clone(const i18n_uset_h set, i18n_uset_h *set_clone);
 
 /**
  * @brief Determines whether the set has been frozen (made immutable) or not.
@@ -164,7 +164,7 @@ int i18n_uset_clone (const i18n_uset_h set, i18n_uset_h *set_clone);
  * @see i18n_uset_freeze()
  * @see i18n_uset_clone_as_thawed()
  */
-i18n_ubool i18n_uset_is_frozen (const i18n_uset_h set);
+i18n_ubool i18n_uset_is_frozen(const i18n_uset_h set);
 
 /**
  * @brief Freezes the set (make it immutable).
@@ -185,7 +185,7 @@ i18n_ubool i18n_uset_is_frozen (const i18n_uset_h set);
  * @see i18n_uset_is_frozen()
  * @see i18n_uset_clone_as_thawed()
  */
-int i18n_uset_freeze (i18n_uset_h set);
+int i18n_uset_freeze(i18n_uset_h set);
 
 /**
  * @brief Clones the set and make the clone mutable.
@@ -202,7 +202,7 @@ int i18n_uset_freeze (i18n_uset_h set);
  * @see i18n_uset_is_frozen()
  * @see i18n_uset_clone()
  */
-int i18n_uset_clone_as_thawed (const i18n_uset_h set, i18n_uset_h *set_copy);
+int i18n_uset_clone_as_thawed(const i18n_uset_h set, i18n_uset_h *set_copy);
 
 /**
  * @brief Causes the #i18n_uset_h object to represent the range <code>start - end</code>.
@@ -218,7 +218,7 @@ int i18n_uset_clone_as_thawed (const i18n_uset_h set, i18n_uset_h *set_copy);
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_uset_set (i18n_uset_h set, i18n_uchar32 start, i18n_uchar32 end);
+int i18n_uset_set(i18n_uset_h set, i18n_uchar32 start, i18n_uchar32 end);
 
 /**
  * @brief Modifies the set to represent the set specified by the given
@@ -248,7 +248,7 @@ int i18n_uset_set (i18n_uset_h set, i18n_uchar32 start, i18n_uchar32 end);
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int32_t i18n_uset_apply_pattern (i18n_uset_h set, const i18n_uchar *pattern, int32_t pattern_length, uint32_t options);
+int32_t i18n_uset_apply_pattern(i18n_uset_h set, const i18n_uchar *pattern, int32_t pattern_length, uint32_t options);
 
 /**
  * @brief Modifies the set to contain those code points which have the given value
@@ -271,7 +271,7 @@ int32_t i18n_uset_apply_pattern (i18n_uset_h set, const i18n_uchar *pattern, int
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_uset_apply_int_property_value (i18n_uset_h set, i18n_uchar_uproperty_e prop, int32_t value);
+int i18n_uset_apply_int_property_value(i18n_uset_h set, i18n_uchar_uproperty_e prop, int32_t value);
 
 /**
  * @brief Modifies the set to contain those code points which have the
@@ -305,7 +305,7 @@ int i18n_uset_apply_int_property_value (i18n_uset_h set, i18n_uchar_uproperty_e 
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_uset_apply_property_alias (i18n_uset_h set, const i18n_uchar *prop, int32_t prop_length, const i18n_uchar *value, int32_t value_length);
+int i18n_uset_apply_property_alias(i18n_uset_h set, const i18n_uchar *prop, int32_t prop_length, const i18n_uchar *value, int32_t value_length);
 
 /**
  * @brief Return true if the given position, in the given pattern, appears
@@ -324,7 +324,7 @@ int i18n_uset_apply_property_alias (i18n_uset_h set, const i18n_uchar *prop, int
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-i18n_ubool i18n_uset_resembles_pattern (const i18n_uchar *pattern, int32_t pattern_length, int32_t pos);
+i18n_ubool i18n_uset_resembles_pattern(const i18n_uchar *pattern, int32_t pattern_length, int32_t pos);
 
 /**
  * @brief Returns a string representation of the given @a set.
@@ -347,7 +347,7 @@ i18n_ubool i18n_uset_resembles_pattern (const i18n_uchar *pattern, int32_t patte
  *
  * @see i18n_uset_pattern_create()
  */
-int32_t i18n_uset_to_pattern (const i18n_uset_h set, i18n_uchar *result, int32_t result_capacity, i18n_ubool escape_unprintable);
+int32_t i18n_uset_to_pattern(const i18n_uset_h set, i18n_uchar *result, int32_t result_capacity, i18n_ubool escape_unprintable);
 
 /**
  * @brief Adds the given character to the given #i18n_uset_h.
@@ -364,7 +364,7 @@ int32_t i18n_uset_to_pattern (const i18n_uset_h set, i18n_uchar *result, int32_t
  *
  * @see i18n_uset_contains()
  */
-int i18n_uset_add (i18n_uset_h set, i18n_uchar32 character);
+int i18n_uset_add(i18n_uset_h set, i18n_uchar32 character);
 
 
 /**
@@ -383,7 +383,7 @@ int i18n_uset_add (i18n_uset_h set, i18n_uchar32 character);
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_uset_add_all (i18n_uset_h set, const i18n_uset_h additional_set);
+int i18n_uset_add_all(i18n_uset_h set, const i18n_uset_h additional_set);
 
 /**
  * @brief Adds the given range of characters to the given #i18n_uset_h. After this call,
@@ -400,7 +400,7 @@ int i18n_uset_add_all (i18n_uset_h set, const i18n_uset_h additional_set);
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  * @see i18n_uset_contains()
  */
-int i18n_uset_add_range (i18n_uset_h set, i18n_uchar32 start, i18n_uchar32 end);
+int i18n_uset_add_range(i18n_uset_h set, i18n_uchar32 start, i18n_uchar32 end);
 
 /**
  * @brief Adds the given string to the given #i18n_uset_h.
@@ -417,7 +417,7 @@ int i18n_uset_add_range (i18n_uset_h set, i18n_uchar32 start, i18n_uchar32 end);
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  * @see i18n_uset_contains_string()
  */
-int i18n_uset_add_string (i18n_uset_h set, const i18n_uchar *str, int32_t str_len);
+int i18n_uset_add_string(i18n_uset_h set, const i18n_uchar *str, int32_t str_len);
 
 /**
  * @brief Adds each of the characters in this string to the set. Thus "ch" => {"c", "h"}
@@ -433,7 +433,7 @@ int i18n_uset_add_string (i18n_uset_h set, const i18n_uchar *str, int32_t str_le
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_uset_add_all_code_points (i18n_uset_h set, const i18n_uchar *str, int32_t str_len);
+int i18n_uset_add_all_code_points(i18n_uset_h set, const i18n_uchar *str, int32_t str_len);
 
 /**
  * @brief Removes the given @a character from the given #i18n_uset_h.
@@ -450,7 +450,7 @@ int i18n_uset_add_all_code_points (i18n_uset_h set, const i18n_uchar *str, int32
  *
  * @see i18n_uset_contains()
  */
-int i18n_uset_remove (i18n_uset_h set, i18n_uchar32 character);
+int i18n_uset_remove(i18n_uset_h set, i18n_uchar32 character);
 
 /**
  * @brief Removes the given range of characters from the given #i18n_uset_h.
@@ -467,7 +467,7 @@ int i18n_uset_remove (i18n_uset_h set, i18n_uchar32 character);
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  * @see i18n_uset_contains()
  */
-int i18n_uset_remove_range (i18n_uset_h set, i18n_uchar32 start, i18n_uchar32 end);
+int i18n_uset_remove_range(i18n_uset_h set, i18n_uchar32 start, i18n_uchar32 end);
 
 /**
  * @brief Removes the given string to the given #i18n_uset_h.
@@ -484,7 +484,7 @@ int i18n_uset_remove_range (i18n_uset_h set, i18n_uchar32 start, i18n_uchar32 en
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  * @see i18n_uset_contains_string()
  */
-int i18n_uset_remove_string (i18n_uset_h set, const i18n_uchar *str, int32_t str_len);
+int i18n_uset_remove_string(i18n_uset_h set, const i18n_uchar *str, int32_t str_len);
 
 /**
  * @brief Removes from this set all of its elements that are contained in the specified set.
@@ -501,7 +501,7 @@ int i18n_uset_remove_string (i18n_uset_h set, const i18n_uchar *str, int32_t str
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_uset_remove_all (i18n_uset_h set, const i18n_uset_h remove_set);
+int i18n_uset_remove_all(i18n_uset_h set, const i18n_uset_h remove_set);
 
 /**
  * @brief Retains only the elements in this set that are contained in the specified range.
@@ -520,7 +520,7 @@ int i18n_uset_remove_all (i18n_uset_h set, const i18n_uset_h remove_set);
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_uset_retain (i18n_uset_h set, i18n_uchar32 start, i18n_uchar32 end);
+int i18n_uset_retain(i18n_uset_h set, i18n_uchar32 start, i18n_uchar32 end);
 
 /**
  * @brief Retains only the elements in this set that are contained in the
@@ -539,7 +539,7 @@ int i18n_uset_retain (i18n_uset_h set, i18n_uchar32 start, i18n_uchar32 end);
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_uset_retain_all (i18n_uset_h set, const i18n_uset_h retain);
+int i18n_uset_retain_all(i18n_uset_h set, const i18n_uset_h retain);
 
 /**
  * @brief Reallocates this objects internal structures to take up the least
@@ -553,7 +553,7 @@ int i18n_uset_retain_all (i18n_uset_h set, const i18n_uset_h retain);
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_uset_compact (i18n_uset_h set);
+int i18n_uset_compact(i18n_uset_h set);
 
 /**
  * @brief Inverts this set.  This operation modifies this set so that
@@ -569,7 +569,7 @@ int i18n_uset_compact (i18n_uset_h set);
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_uset_complement (i18n_uset_h set);
+int i18n_uset_complement(i18n_uset_h set);
 
 /**
  * @brief Complements in this set all elements contained in the specified set.
@@ -586,7 +586,7 @@ int i18n_uset_complement (i18n_uset_h set);
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_uset_complement_all (i18n_uset_h set, const i18n_uset_h complement);
+int i18n_uset_complement_all(i18n_uset_h set, const i18n_uset_h complement);
 
 /**
  * @brief Removes all of the elements from this set.
@@ -600,7 +600,7 @@ int i18n_uset_complement_all (i18n_uset_h set, const i18n_uset_h complement);
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_uset_clear (i18n_uset_h set);
+int i18n_uset_clear(i18n_uset_h set);
 
 /**
  * @brief Closes this set over the given attribute.
@@ -633,7 +633,7 @@ int i18n_uset_clear (i18n_uset_h set);
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  * @see i18n_ustring_fold_case()
  */
-int i18n_uset_destroy_over (i18n_uset_h set, int32_t attributes);
+int i18n_uset_destroy_over(i18n_uset_h set, int32_t attributes);
 
 /**
  * @brief Removes all strings from this set.
@@ -645,7 +645,7 @@ int i18n_uset_destroy_over (i18n_uset_h set, int32_t attributes);
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_uset_remove_all_strings (i18n_uset_h set);
+int i18n_uset_remove_all_strings(i18n_uset_h set);
 
 /**
  * @brief Returns true if the given #i18n_uset_h contains no characters and no
@@ -661,7 +661,7 @@ int i18n_uset_remove_all_strings (i18n_uset_h set);
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-i18n_ubool i18n_uset_is_empty (const i18n_uset_h set);
+i18n_ubool i18n_uset_is_empty(const i18n_uset_h set);
 
 /**
  * @brief Returns @c true if the given #i18n_uset_h contains the given @a character.
@@ -678,7 +678,7 @@ i18n_ubool i18n_uset_is_empty (const i18n_uset_h set);
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-i18n_ubool i18n_uset_contains (const i18n_uset_h set, i18n_uchar32 character);
+i18n_ubool i18n_uset_contains(const i18n_uset_h set, i18n_uchar32 character);
 
 /**
  * @brief Returns true if the given #i18n_uset_h contains all characters c
@@ -696,7 +696,7 @@ i18n_ubool i18n_uset_contains (const i18n_uset_h set, i18n_uchar32 character);
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-i18n_ubool i18n_uset_contains_range (const i18n_uset_h set, i18n_uchar32 start, i18n_uchar32 end);
+i18n_ubool i18n_uset_contains_range(const i18n_uset_h set, i18n_uchar32 start, i18n_uchar32 end);
 
 /**
  * @brief Returns true if the given #i18n_uset_h contains the given string.
@@ -713,7 +713,7 @@ i18n_ubool i18n_uset_contains_range (const i18n_uset_h set, i18n_uchar32 start, 
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-i18n_ubool i18n_uset_contains_string (const i18n_uset_h set, const i18n_uchar *str, int32_t str_len);
+i18n_ubool i18n_uset_contains_string(const i18n_uset_h set, const i18n_uchar *str, int32_t str_len);
 
 /**
  * @brief Returns the index of the given @a character within this @a set, where
@@ -732,7 +732,7 @@ i18n_ubool i18n_uset_contains_string (const i18n_uset_h set, const i18n_uchar *s
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int32_t i18n_uset_index_of (const i18n_uset_h set, i18n_uchar32 character);
+int32_t i18n_uset_index_of(const i18n_uset_h set, i18n_uchar32 character);
 
 /**
  * @brief Returns the character at the given index within this set, where
@@ -751,7 +751,7 @@ int32_t i18n_uset_index_of (const i18n_uset_h set, i18n_uchar32 character);
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-i18n_uchar32 i18n_uset_char_at (const i18n_uset_h set, int32_t char_index);
+i18n_uchar32 i18n_uset_char_at(const i18n_uset_h set, int32_t char_index);
 
 /**
  * @brief Returns the number of characters and strings contained in the given #i18n_uset_h.
@@ -767,7 +767,7 @@ i18n_uchar32 i18n_uset_char_at (const i18n_uset_h set, int32_t char_index);
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int32_t i18n_uset_size (const i18n_uset_h set);
+int32_t i18n_uset_size(const i18n_uset_h set);
 
 /**
  * @brief Returns the number of items in this set.
@@ -784,7 +784,7 @@ int32_t i18n_uset_size (const i18n_uset_h set);
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int32_t i18n_uset_get_item_count (const i18n_uset_h set);
+int32_t i18n_uset_get_item_count(const i18n_uset_h set);
 
 /**
  * @brief Returns an item of this set.
@@ -809,7 +809,7 @@ int32_t i18n_uset_get_item_count (const i18n_uset_h set);
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int32_t i18n_uset_get_item (const i18n_uset_h set, int32_t item_index, i18n_uchar32 *start, i18n_uchar32 *end, i18n_uchar *str, int32_t str_capacity);
+int32_t i18n_uset_get_item(const i18n_uset_h set, int32_t item_index, i18n_uchar32 *start, i18n_uchar32 *end, i18n_uchar *str, int32_t str_capacity);
 
 /**
  * @brief Returns true if set1 contains all the characters and strings of set2. It answers the question, 'Is set1 a superset of set2?'
@@ -825,7 +825,7 @@ int32_t i18n_uset_get_item (const i18n_uset_h set, int32_t item_index, i18n_ucha
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-i18n_ubool i18n_uset_contains_all (const i18n_uset_h set1, const i18n_uset_h set2);
+i18n_ubool i18n_uset_contains_all(const i18n_uset_h set1, const i18n_uset_h set2);
 
 /**
  * @brief Returns true if this set contains all the characters of the given string.
@@ -844,7 +844,7 @@ i18n_ubool i18n_uset_contains_all (const i18n_uset_h set1, const i18n_uset_h set
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-i18n_ubool i18n_uset_contains_all_code_points (const i18n_uset_h set, const i18n_uchar *str, int32_t str_len);
+i18n_ubool i18n_uset_contains_all_code_points(const i18n_uset_h set, const i18n_uchar *str, int32_t str_len);
 
 /**
  * @brief Returns true if set1 contains none of the characters and strings of set2.
@@ -861,7 +861,7 @@ i18n_ubool i18n_uset_contains_all_code_points (const i18n_uset_h set, const i18n
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-i18n_ubool i18n_uset_contains_none (const i18n_uset_h set1, const i18n_uset_h set2);
+i18n_ubool i18n_uset_contains_none(const i18n_uset_h set1, const i18n_uset_h set2);
 
 /**
  * @brief Returns true if set1 contains some of the characters and strings of set2.
@@ -878,7 +878,7 @@ i18n_ubool i18n_uset_contains_none (const i18n_uset_h set1, const i18n_uset_h se
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-i18n_ubool i18n_uset_contains_some (const i18n_uset_h set1, const i18n_uset_h set2);
+i18n_ubool i18n_uset_contains_some(const i18n_uset_h set1, const i18n_uset_h set2);
 
 /**
  * @brief Returns the length of the initial substring of the input string which
@@ -907,7 +907,7 @@ i18n_ubool i18n_uset_contains_some (const i18n_uset_h set1, const i18n_uset_h se
  *
  * @see #i18n_uset_span_condition_e
  */
-int32_t i18n_uset_span (const i18n_uset_h set, const i18n_uchar *str, int32_t length, i18n_uset_span_condition_e span_condition);
+int32_t i18n_uset_span(const i18n_uset_h set, const i18n_uchar *str, int32_t length, i18n_uset_span_condition_e span_condition);
 
 /**
  * @brief Returns the start of the trailing substring of the input string which
@@ -935,7 +935,7 @@ int32_t i18n_uset_span (const i18n_uset_h set, const i18n_uchar *str, int32_t le
  *
  * @see #i18n_uset_span_condition_e
  */
-int32_t i18n_uset_span_back (const i18n_uset_h set, const i18n_uchar *str, int32_t length, i18n_uset_span_condition_e span_condition);
+int32_t i18n_uset_span_back(const i18n_uset_h set, const i18n_uchar *str, int32_t length, i18n_uset_span_condition_e span_condition);
 
 /**
  * @brief Returns the length of the initial substring of the input string which
@@ -964,7 +964,7 @@ int32_t i18n_uset_span_back (const i18n_uset_h set, const i18n_uchar *str, int32
  *
  * @see #i18n_uset_span_condition_e
  */
-int32_t i18n_uset_span_utf8 (const i18n_uset_h set, const char *str, int32_t length, i18n_uset_span_condition_e span_condition);
+int32_t i18n_uset_span_utf8(const i18n_uset_h set, const char *str, int32_t length, i18n_uset_span_condition_e span_condition);
 
 /**
  * @brief Returns the start of the trailing substring of the input string which
@@ -992,7 +992,7 @@ int32_t i18n_uset_span_utf8 (const i18n_uset_h set, const char *str, int32_t len
  *
  * @see #i18n_uset_span_condition_e
  */
-int32_t i18n_uset_span_back_utf8 (const i18n_uset_h set, const char *str, int32_t length, i18n_uset_span_condition_e span_condition);
+int32_t i18n_uset_span_back_utf8(const i18n_uset_h set, const char *str, int32_t length, i18n_uset_span_condition_e span_condition);
 
 /**
  * @brief Returns true if set1 contains all of the characters and strings
@@ -1009,7 +1009,7 @@ int32_t i18n_uset_span_back_utf8 (const i18n_uset_h set, const char *str, int32_
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-i18n_ubool i18n_uset_equals (const i18n_uset_h set1, const i18n_uset_h set2);
+i18n_ubool i18n_uset_equals(const i18n_uset_h set1, const i18n_uset_h set2);
 
 /*********************************************************************
  * Serialized set API
@@ -1070,7 +1070,7 @@ i18n_ubool i18n_uset_equals (const i18n_uset_h set1, const i18n_uset_h set2);
  * @exception #I18N_ERROR_INDEX_OUTOFBOUNDS If <code>n+2*m > 0x7FFF</code>
  * @exception #I18N_ERROR_BUFFER_OVERFLOW If <code>n+2*m+(m != 0 ? 2 : 1) > dest_capacity</code>.
  */
-int32_t i18n_uset_serialize (const i18n_uset_h set, uint16_t *dest, int32_t dest_capacity);
+int32_t i18n_uset_serialize(const i18n_uset_h set, uint16_t *dest, int32_t dest_capacity);
 
 /**
  * @brief Given a serialized array, fill in the given serialized set object.
@@ -1089,7 +1089,7 @@ int32_t i18n_uset_serialize (const i18n_uset_h set, uint16_t *dest, int32_t dest
  *
  * @see #i18n_userialized_set_s
  */
-i18n_ubool i18n_uset_get_serialized_set (const uint16_t *src, int32_t src_length, i18n_userialized_set_s* fill_set);
+i18n_ubool i18n_uset_get_serialized_set(const uint16_t *src, int32_t src_length, i18n_userialized_set_s* fill_set);
 
 /**
  * @brief Sets the #i18n_userialized_set_s to contain the given @a character (and nothing else).
@@ -1104,7 +1104,7 @@ i18n_ubool i18n_uset_get_serialized_set (const uint16_t *src, int32_t src_length
  *
  * @see #i18n_userialized_set_s
  */
-int i18n_uset_set_serialized_to_one (i18n_uchar32 character, i18n_userialized_set_s* fill_set);
+int i18n_uset_set_serialized_to_one(i18n_uchar32 character, i18n_userialized_set_s* fill_set);
 
 /**
  * @brief Returns @c true if the given #i18n_userialized_set_s contains the given @a character.
@@ -1121,7 +1121,7 @@ int i18n_uset_set_serialized_to_one (i18n_uchar32 character, i18n_userialized_se
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  * @see #i18n_userialized_set_s
  */
-i18n_ubool i18n_uset_serialized_contains (const i18n_userialized_set_s* set, i18n_uchar32 character);
+i18n_ubool i18n_uset_serialized_contains(const i18n_userialized_set_s* set, i18n_uchar32 character);
 
 /**
  * @brief Returns the number of disjoint ranges of characters contained in
@@ -1139,7 +1139,7 @@ i18n_ubool i18n_uset_serialized_contains (const i18n_userialized_set_s* set, i18
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  * @see #i18n_userialized_set_s
  */
-int32_t i18n_uset_get_serialized_range_count (const i18n_userialized_set_s* set);
+int32_t i18n_uset_get_serialized_range_count(const i18n_userialized_set_s* set);
 
 /**
  * @brief Returns a range of characters contained in the given serialized set.
@@ -1161,7 +1161,7 @@ int32_t i18n_uset_get_serialized_range_count (const i18n_userialized_set_s* set)
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  * @see #i18n_userialized_set_s
  */
-i18n_ubool i18n_uset_get_serialized_range (const i18n_userialized_set_s* set, int32_t range_index, i18n_uchar32 *p_start, i18n_uchar32 *p_end);
+i18n_ubool i18n_uset_get_serialized_range(const i18n_userialized_set_s* set, int32_t range_index, i18n_uchar32 *p_start, i18n_uchar32 *p_end);
 
 /**
  * @}

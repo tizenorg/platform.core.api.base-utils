@@ -83,7 +83,7 @@ extern "C" {
  * @exception #I18N_ERROR_NONE Success
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int32_t i18n_ustring_get_length ( const i18n_uchar *s );
+int32_t i18n_ustring_get_length(const i18n_uchar *s);
 
 /**
  * @brief Counts Unicode code points in the length #i18n_uchar code units of the string.
@@ -101,7 +101,7 @@ int32_t i18n_ustring_get_length ( const i18n_uchar *s );
  * @exception #I18N_ERROR_NONE Success
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int32_t i18n_ustring_count_char32 ( const i18n_uchar *s, int32_t length );
+int32_t i18n_ustring_count_char32(const i18n_uchar *s, int32_t length);
 
 /**
  * @brief Checks if the string contains more Unicode code points than a certain number.
@@ -122,7 +122,7 @@ int32_t i18n_ustring_count_char32 ( const i18n_uchar *s, int32_t length );
  * @exception #I18N_ERROR_NONE Success
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-i18n_ubool i18n_ustring_has_more_char32_than ( const i18n_uchar *s, int32_t length, int32_t number );
+i18n_ubool i18n_ustring_has_more_char32_than(const i18n_uchar *s, int32_t length, int32_t number);
 
 /**
  * @brief Concatenates two ustrings.
@@ -139,7 +139,7 @@ i18n_ubool i18n_ustring_has_more_char32_than ( const i18n_uchar *s, int32_t leng
  * @exception #I18N_ERROR_NONE Success
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-i18n_uchar* i18n_ustring_cat ( i18n_uchar *dest, const i18n_uchar *src );
+i18n_uchar* i18n_ustring_cat(i18n_uchar *dest, const i18n_uchar *src);
 
 /**
  * @brief Concatenate two ustrings.
@@ -157,7 +157,7 @@ i18n_uchar* i18n_ustring_cat ( i18n_uchar *dest, const i18n_uchar *src );
  * @exception #I18N_ERROR_NONE Success
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-i18n_uchar* i18n_ustring_cat_n ( i18n_uchar *dest, const i18n_uchar *src, int32_t n );
+i18n_uchar* i18n_ustring_cat_n(i18n_uchar *dest, const i18n_uchar *src, int32_t n);
 
 /**
  * @brief Finds the first occurrence of a substring in a string.
@@ -182,7 +182,7 @@ i18n_uchar* i18n_ustring_cat_n ( i18n_uchar *dest, const i18n_uchar *src, int32_
  * @see i18n_ustring_find_first()
  * @see i18n_ustring_find_last()
  */
-i18n_uchar* i18n_ustring_string ( const i18n_uchar *s, const i18n_uchar *sub_string );
+i18n_uchar* i18n_ustring_string(const i18n_uchar *s, const i18n_uchar *sub_string);
 
 /**
  * @brief Finds the first occurrence of a substring in a string.
@@ -208,7 +208,7 @@ i18n_uchar* i18n_ustring_string ( const i18n_uchar *s, const i18n_uchar *sub_str
  * @see i18n_ustring_string()
  * @see i18n_ustring_find_last()
  */
-i18n_uchar* i18n_ustring_find_first ( const i18n_uchar *s, int32_t length, const i18n_uchar *sub_string, int32_t sub_length );
+i18n_uchar* i18n_ustring_find_first(const i18n_uchar *s, int32_t length, const i18n_uchar *sub_string, int32_t sub_length);
 
 /**
  * @brief Finds the first occurrence of a BMP code point in a string.
@@ -229,7 +229,7 @@ i18n_uchar* i18n_ustring_find_first ( const i18n_uchar *s, int32_t length, const
  * @see i18n_ustring_string()
  * @see i18n_ustring_find_first()
  */
-i18n_uchar* i18n_ustring_char ( const i18n_uchar *s, i18n_uchar c );
+i18n_uchar* i18n_ustring_char(const i18n_uchar *s, i18n_uchar c);
 
 /**
  * @brief Finds the first occurrence of a code point in a string.
@@ -250,7 +250,7 @@ i18n_uchar* i18n_ustring_char ( const i18n_uchar *s, i18n_uchar c );
  * @see i18n_ustring_string()
  * @see i18n_ustring_find_first()
  */
-i18n_uchar* i18n_ustring_char32 ( const i18n_uchar *s, i18n_uchar32 c );
+i18n_uchar* i18n_ustring_char32(const i18n_uchar *s, i18n_uchar32 c);
 
 /**
  * @brief Finds the last occurrence of a substring in a string.
@@ -273,7 +273,7 @@ i18n_uchar* i18n_ustring_char32 ( const i18n_uchar *s, i18n_uchar32 c );
  * @see i18n_ustring_find_first()
  * @see i18n_ustring_find_last()
  */
-i18n_uchar* i18n_ustring_r_string ( const i18n_uchar *s, const i18n_uchar *sub_string );
+i18n_uchar* i18n_ustring_r_string(const i18n_uchar *s, const i18n_uchar *sub_string);
 
 /**
  * @brief Finds the last occurrence of a substring in a string.
@@ -297,7 +297,7 @@ i18n_uchar* i18n_ustring_r_string ( const i18n_uchar *s, const i18n_uchar *sub_s
  * @see i18n_ustring_string()
  * @see i18n_ustring_find_first()
  */
-i18n_uchar* i18n_ustring_find_last( const i18n_uchar *s, int32_t length, const i18n_uchar *sub_string, int32_t sub_length );
+i18n_uchar* i18n_ustring_find_last(const i18n_uchar *s, int32_t length, const i18n_uchar *sub_string, int32_t sub_length);
 
 /**
  * @brief Finds the last occurrence of a BMP code point in a string.
@@ -318,7 +318,7 @@ i18n_uchar* i18n_ustring_find_last( const i18n_uchar *s, int32_t length, const i
  * @see i18n_ustring_string()
  * @see i18n_ustring_find_first()
  */
-i18n_uchar* i18n_ustring_r_char ( const i18n_uchar *s, i18n_uchar c );
+i18n_uchar* i18n_ustring_r_char(const i18n_uchar *s, i18n_uchar c);
 
 /**
  * @brief Finds the last occurrence of a code point in a string.
@@ -339,7 +339,7 @@ i18n_uchar* i18n_ustring_r_char ( const i18n_uchar *s, i18n_uchar c );
  * @see i18n_ustring_string()
  * @see i18n_ustring_find_first()
  */
-i18n_uchar* i18n_ustring_r_char32 ( const i18n_uchar *s, i18n_uchar32 c );
+i18n_uchar* i18n_ustring_r_char32(const i18n_uchar *s, i18n_uchar32 c);
 
 /**
  * @brief Locates the first occurrence in the string of any of the characters in the string matchSet.
@@ -356,7 +356,7 @@ i18n_uchar* i18n_ustring_r_char32 ( const i18n_uchar *s, i18n_uchar32 c );
  * @return A pointer to the  character in @a string that matches one of the
  * characters in @a match_set, or NULL if no such character is found.
  */
-i18n_uchar* i18n_ustring_pbrk ( const i18n_uchar *string, const i18n_uchar *match_set );
+i18n_uchar* i18n_ustring_pbrk(const i18n_uchar *string, const i18n_uchar *match_set);
 
 /**
  * @brief Returns the number of consecutive characters in string, beginning with the first, that do not occur somewhere in match_set.
@@ -373,7 +373,7 @@ i18n_uchar* i18n_ustring_pbrk ( const i18n_uchar *string, const i18n_uchar *matc
  * @return The number of initial characters in @a string that do not
  * occur in @a match_set.
  */
-int32_t i18n_ustring_cspn ( const i18n_uchar *string, const i18n_uchar *match_set );
+int32_t i18n_ustring_cspn(const i18n_uchar *string, const i18n_uchar *match_set);
 
 /**
  * @brief Returns the number of consecutive characters in string, beginning with the first, that occur somewhere in match_set.
@@ -390,7 +390,7 @@ int32_t i18n_ustring_cspn ( const i18n_uchar *string, const i18n_uchar *match_se
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  * @see i18n_ustring_spn()
  */
-int32_t i18n_ustring_spn ( const i18n_uchar *string, const i18n_uchar *match_set );
+int32_t i18n_ustring_spn(const i18n_uchar *string, const i18n_uchar *match_set);
 
 /**
  * @brief The string tokenizer API allows an application to break a string into tokens.
@@ -408,7 +408,7 @@ int32_t i18n_ustring_spn ( const i18n_uchar *string, const i18n_uchar *match_set
  * @exception #I18N_ERROR_NONE Success
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-i18n_uchar* i18n_ustring_tokenizer_r ( i18n_uchar *src, const i18n_uchar *delim, i18n_uchar **save_state );
+i18n_uchar* i18n_ustring_tokenizer_r(i18n_uchar *src, const i18n_uchar *delim, i18n_uchar **save_state);
 
 /**
  * @brief Compares two Unicode strings for bitwise equality (code unit order).
@@ -424,7 +424,7 @@ i18n_uchar* i18n_ustring_tokenizer_r ( i18n_uchar *src, const i18n_uchar *delim,
  * @exception #I18N_ERROR_NONE Success
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int32_t i18n_ustring_compare ( const i18n_uchar *s1, const i18n_uchar *s2 );
+int32_t i18n_ustring_compare(const i18n_uchar *s1, const i18n_uchar *s2);
 
 /**
  * @brief Compare two Unicode strings in code point order.
@@ -441,7 +441,7 @@ int32_t i18n_ustring_compare ( const i18n_uchar *s1, const i18n_uchar *s2 );
  * @exception #I18N_ERROR_NONE Success
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int32_t i18n_ustring_compare_code_point_order( const i18n_uchar *s1, const i18n_uchar *s2 );
+int32_t i18n_ustring_compare_code_point_order(const i18n_uchar *s1, const i18n_uchar *s2);
 
 /**
  * @brief Compare two Unicode strings (binary order).
@@ -463,7 +463,7 @@ int32_t i18n_ustring_compare_code_point_order( const i18n_uchar *s1, const i18n_
  * @exception #I18N_ERROR_NONE Success
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int32_t i18n_ustring_compare_binary_order( const i18n_uchar *s1, int32_t length1, const i18n_uchar *s2, int32_t length2, i18n_ubool code_point_order );
+int32_t i18n_ustring_compare_binary_order(const i18n_uchar *s1, int32_t length1, const i18n_uchar *s2, int32_t length2, i18n_ubool code_point_order);
 
 /**
  * @brief Compare two strings case-insensitively using full case folding.
@@ -488,7 +488,7 @@ int32_t i18n_ustring_compare_binary_order( const i18n_uchar *s1, int32_t length1
  * @exception #I18N_ERROR_NONE Success
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int32_t i18n_ustring_case_compare_with_length( const i18n_uchar *s1, int32_t length1, const i18n_uchar *s2, int32_t length2, uint32_t options, i18n_error_code_e *error_code );
+int32_t i18n_ustring_case_compare_with_length(const i18n_uchar *s1, int32_t length1, const i18n_uchar *s2, int32_t length2, uint32_t options, i18n_error_code_e *error_code);
 
 /**
  * @brief Compare two ustrings for bitwise equality.
@@ -506,7 +506,7 @@ int32_t i18n_ustring_case_compare_with_length( const i18n_uchar *s1, int32_t len
  * @exception #I18N_ERROR_NONE Success
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int32_t i18n_ustring_compare_n( const i18n_uchar *s1, const i18n_uchar *s2, int32_t n );
+int32_t i18n_ustring_compare_n(const i18n_uchar *s1, const i18n_uchar *s2, int32_t n);
 
 /**
  * @brief Compare two Unicode strings in code point order.
@@ -524,7 +524,7 @@ int32_t i18n_ustring_compare_n( const i18n_uchar *s1, const i18n_uchar *s2, int3
  * @exception #I18N_ERROR_NONE Success
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int32_t i18n_ustring_compare_n_code_point_order( const i18n_uchar *s1, const i18n_uchar *s2, int32_t n );
+int32_t i18n_ustring_compare_n_code_point_order(const i18n_uchar *s1, const i18n_uchar *s2, int32_t n);
 
 /**
  * @brief Compare two strings case-insensitively using full case folding.
@@ -542,7 +542,7 @@ int32_t i18n_ustring_compare_n_code_point_order( const i18n_uchar *s1, const i18
  * @exception #I18N_ERROR_NONE Success
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int32_t i18n_ustring_case_compare( const i18n_uchar *s1, const i18n_uchar *s2, uint32_t options );
+int32_t i18n_ustring_case_compare(const i18n_uchar *s1, const i18n_uchar *s2, uint32_t options);
 
 /**
  * @brief Compare two strings case-insensitively using full case folding.
@@ -561,7 +561,7 @@ int32_t i18n_ustring_case_compare( const i18n_uchar *s1, const i18n_uchar *s2, u
  * @exception #I18N_ERROR_NONE Success
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int32_t i18n_ustring_case_compare_n( const i18n_uchar *s1, const i18n_uchar *s2, int32_t n, uint32_t options );
+int32_t i18n_ustring_case_compare_n(const i18n_uchar *s1, const i18n_uchar *s2, int32_t n, uint32_t options);
 
 /**
  * @brief Compare two strings case-insensitively using full case folding.
@@ -580,7 +580,7 @@ int32_t i18n_ustring_case_compare_n( const i18n_uchar *s1, const i18n_uchar *s2,
  * @exception #I18N_ERROR_NONE Success
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int32_t i18n_ustring_mem_case_compare( const i18n_uchar *s1, const i18n_uchar *s2, int32_t length, uint32_t options );
+int32_t i18n_ustring_mem_case_compare(const i18n_uchar *s1, const i18n_uchar *s2, int32_t length, uint32_t options);
 
 /**
  * @brief Copies a ustring. Adds a NULL terminator.
@@ -595,7 +595,7 @@ int32_t i18n_ustring_mem_case_compare( const i18n_uchar *s1, const i18n_uchar *s
  * @exception #I18N_ERROR_NONE Success
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-i18n_uchar* i18n_ustring_copy ( i18n_uchar *dest, const i18n_uchar *src );
+i18n_uchar* i18n_ustring_copy(i18n_uchar *dest, const i18n_uchar *src);
 
 /**
  * @brief Copies a ustring.
@@ -613,7 +613,7 @@ i18n_uchar* i18n_ustring_copy ( i18n_uchar *dest, const i18n_uchar *src );
  * @exception #I18N_ERROR_NONE Success
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-i18n_uchar* i18n_ustring_copy_n ( i18n_uchar *dest, const i18n_uchar *src, int32_t n );
+i18n_uchar* i18n_ustring_copy_n(i18n_uchar *dest, const i18n_uchar *src, int32_t n);
 
 /**
  * @brief Copies a byte string encoded in the default codepage to a ustring.
@@ -629,7 +629,7 @@ i18n_uchar* i18n_ustring_copy_n ( i18n_uchar *dest, const i18n_uchar *src, int32
  * @exception #I18N_ERROR_NONE Success
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-i18n_uchar* i18n_ustring_copy_ua ( i18n_uchar *dest, const char *src );
+i18n_uchar* i18n_ustring_copy_ua(i18n_uchar *dest, const char *src);
 
 /**
  * @brief Copies a byte string encoded in the default codepage to a ustring.
@@ -648,7 +648,7 @@ i18n_uchar* i18n_ustring_copy_ua ( i18n_uchar *dest, const char *src );
  * @exception #I18N_ERROR_NONE Success
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-i18n_uchar* i18n_ustring_copy_ua_n ( i18n_uchar *dest, const char *src, int32_t n );
+i18n_uchar* i18n_ustring_copy_ua_n(i18n_uchar *dest, const char *src, int32_t n);
 
 /**
  * @brief Copies a ustring to a byte string encoded in the default codepage.
@@ -664,7 +664,7 @@ i18n_uchar* i18n_ustring_copy_ua_n ( i18n_uchar *dest, const char *src, int32_t 
  * @exception #I18N_ERROR_NONE Success
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-char* i18n_ustring_copy_au ( char *dest, const i18n_uchar *src );
+char* i18n_ustring_copy_au(char *dest, const i18n_uchar *src);
 
 /**
  * @brief Copies a ustring to a byte string encoded in the default codepage.
@@ -683,7 +683,7 @@ char* i18n_ustring_copy_au ( char *dest, const i18n_uchar *src );
  * @exception #I18N_ERROR_NONE Success
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-char* i18n_ustring_copy_au_n ( char *dest, const i18n_uchar *src, int32_t n );
+char* i18n_ustring_copy_au_n(char *dest, const i18n_uchar *src, int32_t n);
 
 /**
  * @brief Synonym for memcpy(), but with #i18n_uchar characters only.
@@ -699,7 +699,7 @@ char* i18n_ustring_copy_au_n ( char *dest, const i18n_uchar *src, int32_t n );
  * @exception #I18N_ERROR_NONE Success
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-i18n_uchar* i18n_ustring_mem_copy ( i18n_uchar *dest, const i18n_uchar *src, int32_t count );
+i18n_uchar* i18n_ustring_mem_copy(i18n_uchar *dest, const i18n_uchar *src, int32_t count);
 
 /**
  * @brief Synonym for memmove(), but with #i18n_uchar characters only.
@@ -715,7 +715,7 @@ i18n_uchar* i18n_ustring_mem_copy ( i18n_uchar *dest, const i18n_uchar *src, int
  * @exception #I18N_ERROR_NONE Success
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-i18n_uchar* i18n_ustring_mem_move ( i18n_uchar *dest, const i18n_uchar *src, int32_t count );
+i18n_uchar* i18n_ustring_mem_move(i18n_uchar *dest, const i18n_uchar *src, int32_t count);
 
 /**
  * @brief Initialize count characters of dest to c.
@@ -731,7 +731,7 @@ i18n_uchar* i18n_ustring_mem_move ( i18n_uchar *dest, const i18n_uchar *src, int
  * @exception #I18N_ERROR_NONE Success
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-i18n_uchar* i18n_ustring_mem_set ( i18n_uchar *dest, const i18n_uchar c, int32_t count );
+i18n_uchar* i18n_ustring_mem_set(i18n_uchar *dest, const i18n_uchar c, int32_t count);
 
 /**
  * @brief Compare the first count #i18n_uchar characters of each buffer.
@@ -748,7 +748,7 @@ i18n_uchar* i18n_ustring_mem_set ( i18n_uchar *dest, const i18n_uchar c, int32_t
  * @exception #I18N_ERROR_NONE Success
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int32_t i18n_ustring_mem_compare ( const i18n_uchar *buf1, const i18n_uchar *buf2, int32_t count );
+int32_t i18n_ustring_mem_compare(const i18n_uchar *buf1, const i18n_uchar *buf2, int32_t count);
 
 /**
  * @brief Compare two Unicode strings in code point order.
@@ -766,7 +766,7 @@ int32_t i18n_ustring_mem_compare ( const i18n_uchar *buf1, const i18n_uchar *buf
  * @exception #I18N_ERROR_NONE Success
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int32_t i18n_ustring_mem_compare_code_point_order ( const i18n_uchar *s1, const i18n_uchar *s2, int32_t count );
+int32_t i18n_ustring_mem_compare_code_point_order(const i18n_uchar *s1, const i18n_uchar *s2, int32_t count);
 
 /**
  * @brief Finds the first occurrence of a BMP code point in a string.
@@ -786,7 +786,7 @@ int32_t i18n_ustring_mem_compare_code_point_order ( const i18n_uchar *s1, const 
  * @see i18n_ustring_mem_char32()
  * @see i18n_ustring_find_first()
  */
-i18n_uchar* i18n_ustring_mem_char ( const i18n_uchar *s, i18n_uchar c, int32_t count );
+i18n_uchar* i18n_ustring_mem_char(const i18n_uchar *s, i18n_uchar c, int32_t count);
 
 /**
  * @brief Finds the first occurrence of a code point in a string.
@@ -803,7 +803,7 @@ i18n_uchar* i18n_ustring_mem_char ( const i18n_uchar *s, i18n_uchar c, int32_t c
  * @exception #I18N_ERROR_NONE Success
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-i18n_uchar* i18n_ustring_mem_char32 ( const i18n_uchar *s, i18n_uchar32 c, int32_t count );
+i18n_uchar* i18n_ustring_mem_char32(const i18n_uchar *s, i18n_uchar32 c, int32_t count);
 
 /**
  * @brief Finds the last occurrence of a BMP code point in a string.
@@ -823,7 +823,7 @@ i18n_uchar* i18n_ustring_mem_char32 ( const i18n_uchar *s, i18n_uchar32 c, int32
  * @see #i18n_ustring_mem_r_char32
  * @see #i18n_ustring_find_last
  */
-i18n_uchar* i18n_ustring_mem_r_char ( const i18n_uchar *s, i18n_uchar c, int32_t count );
+i18n_uchar* i18n_ustring_mem_r_char(const i18n_uchar *s, i18n_uchar c, int32_t count);
 
 /**
  * @brief Finds the last occurrence of a code point in a string.
@@ -843,7 +843,7 @@ i18n_uchar* i18n_ustring_mem_r_char ( const i18n_uchar *s, i18n_uchar c, int32_t
  * @see #i18n_ustring_mem_r_char
  * @see #i18n_ustring_find_last
  */
-i18n_uchar* i18n_ustring_mem_r_char32 ( const i18n_uchar *s, i18n_uchar32 c, int32_t count );
+i18n_uchar* i18n_ustring_mem_r_char32(const i18n_uchar *s, i18n_uchar32 c, int32_t count);
 
 /**
  * @brief Unescape a string of characters and write the resulting Unicode characters to the destination buffer.
@@ -866,7 +866,7 @@ i18n_uchar* i18n_ustring_mem_r_char32 ( const i18n_uchar *s, i18n_uchar32 c, int
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  * @see i18n_ustring_unescape_at()
  */
-int32_t i18n_ustring_unescape ( const char *src, i18n_uchar *dest, int32_t dest_capacity );
+int32_t i18n_ustring_unescape(const char *src, i18n_uchar *dest, int32_t dest_capacity);
 
 /**
  * @brief Unescape a single sequence.
@@ -890,7 +890,7 @@ int32_t i18n_ustring_unescape ( const char *src, i18n_uchar *dest, int32_t dest_
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  * @see i18n_ustring_unescape()
  */
-i18n_uchar32 i18n_ustring_unescape_at ( i18n_ustring_unescape_char_at_cb char_at, int32_t *offset, int32_t length, void *context );
+i18n_uchar32 i18n_ustring_unescape_at(i18n_ustring_unescape_char_at_cb char_at, int32_t *offset, int32_t length, void *context);
 
 /**
  * @brief Uppercases the characters in a string.
@@ -915,7 +915,7 @@ i18n_uchar32 i18n_ustring_unescape_at ( i18n_ustring_unescape_char_at_cb char_at
  * @exception #I18N_ERROR_NONE Success
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int32_t i18n_ustring_to_upper ( i18n_uchar *dest, int32_t dest_capacity, const i18n_uchar *src, int32_t src_len, const char *locale, i18n_error_code_e *error_code );
+int32_t i18n_ustring_to_upper(i18n_uchar *dest, int32_t dest_capacity, const i18n_uchar *src, int32_t src_len, const char *locale, i18n_error_code_e *error_code);
 
 /**
  * @brief Lowercase the characters in a string.
@@ -938,7 +938,7 @@ int32_t i18n_ustring_to_upper ( i18n_uchar *dest, int32_t dest_capacity, const i
  * @exception #I18N_ERROR_NONE Success
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int32_t i18n_ustring_to_lower ( i18n_uchar *dest, int32_t dest_capacity, const i18n_uchar *src, int32_t src_len, const char *locale, i18n_error_code_e *error_code );
+int32_t i18n_ustring_to_lower(i18n_uchar *dest, int32_t dest_capacity, const i18n_uchar *src, int32_t src_len, const char *locale, i18n_error_code_e *error_code);
 
 /**
  * @brief Titlecases a string.
@@ -978,7 +978,7 @@ int32_t i18n_ustring_to_lower ( i18n_uchar *dest, int32_t dest_capacity, const i
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  * @see i18n_ustring_to_title()
  */
-int32_t i18n_ustring_to_title_new ( i18n_uchar *dest, int32_t dest_capacity, const i18n_uchar *src, int32_t src_len, i18n_ubreak_iterator_h title_iter, const char *locale);
+int32_t i18n_ustring_to_title_new(i18n_uchar *dest, int32_t dest_capacity, const i18n_uchar *src, int32_t src_len, i18n_ubreak_iterator_h title_iter, const char *locale);
 
 /**
  * @brief Case-folds the characters in a string.
@@ -1003,7 +1003,7 @@ int32_t i18n_ustring_to_title_new ( i18n_uchar *dest, int32_t dest_capacity, con
  * @exception #I18N_ERROR_NONE Success
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int32_t i18n_ustring_fold_case ( i18n_uchar *dest, int32_t dest_capacity, const i18n_uchar *src, int32_t src_len, uint32_t options, i18n_error_code_e *error_code );
+int32_t i18n_ustring_fold_case(i18n_uchar *dest, int32_t dest_capacity, const i18n_uchar *src, int32_t src_len, uint32_t options, i18n_error_code_e *error_code);
 
 /**
  * @brief Convert a UTF-16 string to a wchar_t string.
@@ -1025,7 +1025,7 @@ int32_t i18n_ustring_fold_case ( i18n_uchar *dest, int32_t dest_capacity, const 
  * @exception #I18N_ERROR_NONE Success
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-wchar_t* i18n_ustring_to_WCS ( wchar_t *dest, int32_t dest_capacity, int32_t *dest_len, const i18n_uchar *src, int32_t src_len, i18n_error_code_e *error_code );
+wchar_t* i18n_ustring_to_WCS(wchar_t *dest, int32_t dest_capacity, int32_t *dest_len, const i18n_uchar *src, int32_t src_len, i18n_error_code_e *error_code);
 
 /**
  * @brief Convert a wchar_t string to UTF-16.
@@ -1047,7 +1047,7 @@ wchar_t* i18n_ustring_to_WCS ( wchar_t *dest, int32_t dest_capacity, int32_t *de
  * @exception #I18N_ERROR_NONE Success
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-i18n_uchar* i18n_ustring_from_WCS ( i18n_uchar *dest, int32_t dest_capacity, int32_t *dest_len, const wchar_t *src, int32_t src_len, i18n_error_code_e *error_code );
+i18n_uchar* i18n_ustring_from_WCS(i18n_uchar *dest, int32_t dest_capacity, int32_t *dest_len, const wchar_t *src, int32_t src_len, i18n_error_code_e *error_code);
 
 /**
  * @brief Converts a UTF-16 string to UTF-8.
@@ -1073,7 +1073,7 @@ i18n_uchar* i18n_ustring_from_WCS ( i18n_uchar *dest, int32_t dest_capacity, int
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  * @see i18n_ustring_from_UTF8()
  */
-char* i18n_ustring_to_UTF8 ( char *dest, int32_t dest_capacity, int32_t *dest_len, const i18n_uchar *src, int32_t src_len, i18n_error_code_e *error_code );
+char* i18n_ustring_to_UTF8(char *dest, int32_t dest_capacity, int32_t *dest_len, const i18n_uchar *src, int32_t src_len, i18n_error_code_e *error_code);
 
 /**
  * @brief Converts a UTF-8 string to UTF-16.
@@ -1098,7 +1098,7 @@ char* i18n_ustring_to_UTF8 ( char *dest, int32_t dest_capacity, int32_t *dest_le
  * @exception #I18N_ERROR_NONE Success
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-i18n_uchar* i18n_ustring_from_UTF8 ( i18n_uchar *dest, int32_t dest_capacity, int32_t *dest_len, const char *src, int32_t src_len, i18n_error_code_e *error_code );
+i18n_uchar* i18n_ustring_from_UTF8(i18n_uchar *dest, int32_t dest_capacity, int32_t *dest_len, const char *src, int32_t src_len, i18n_error_code_e *error_code);
 
 /**
  * @brief Convert a UTF-16 string to UTF-8.
@@ -1129,7 +1129,7 @@ i18n_uchar* i18n_ustring_from_UTF8 ( i18n_uchar *dest, int32_t dest_capacity, in
  * @see i18n_ustring_to_UTF8()
  * @see i18n_ustring_from_UTF8_with_sub()
  */
-char* i18n_ustring_to_UTF8_with_sub ( char *dest, int32_t dest_capacity, int32_t *dest_len, const i18n_uchar *src, int32_t src_len, i18n_uchar32 sub_char, int32_t *num_substitutions, i18n_error_code_e *error_code );
+char* i18n_ustring_to_UTF8_with_sub(char *dest, int32_t dest_capacity, int32_t *dest_len, const i18n_uchar *src, int32_t src_len, i18n_uchar32 sub_char, int32_t *num_substitutions, i18n_error_code_e *error_code);
 
 /**
  * @brief Convert a UTF-8 string to UTF-16.
@@ -1160,8 +1160,8 @@ char* i18n_ustring_to_UTF8_with_sub ( char *dest, int32_t dest_capacity, int32_t
  * @see i18n_ustring_from_UTF8_lenient()
  * @see i18n_ustring_to_UTF8_with_sub()
  */
-i18n_uchar* i18n_ustring_from_UTF8_with_sub ( i18n_uchar *dest, int32_t dest_capacity, int32_t *dest_len, const char *src, int32_t src_len, i18n_uchar32 sub_char,
-    int32_t *num_substitutions, i18n_error_code_e *error_code );
+i18n_uchar* i18n_ustring_from_UTF8_with_sub(i18n_uchar *dest, int32_t dest_capacity, int32_t *dest_len, const char *src, int32_t src_len, i18n_uchar32 sub_char,
+    int32_t *num_substitutions, i18n_error_code_e *error_code);
 
 /**
  * @brief Convert a UTF-8 string to UTF-16.
@@ -1199,7 +1199,7 @@ i18n_uchar* i18n_ustring_from_UTF8_with_sub ( i18n_uchar *dest, int32_t dest_cap
  * @see i18n_ustring_to_UTF8_with_sub()
  * @see i18n_ustring_from_UTF8_with_sub()
  */
-i18n_uchar* i18n_ustring_from_UTF8_lenient ( i18n_uchar *dest, int32_t dest_capacity, int32_t *dest_len, const char *src, int32_t src_len, i18n_error_code_e *error_code );
+i18n_uchar* i18n_ustring_from_UTF8_lenient(i18n_uchar *dest, int32_t dest_capacity, int32_t *dest_len, const char *src, int32_t src_len, i18n_error_code_e *error_code);
 
 /**
  * @brief Convert a UTF-16 string to UTF-32.
@@ -1225,7 +1225,7 @@ i18n_uchar* i18n_ustring_from_UTF8_lenient ( i18n_uchar *dest, int32_t dest_capa
  * @see i18n_ustring_to_UTF32_with_sub()
  * @see i18n_ustring_from_UTF32()
  */
-i18n_uchar32* i18n_ustring_to_UTF32 ( i18n_uchar32 *dest, int32_t dest_capacity, int32_t *dest_len, const i18n_uchar *src, int32_t src_len, i18n_error_code_e *error_code );
+i18n_uchar32* i18n_ustring_to_UTF32(i18n_uchar32 *dest, int32_t dest_capacity, int32_t *dest_len, const i18n_uchar *src, int32_t src_len, i18n_error_code_e *error_code);
 
 /**
  * @brief Convert a UTF-32 string to UTF-16.
@@ -1251,7 +1251,7 @@ i18n_uchar32* i18n_ustring_to_UTF32 ( i18n_uchar32 *dest, int32_t dest_capacity,
  * @see i18n_ustring_from_UTF32_with_sub()
  * @see i18n_ustring_to_UTF32()
  */
-i18n_uchar* i18n_ustring_from_UTF32 ( i18n_uchar *dest, int32_t dest_capacity, int32_t *dest_len, const i18n_uchar32 *src, int32_t src_len, i18n_error_code_e *error_code );
+i18n_uchar* i18n_ustring_from_UTF32(i18n_uchar *dest, int32_t dest_capacity, int32_t *dest_len, const i18n_uchar32 *src, int32_t src_len, i18n_error_code_e *error_code);
 
 /**
  * @brief Convert a UTF-16 string to UTF-32.
@@ -1281,8 +1281,8 @@ i18n_uchar* i18n_ustring_from_UTF32 ( i18n_uchar *dest, int32_t dest_capacity, i
  * @see i18n_ustring_to_UTF32()
  * @see i18n_ustring_from_UTF32_with_sub()
  */
-i18n_uchar32* i18n_ustring_to_UTF32_with_sub ( i18n_uchar32 *dest, int32_t dest_capacity, int32_t *dest_len, const i18n_uchar *src, int32_t src_len,
-        i18n_uchar32 sub_char, int32_t *num_substitutions, i18n_error_code_e *error_code );
+i18n_uchar32* i18n_ustring_to_UTF32_with_sub(i18n_uchar32 *dest, int32_t dest_capacity, int32_t *dest_len, const i18n_uchar *src, int32_t src_len,
+        i18n_uchar32 sub_char, int32_t *num_substitutions, i18n_error_code_e *error_code);
 
 /**
  * @brief Convert a UTF-32 string to UTF-16.
@@ -1313,7 +1313,7 @@ i18n_uchar32* i18n_ustring_to_UTF32_with_sub ( i18n_uchar32 *dest, int32_t dest_
  * @see i18n_ustring_from_UTF32()
  * @see i18n_ustring_to_UTF32_with_sub()
  */
-i18n_uchar* i18n_ustring_from_UTF32_with_sub ( i18n_uchar *dest, int32_t dest_capacity, int32_t *dest_len, const i18n_uchar32 *src, int32_t src_len, i18n_uchar32 sub_char, int32_t *num_substitutions, i18n_error_code_e *error_code );
+i18n_uchar* i18n_ustring_from_UTF32_with_sub(i18n_uchar *dest, int32_t dest_capacity, int32_t *dest_len, const i18n_uchar32 *src, int32_t src_len, i18n_uchar32 sub_char, int32_t *num_substitutions, i18n_error_code_e *error_code);
 
 #ifdef __cplusplus
 }

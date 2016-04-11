@@ -83,25 +83,25 @@ extern "C" {
     int ret = I18N_ERROR_NONE;
     int buf_01_len = 0, buf_02_len = 0;
 
-    for ( i = 0; i < sizeof( src ) / sizeof( src[0] ); i++ ) {
-        dlog_print(DLOG_INFO, LOG_TAG, "%s\n", src[i] );
+    for (i = 0; i < sizeof(src) / sizeof(src[0]); i++) {
+        dlog_print(DLOG_INFO, LOG_TAG, "%s\n", src[i]);
     }    // cat    banana    airplane
 
     // creates a collator
-    ret = i18n_ucollator_create( "en_US", &coll );
+    ret = i18n_ucollator_create("en_US", &coll);
 
     // compares and sorts in ascending order
-    if ( ret == I18N_ERROR_NONE ) {
+    if (ret == I18N_ERROR_NONE) {
         i18n_ucollator_set_strength( coll, I18N_UCOLLATOR_TERTIARY );
-        for ( i = 0; i < 2; i++ ) {
-            for ( j = 0; j < 2 - i; j++ ) {
-                i18n_ustring_copy_ua( buf_01, src[j] );
-                i18n_ustring_copy_ua( buf_02, src[j+1] );
-                i18n_ustring_get_length( buf_01, &buf_01_len );
-                i18n_ustring_get_length( buf_02, &buf_02_len );
+        for (i = 0; i < 2; i++) {
+            for (j = 0; j < 2 - i; j++) {
+                i18n_ustring_copy_ua(buf_01, src[j]);
+                i18n_ustring_copy_ua(buf_02, src[j+1]);
+                i18n_ustring_get_length(buf_01, &buf_01_len);
+                i18n_ustring_get_length(buf_02, &buf_02_len);
                 // compares buf_01 with buf_02
-                i18n_ucollator_str_collator( coll, buf_01, buf_01_len, buf_02, buf_02_len, &result );
-                if ( result == I18N_UCOLLATOR_GREATER ) {
+                i18n_ucollator_str_collator(coll, buf_01, buf_01_len, buf_02, buf_02_len, &result);
+                if (result == I18N_UCOLLATOR_GREATER) {
                     tmp = src[j];
                     src[j] = src[j+1];
                     src[j+1] = tmp;
@@ -112,7 +112,7 @@ extern "C" {
     // destroys the collator
     i18n_ucollator_destroy( coll );    // deallocate memory for collator
 
-    for ( i = 0; i < sizeof( src ) / sizeof( src[0] ); i++ ) {
+    for (i = 0; i < sizeof(src) / sizeof(src[0]); i++) {
         dlog_print(DLOG_INFO, LOG_TAG, "%s\n", src[i] );
     }    // ariplane    banana    cat
  * @endcode
@@ -146,7 +146,7 @@ extern "C" {
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  * @see i18n_ucollator_destroy()
  */
-int i18n_ucollator_create ( const char *locale, i18n_ucollator_h *collator );
+int i18n_ucollator_create(const char *locale, i18n_ucollator_h *collator);
 
 /**
  * @brief Closes a i18n_ucollator_h.
@@ -159,7 +159,7 @@ int i18n_ucollator_create ( const char *locale, i18n_ucollator_h *collator );
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  * @see i18n_ucollator_create()
  */
-int i18n_ucollator_destroy ( i18n_ucollator_h collator );
+int i18n_ucollator_destroy(i18n_ucollator_h collator);
 
 /**
  * @brief Compares two strings.
@@ -178,7 +178,7 @@ int i18n_ucollator_destroy ( i18n_ucollator_h collator );
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  * @see i18n_ucollator_equal()
  */
-int i18n_ucollator_str_collator ( const i18n_ucollator_h collator, const i18n_uchar *src, int32_t src_len, const i18n_uchar *target, int32_t target_len, i18n_ucollator_result_e *result );
+int i18n_ucollator_str_collator(const i18n_ucollator_h collator, const i18n_uchar *src, int32_t src_len, const i18n_uchar *target, int32_t target_len, i18n_ucollator_result_e *result);
 
 /**
  * @brief Compares two strings for equality.
@@ -196,7 +196,7 @@ int i18n_ucollator_str_collator ( const i18n_ucollator_h collator, const i18n_uc
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  * @see i18n_ucollator_str_collator()
  */
-int i18n_ucollator_equal ( const i18n_ucollator_h collator, const i18n_uchar *src, int32_t src_len, const i18n_uchar *target, int32_t target_len, i18n_ubool *equal );
+int i18n_ucollator_equal(const i18n_ucollator_h collator, const i18n_uchar *src, int32_t src_len, const i18n_uchar *target, int32_t target_len, i18n_ubool *equal);
 
 /**
  * @brief Sets the collation strength used in a collator.
@@ -210,7 +210,7 @@ int i18n_ucollator_equal ( const i18n_ucollator_h collator, const i18n_uchar *sr
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_ucollator_set_strength ( i18n_ucollator_h collator, i18n_ucollator_strength_e strength );
+int i18n_ucollator_set_strength(i18n_ucollator_h collator, i18n_ucollator_strength_e strength);
 
 /**
  * @brief Sets a universal attribute setter.
@@ -223,7 +223,7 @@ int i18n_ucollator_set_strength ( i18n_ucollator_h collator, i18n_ucollator_stre
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_ucollator_set_attribute ( i18n_ucollator_h collator, i18n_ucollator_attribute_e attr, i18n_ucollator_attribute_value_e val );
+int i18n_ucollator_set_attribute(i18n_ucollator_h collator, i18n_ucollator_attribute_e attr, i18n_ucollator_attribute_value_e val);
 
 #ifdef __cplusplus
 }

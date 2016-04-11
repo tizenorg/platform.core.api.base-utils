@@ -129,7 +129,7 @@ extern "C" {
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_ucalendar_set_default_timezone ( const i18n_uchar *zone_id );
+int i18n_ucalendar_set_default_timezone(const i18n_uchar *zone_id);
 
 /**
  * @brief Gets the current date and time.
@@ -141,7 +141,7 @@ int i18n_ucalendar_set_default_timezone ( const i18n_uchar *zone_id );
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_ucalendar_get_now ( i18n_udate *date );
+int i18n_ucalendar_get_now(i18n_udate *date);
 
 /**
  * @brief Creates an #i18n_ucalendar_h.
@@ -171,7 +171,7 @@ int i18n_ucalendar_get_now ( i18n_udate *date );
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  * @retval #I18N_ERROR_OUT_OF_MEMORY Out of memory
  */
-int i18n_ucalendar_create ( const i18n_uchar *zone_id, int32_t len, const char *locale, i18n_ucalendar_type_e type, i18n_ucalendar_h *calendar );
+int i18n_ucalendar_create(const i18n_uchar *zone_id, int32_t len, const char *locale, i18n_ucalendar_type_e type, i18n_ucalendar_h *calendar);
 
 /**
  * @brief Destroys an #i18n_ucalendar_h.
@@ -182,7 +182,7 @@ int i18n_ucalendar_create ( const i18n_uchar *zone_id, int32_t len, const char *
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_ucalendar_destroy ( i18n_ucalendar_h calendar );
+int i18n_ucalendar_destroy(i18n_ucalendar_h calendar);
 
 /**
  * @brief Creates a copy of a #i18n_ucalendar_h.
@@ -194,7 +194,7 @@ int i18n_ucalendar_destroy ( i18n_ucalendar_h calendar );
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_ucalendar_clone ( const i18n_ucalendar_h cal, i18n_ucalendar_h *identical_to_cal );
+int i18n_ucalendar_clone(const i18n_ucalendar_h cal, i18n_ucalendar_h *identical_to_cal);
 
 /**
  * @brief Gets the display name for a calendar's TimeZone.
@@ -213,7 +213,7 @@ int i18n_ucalendar_clone ( const i18n_ucalendar_h cal, i18n_ucalendar_h *identic
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_ucalendar_get_timezone_displayname ( const i18n_ucalendar_h calendar, i18n_ucalendar_displayname_type_e type, const char *locale, i18n_uchar *result, int32_t result_len, int32_t *buf_size_needed );
+int i18n_ucalendar_get_timezone_displayname(const i18n_ucalendar_h calendar, i18n_ucalendar_displayname_type_e type, const char *locale, i18n_uchar *result, int32_t result_len, int32_t *buf_size_needed);
 
 /**
  * @brief Determines if an #i18n_ucalendar_h is currently in daylight savings time.
@@ -227,7 +227,7 @@ int i18n_ucalendar_get_timezone_displayname ( const i18n_ucalendar_h calendar, i
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_ucalendar_is_in_daylight_time ( const i18n_ucalendar_h calendar, i18n_ubool *is_in );
+int i18n_ucalendar_is_in_daylight_time(const i18n_ucalendar_h calendar, i18n_ubool *is_in);
 
 /**
  * @brief Sets the value of a field in a #i18n_ucalendar_h.
@@ -246,7 +246,7 @@ int i18n_ucalendar_is_in_daylight_time ( const i18n_ucalendar_h calendar, i18n_u
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_ucalendar_set ( i18n_ucalendar_h cal, i18n_ucalendar_date_fields_e field, int32_t val );
+int i18n_ucalendar_set(i18n_ucalendar_h cal, i18n_ucalendar_date_fields_e field, int32_t val);
 
 /**
  * @brief Sets a numeric attribute associated with an #i18n_ucalendar_h.
@@ -263,7 +263,7 @@ int i18n_ucalendar_set ( i18n_ucalendar_h cal, i18n_ucalendar_date_fields_e fiel
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_ucalendar_set_attribute ( i18n_ucalendar_h calendar, i18n_ucalendar_attribute_e attr, int32_t val );
+int i18n_ucalendar_set_attribute(i18n_ucalendar_h calendar, i18n_ucalendar_attribute_e attr, int32_t val);
 
 /**
  * @brief Gets a numeric attribute associated with an i18n_ucalendar.
@@ -281,7 +281,7 @@ int i18n_ucalendar_set_attribute ( i18n_ucalendar_h calendar, i18n_ucalendar_att
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_ucalendar_get_attribute ( i18n_ucalendar_h calendar, i18n_ucalendar_attribute_e attr, int32_t *val);
+int i18n_ucalendar_get_attribute(i18n_ucalendar_h calendar, i18n_ucalendar_attribute_e attr, int32_t *val);
 
 /**
  * @brief Gets a calendar's current time in milliseconds.
@@ -296,7 +296,7 @@ int i18n_ucalendar_get_attribute ( i18n_ucalendar_h calendar, i18n_ucalendar_att
  * @see i18n_ucalendar_set_milliseconds()
  * @see i18n_ucalendar_set_date_time()
  */
-int i18n_ucalendar_get_milliseconds( const i18n_ucalendar_h calendar, i18n_udate *date );
+int i18n_ucalendar_get_milliseconds(const i18n_ucalendar_h calendar, i18n_udate *date);
 
 /**
  * @brief Sets a calendar's current time in milliseconds.
@@ -311,7 +311,7 @@ int i18n_ucalendar_get_milliseconds( const i18n_ucalendar_h calendar, i18n_udate
  * @see i18n_ucalendar_get_milliseconds()
  * @see i18n_ucalendar_set_date_time()
  */
-int i18n_ucalendar_set_milliseconds ( i18n_ucalendar_h calendar, i18n_udate milliseconds );
+int i18n_ucalendar_set_milliseconds(i18n_ucalendar_h calendar, i18n_udate milliseconds);
 
 /**
  * @brief Sets a calendar's current date.
@@ -333,7 +333,7 @@ int i18n_ucalendar_set_milliseconds ( i18n_ucalendar_h calendar, i18n_udate mill
  * @see i18n_ucalendar_get_milliseconds()
  * @see i18n_ucalendar_set_milliseconds()
  */
-int i18n_ucalendar_set_date_time ( i18n_ucalendar_h calendar, int32_t year, int32_t month, int32_t date, int32_t hour, int32_t min, int32_t sec );
+int i18n_ucalendar_set_date_time(i18n_ucalendar_h calendar, int32_t year, int32_t month, int32_t date, int32_t hour, int32_t min, int32_t sec);
 
 /**
  * @brief Returns @c true if two #i18n_ucalendar_h calendars are equivalent.
@@ -348,7 +348,7 @@ int i18n_ucalendar_set_date_time ( i18n_ucalendar_h calendar, int32_t year, int3
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_ucalendar_is_equivalent_to ( const i18n_ucalendar_h calendar1, const i18n_ucalendar_h calendar2, i18n_ubool *equiv );
+int i18n_ucalendar_is_equivalent_to(const i18n_ucalendar_h calendar1, const i18n_ucalendar_h calendar2, i18n_ubool *equiv);
 
 /**
  * @brief Adds a specified signed amount to a particular field in a #i18n_ucalendar_h.
@@ -368,7 +368,7 @@ int i18n_ucalendar_is_equivalent_to ( const i18n_ucalendar_h calendar1, const i1
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
 
  */
-int i18n_ucalendar_add ( i18n_ucalendar_h calendar, i18n_ucalendar_date_fields_e field, int32_t amount );
+int i18n_ucalendar_add(i18n_ucalendar_h calendar, i18n_ucalendar_date_fields_e field, int32_t amount);
 
 /**
  * @brief Gets the current value of a field from an #i18n_ucalendar_h.
@@ -385,7 +385,7 @@ int i18n_ucalendar_add ( i18n_ucalendar_h calendar, i18n_ucalendar_date_fields_e
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_ucalendar_get ( const i18n_ucalendar_h calendar, i18n_ucalendar_date_fields_e field, int32_t *val );
+int i18n_ucalendar_get(const i18n_ucalendar_h calendar, i18n_ucalendar_date_fields_e field, int32_t *val);
 
 
 // Newly Added APIs
@@ -418,7 +418,7 @@ int i18n_ucalendar_get ( const i18n_ucalendar_h calendar, i18n_ucalendar_date_fi
  *
  * @return The date difference for the specified field.
  */
-int32_t i18n_ucalendar_get_field_difference ( i18n_ucalendar_h calendar, i18n_udate target, i18n_ucalendar_date_fields_e field, i18n_error_code_e *status );
+int32_t i18n_ucalendar_get_field_difference(i18n_ucalendar_h calendar, i18n_udate target, i18n_ucalendar_date_fields_e field, i18n_error_code_e *status);
 
 /**
  * @brief Creates an enumeration over system time zone IDs with the given filter conditions.
@@ -437,7 +437,7 @@ int32_t i18n_ucalendar_get_field_difference ( i18n_ucalendar_h calendar, i18n_ud
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_ucalendar_timezone_id_enumeration_create ( i18n_system_timezone_type_e zone_type, const char *region, const int32_t *raw_offset, i18n_uenumeration_h *enumeration);
+int i18n_ucalendar_timezone_id_enumeration_create(i18n_system_timezone_type_e zone_type, const char *region, const int32_t *raw_offset, i18n_uenumeration_h *enumeration);
 
 /**
  * @brief Creates an enumeration over all time zones.
@@ -450,7 +450,7 @@ int i18n_ucalendar_timezone_id_enumeration_create ( i18n_system_timezone_type_e 
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_ucalendar_timezones_create (i18n_uenumeration_h * enumeration);
+int i18n_ucalendar_timezones_create(i18n_uenumeration_h * enumeration);
 
 /**
  * @brief Creates an enumeration over all time zones associated with the given country.
@@ -466,7 +466,7 @@ int i18n_ucalendar_timezones_create (i18n_uenumeration_h * enumeration);
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_ucalendar_country_timezones_create (const char *country, i18n_uenumeration_h * enumeration);
+int i18n_ucalendar_country_timezones_create(const char *country, i18n_uenumeration_h * enumeration);
 
 /**
  * @brief Returns the default time zone.
@@ -484,7 +484,7 @@ int i18n_ucalendar_country_timezones_create (const char *country, i18n_uenumerat
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid parameter
  */
-int32_t i18n_ucalendar_get_default_timezone (i18n_uchar *result, int32_t result_capacity);
+int32_t i18n_ucalendar_get_default_timezone(i18n_uchar *result, int32_t result_capacity);
 
 /**
  * @brief Sets the TimeZone used by a #i18n_ucalendar_h.
@@ -499,7 +499,7 @@ int32_t i18n_ucalendar_get_default_timezone (i18n_uchar *result, int32_t result_
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_ucalendar_set_timezone ( i18n_ucalendar_h calendar, const i18n_uchar *zone_id, int32_t length );
+int i18n_ucalendar_set_timezone(i18n_ucalendar_h calendar, const i18n_uchar *zone_id, int32_t length);
 
 /**
  * @brief Gets the ID of the calendar's time zone.
@@ -516,7 +516,7 @@ int i18n_ucalendar_set_timezone ( i18n_ucalendar_h calendar, const i18n_uchar *z
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int32_t i18n_ucalendar_get_timezone_id (const i18n_ucalendar_h calendar, i18n_uchar *result, int32_t result_length);
+int32_t i18n_ucalendar_get_timezone_id(const i18n_ucalendar_h calendar, i18n_uchar *result, int32_t result_length);
 
 /**
  * @brief Sets the Gregorian Calendar change date.
@@ -537,7 +537,7 @@ int32_t i18n_ucalendar_get_timezone_id (const i18n_ucalendar_h calendar, i18n_uc
  *
  * @see i18n_ucalendar_get_gregorian_change()
  */
-int i18n_ucalendar_set_gregorian_change ( i18n_ucalendar_h calendar, i18n_udate date);
+int i18n_ucalendar_set_gregorian_change(i18n_ucalendar_h calendar, i18n_udate date);
 
 /**
  * @brief Gets the Gregorian Calendar change date.
@@ -558,7 +558,7 @@ int i18n_ucalendar_set_gregorian_change ( i18n_ucalendar_h calendar, i18n_udate 
  *
  * @see i18n_ucalendar_set_gregorian_change()
  */
-int i18n_ucalendar_get_gregorian_change (const i18n_ucalendar_h calendar, i18n_udate *date);
+int i18n_ucalendar_get_gregorian_change(const i18n_ucalendar_h calendar, i18n_udate *date);
 
 /**
  * @brief Gets a locale for which calendars are available.
@@ -575,7 +575,7 @@ int i18n_ucalendar_get_gregorian_change (const i18n_ucalendar_h calendar, i18n_u
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid parameter
  * @see i18n_ucalendar_count_available()
  */
-const char * i18n_ucalendar_get_available (int32_t locale_index);
+const char * i18n_ucalendar_get_available(int32_t locale_index);
 
 /**
  * @brief Determines how many locales have calendars available.
@@ -588,7 +588,7 @@ const char * i18n_ucalendar_get_available (int32_t locale_index);
  * @exception #I18N_ERROR_NONE Successful
  * @see i18n_ucalendar_get_available()
  */
-int32_t i18n_ucalendar_count_available (void);
+int32_t i18n_ucalendar_count_available(void);
 
 /**
  * @brief Sets a calendar's current date.
@@ -611,7 +611,7 @@ int32_t i18n_ucalendar_count_available (void);
  * @see i18n_ucalendar_set_milliseconds()
  * @see i18n_ucalendar_set_date_time()
  */
-int i18n_ucalendar_set_date (i18n_ucalendar_h calendar, int32_t year, int32_t month, int32_t date);
+int i18n_ucalendar_set_date(i18n_ucalendar_h calendar, int32_t year, int32_t month, int32_t date);
 
 /**
  * @brief Adds a specified signed amount to a particular field in a #i18n_ucalendar_h.
@@ -646,7 +646,7 @@ int i18n_ucalendar_set_date (i18n_ucalendar_h calendar, int32_t year, int32_t mo
  * @remarks #I18N_UCALENDAR_ZONE_OFFSET and #I18N_UCALENDAR_DST_OFFSET are not supported by this function.
  * @see i18n_ucalendar_add()
  */
-int i18n_ucalendar_roll (i18n_ucalendar_h calendar, i18n_ucalendar_date_fields_e field, int32_t amount);
+int i18n_ucalendar_roll(i18n_ucalendar_h calendar, i18n_ucalendar_date_fields_e field, int32_t amount);
 
 /**
  * @brief Determines if a field in a #i18n_ucalendar_h is set.
@@ -667,7 +667,7 @@ int i18n_ucalendar_roll (i18n_ucalendar_h calendar, i18n_ucalendar_date_fields_e
  * @see i18n_ucalendar_clear()
  *
  */
-i18n_ubool i18n_ucalendar_is_set (const i18n_ucalendar_h calendar, i18n_ucalendar_date_fields_e field);
+i18n_ubool i18n_ucalendar_is_set(const i18n_ucalendar_h calendar, i18n_ucalendar_date_fields_e field);
 
 /**
  * @brief Clears a field in a #i18n_ucalendar_h.
@@ -687,7 +687,7 @@ i18n_ubool i18n_ucalendar_is_set (const i18n_ucalendar_h calendar, i18n_ucalenda
  * @see i18n_ucalendar_clear()
  *
  */
-int i18n_ucalendar_clear_field (i18n_ucalendar_h calendar, i18n_ucalendar_date_fields_e field);
+int i18n_ucalendar_clear_field(i18n_ucalendar_h calendar, i18n_ucalendar_date_fields_e field);
 
 /**
  * @brief Clears all fields in a #i18n_ucalendar_h.
@@ -704,7 +704,7 @@ int i18n_ucalendar_clear_field (i18n_ucalendar_h calendar, i18n_ucalendar_date_f
  * @see i18n_ucalendar_clear_field()
  *
  */
-int i18n_ucalendar_clear (i18n_ucalendar_h calendar);
+int i18n_ucalendar_clear(i18n_ucalendar_h calendar);
 
 /**
  * @brief Determines a limit for a field in an #i18n_ucalendar_h.
@@ -731,7 +731,7 @@ int i18n_ucalendar_clear (i18n_ucalendar_h calendar);
  *
  * @return The requested value.
  */
-int32_t i18n_ucalendar_get_limit (const i18n_ucalendar_h calendar, i18n_ucalendar_date_fields_e field, i18n_ucalendar_limit_type_e type);
+int32_t i18n_ucalendar_get_limit(const i18n_ucalendar_h calendar, i18n_ucalendar_date_fields_e field, i18n_ucalendar_limit_type_e type);
 
 /**
  * @brief Gets the locale for this @c calendar object.
@@ -748,7 +748,7 @@ int32_t i18n_ucalendar_get_limit (const i18n_ucalendar_h calendar, i18n_ucalenda
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-const char *i18n_ucalendar_get_locale_by_type (const i18n_ucalendar_h calendar, i18n_ulocale_data_locale_type_e type);
+const char *i18n_ucalendar_get_locale_by_type(const i18n_ucalendar_h calendar, i18n_ulocale_data_locale_type_e type);
 
 /**
  * @brief Returns the timezone data version currently used by ICU.
@@ -759,7 +759,7 @@ const char *i18n_ucalendar_get_locale_by_type (const i18n_ucalendar_h calendar, 
  * @return The version string, such as "2007f".
  * @exception #I18N_ERROR_NONE Successful
  */
-const char *i18n_ucalendar_get_tz_data_version (void);
+const char *i18n_ucalendar_get_tz_data_version(void);
 
 /**
  * @brief Returns the canonical system timezone ID or the normalized custom time zone ID for the given time zone ID.
@@ -778,7 +778,7 @@ const char *i18n_ucalendar_get_tz_data_version (void);
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int32_t i18n_ucalendar_get_canonical_timezone_id (const i18n_uchar *id, int32_t length, i18n_uchar *result, int32_t result_capacity,  i18n_ubool *is_system_id);
+int32_t i18n_ucalendar_get_canonical_timezone_id(const i18n_uchar *id, int32_t length, i18n_uchar *result, int32_t result_capacity,  i18n_ubool *is_system_id);
 
 /**
  * @brief Gets the resource keyword value string designating the calendar type for the #i18n_ucalendar_h.
@@ -793,7 +793,7 @@ int32_t i18n_ucalendar_get_canonical_timezone_id (const i18n_uchar *id, int32_t 
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-const char *i18n_ucalendar_get_type (const i18n_ucalendar_h calendar);
+const char *i18n_ucalendar_get_type(const i18n_ucalendar_h calendar);
 
 /**
  * @brief Given a key and a locale, returns an array of string values in a preferred order that would make a difference.
@@ -814,7 +814,7 @@ const char *i18n_ucalendar_get_type (const i18n_ucalendar_h calendar);
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_ucalendar_get_keyword_values_for_locale (const char *key, const char *locale, i18n_ubool commonly_used, i18n_uenumeration_h *enumeration);
+int i18n_ucalendar_get_keyword_values_for_locale(const char *key, const char *locale, i18n_ubool commonly_used, i18n_uenumeration_h *enumeration);
 
 /**
  * @brief Returns whether the given day of the week is a weekday, a weekend day,
@@ -837,7 +837,7 @@ int i18n_ucalendar_get_keyword_values_for_locale (const char *key, const char *l
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_ucalendar_get_day_of_week_type (const i18n_ucalendar_h calendar, i18n_ucalendar_days_of_week_e day_of_week, i18n_ucalendar_weekday_type_e *weekday);
+int i18n_ucalendar_get_day_of_week_type(const i18n_ucalendar_h calendar, i18n_ucalendar_days_of_week_e day_of_week, i18n_ucalendar_weekday_type_e *weekday);
 
 /**
  * @brief Returns the time during the day at which the weekend begins or ends in this calendar system.
@@ -859,7 +859,7 @@ int i18n_ucalendar_get_day_of_week_type (const i18n_ucalendar_h calendar, i18n_u
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int32_t  i18n_ucalendar_get_weekend_transition (const i18n_ucalendar_h calendar, i18n_ucalendar_days_of_week_e day_of_week);
+int32_t  i18n_ucalendar_get_weekend_transition(const i18n_ucalendar_h calendar, i18n_ucalendar_days_of_week_e day_of_week);
 
 /**
  * @brief Returns @c true if the given #i18n_udate is in the weekend in this calendar system.
@@ -875,7 +875,7 @@ int32_t  i18n_ucalendar_get_weekend_transition (const i18n_ucalendar_h calendar,
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-i18n_ubool i18n_ucalendar_is_weekend (i18n_ucalendar_h calendar, i18n_udate date);
+i18n_ubool i18n_ucalendar_is_weekend(i18n_ucalendar_h calendar, i18n_udate date);
 
 /**
  * @brief Get the #i18n_udate for the next/previous time zone transition relative
@@ -896,7 +896,7 @@ i18n_ubool i18n_ucalendar_is_weekend (i18n_ucalendar_h calendar, i18n_udate date
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-i18n_ubool i18n_ucalendar_get_timezone_transition_date (const i18n_ucalendar_h calendar, i18n_utimezone_transition_type_e type, i18n_udate *transition);
+i18n_ubool i18n_ucalendar_get_timezone_transition_date(const i18n_ucalendar_h calendar, i18n_utimezone_transition_type_e type, i18n_udate *transition);
 
 /**
  * @}
