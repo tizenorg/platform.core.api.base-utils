@@ -106,8 +106,8 @@ extern "C" {
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_unumber_create ( i18n_unumber_format_style_e style, const i18n_uchar *pattern, int32_t pattern_len, const char *locale,
-    i18n_uparse_error_s *parse_err, i18n_unumber_format_h *num_format );
+int i18n_unumber_create(i18n_unumber_format_style_e style, const i18n_uchar *pattern, int32_t pattern_len, const char *locale,
+    i18n_uparse_error_s *parse_err, i18n_unumber_format_h *num_format);
 
 /**
  * @brief Destroys an #i18n_unumber_format_h.
@@ -119,7 +119,7 @@ int i18n_unumber_create ( i18n_unumber_format_style_e style, const i18n_uchar *p
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_unumber_destroy ( i18n_unumber_format_h fmt );
+int i18n_unumber_destroy(i18n_unumber_format_h fmt);
 
 /**
  * @brief Gets a symbol associated with an #i18n_unumber_format_h.
@@ -138,7 +138,7 @@ int i18n_unumber_destroy ( i18n_unumber_format_h fmt );
  * @retval #I18N_ERROR_NONE Successful.
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_unumber_get_symbol ( const i18n_unumber_format_h fmt, i18n_unumber_format_symbol_e symbol, i18n_uchar *buffer, int32_t size, int32_t *len_symbol );
+int i18n_unumber_get_symbol(const i18n_unumber_format_h fmt, i18n_unumber_format_symbol_e symbol, i18n_uchar *buffer, int32_t size, int32_t *len_symbol);
 
 
 // Newly Added APIs
@@ -156,7 +156,7 @@ int i18n_unumber_get_symbol ( const i18n_unumber_format_h fmt, i18n_unumber_form
  * @retval #I18N_ERROR_NONE Successful.
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_unumber_clone (const i18n_unumber_format_h fmt, i18n_unumber_format_h *fmt_clone);
+int i18n_unumber_clone(const i18n_unumber_format_h fmt, i18n_unumber_format_h *fmt_clone);
 
 /**
 * @brief Formats an integer using a i18n_unumber_format_h.
@@ -177,7 +177,7 @@ int i18n_unumber_clone (const i18n_unumber_format_h fmt, i18n_unumber_format_h *
 *
 * @return The total buffer size needed; if greater than result_length, the output was truncated.
 */
-int32_t i18n_unumber_format (const i18n_unumber_format_h fmt, int32_t number, i18n_uchar *result, int32_t result_length, i18n_ufield_position_s *pos, i18n_error_code_e *status);
+int32_t i18n_unumber_format(const i18n_unumber_format_h fmt, int32_t number, i18n_uchar *result, int32_t result_length, i18n_ufield_position_s *pos, i18n_error_code_e *status);
 
 /**
  * @brief Formats an int64 using an #i18n_unumber_format_h.
@@ -204,7 +204,7 @@ int32_t i18n_unumber_format (const i18n_unumber_format_h fmt, int32_t number, i1
  * @exception #I18N_WARNING_STRING_NOT_TERMINATED If the formatted number fits into @a result but cannot be NULL-terminated (<code>length == result_length</code>)
  * @exception #I18N_ERROR_BUFFER_OVERFLOW If the formatted number doesn't fit into the @a result buffer
  */
-int32_t i18n_unumber_format_int64 (const i18n_unumber_format_h fmt, int64_t number, i18n_uchar *result, int32_t result_length, i18n_ufield_position_h pos);
+int32_t i18n_unumber_format_int64(const i18n_unumber_format_h fmt, int64_t number, i18n_uchar *result, int32_t result_length, i18n_ufield_position_h pos);
 
 /**
  * @brief Formats a double using an #i18n_unumber_format_h.
@@ -232,7 +232,7 @@ int32_t i18n_unumber_format_int64 (const i18n_unumber_format_h fmt, int64_t numb
  * @exception #I18N_WARNING_STRING_NOT_TERMINATED If the formatted number fits into @a result but cannot be NULL-terminated (<code>length == result_length</code>)
  * @exception #I18N_ERROR_BUFFER_OVERFLOW If the formatted number doesn't fit into the @a result buffer
  */
-int32_t i18n_unumber_format_double (const i18n_unumber_format_h fmt, double number, i18n_uchar *result, int32_t result_length, i18n_ufield_position_h pos);
+int32_t i18n_unumber_format_double(const i18n_unumber_format_h fmt, double number, i18n_uchar *result, int32_t result_length, i18n_ufield_position_h pos);
 
 /**
  * @brief Formats a decimal number using an #i18n_unumber_format_h.
@@ -263,7 +263,7 @@ int32_t i18n_unumber_format_double (const i18n_unumber_format_h fmt, double numb
  * @exception #I18N_WARNING_STRING_NOT_TERMINATED If the formatted number fits into @a result but cannot be NULL-terminated (<code>length == result_length</code>)
  * @exception #I18N_ERROR_BUFFER_OVERFLOW If the formatted number doesn't fit into the @a result buffer
  */
-int32_t i18n_unumber_format_decimal (const i18n_unumber_format_h fmt, const char *number, int32_t length, i18n_uchar *result, int32_t result_length, i18n_ufield_position_h pos);
+int32_t i18n_unumber_format_decimal(const i18n_unumber_format_h fmt, const char *number, int32_t length, i18n_uchar *result, int32_t result_length, i18n_ufield_position_h pos);
 
 /**
  * @brief Formats a double currency amount using an #i18n_unumber_format_h.
@@ -293,7 +293,7 @@ int32_t i18n_unumber_format_decimal (const i18n_unumber_format_h fmt, const char
  * @exception #I18N_WARNING_STRING_NOT_TERMINATED If the formatted number fits into @a result but cannot be NULL-terminated (<code>length == result_length</code>)
  * @exception #I18N_ERROR_BUFFER_OVERFLOW If the formatted number doesn't fit into the @a result buffer
  */
-int32_t i18n_unumber_format_double_currency (const i18n_unumber_format_h fmt, double number, i18n_uchar *currency, i18n_uchar *result, int32_t result_length, i18n_ufield_position_h pos);
+int32_t i18n_unumber_format_double_currency(const i18n_unumber_format_h fmt, double number, i18n_uchar *currency, i18n_uchar *result, int32_t result_length, i18n_ufield_position_h pos);
 
 /**
  * @brief Parses a string into an integer using an #i18n_unumber_format_h.
@@ -313,7 +313,7 @@ int32_t i18n_unumber_format_double_currency (const i18n_unumber_format_h fmt, do
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int32_t i18n_unumber_parse (const i18n_unumber_format_h fmt, const i18n_uchar *text, int32_t text_length, int32_t *parse_pos);
+int32_t i18n_unumber_parse(const i18n_unumber_format_h fmt, const i18n_uchar *text, int32_t text_length, int32_t *parse_pos);
 
 /**
  * @brief Parses a string into an int64 using an #i18n_unumber_format_h.
@@ -333,7 +333,7 @@ int32_t i18n_unumber_parse (const i18n_unumber_format_h fmt, const i18n_uchar *t
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int64_t i18n_unumber_parse_int64 (const i18n_unumber_format_h fmt, const i18n_uchar *text, int32_t text_length, int32_t *parse_pos);
+int64_t i18n_unumber_parse_int64(const i18n_unumber_format_h fmt, const i18n_uchar *text, int32_t text_length, int32_t *parse_pos);
 
 /**
  * @brief Parses a string into a double using an #i18n_unumber_format_h.
@@ -353,7 +353,7 @@ int64_t i18n_unumber_parse_int64 (const i18n_unumber_format_h fmt, const i18n_uc
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-double i18n_unumber_parse_double (const i18n_unumber_format_h fmt, const i18n_uchar *text, int32_t text_length, int32_t *parse_pos);
+double i18n_unumber_parse_double(const i18n_unumber_format_h fmt, const i18n_uchar *text, int32_t text_length, int32_t *parse_pos);
 
 /**
  * @brief Parses a number from a string into an unformatted numeric string using an #i18n_unumber_format_h.
@@ -379,7 +379,7 @@ double i18n_unumber_parse_double (const i18n_unumber_format_h fmt, const i18n_uc
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int32_t i18n_unumber_parse_decimal (const i18n_unumber_format_h fmt, const i18n_uchar *text, int32_t text_length, int32_t *parse_pos, char *out_buf, int32_t out_buf_length);
+int32_t i18n_unumber_parse_decimal(const i18n_unumber_format_h fmt, const i18n_uchar *text, int32_t text_length, int32_t *parse_pos, char *out_buf, int32_t out_buf_length);
 
 /**
  * @brief Parses a string into a double and a currency using an #i18n_unumber_format_h.
@@ -403,7 +403,7 @@ int32_t i18n_unumber_parse_decimal (const i18n_unumber_format_h fmt, const i18n_
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-double i18n_unumber_parse_double_currency (const i18n_unumber_format_h fmt, const i18n_uchar *text, int32_t text_length, int32_t *parse_pos, i18n_uchar *currency);
+double i18n_unumber_parse_double_currency(const i18n_unumber_format_h fmt, const i18n_uchar *text, int32_t text_length, int32_t *parse_pos, i18n_uchar *currency);
 
 /**
  * @brief Sets the pattern used by an #i18n_unumber_format_h.
@@ -422,7 +422,7 @@ double i18n_unumber_parse_double_currency (const i18n_unumber_format_h fmt, cons
  * @retval #I18N_ERROR_NONE Successful.
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_unumber_apply_pattern (i18n_unumber_format_h format, i18n_ubool localized, const i18n_uchar *pattern, int32_t pattern_length, i18n_uparse_error_s* parse_error);
+int i18n_unumber_apply_pattern(i18n_unumber_format_h format, i18n_ubool localized, const i18n_uchar *pattern, int32_t pattern_length, i18n_uparse_error_s* parse_error);
 
 /**
  * @brief Gets a locale for which decimal formatting patterns are available.
@@ -438,7 +438,7 @@ int i18n_unumber_apply_pattern (i18n_unumber_format_h format, i18n_ubool localiz
  *
  * @exception #I18N_ERROR_NONE Successful
  */
-const char *i18n_unumber_get_available (int32_t locale_index);
+const char *i18n_unumber_get_available(int32_t locale_index);
 
 /**
  * @brief Determines how many locales have decimal formatting patterns available.
@@ -452,7 +452,7 @@ const char *i18n_unumber_get_available (int32_t locale_index);
  *
  * @exception #I18N_ERROR_NONE Successful
  */
-int32_t i18n_unumber_count_available (void);
+int32_t i18n_unumber_count_available(void);
 
 /**
  * @brief Gets a numeric attribute associated with an #i18n_unumber_format_h.
@@ -474,7 +474,7 @@ int32_t i18n_unumber_count_available (void);
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int32_t i18n_unumber_get_attribute (const i18n_unumber_format_h fmt, i18n_unumber_format_attribute_e attr);
+int32_t i18n_unumber_get_attribute(const i18n_unumber_format_h fmt, i18n_unumber_format_attribute_e attr);
 
 /**
  * @brief Sets a numeric attribute associated with an #i18n_unumber_format_h.
@@ -499,7 +499,7 @@ int32_t i18n_unumber_get_attribute (const i18n_unumber_format_h fmt, i18n_unumbe
  * @retval #I18N_ERROR_NONE Successful.
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_unumber_set_attribute (i18n_unumber_format_h fmt, i18n_unumber_format_attribute_e attr, int32_t new_value);
+int i18n_unumber_set_attribute(i18n_unumber_format_h fmt, i18n_unumber_format_attribute_e attr, int32_t new_value);
 
 /**
  * @brief Gets a numeric attribute associated with an #i18n_unumber_format_h.
@@ -517,7 +517,7 @@ int i18n_unumber_set_attribute (i18n_unumber_format_h fmt, i18n_unumber_format_a
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-double i18n_unumber_get_double_attribute (const i18n_unumber_format_h fmt, i18n_unumber_format_attribute_e attr);
+double i18n_unumber_get_double_attribute(const i18n_unumber_format_h fmt, i18n_unumber_format_attribute_e attr);
 
 /**
  * @brief Sets a numeric attribute associated with an #i18n_unumber_format_h.
@@ -534,7 +534,7 @@ double i18n_unumber_get_double_attribute (const i18n_unumber_format_h fmt, i18n_
  * @retval #I18N_ERROR_NONE Successful.
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_unumber_set_double_attribute (i18n_unumber_format_h fmt, i18n_unumber_format_attribute_e attr, double new_value);
+int i18n_unumber_set_double_attribute(i18n_unumber_format_h fmt, i18n_unumber_format_attribute_e attr, double new_value);
 
 /**
  * @brief Gets a text attribute associated with an #i18n_unumber_format_h.
@@ -557,7 +557,7 @@ int i18n_unumber_set_double_attribute (i18n_unumber_format_h fmt, i18n_unumber_f
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int32_t i18n_unumber_get_text_attribute (const i18n_unumber_format_h fmt, i18n_unumber_format_text_attribute_e tag, i18n_uchar *result, int32_t result_length);
+int32_t i18n_unumber_get_text_attribute(const i18n_unumber_format_h fmt, i18n_unumber_format_text_attribute_e tag, i18n_uchar *result, int32_t result_length);
 
 /**
  * @brief Sets a text attribute associated with an #i18n_unumber_format_h.
@@ -577,7 +577,7 @@ int32_t i18n_unumber_get_text_attribute (const i18n_unumber_format_h fmt, i18n_u
  * @retval #I18N_ERROR_NONE Successful.
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_unumber_set_text_attribute (const i18n_unumber_format_h fmt, i18n_unumber_format_text_attribute_e tag, const i18n_uchar *new_value, int32_t new_value_length);
+int i18n_unumber_set_text_attribute(const i18n_unumber_format_h fmt, i18n_unumber_format_text_attribute_e tag, const i18n_uchar *new_value, int32_t new_value_length);
 
 /**
  * @brief Extracts the pattern from an #i18n_unumber_format_h.
@@ -597,7 +597,7 @@ int i18n_unumber_set_text_attribute (const i18n_unumber_format_h fmt, i18n_unumb
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int32_t i18n_unumber_to_pattern (const i18n_unumber_format_h fmt, i18n_ubool is_pattern_localized, i18n_uchar *result, int32_t result_length);
+int32_t i18n_unumber_to_pattern(const i18n_unumber_format_h fmt, i18n_ubool is_pattern_localized, i18n_uchar *result, int32_t result_length);
 
 /**
  * @brief Sets a symbol associated with an #i18n_unumber_format_h.
@@ -615,7 +615,7 @@ int32_t i18n_unumber_to_pattern (const i18n_unumber_format_h fmt, i18n_ubool is_
  * @retval #I18N_ERROR_NONE Successful.
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_unumber_set_symbol (i18n_unumber_format_h fmt, i18n_unumber_format_symbol_e symbol, const i18n_uchar *value, int32_t length);
+int i18n_unumber_set_symbol(i18n_unumber_format_h fmt, i18n_unumber_format_symbol_e symbol, const i18n_uchar *value, int32_t length);
 
 /**
  * @brief Gets the locale for this number format object.
@@ -632,7 +632,7 @@ int i18n_unumber_set_symbol (i18n_unumber_format_h fmt, i18n_unumber_format_symb
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-const char *i18n_unumber_get_locale_by_type (const i18n_unumber_format_h fmt, i18n_ulocale_data_locale_type_e type);
+const char *i18n_unumber_get_locale_by_type(const i18n_unumber_format_h fmt, i18n_ulocale_data_locale_type_e type);
 
 
 #ifdef __cplusplus

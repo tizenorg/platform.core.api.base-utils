@@ -61,21 +61,21 @@
 
     // Gets default locale
     ret = i18n_ulocale_get_default(&locale);
-    if ( ret != I18N_ERROR_NONE ) {
+    if (ret != I18N_ERROR_NONE) {
         dlog_print(DLOG_ERROR, LOG_TAG, "i18n_ulocale_get_default() failed!!! \n");
     }
     dlog_print(DLOG_INFO, LOG_TAG, "default locale : %s\n", locale);    // default locale : en_GB.UTF-8
 
     // Gets the language code for the specified locale
     ret = i18n_ulocale_get_language(locale, language, language_capacity, &buf_size_language);
-    if ( ret != I18N_ERROR_NONE ) {
+    if (ret != I18N_ERROR_NONE) {
         dlog_print(DLOG_ERROR, LOG_TAG, "i18n_ulocale_get_language() failed!!! \n");
     }
     dlog_print(DLOG_INFO, LOG_TAG, "language code for the locale : %s\n", language);  // language code for the locale : en
 
     // Gets the full name suitable for display for the specified locale
     ret = i18n_ulocale_get_display_name(locale, in_locale_id, result_w, 64, &buf_size_display_name);
-    if ( ret != I18N_ERROR_NONE ) {
+    if (ret != I18N_ERROR_NONE) {
         dlog_print(DLOG_ERROR, LOG_TAG, "i18n_ulocale_get_display_name() failed!!! \n");
     }
     i18n_ustring_copy_au(result, result_w);
@@ -120,7 +120,7 @@ extern "C" {
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_ulocale_get_default ( const char **locale );
+int i18n_ulocale_get_default(const char **locale);
 
 /**
  * @brief Sets I18N's default locale.
@@ -138,7 +138,7 @@ int i18n_ulocale_get_default ( const char **locale );
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_ulocale_set_default ( const char *locale_id );
+int i18n_ulocale_set_default(const char *locale_id);
 
 /**
  * @brief Gets the language code for the specified locale.
@@ -154,7 +154,7 @@ int i18n_ulocale_set_default ( const char *locale_id );
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_ulocale_get_language ( const char *locale_id, char *language, int32_t language_capacity, int32_t *buf_size_language );
+int i18n_ulocale_get_language(const char *locale_id, char *language, int32_t language_capacity, int32_t *buf_size_language);
 
 /**
  * @brief Gets the country code for the specified locale.
@@ -168,7 +168,7 @@ int i18n_ulocale_get_language ( const char *locale_id, char *language, int32_t l
  * @return The actual buffer size needed for the country code.\n
  *         If it's greater than @a country_capacity, the returned country code will be truncated.
  */
-int32_t i18n_ulocale_get_country ( const char *locale_id, char *country, int32_t country_capacity, int *error );
+int32_t i18n_ulocale_get_country(const char *locale_id, char *country, int32_t country_capacity, int *error);
 
 /**
  * @brief Gets the full name suitable for display for the specified locale.
@@ -186,7 +186,7 @@ int32_t i18n_ulocale_get_country ( const char *locale_id, char *country, int32_t
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_ulocale_get_display_name ( const char *locale_id, const char *in_locale_id, i18n_uchar *result, int32_t max_result_size, int32_t *buf_size_display_name );
+int i18n_ulocale_get_display_name(const char *locale_id, const char *in_locale_id, i18n_uchar *result, int32_t max_result_size, int32_t *buf_size_display_name);
 
 /**
  * @brief Gets the specified locale from a list of all available locales.
@@ -204,7 +204,7 @@ int i18n_ulocale_get_display_name ( const char *locale_id, const char *in_locale
  * @exception #I18N_ERROR_NONE Success
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-const char* i18n_ulocale_get_available ( int32_t n );
+const char* i18n_ulocale_get_available(int32_t n);
 
 /**
  * @brief Gets the size of the all available locale list.
@@ -215,7 +215,7 @@ const char* i18n_ulocale_get_available ( int32_t n );
  * @return The size of the locale list
  * @exception #I18N_ERROR_NONE Success
  */
-int32_t i18n_ulocale_count_available ( void );
+int32_t i18n_ulocale_count_available(void);
 
 // Newly Added APIs
 
@@ -237,7 +237,7 @@ int32_t i18n_ulocale_count_available ( void );
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int32_t i18n_ulocale_get_script ( const char *locale_id, char *script, int32_t script_capacity );
+int32_t i18n_ulocale_get_script(const char *locale_id, char *script, int32_t script_capacity);
 
 /**
  * @brief Gets the variant code for the specified locale.
@@ -257,7 +257,7 @@ int32_t i18n_ulocale_get_script ( const char *locale_id, char *script, int32_t s
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int32_t i18n_ulocale_get_variant ( const char *locale_id, char *variant, int32_t variant_capacity );
+int32_t i18n_ulocale_get_variant(const char *locale_id, char *variant, int32_t variant_capacity);
 
 /**
  * @brief Gets the full name for the specified locale.
@@ -279,7 +279,7 @@ int32_t i18n_ulocale_get_variant ( const char *locale_id, char *variant, int32_t
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_BUFFER_OVERFLOW A result would not fit in the supplied buffer
  */
-int32_t i18n_ulocale_get_name ( const char *locale_id, char *name, int32_t name_capacity );
+int32_t i18n_ulocale_get_name(const char *locale_id, char *name, int32_t name_capacity);
 
 /**
  * @brief Gets the full name for the specified locale.
@@ -301,7 +301,7 @@ int32_t i18n_ulocale_get_name ( const char *locale_id, char *name, int32_t name_
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_BUFFER_OVERFLOW A result would not fit in the supplied buffer
  */
-int32_t i18n_ulocale_canonicalize ( const char *locale_id, char *name, int32_t name_capacity );
+int32_t i18n_ulocale_canonicalize(const char *locale_id, char *name, int32_t name_capacity);
 
 /**
  * @brief Gets the ISO language code for the specified locale.
@@ -315,7 +315,7 @@ int32_t i18n_ulocale_canonicalize ( const char *locale_id, char *name, int32_t n
  *
  * @exception #I18N_ERROR_NONE Successful
  */
-const char * i18n_ulocale_get_iso3_language ( const char *locale_id );
+const char * i18n_ulocale_get_iso3_language(const char *locale_id);
 
 /**
  * @brief Gets the ISO country code for the specified locale.
@@ -329,7 +329,7 @@ const char * i18n_ulocale_get_iso3_language ( const char *locale_id );
  *
  * @exception #I18N_ERROR_NONE Successful
  */
-const char * i18n_ulocale_get_iso3_country ( const char *locale_id );
+const char * i18n_ulocale_get_iso3_country(const char *locale_id);
 
 /**
  * @brief Gets the Win32 LCID value for the specified locale.
@@ -344,7 +344,7 @@ const char * i18n_ulocale_get_iso3_country ( const char *locale_id );
  *
  * @exception #I18N_ERROR_NONE Successful
  */
-uint32_t i18n_ulocale_get_lcid ( const char *locale_id );
+uint32_t i18n_ulocale_get_lcid(const char *locale_id);
 
 /**
  * @brief Gets the language name suitable for display for the specified locale.
@@ -366,7 +366,7 @@ uint32_t i18n_ulocale_get_lcid ( const char *locale_id );
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int32_t i18n_ulocale_get_display_language ( const char *locale, const char *display_locale, i18n_uchar *language, int32_t language_capacity );
+int32_t i18n_ulocale_get_display_language(const char *locale, const char *display_locale, i18n_uchar *language, int32_t language_capacity);
 
 /**
  * @brief Gets the script name suitable for display for the specified locale.
@@ -387,7 +387,7 @@ int32_t i18n_ulocale_get_display_language ( const char *locale, const char *disp
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int32_t i18n_ulocale_get_display_script ( const char *locale, const char *display_locale, i18n_uchar *script, int32_t script_capacity );
+int32_t i18n_ulocale_get_display_script(const char *locale, const char *display_locale, i18n_uchar *script, int32_t script_capacity);
 
 /**
  * @brief Gets the country name suitable for display for the specified locale.
@@ -408,7 +408,7 @@ int32_t i18n_ulocale_get_display_script ( const char *locale, const char *displa
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int32_t i18n_ulocale_get_display_country ( const char *locale, const char *display_locale, i18n_uchar *country, int32_t country_capacity );
+int32_t i18n_ulocale_get_display_country(const char *locale, const char *display_locale, i18n_uchar *country, int32_t country_capacity);
 
 /**
  * @brief Gets the variant name suitable for display for the specified locale.
@@ -429,7 +429,7 @@ int32_t i18n_ulocale_get_display_country ( const char *locale, const char *displ
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int32_t i18n_ulocale_get_display_variant ( const char *locale, const char *display_locale, i18n_uchar *variant, int32_t variant_capacity );
+int32_t i18n_ulocale_get_display_variant(const char *locale, const char *display_locale, i18n_uchar *variant, int32_t variant_capacity);
 
 /**
  * @brief Gets the keyword name suitable for display for the specified locale.
@@ -481,7 +481,7 @@ int32_t i18n_ulocale_get_display_variant ( const char *locale, const char *displ
  * @see i18n_uenumeration_next()
  * @see i18n_uenumeration_destroy()
  */
-int32_t i18n_ulocale_get_display_keyword ( const char *keyword, const char *display_locale, i18n_uchar *dest, int32_t dest_capacity );
+int32_t i18n_ulocale_get_display_keyword(const char *keyword, const char *display_locale, i18n_uchar *dest, int32_t dest_capacity);
 
 /**
  * @brief Gets the value of the keyword suitable for display for the specified locale.
@@ -506,7 +506,7 @@ int32_t i18n_ulocale_get_display_keyword ( const char *keyword, const char *disp
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int32_t i18n_ulocale_get_display_keyword_value ( const char *locale, const char *keyword, const char *display_locale, i18n_uchar *dest, int32_t dest_capacity );
+int32_t i18n_ulocale_get_display_keyword_value(const char *locale, const char *keyword, const char *display_locale, i18n_uchar *dest, int32_t dest_capacity);
 
 /**
  * @brief Gets a list of all available 2-letter language codes defined in ISO 639,
@@ -523,7 +523,7 @@ int32_t i18n_ulocale_get_display_keyword_value ( const char *locale, const char 
  *
  * @exception #I18N_ERROR_NONE Successful
  */
-const char * const *i18n_ulocale_get_iso_languages ( void );
+const char * const *i18n_ulocale_get_iso_languages(void);
 
 /**
  *
@@ -539,7 +539,7 @@ const char * const *i18n_ulocale_get_iso_languages ( void );
  *
  * @exception #I18N_ERROR_NONE Successful
  */
-const char * const *i18n_ulocale_get_iso_countries ( void );
+const char * const *i18n_ulocale_get_iso_countries(void);
 
 /**
  * @brief Truncates the locale ID string to get the parent locale ID.
@@ -566,7 +566,7 @@ const char * const *i18n_ulocale_get_iso_countries ( void );
  *                                        in the @a locale_id from index 0 to the index of the last occurrence of
  *                                        the underscore ("_") symbol.
  */
-int32_t i18n_ulocale_get_parent ( const char *locale_id, char *parent, int32_t parent_capacity );
+int32_t i18n_ulocale_get_parent(const char *locale_id, char *parent, int32_t parent_capacity);
 
 /**
  * @brief Gets the full name for the specified locale, like i18n_ulocale_get_name(), but without keywords.
@@ -591,7 +591,7 @@ int32_t i18n_ulocale_get_parent ( const char *locale_id, char *parent, int32_t p
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_BUFFER_OVERFLOW A result would not fit in the supplied buffer
  */
-int32_t i18n_ulocale_get_base_name ( const char *locale_id, char *name, int32_t name_capacity );
+int32_t i18n_ulocale_get_base_name(const char *locale_id, char *name, int32_t name_capacity);
 
 /**
  * @brief Gets an enumeration of keywords for the specified locale.
@@ -606,7 +606,7 @@ int32_t i18n_ulocale_get_base_name ( const char *locale_id, char *name, int32_t 
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_ulocale_keywords_create ( const char *locale_id, i18n_uenumeration_h *enumeration );
+int i18n_ulocale_keywords_create(const char *locale_id, i18n_uenumeration_h *enumeration);
 
 /**
  * @brief Gets the value for a keyword.
@@ -626,7 +626,7 @@ int i18n_ulocale_keywords_create ( const char *locale_id, i18n_uenumeration_h *e
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int32_t i18n_ulocale_get_keyword_value ( const char *locale_id, const char *keyword_name, char *buffer, int32_t buffer_capacity );
+int32_t i18n_ulocale_get_keyword_value(const char *locale_id, const char *keyword_name, char *buffer, int32_t buffer_capacity);
 
 /**
  * @brief Sets or removes the value of the specified keyword.
@@ -704,7 +704,7 @@ int32_t i18n_ulocale_get_keyword_value ( const char *locale_id, const char *keyw
  *
  * @see i18n_ulocale_get_keyword_value()
  */
-int32_t i18n_ulocale_set_keyword_value ( const char *keyword_name, const char *keyword_value, char *buffer, int32_t buffer_capacity );
+int32_t i18n_ulocale_set_keyword_value(const char *keyword_name, const char *keyword_value, char *buffer, int32_t buffer_capacity);
 
 /**
  * @brief Gets the layout character orientation for the specified locale.
@@ -718,7 +718,7 @@ int32_t i18n_ulocale_set_keyword_value ( const char *keyword_name, const char *k
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_ulocale_get_character_orientation ( const char *locale_id, i18n_ulocale_layout_type_e *layout_type );
+int i18n_ulocale_get_character_orientation(const char *locale_id, i18n_ulocale_layout_type_e *layout_type);
 
 /**
  * @brief Gets the layout line orientation for the specified locale.
@@ -732,7 +732,7 @@ int i18n_ulocale_get_character_orientation ( const char *locale_id, i18n_ulocale
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_ulocale_get_line_orientation ( const char *locale_id, i18n_ulocale_layout_type_e *layout_type );
+int i18n_ulocale_get_line_orientation(const char *locale_id, i18n_ulocale_layout_type_e *layout_type);
 
 /**
  * @brief Gets the I18N locale ID for the specified Win32 LCID value.
@@ -751,7 +751,7 @@ int i18n_ulocale_get_line_orientation ( const char *locale_id, i18n_ulocale_layo
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int32_t i18n_ulocale_get_locale_for_lcid ( uint32_t host_id, char *locale, int32_t locale_capacity );
+int32_t i18n_ulocale_get_locale_for_lcid(uint32_t host_id, char *locale, int32_t locale_capacity);
 
 /**
  * @brief Adds the likely subtags for a provided locale ID, per the algorithm described
@@ -785,7 +785,7 @@ int32_t i18n_ulocale_get_locale_for_lcid ( uint32_t host_id, char *locale, int32
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int32_t i18n_ulocale_add_likely_subtags ( const char *locale_id, char *maximized_locale_id, int32_t maximized_locale_id_capacity );
+int32_t i18n_ulocale_add_likely_subtags(const char *locale_id, char *maximized_locale_id, int32_t maximized_locale_id_capacity);
 
 /**
  * @brief Minimizes the subtags for a provided locale ID, per the algorithm described
@@ -818,7 +818,7 @@ int32_t i18n_ulocale_add_likely_subtags ( const char *locale_id, char *maximized
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int32_t i18n_ulocale_minimize_subtags ( const char *locale_id, char *minimized_locale_id, int32_t minimized_locale_id_capacity );
+int32_t i18n_ulocale_minimize_subtags(const char *locale_id, char *minimized_locale_id, int32_t minimized_locale_id_capacity);
 
 /**
  * @brief Returns a locale ID for the specified BCP47 language tag string.
@@ -849,7 +849,7 @@ int32_t i18n_ulocale_minimize_subtags ( const char *locale_id, char *minimized_l
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int32_t i18n_ulocale_for_language_tag ( const char *langtag, char *locale_id, int32_t locale_id_capacity, int32_t *parsed_length );
+int32_t i18n_ulocale_for_language_tag(const char *langtag, char *locale_id, int32_t locale_id_capacity, int32_t *parsed_length);
 
 /**
  * @brief Returns a well-formed language tag for this locale ID.
@@ -877,7 +877,7 @@ int32_t i18n_ulocale_for_language_tag ( const char *langtag, char *locale_id, in
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int32_t i18n_ulocale_to_language_tag ( const char *locale_id, char *langtag, int32_t langtag_capacity, i18n_ubool strict );
+int32_t i18n_ulocale_to_language_tag(const char *locale_id, char *langtag, int32_t langtag_capacity, i18n_ubool strict);
 
 #ifdef __cplusplus
 }

@@ -69,7 +69,7 @@ extern "C" {
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  * @see i18n_ubrk_create_rules()
  */
-int i18n_ubrk_create (i18n_ubreak_iterator_type_e type, const char *locale, const i18n_uchar *text, int32_t text_length, i18n_ubreak_iterator_h *break_iter);
+int i18n_ubrk_create(i18n_ubreak_iterator_type_e type, const char *locale, const i18n_uchar *text, int32_t text_length, i18n_ubreak_iterator_h *break_iter);
 
 /**
  * @brief Opens a new #i18n_ubreak_iterator_h for locating text boundaries using specified breaking rules.
@@ -88,7 +88,7 @@ int i18n_ubrk_create (i18n_ubreak_iterator_type_e type, const char *locale, cons
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  * @see i18n_ubrk_create()
  */
-int i18n_ubrk_create_rules (const i18n_uchar *rules, int32_t rules_length, const i18n_uchar *text, int32_t text_length, i18n_ubreak_iterator_h *break_iter, i18n_uparse_error_s *parse_err);
+int i18n_ubrk_create_rules(const i18n_uchar *rules, int32_t rules_length, const i18n_uchar *text, int32_t text_length, i18n_ubreak_iterator_h *break_iter, i18n_uparse_error_s *parse_err);
 
 /**
  * @brief Thread safe cloning operation.
@@ -108,7 +108,7 @@ int i18n_ubrk_create_rules (const i18n_uchar *rules, int32_t rules_length, const
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_ubrk_safe_clone (const i18n_ubreak_iterator_h break_iter, void *stack_buffer, int32_t *p_buffer_size, i18n_ubreak_iterator_h *break_iter_clone);
+int i18n_ubrk_safe_clone(const i18n_ubreak_iterator_h break_iter, void *stack_buffer, int32_t *p_buffer_size, i18n_ubreak_iterator_h *break_iter_clone);
 
 /**
  * @brief Closes a #i18n_ubreak_iterator_h.
@@ -120,7 +120,7 @@ int i18n_ubrk_safe_clone (const i18n_ubreak_iterator_h break_iter, void *stack_b
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
 */
-int i18n_ubrk_destroy (i18n_ubreak_iterator_h break_iter);
+int i18n_ubrk_destroy(i18n_ubreak_iterator_h break_iter);
 
 /**
  * @brief Sets an existing iterator to point to a new piece of text.
@@ -133,7 +133,7 @@ int i18n_ubrk_destroy (i18n_ubreak_iterator_h break_iter);
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_ubrk_set_text (i18n_ubreak_iterator_h break_iter, const i18n_uchar *text, int32_t text_length);
+int i18n_ubrk_set_text(i18n_ubreak_iterator_h break_iter, const i18n_uchar *text, int32_t text_length);
 
 /**
  * @brief Determines the most recently-returned text boundary.
@@ -146,7 +146,7 @@ int i18n_ubrk_set_text (i18n_ubreak_iterator_h break_iter, const i18n_uchar *tex
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int32_t i18n_ubrk_current (const i18n_ubreak_iterator_h break_iter);
+int32_t i18n_ubrk_current(const i18n_ubreak_iterator_h break_iter);
 
 /**
  * @brief Advances the iterator to the boundary following the current boundary.
@@ -160,7 +160,7 @@ int32_t i18n_ubrk_current (const i18n_ubreak_iterator_h break_iter);
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  * @see i18n_ubrk_previous()
  */
-int32_t i18n_ubrk_next (i18n_ubreak_iterator_h break_iter);
+int32_t i18n_ubrk_next(i18n_ubreak_iterator_h break_iter);
 
 /**
  * @brief Sets the iterator position to the boundary preceding the current boundary.
@@ -174,7 +174,7 @@ int32_t i18n_ubrk_next (i18n_ubreak_iterator_h break_iter);
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  * @see i18n_ubrk_next()
  */
-int32_t i18n_ubrk_previous (i18n_ubreak_iterator_h break_iter);
+int32_t i18n_ubrk_previous(i18n_ubreak_iterator_h break_iter);
 
 /**
  * @brief Sets the iterator position to zero, the start of the text being scanned.
@@ -187,7 +187,7 @@ int32_t i18n_ubrk_previous (i18n_ubreak_iterator_h break_iter);
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  * @see i18n_ubrk_last()
  */
-int32_t i18n_ubrk_first (i18n_ubreak_iterator_h break_iter);
+int32_t i18n_ubrk_first(i18n_ubreak_iterator_h break_iter);
 
 /**
  * @brief Sets the iterator position to the index immediately <EM>beyond</EM> the last character in the text being scanned.
@@ -202,7 +202,7 @@ int32_t i18n_ubrk_first (i18n_ubreak_iterator_h break_iter);
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  * @see i18n_ubrk_first()
  */
-int32_t i18n_ubrk_last (i18n_ubreak_iterator_h break_iter);
+int32_t i18n_ubrk_last(i18n_ubreak_iterator_h break_iter);
 
 /**
  * @brief Sets the iterator position to the first boundary preceding the specified @c offset.
@@ -217,7 +217,7 @@ int32_t i18n_ubrk_last (i18n_ubreak_iterator_h break_iter);
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  * @see i18n_ubrk_following()
  */
-int32_t i18n_ubrk_preceding (i18n_ubreak_iterator_h break_iter, int32_t offset);
+int32_t i18n_ubrk_preceding(i18n_ubreak_iterator_h break_iter, int32_t offset);
 
 /**
  * @brief Advances the iterator to the first boundary following the specified @c offset.
@@ -232,7 +232,7 @@ int32_t i18n_ubrk_preceding (i18n_ubreak_iterator_h break_iter, int32_t offset);
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  * @see i18n_ubrk_preceding()
  */
-int32_t i18n_ubrk_following (i18n_ubreak_iterator_h break_iter, int32_t offset);
+int32_t i18n_ubrk_following(i18n_ubreak_iterator_h break_iter, int32_t offset);
 
 /**
  * @brief Gets a locale for which text breaking information is available.
@@ -247,7 +247,7 @@ int32_t i18n_ubrk_following (i18n_ubreak_iterator_h break_iter, int32_t offset);
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  * @see i18n_ubrk_count_available()
  */
-const char *i18n_ubrk_get_available (int32_t index);
+const char *i18n_ubrk_get_available(int32_t index);
 
 /**
  * @brief Determines how many locales have text breaking information available.
@@ -260,7 +260,7 @@ const char *i18n_ubrk_get_available (int32_t index);
  * @exception #I18N_ERROR_NONE Successful
  * @see i18n_ubrk_get_available()
  */
-int32_t i18n_ubrk_count_available (void);
+int32_t i18n_ubrk_count_available(void);
 
 /**
  * @brief Returns true if the specfied position is a boundary position.
@@ -275,7 +275,7 @@ int32_t i18n_ubrk_count_available (void);
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-i18n_ubool i18n_ubrk_is_boundary (i18n_ubreak_iterator_h break_iter, int32_t offset);
+i18n_ubool i18n_ubrk_is_boundary(i18n_ubreak_iterator_h break_iter, int32_t offset);
 
 /**
  * @brief Returns the status from the break rule that determined the most recently
@@ -293,7 +293,7 @@ i18n_ubool i18n_ubrk_is_boundary (i18n_ubreak_iterator_h break_iter, int32_t off
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int32_t i18n_ubrk_get_rule_status (i18n_ubreak_iterator_h break_iter);
+int32_t i18n_ubrk_get_rule_status(i18n_ubreak_iterator_h break_iter);
 
 /**
  * @brief Gets the statuses from the break rules that determined the most recently
@@ -316,7 +316,7 @@ int32_t i18n_ubrk_get_rule_status (i18n_ubreak_iterator_h break_iter);
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int32_t i18n_ubrk_get_rule_status_vec (i18n_ubreak_iterator_h break_iter, int32_t *fill_in_vec, int32_t capacity);
+int32_t i18n_ubrk_get_rule_status_vec(i18n_ubreak_iterator_h break_iter, int32_t *fill_in_vec, int32_t capacity);
 
 /**
  * @brief Returns the locale of the break iterator. You can choose between the valid and
@@ -331,7 +331,7 @@ int32_t i18n_ubrk_get_rule_status_vec (i18n_ubreak_iterator_h break_iter, int32_
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-const char *i18n_ubrk_get_locale_by_type (const i18n_ubreak_iterator_h break_iter, i18n_ulocale_data_locale_type_e type);
+const char *i18n_ubrk_get_locale_by_type(const i18n_ubreak_iterator_h break_iter, i18n_ulocale_data_locale_type_e type);
 
 #ifdef __cplusplus
 }

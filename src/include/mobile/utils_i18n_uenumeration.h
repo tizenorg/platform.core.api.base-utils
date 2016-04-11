@@ -61,7 +61,7 @@ extern "C" {
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_uenumeration_destroy ( i18n_uenumeration_h enumeration );
+int i18n_uenumeration_destroy(i18n_uenumeration_h enumeration);
 
 /**
  * @brief Returns the number of elements that the iterator traverses.
@@ -79,7 +79,7 @@ int i18n_uenumeration_destroy ( i18n_uenumeration_h enumeration );
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  * @exception #I18N_ERROR_ENUM_OUT_OF_SYNC The iterator is out of sync
  */
-int32_t i18n_uenumeration_count ( i18n_uenumeration_h enumeration );
+int32_t i18n_uenumeration_count(i18n_uenumeration_h enumeration);
 
 /**
  * @brief Returns the next element in the iterator's list.
@@ -102,7 +102,7 @@ int32_t i18n_uenumeration_count ( i18n_uenumeration_h enumeration );
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  * @exception #I18N_ERROR_ENUM_OUT_OF_SYNC The iterator is out of sync
  */
-const i18n_uchar *i18n_uenumeration_unext ( i18n_uenumeration_h enumeration, int32_t *result_length );
+const i18n_uchar *i18n_uenumeration_unext(i18n_uenumeration_h enumeration, int32_t *result_length);
 
 /**
  * @brief Returns the next element in the iterator's list.
@@ -128,7 +128,7 @@ const i18n_uchar *i18n_uenumeration_unext ( i18n_uenumeration_h enumeration, int
  * @exception #I18N_ERROR_INVARIANT_CONVERSION The underlying native string is <code>i18n_uchar*</code> and conversion to <code>char*</code> with the invariant converter fails.
  *                                             This error pertains only to current string, so iteration might be able to continue successfully.
  */
-const char *i18n_uenumeration_next ( i18n_uenumeration_h enumeration, int32_t *result_length );
+const char *i18n_uenumeration_next(i18n_uenumeration_h enumeration, int32_t *result_length);
 
 /**
  * @brief Resets the iterator to the current list of service IDs.
@@ -142,7 +142,7 @@ const char *i18n_uenumeration_next ( i18n_uenumeration_h enumeration, int32_t *r
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_uenumeration_reset ( i18n_uenumeration_h enumeration );
+int i18n_uenumeration_reset(i18n_uenumeration_h enumeration);
 
 /**
  * @brief Given an array of <code>const i18n_uchar*</code> strings, return an #i18n_uenumeration_h.
@@ -161,7 +161,7 @@ int i18n_uenumeration_reset ( i18n_uenumeration_h enumeration );
  *
  * @see i18n_uenumeration_destroy()
  */
-int i18n_uenumeration_uchar_strings_enumeration_create(const i18n_uchar *const strings[], int32_t count, i18n_uenumeration_h *enumeration );
+int i18n_uenumeration_uchar_strings_enumeration_create(const i18n_uchar *const strings[], int32_t count, i18n_uenumeration_h *enumeration);
 
 /**
  * @brief Given an array of <code>const char*</code> strings (invariant chars only), return an #i18n_uenumeration_h.
@@ -180,7 +180,7 @@ int i18n_uenumeration_uchar_strings_enumeration_create(const i18n_uchar *const s
  *
  * @see i18n_uenumeration_destroy()
  */
-int i18n_uenumeration_char_strings_enumeration_create(const char* const strings[], int32_t count, i18n_uenumeration_h *enumeration );
+int i18n_uenumeration_char_strings_enumeration_create(const char* const strings[], int32_t count, i18n_uenumeration_h *enumeration);
 
 /**
  * @}

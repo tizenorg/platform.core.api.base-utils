@@ -72,7 +72,7 @@ extern "C" {
  * @see i18n_timezone_create()
  * @see i18n_timezone_create_gmt()
  */
-int i18n_timezone_create_unknown ( i18n_timezone_h *timezone );
+int i18n_timezone_create_unknown(i18n_timezone_h *timezone);
 
 /**
  * @brief The GMT (=UTC) time zone has a raw offset of zero and does not use daylight savings time.
@@ -85,7 +85,7 @@ int i18n_timezone_create_unknown ( i18n_timezone_h *timezone );
  * @retval #I18N_ERROR_NONE Successful
  * @see i18n_timezone_create_unknown()
  */
-int i18n_timezone_create_gmt ( i18n_timezone_h *timezone );
+int i18n_timezone_create_gmt(i18n_timezone_h *timezone);
 
 /**
  * @brief Creates an i18n_timezone_h for the given timezone_id.
@@ -96,7 +96,7 @@ int i18n_timezone_create_gmt ( i18n_timezone_h *timezone );
  *
  * @retval #I18N_ERROR_NONE Successful
  */
-int i18n_timezone_create ( i18n_timezone_h *timezone, const char *timezone_id );
+int i18n_timezone_create(i18n_timezone_h *timezone, const char *timezone_id);
 
 /**
  * @brief Destroys an i18n_timezone_h.
@@ -214,7 +214,7 @@ int i18n_timezone_get_equivalent_id(const char *timezone_id, int32_t index, char
  *
  * @retval #I18N_ERROR_NONE Successful
  */
-int i18n_timezone_create_default ( i18n_timezone_h *timezone );
+int i18n_timezone_create_default(i18n_timezone_h *timezone);
 
 /**
  * @brief Sets the default time zone (i.e., what's returned by #i18n_timezone_create_default()) to be the specified time zone.
@@ -230,7 +230,7 @@ int i18n_timezone_create_default ( i18n_timezone_h *timezone );
  *
  * @retval #I18N_ERROR_NONE Successful
  */
-int i18n_timezone_set_default( i18n_timezone_h timezone );
+int i18n_timezone_set_default(i18n_timezone_h timezone);
 
 /**
  * @brief Returns the timezone data version currently used by I18N.

@@ -149,7 +149,7 @@ extern "C" {
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_uchar_get_int_property_value ( i18n_uchar32 c, i18n_uchar_uproperty_e which, int32_t *property_val );
+int i18n_uchar_get_int_property_value(i18n_uchar32 c, i18n_uchar_uproperty_e which, int32_t *property_val);
 
 /**
  * @brief Gets the Unicode allocation block that contains the character.
@@ -161,7 +161,7 @@ int i18n_uchar_get_int_property_value ( i18n_uchar32 c, i18n_uchar_uproperty_e w
  * @retval #I18N_ERROR_NONE  Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_uchar_get_ublock_code ( i18n_uchar32 c, i18n_uchar_ublock_code_e *block_val );
+int i18n_uchar_get_ublock_code(i18n_uchar32 c, i18n_uchar_ublock_code_e *block_val);
 
 #ifdef __cplusplus
 }
