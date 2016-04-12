@@ -92,7 +92,7 @@ extern "C" {
 
     // compares and sorts in ascending order
     if (ret == I18N_ERROR_NONE) {
-        i18n_ucollator_set_strength( coll, I18N_UCOLLATOR_TERTIARY );
+        i18n_ucollator_set_strength(coll, I18N_UCOLLATOR_TERTIARY);
         for (i = 0; i < 2; i++) {
             for (j = 0; j < 2 - i; j++) {
                 i18n_ustring_copy_ua(buf_01, src[j]);
@@ -113,7 +113,7 @@ extern "C" {
     i18n_ucollator_destroy( coll );    // deallocate memory for collator
 
     for (i = 0; i < sizeof(src) / sizeof(src[0]); i++) {
-        dlog_print(DLOG_INFO, LOG_TAG, "%s\n", src[i] );
+        dlog_print(DLOG_INFO, LOG_TAG, "%s\n", src[i]);
     }    // ariplane    banana    cat
  * @endcode
  */

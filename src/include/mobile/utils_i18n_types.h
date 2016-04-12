@@ -1592,7 +1592,7 @@ typedef struct {
  * @brief Handle to struct representing a range of text containing a specific field.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  */
-typedef i18n_ufield_position_s *18n_ufield_position_h;
+typedef i18n_ufield_position_s *i18n_ufield_position_h;
 
 /**
  * @brief Enumeration for the possible date/time format styles.

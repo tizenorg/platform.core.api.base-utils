@@ -88,7 +88,7 @@ extern "C" {
     }    // cat    banana    airplane
 
     // creates a collator
-    ret = i18n_ucollator_create( "en_US", &coll );
+    ret = i18n_ucollator_create("en_US", &coll);
 
     // compares and sorts in ascending order
     if (ret == I18N_ERROR_NONE) {
