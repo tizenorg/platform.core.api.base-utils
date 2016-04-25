@@ -1,17 +1,17 @@
 /*
  * Copyright (c) 2015 Samsung Electronics Co., Ltd All Rights Reserved
  *
- *    Licensed under the Apache License, Version 2.0 (the "License");
- *    you may not use this file except in compliance with the License.
- *    You may obtain a copy of the License at
+ *	  Licensed under the Apache License, Version 2.0 (the "License");
+ *	  you may not use this file except in compliance with the License.
+ *	  You may obtain a copy of the License at
  *
- *        http://www.apache.org/licenses/LICENSE-2.0
+ *		  http://www.apache.org/licenses/LICENSE-2.0
  *
- *    Unless required by applicable law or agreed to in writing, software
- *    distributed under the License is distributed on an "AS IS" BASIS,
- *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *    See the License for the specific language governing permissions and
- *    limitations under the License.
+ *	  Unless required by applicable law or agreed to in writing, software
+ *	  distributed under the License is distributed on an "AS IS" BASIS,
+ *	  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *	  See the License for the specific language governing permissions and
+ *	  limitations under the License.
  */
 
 #ifndef __UTILS_I18N_TIMEZONE_H__
@@ -34,7 +34,7 @@ extern "C" {
  * @defgroup CAPI_BASE_UTILS_I18N_TIMEZONE_MODULE Timezone
  * @brief The Timezone module represents a time zone offset, and also figures out daylight savings.
  * @section CAPI_BASE_UTILS_I18N_TIMEZONE_MODULE_HEADER Required Header
- *  \#include <utils_i18n.h>
+ *	\#include <utils_i18n.h>
  *
  * @section CAPI_BASE_UTILS_I18N_TIMEZONE_MODULE_OVERVIEW Overview
  * @details The Timezone module represents a time zone offset, and also figures out daylight savings.\n
@@ -121,7 +121,7 @@ int i18n_timezone_destroy(i18n_timezone_h timezone);
  *
  * @retval #I18N_ERROR_NONE Successful
  */
-int i18n_timezone_foreach_timezone_id_by_region(i18n_system_timezone_type_e timezone_type, const char *region, const int32_t *raw_offset, i18n_timezone_id_cb cb, void* user_data);
+int i18n_timezone_foreach_timezone_id_by_region(i18n_system_timezone_type_e timezone_type, const char *region, const int32_t *raw_offset, i18n_timezone_id_cb cb, void *user_data);
 
 /**
  * @brief Returns an enumeration over all recognized time zone IDs.
@@ -133,7 +133,7 @@ int i18n_timezone_foreach_timezone_id_by_region(i18n_system_timezone_type_e time
  *
  * @retval #I18N_ERROR_NONE Successful
  */
-int i18n_timezone_foreach_timezone_id(i18n_timezone_id_cb cb, void* user_data);
+int i18n_timezone_foreach_timezone_id(i18n_timezone_id_cb cb, void *user_data);
 
 /**
  * @brief Returns an enumeration over time zone IDs with a given raw offset from GMT.
@@ -152,7 +152,7 @@ int i18n_timezone_foreach_timezone_id(i18n_timezone_id_cb cb, void* user_data);
  *
  * @retval #I18N_ERROR_NONE Successful
  */
-int i18n_timezone_foreach_timezone_id_with_offset(int32_t raw_offset, i18n_timezone_id_cb cb, void* user_data);
+int i18n_timezone_foreach_timezone_id_with_offset(int32_t raw_offset, i18n_timezone_id_cb cb, void *user_data);
 
 /**
  * @brief Returns an enumeration over time zone IDs associated with the given country.
@@ -165,7 +165,7 @@ int i18n_timezone_foreach_timezone_id_with_offset(int32_t raw_offset, i18n_timez
  *
  * @retval #I18N_ERROR_NONE Successful
  */
-int i18n_timezone_foreach_timezone_id_by_country(const char *country, i18n_timezone_id_cb cb, void* user_data);
+int i18n_timezone_foreach_timezone_id_by_country(const char *country, i18n_timezone_id_cb cb, void *user_data);
 
 /**
  * @brief Returns the number of IDs in the equivalency group that includes the given ID.
@@ -194,7 +194,7 @@ int i18n_timezone_count_equivalent_ids(const char *timezone_id, int32_t *count);
  * @param[in] timezone_id a system time zone ID
  * @param[in] index a value from 0 to n-1, where n is the out parameter value from i18n_timezone_count_equivalent_ids(timezone_id, &n)
  * @param[out] equivalent_timezone_id the ID of the index-th zone in the equivalency group containing 'timezone_id',
- *             or an empty string if 'timezone_id' is not a valid system ID or 'index' is out of range
+ *			   or an empty string if 'timezone_id' is not a valid system ID or 'index' is out of range
  *
  * @retval #I18N_ERROR_NONE Successful
  * @see i18n_timezone_count_equivalent_ids()
@@ -235,13 +235,13 @@ int i18n_timezone_set_default(i18n_timezone_h timezone);
 /**
  * @brief Returns the timezone data version currently used by I18N.
  * @remarks The specific error code can be obtained using the get_last_result()
- *      method. Error codes are described in #i18n_error_code_e description.
+ *		method. Error codes are described in #i18n_error_code_e description.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
  * @return the version string, such as "2007f"
  * @exception #I18N_ERROR_NONE Successful
  */
-const char* i18n_timezone_get_tzdata_version(void);
+const char *i18n_timezone_get_tzdata_version(void);
 
 /**
  * @brief Gets the region code associated with the given system time zone ID.
@@ -254,7 +254,7 @@ const char* i18n_timezone_get_tzdata_version(void);
  * @param[out] region Output buffer for receiving the region code.
  * @param[out] region_len The length of the region code.
  * @param[in]  region_capacity The size of the output buffer. If it is lower than required @a region buffer size,
- *                             then I18N_ERROR_BUFFER_OVERFLOW error is returned.
+ *							   then I18N_ERROR_BUFFER_OVERFLOW error is returned.
  *
  * @return the version string, such as "2007f"
  */
@@ -278,7 +278,7 @@ int i18n_timezone_get_offset_with_date(i18n_timezone_h timezone, i18n_udate date
 
 /**
  * @brief Sets the i18n_timezone_h's raw GMT offset
- *     (i.e., the number of milliseconds to add to GMT to get local time, before taking daylight savings time into account).
+ *	   (i.e., the number of milliseconds to add to GMT to get local time, before taking daylight savings time into account).
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
  * @param[in] timezone The i18n_timezone_h to set a raw offset.
@@ -314,11 +314,11 @@ int i18n_timezone_get_id(i18n_timezone_h timezone, char **timezone_id);
 /**
  * @brief Sets the i18n_timezone_h's ID to the specified value.
  * @details This doesn't affect any other fields. for example,\n
- *     \n<code>
- *     i18n_timezone_h timezone = NULL;\n
- *     i18n_timezone_create ( &timezone, "America/New_York" );\n
- *     i18n_timezone_set_id ( "America/Los_Angeles" );\n
- *     </code>\n
+ *	   \n<code>
+ *	   i18n_timezone_h timezone = NULL;\n
+ *	   i18n_timezone_create ( &timezone, "America/New_York" );\n
+ *	   i18n_timezone_set_id ( "America/Los_Angeles" );\n
+ *	   </code>\n
  * the timezone's GMT offset and daylight-savings rules don't change to those for Los Angeles.
  * They're still those for New York. Only the ID has changed.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
@@ -464,4 +464,4 @@ int i18n_timezone_get_dst_savings(i18n_timezone_h timezone, int32_t *dst_savings
  * @}
  * @}
  */
-#endif  /* __UTILS_I18N_TIMEZONE_H__*/
+#endif	/* __UTILS_I18N_TIMEZONE_H__*/
