@@ -1,17 +1,17 @@
 /*
  * Copyright (c) 2015 Samsung Electronics Co., Ltd All Rights Reserved
  *
- *    Licensed under the Apache License, Version 2.0 (the "License");
- *    you may not use this file except in compliance with the License.
- *    You may obtain a copy of the License at
+ *	  Licensed under the Apache License, Version 2.0 (the "License");
+ *	  you may not use this file except in compliance with the License.
+ *	  You may obtain a copy of the License at
  *
- *        http://www.apache.org/licenses/LICENSE-2.0
+ *		  http://www.apache.org/licenses/LICENSE-2.0
  *
- *    Unless required by applicable law or agreed to in writing, software
- *    distributed under the License is distributed on an "AS IS" BASIS,
- *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *    See the License for the specific language governing permissions and
- *    limitations under the License.
+ *	  Unless required by applicable law or agreed to in writing, software
+ *	  distributed under the License is distributed on an "AS IS" BASIS,
+ *	  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *	  See the License for the specific language governing permissions and
+ *	  limitations under the License.
  */
 
 #ifndef __UTILS_I18N_USEARCH_H__
@@ -35,7 +35,7 @@ extern "C" {
  * @brief The Usearch module provides language-sensitive text searching based on the comparison rules defined in a ucollator data struct.
  *
  * @section CAPI_BASE_UTILS_I18N_USEARCH_MODULE_HEADER Required Header
- *  \#include <utils_i18n.h>
+ *	\#include <utils_i18n.h>
  *
  * @section CAPI_BASE_UTILS_I18N_USEARCH_MODULE_OVERVIEW Overview
  * @details The Usearch module provides language-sensitive text searching based on the comparison rules defined in a ucollator data struct.
@@ -43,35 +43,35 @@ extern "C" {
  * @section CAPI_BASE_UTILS_I18N_USEARCH_MODULE_SAMPLE_CODE_1 Sample Code 1
  * @brief Searches the pattern and gets the matched text.
  * @code
-    char *string = "TIZEN";
-    char *keyword = "ZE";
-    i18n_uchar target[16] = {0,};
-    i18n_uchar pattern[16] = {0,};
-    i18n_uchar u_matched[16] = {0,};
-    char tmp[1] = {0};
-    i18n_usearch_h search = NULL;
-    int pos = 0;
-    int matched_text_len = 0;
-    int i = 0;
-    i18n_error_code_e error_code;
+	char *string = "TIZEN";
+	char *keyword = "ZE";
+	i18n_uchar target[16] = {0,};
+	i18n_uchar pattern[16] = {0,};
+	i18n_uchar u_matched[16] = {0,};
+	char tmp[1] = {0};
+	i18n_usearch_h search = NULL;
+	int pos = 0;
+	int matched_text_len = 0;
+	int i = 0;
+	i18n_error_code_e error_code;
 
-    i18n_ustring_from_UTF8( target, 16, NULL, string, -1, &error_code );
-    i18n_ustring_from_UTF8( pattern, 16, NULL, keyword, -1, &error_code );
+	i18n_ustring_from_UTF8( target, 16, NULL, string, -1, &error_code );
+	i18n_ustring_from_UTF8( pattern, 16, NULL, keyword, -1, &error_code );
 
-    // creates a search
-    i18n_usearch_create_new( pattern, -1, target, -1, "en_US", NULL, &search );
+	// creates a search
+	i18n_usearch_create_new( pattern, -1, target, -1, "en_US", NULL, &search );
 
-    // gets the first index of the target that matches with the pattern
-    i18n_usearch_first( search, &pos );
-    dlog_print(DLOG_INFO, LOG_TAG, "the first index = %d", pos );    // The first index = 2
+	// gets the first index of the target that matches with the pattern
+	i18n_usearch_first( search, &pos );
+	dlog_print(DLOG_INFO, LOG_TAG, "the first index = %d", pos );	 // The first index = 2
 
-    // gets the matched text
-    i18n_usearch_get_matched_text( search, u_matched, 16, &matched_text_len );
-    for ( i = 0; i < matched_text_len; i++) {
-        i18n_ustring_copy_au_n( tmp, &u_matched[i], 1 );
-        dlog_print(DLOG_INFO, LOG_TAG, "u_matched[%d] = %c", i, tmp[0] );    // u_matched[0] = Z, u_matched[1] = E
-    }
-    i18n_usearch_destroy( search );
+	// gets the matched text
+	i18n_usearch_get_matched_text( search, u_matched, 16, &matched_text_len );
+	for ( i = 0; i < matched_text_len; i++) {
+		i18n_ustring_copy_au_n( tmp, &u_matched[i], 1 );
+		dlog_print(DLOG_INFO, LOG_TAG, "u_matched[%d] = %c", i, tmp[0] );	 // u_matched[0] = Z, u_matched[1] = E
+	}
+	i18n_usearch_destroy( search );
  * @endcode
  */
 
@@ -102,7 +102,7 @@ extern "C" {
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
 int i18n_usearch_create_new(const i18n_uchar *pattern, int32_t pattern_len, const i18n_uchar *text,
-        int32_t text_len, const char *locale, i18n_ubreak_iterator_h break_iter, i18n_usearch_h *search_iter);
+							int32_t text_len, const char *locale, i18n_ubreak_iterator_h break_iter, i18n_usearch_h *search_iter);
 
 /**
  * @brief Destroys and cleans up the i18n_usearch_h.
@@ -179,4 +179,4 @@ int i18n_usearch_first(i18n_usearch_h search_iter, int32_t *index_first);
  * @}
  */
 
-#endif  /* __UTILS_I18N_USEARCH_H__*/
+#endif	/* __UTILS_I18N_USEARCH_H__*/
