@@ -1,17 +1,17 @@
 /*
  * Copyright (c) 2015 Samsung Electronics Co., Ltd All Rights Reserved
  *
- *    Licensed under the Apache License, Version 2.0 (the "License");
- *    you may not use this file except in compliance with the License.
- *    You may obtain a copy of the License at
+ *	  Licensed under the Apache License, Version 2.0 (the "License");
+ *	  you may not use this file except in compliance with the License.
+ *	  You may obtain a copy of the License at
  *
- *        http://www.apache.org/licenses/LICENSE-2.0
+ *		  http://www.apache.org/licenses/LICENSE-2.0
  *
- *    Unless required by applicable law or agreed to in writing, software
- *    distributed under the License is distributed on an "AS IS" BASIS,
- *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *    See the License for the specific language governing permissions and
- *    limitations under the License.
+ *	  Unless required by applicable law or agreed to in writing, software
+ *	  distributed under the License is distributed on an "AS IS" BASIS,
+ *	  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *	  See the License for the specific language governing permissions and
+ *	  limitations under the License.
  *
  * Copyright (C) 1999-2013, International Business Machines Corporation
  * and others. All Rights Reserved.
@@ -39,7 +39,7 @@ extern "C" {
  * @brief Uset module allows to specify a subset of character used in strings.
  *
  * @section CAPI_BASE_UTILS_I18N_USET_MODULE_HEADER Required Header
- *  \#include <utils_i18n.h>
+ *	\#include <utils_i18n.h>
  *
  * @section CAPI_BASE_UTILS_I18N_USET_MODULE_OVERVIEW Overview
  * @details Uset module allows to specify a subset of character used in strings.
@@ -109,7 +109,7 @@ int i18n_uset_create_pattern(const i18n_uchar *pattern, int32_t pattern_length, 
  * @param[in] pattern_length The length of the pattern, >= 0, or -1 if NULL-terminated
  * @param[in] options Bitmask for options to apply to the pattern.
  * Valid options are #I18N_USET_IGNORE_SPACE and #I18N_USET_CASE_INSENSITIVE.
- * @param[out] set A pointer to the newly created #i18n_uset_h object.  The caller must call i18n_uset_destroy() on
+ * @param[out] set A pointer to the newly created #i18n_uset_h object.	The caller must call i18n_uset_destroy() on
  * it when done.
  *
  * @return Error code. Error codes not listed below are described in #i18n_error_code_e
@@ -153,7 +153,7 @@ int i18n_uset_clone(const i18n_uset_h set, i18n_uset_h *set_clone);
  * @details See the ICU4J Freezable interface for details.
  *
  * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section.
+ *			Error codes are described in Exceptions section.
  *
  * @since_tizen 2.3.1
  * @param[in] set The set. Must not be @c NULL.
@@ -229,21 +229,21 @@ int i18n_uset_set(i18n_uset_h set, i18n_uchar32 start, i18n_uchar32 end);
  * A frozen set will not be modified.
  *
  * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section and in #i18n_error_code_e description.
+ *			Error codes are described in Exceptions section and in #i18n_error_code_e description.
  *
  * @since_tizen 2.3.1
- * @param[in] set            The set to which the pattern is to be applied. Must not be @c NULL.
- * @param[in] pattern        A pointer to #i18n_uchar string specifying what characters are in the set.
- *                           The character at pattern[0] must be a '['.
+ * @param[in] set			 The set to which the pattern is to be applied. Must not be @c NULL.
+ * @param[in] pattern		 A pointer to #i18n_uchar string specifying what characters are in the set.
+ *							 The character at pattern[0] must be a '['.
  * @param[in] pattern_length The length of the #i18n_uchar string, >= 0, or -1 if NULL terminated.
- * @param[in] options        A bitmask for options to apply to the pattern.
- *                           Valid options are #I18N_USET_IGNORE_SPACE and #I18N_USET_CASE_INSENSITIVE.
- * @return                   Upon successful parse, the value is either
- *                           the index of the character after the closing ']'
- *                           of the parsed pattern.
- *                           If the status code indicates failure, then the return value
- *                           is the index of the error in the source.
- *                           If @a set is NULL, 0 is returned.
+ * @param[in] options		 A bitmask for options to apply to the pattern.
+ *							 Valid options are #I18N_USET_IGNORE_SPACE and #I18N_USET_CASE_INSENSITIVE.
+ * @return					 Upon successful parse, the value is either
+ *							 the index of the character after the closing ']'
+ *							 of the parsed pattern.
+ *							 If the status code indicates failure, then the return value
+ *							 is the index of the error in the source.
+ *							 If @a set is NULL, 0 is returned.
  *
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
@@ -252,20 +252,20 @@ int32_t i18n_uset_apply_pattern(i18n_uset_h set, const i18n_uchar *pattern, int3
 
 /**
  * @brief Modifies the set to contain those code points which have the given value
- *      for the given binary or enumerated property, as returned by
- *      i18n_uchar_get_int_property_value().
+ *		for the given binary or enumerated property, as returned by
+ *		i18n_uchar_get_int_property_value().
  * @details Prior contents of this set are lost.
- *      A frozen set will not be modified.
+ *		A frozen set will not be modified.
  *
  * @since_tizen 2.3.1
  * @param[in] set The object to contain the code points defined by the property. Must not be @c NULL.
  * @param[in] prop A property in the range #I18N_UCHAR_INT_START..#I18N_UCHAR_INT_LIMIT-1
- *      or #I18N_UCHAR_MASK_START..#I18N_UCHAR_MASK_LIMIT-1.
+ *		or #I18N_UCHAR_MASK_START..#I18N_UCHAR_MASK_LIMIT-1.
  * @param[in] value A value in the range i18n_uchar_get_int_property_min_value(prop)..
- *      i18n_uchar_get_int_property_max_value(prop), with one exception. If prop is
- *      #I18N_UCHAR_GENERAL_CATEGORY_MASK, then value should not be a #i18n_uchar_category_e, but
- *      rather a mask value produced by I18N_U_GET_GC_MASK(). This allows grouped
- *      categories such as [:L:] to be represented.
+ *		i18n_uchar_get_int_property_max_value(prop), with one exception. If prop is
+ *		#I18N_UCHAR_GENERAL_CATEGORY_MASK, then value should not be a #i18n_uchar_category_e, but
+ *		rather a mask value produced by I18N_U_GET_GC_MASK(). This allows grouped
+ *		categories such as [:L:] to be represented.
  *
  * @return Error code. Error codes not listed below are described in #i18n_error_code_e
  * @retval #I18N_ERROR_NONE Successful
@@ -275,18 +275,18 @@ int i18n_uset_apply_int_property_value(i18n_uset_h set, i18n_uchar_uproperty_e p
 
 /**
  * @brief Modifies the set to contain those code points which have the
- *      given value for the given property.
+ *		given value for the given property.
  * @details Prior contents of this set are lost. A frozen set will not be modified.
  * @since_tizen 2.3.1
  *
  * @param[in] set The object to contain the code points defined by the given
- *      property and value alias. Must not be @c NULL.
+ *		property and value alias. Must not be @c NULL.
  * @param[in] prop A string specifying a property alias, either short or long.
- *      The name is matched loosely. See PropertyAliases.txt for names and a
- *      description of loose matching. If the value string is empty, then this
- *      string is interpreted as either a General_Category value alias, a Script
- *      value alias, a binary property alias, or a special ID. Special IDs are
- *      matched loosely and correspond to the following sets:
+ *		The name is matched loosely. See PropertyAliases.txt for names and a
+ *		description of loose matching. If the value string is empty, then this
+ *		string is interpreted as either a General_Category value alias, a Script
+ *		value alias, a binary property alias, or a special ID. Special IDs are
+ *		matched loosely and correspond to the following sets:
  *
  * "ANY" = [\\u0000-\\U0010FFFF],
  * "ASCII" = [\\u0000-\\u007F],
@@ -294,11 +294,11 @@ int i18n_uset_apply_int_property_value(i18n_uset_h set, i18n_uchar_uproperty_e p
  *
  * @param[in] prop_length The length of the @a prop, >= 0, or @c -1 if @c NULL.
  * @param[in] value A string specifying a value alias, either short or long.
- *      The name is matched loosely. See PropertyValueAliases.txt for names
- *      and a description of loose matching. In addition to aliases listed,
- *      numeric values and canonical combining classes may be expressed
- *      numerically, e.g., ("nv", "0.5") or ("ccc", "220"). The value string
- *      may also be empty.
+ *		The name is matched loosely. See PropertyValueAliases.txt for names
+ *		and a description of loose matching. In addition to aliases listed,
+ *		numeric values and canonical combining classes may be expressed
+ *		numerically, e.g., ("nv", "0.5") or ("ccc", "220"). The value string
+ *		may also be empty.
  * @param[in] value_length The length of the value, >= 0, or -1 if NULL.
  *
  * @return Error code. Error codes not listed below are described in #i18n_error_code_e
@@ -309,11 +309,11 @@ int i18n_uset_apply_property_alias(i18n_uset_h set, const i18n_uchar *prop, int3
 
 /**
  * @brief Return true if the given position, in the given pattern, appears
- *      to be the start of a UnicodeSet pattern.
+ *		to be the start of a UnicodeSet pattern.
  * @since_tizen 2.3.1
  *
  * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section.
+ *			Error codes are described in Exceptions section.
  *
  * @param[in] pattern A string specifying the pattern.
  * @param[in] pattern_length The length of the pattern, >= 0, or @c -1 if @c NULL.
@@ -329,16 +329,16 @@ i18n_ubool i18n_uset_resembles_pattern(const i18n_uchar *pattern, int32_t patter
 /**
  * @brief Returns a string representation of the given @a set.
  * @details If the result of calling this function is passed to an i18n_uset_pattern_create(),
- *          it will produce another set that is equal to this one.
+ *			it will produce another set that is equal to this one.
  * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section and in #i18n_error_code_e description.
+ *			Error codes are described in Exceptions section and in #i18n_error_code_e description.
  * @since_tizen 2.3.1
  *
- * @param[in] set                   The set. Must not be @c NULL.
- * @param[in,out] result            The string to receive the rules, may be @c NULL.
- * @param[in] result_capacity       The capacity of @a result, >= 0, may be @c 0 if result is @c NULL.
- * @param[in] escape_unprintable    If true then convert unprintable character to their hex escape representations,
- *                                  \\uxxxx or \\Uxxxxxxxx. Unprintable characters are those other than U+000A, U+0020..U+007E.
+ * @param[in] set					The set. Must not be @c NULL.
+ * @param[in,out] result			The string to receive the rules, may be @c NULL.
+ * @param[in] result_capacity		The capacity of @a result, >= 0, may be @c 0 if result is @c NULL.
+ * @param[in] escape_unprintable	If true then convert unprintable character to their hex escape representations,
+ *									\\uxxxx or \\Uxxxxxxxx. Unprintable characters are those other than U+000A, U+0020..U+007E.
  *
  * @return Length of string, >= 0, possibly larger than @a result_capacity. If @a set is NULL, 0 is returned.
  *
@@ -352,11 +352,11 @@ int32_t i18n_uset_to_pattern(const i18n_uset_h set, i18n_uchar *result, int32_t 
 /**
  * @brief Adds the given character to the given #i18n_uset_h.
  * @details After this call, i18n_uset_contains(set, character) will return true.
- *          A frozen set will not be modified.
+ *			A frozen set will not be modified.
  * @since_tizen 2.3.1
  *
- * @param[in] set           The object to which to add the @a character. Must not be @c NULL.
- * @param[in] character     The character to add.
+ * @param[in] set			The object to which to add the @a character. Must not be @c NULL.
+ * @param[in] character		The character to add.
  *
  * @return Error code. Error codes not listed below are described in #i18n_error_code_e
  * @retval #I18N_ERROR_NONE Successful
@@ -369,11 +369,11 @@ int i18n_uset_add(i18n_uset_h set, i18n_uchar32 character);
 
 /**
  * @brief Adds all of the elements in the specified set to this set if
- *      they are not already present.
+ *		they are not already present.
  * @details This operation effectively modifies this set so that its value is the <i>union</i> of the two
- *      sets. The behavior of this operation is unspecified if the specified
- *      collection is modified while the operation is in progress.
- *      A frozen set will not be modified.
+ *		sets. The behavior of this operation is unspecified if the specified
+ *		collection is modified while the operation is in progress.
+ *		A frozen set will not be modified.
  *
  * @since_tizen 2.3.1
  * @param[in] set The object to which to add the set. Must not be @c NULL.
@@ -438,11 +438,11 @@ int i18n_uset_add_all_code_points(i18n_uset_h set, const i18n_uchar *str, int32_
 /**
  * @brief Removes the given @a character from the given #i18n_uset_h.
  * @details After this call, i18n_uset_contains(set, character) will return @c false.
- *          A frozen set will not be modified.
+ *			A frozen set will not be modified.
  * @since_tizen 2.3.1
  *
- * @param[in] set           the object from which to remove the @a character. Must not be @c NULL.
- * @param[in] character     the character to remove
+ * @param[in] set			the object from which to remove the @a character. Must not be @c NULL.
+ * @param[in] character		the character to remove
  *
  * @return Error code. Error codes not listed below are described in #i18n_error_code_e
  * @retval #I18N_ERROR_NONE Successful
@@ -505,7 +505,7 @@ int i18n_uset_remove_all(i18n_uset_h set, const i18n_uset_h remove_set);
 
 /**
  * @brief Retains only the elements in this set that are contained in the specified range.
- * @details If <code>start > end</code> then an empty range is  retained, leaving the set empty.  This is equivalent to
+ * @details If <code>start > end</code> then an empty range is	retained, leaving the set empty.  This is equivalent to
  * a boolean logic AND, or a set INTERSECTION.
  * A frozen set will not be modified.
  *
@@ -556,7 +556,7 @@ int i18n_uset_retain_all(i18n_uset_h set, const i18n_uset_h retain);
 int i18n_uset_compact(i18n_uset_h set);
 
 /**
- * @brief Inverts this set.  This operation modifies this set so that
+ * @brief Inverts this set.	 This operation modifies this set so that
  * its value is its complement.
  * @details This operation does not affect
  * the multicharacter strings, if any.
@@ -652,7 +652,7 @@ int i18n_uset_remove_all_strings(i18n_uset_h set);
  * strings.
  *
  * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section.
+ *			Error codes are described in Exceptions section.
  *
  * @since_tizen 2.3.1
  * @param[in] set The set. Must not be @c NULL.
@@ -667,11 +667,11 @@ i18n_ubool i18n_uset_is_empty(const i18n_uset_h set);
  * @brief Returns @c true if the given #i18n_uset_h contains the given @a character.
  * @details This function works faster with a frozen set.
  * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section.
+ *			Error codes are described in Exceptions section.
  * @since_tizen 2.3.1
  *
- * @param[in] set           the set. Must not be @c NULL.
- * @param[in] character     the codepoint to check for within the @a set
+ * @param[in] set			the set. Must not be @c NULL.
+ * @param[in] character		the codepoint to check for within the @a set
  *
  * @return @c true if @a set contains the given @a character
  *
@@ -685,7 +685,7 @@ i18n_ubool i18n_uset_contains(const i18n_uset_h set, i18n_uchar32 character);
  * where start <= c && c <= end.
  *
  * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section.
+ *			Error codes are described in Exceptions section.
  *
  * @since_tizen 2.3.1
  * @param[in] set The set. Must not be @c NULL.
@@ -703,7 +703,7 @@ i18n_ubool i18n_uset_contains_range(const i18n_uset_h set, i18n_uchar32 start, i
  * @since_tizen 2.3.1
  *
  * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section.
+ *			Error codes are described in Exceptions section.
  *
  * @param[in] set The set. Must not be @c NULL.
  * @param[in] str The string.
@@ -717,15 +717,15 @@ i18n_ubool i18n_uset_contains_string(const i18n_uset_h set, const i18n_uchar *st
 
 /**
  * @brief Returns the index of the given @a character within this @a set, where
- *        the @a set is ordered by ascending code point.
+ *		  the @a set is ordered by ascending code point.
  * @details If the @a character is not in this @a set, return @c -1.
- *          The inverse of this function is <code>i18n_uset_char_at()</code>.
+ *			The inverse of this function is <code>i18n_uset_char_at()</code>.
  * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section.
+ *			Error codes are described in Exceptions section.
  * @since_tizen 2.3.1
  *
- * @param[in] set           the set. Must not be @c NULL.
- * @param[in] character     the character to obtain the index for
+ * @param[in] set			the set. Must not be @c NULL.
+ * @param[in] character		the character to obtain the index for
  *
  * @return An index from 0..size()-1, or @c -1
  *
@@ -737,11 +737,11 @@ int32_t i18n_uset_index_of(const i18n_uset_h set, i18n_uchar32 character);
 /**
  * @brief Returns the character at the given index within this set, where
  * the set is ordered by ascending code point.
- * @details If the index is out of range, return (i18n_uchar32)-1.  The inverse of this function is
+ * @details If the index is out of range, return (i18n_uchar32)-1.	The inverse of this function is
  * <code>i18n_uset_index_of()</code>.
  *
  * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section.
+ *			Error codes are described in Exceptions section.
  *
  * @since_tizen 2.3.1
  * @param[in] set The set. Must not be @c NULL.
@@ -757,7 +757,7 @@ i18n_uchar32 i18n_uset_char_at(const i18n_uset_h set, int32_t char_index);
  * @brief Returns the number of characters and strings contained in the given #i18n_uset_h.
  *
  * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section.
+ *			Error codes are described in Exceptions section.
  *
  * @since_tizen 2.3.1
  * @param[in] set The set. Must not be @c NULL.
@@ -774,7 +774,7 @@ int32_t i18n_uset_size(const i18n_uset_h set);
  * @details An item is either a range of characters or a single multicharacter string.
  *
  * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section.
+ *			Error codes are described in Exceptions section.
  *
  * @since_tizen 2.3.1
  * @param[in] set The set. Must not be @c NULL.
@@ -791,7 +791,7 @@ int32_t i18n_uset_get_item_count(const i18n_uset_h set);
  * @details An item is either a range of characters or a single multicharacter string.
  *
  * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section.
+ *			Error codes are described in Exceptions section.
  *
  * @since_tizen 2.3.1
  * @param[in] set The set. Must not be @c NULL.
@@ -815,7 +815,7 @@ int32_t i18n_uset_get_item(const i18n_uset_h set, int32_t item_index, i18n_uchar
  * @brief Returns true if set1 contains all the characters and strings of set2. It answers the question, 'Is set1 a superset of set2?'
  *
  * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section.
+ *			Error codes are described in Exceptions section.
  *
  * @since_tizen 2.3.1
  * @param[in] set1 Set to be checked for containment. Must not be @c NULL.
@@ -833,7 +833,7 @@ i18n_ubool i18n_uset_contains_all(const i18n_uset_h set1, const i18n_uset_h set2
  * clusters, like i18n_uset_contains_string().
  *
  * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section.
+ *			Error codes are described in Exceptions section.
  *
  * @since_tizen 2.3.1
  * @param[in] set Set of characters to be checked for containment. Must not be @c NULL.
@@ -851,7 +851,7 @@ i18n_ubool i18n_uset_contains_all_code_points(const i18n_uset_h set, const i18n_
  * @details It answers the question, 'Is set1 a disjoint set of set2?'
  *
  * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section.
+ *			Error codes are described in Exceptions section.
  *
  * @since_tizen 2.3.1
  * @param[in] set1 Set to be checked for containment. Must not be @c NULL.
@@ -868,7 +868,7 @@ i18n_ubool i18n_uset_contains_none(const i18n_uset_h set1, const i18n_uset_h set
  * @details It answers the question, 'Does set1 and set2 have an intersection?'
  *
  * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section.
+ *			Error codes are described in Exceptions section.
  *
  * @since_tizen 2.3.1
  * @param[in] set1 Set to be checked for containment. Must not be @c NULL.
@@ -882,25 +882,25 @@ i18n_ubool i18n_uset_contains_some(const i18n_uset_h set1, const i18n_uset_h set
 
 /**
  * @brief Returns the length of the initial substring of the input string which
- *        consists only of characters and strings that are contained in this set
- *        (#I18N_USET_SPAN_CONTAINED, #I18N_USET_SPAN_SIMPLE),
- *        or only of characters and strings that are not contained
- *        in this set (#I18N_USET_SPAN_NOT_CONTAINED).
+ *		  consists only of characters and strings that are contained in this set
+ *		  (#I18N_USET_SPAN_CONTAINED, #I18N_USET_SPAN_SIMPLE),
+ *		  or only of characters and strings that are not contained
+ *		  in this set (#I18N_USET_SPAN_NOT_CONTAINED).
  * @details See #i18n_uset_span_condition_e for details.
- *          Similar to the strspn() C library function.
- *          Unpaired surrogates are treated according to contains() of their surrogate code points.
- *          This function works faster with a frozen set and with a non-negative string length argument.
+ *			Similar to the strspn() C library function.
+ *			Unpaired surrogates are treated according to contains() of their surrogate code points.
+ *			This function works faster with a frozen set and with a non-negative string length argument.
  * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section.
+ *			Error codes are described in Exceptions section.
  * @since_tizen 2.3.1
  *
- * @param[in] set               the set. Must not be @c NULL.
- * @param[in] str               start of the input string.
- * @param[in] length            length of the @a string; >= 0, can be @c -1 for NULL-terminated
- * @param[in] span_condition    specifies the containment condition
+ * @param[in] set				the set. Must not be @c NULL.
+ * @param[in] str				start of the input string.
+ * @param[in] length			length of the @a string; >= 0, can be @c -1 for NULL-terminated
+ * @param[in] span_condition	specifies the containment condition
  *
  * @return The length of the initial substring according to the @a span_condition;
- *         @c 0 if the start of the string does not fit the @a span_condition
+ *		   @c 0 if the start of the string does not fit the @a span_condition
  *
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
@@ -911,24 +911,24 @@ int32_t i18n_uset_span(const i18n_uset_h set, const i18n_uchar *str, int32_t len
 
 /**
  * @brief Returns the start of the trailing substring of the input string which
- *        consists only of characters and strings that are contained in this set
- *        (#I18N_USET_SPAN_CONTAINED, #I18N_USET_SPAN_SIMPLE),
- *        or only of characters and strings that are not contained
- *        in this set (#I18N_USET_SPAN_NOT_CONTAINED).
+ *		  consists only of characters and strings that are contained in this set
+ *		  (#I18N_USET_SPAN_CONTAINED, #I18N_USET_SPAN_SIMPLE),
+ *		  or only of characters and strings that are not contained
+ *		  in this set (#I18N_USET_SPAN_NOT_CONTAINED).
  * @details See #i18n_uset_span_condition_e for details.
- *          Unpaired surrogates are treated according to contains() of their surrogate code points.
- *          This function works faster with a frozen set and with a non-negative string length argument.
+ *			Unpaired surrogates are treated according to contains() of their surrogate code points.
+ *			This function works faster with a frozen set and with a non-negative string length argument.
  * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section.
+ *			Error codes are described in Exceptions section.
  * @since_tizen 2.3.1
  *
- * @param[in] set               the set. Must not be @c NULL.
- * @param[in] str               start of the input string
- * @param[in] length            length of the @ string; >= 0, can be @c -1 for NULL-terminated
- * @param[in] span_condition    specifies the containment condition
+ * @param[in] set				the set. Must not be @c NULL.
+ * @param[in] str				start of the input string
+ * @param[in] length			length of the @ string; >= 0, can be @c -1 for NULL-terminated
+ * @param[in] span_condition	specifies the containment condition
  *
  * @return the start of the trailing substring according to the @a span_condition;
- *         the string length if the end of the string does not fit the @a span_condition
+ *		   the string length if the end of the string does not fit the @a span_condition
  *
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
@@ -939,25 +939,25 @@ int32_t i18n_uset_span_back(const i18n_uset_h set, const i18n_uchar *str, int32_
 
 /**
  * @brief Returns the length of the initial substring of the input string which
- *        consists only of characters and strings that are contained in this set
- *        (#I18N_USET_SPAN_CONTAINED, #I18N_USET_SPAN_SIMPLE),
- *        or only of characters and strings that are not contained
- *        in this set (#I18N_USET_SPAN_NOT_CONTAINED).
+ *		  consists only of characters and strings that are contained in this set
+ *		  (#I18N_USET_SPAN_CONTAINED, #I18N_USET_SPAN_SIMPLE),
+ *		  or only of characters and strings that are not contained
+ *		  in this set (#I18N_USET_SPAN_NOT_CONTAINED).
  * @details See #i18n_uset_span_condition_e for details.
- *          Similar to the strspn() C library function.
- *          Malformed byte sequences are treated according to contains(0xfffd).
- *          This function works faster with a frozen set and with a non-negative string length argument.
+ *			Similar to the strspn() C library function.
+ *			Malformed byte sequences are treated according to contains(0xfffd).
+ *			This function works faster with a frozen set and with a non-negative string length argument.
  * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section.
+ *			Error codes are described in Exceptions section.
  * @since_tizen 2.3.1
  *
- * @param[in] set               the set. Must not be @c NULL.
- * @param[in] str               start of the string (UTF-8)
- * @param[in] length            length of the string; >= 0, can be @c -1 for NULL-terminated
- * @param[in] span_condition    specifies the containment condition
+ * @param[in] set				the set. Must not be @c NULL.
+ * @param[in] str				start of the string (UTF-8)
+ * @param[in] length			length of the string; >= 0, can be @c -1 for NULL-terminated
+ * @param[in] span_condition	specifies the containment condition
  *
  * @return the length of the initial substring according to the @a span_condition;
- *         @c 0 if the start of the string does not fit the @a span_condition
+ *		   @c 0 if the start of the string does not fit the @a span_condition
  *
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
@@ -968,24 +968,24 @@ int32_t i18n_uset_span_utf8(const i18n_uset_h set, const char *str, int32_t leng
 
 /**
  * @brief Returns the start of the trailing substring of the input string which
- *        consists only of characters and strings that are contained in this set
- *        (#I18N_USET_SPAN_CONTAINED, #I18N_USET_SPAN_SIMPLE),
- *        or only of characters and strings that are not contained
- *        in this set (#I18N_USET_SPAN_NOT_CONTAINED).
+ *		  consists only of characters and strings that are contained in this set
+ *		  (#I18N_USET_SPAN_CONTAINED, #I18N_USET_SPAN_SIMPLE),
+ *		  or only of characters and strings that are not contained
+ *		  in this set (#I18N_USET_SPAN_NOT_CONTAINED).
  * @details See #i18n_uset_span_condition_e for details.
- *          Malformed byte sequences are treated according to contains(0xfffd).
- *          This function works faster with a frozen set and with a non-negative string length argument.
+ *			Malformed byte sequences are treated according to contains(0xfffd).
+ *			This function works faster with a frozen set and with a non-negative string length argument.
  * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section.
+ *			Error codes are described in Exceptions section.
  * @since_tizen 2.3.1
  *
- * @param[in] set               the set. Must not be @c NULL.
- * @param[in] str               start of the string (UTF-8)
- * @param[in] length            length of the string; >= 0, can be @c -1 for NULL-terminated
- * @param[in] span_condition    specifies the containment condition
+ * @param[in] set				the set. Must not be @c NULL.
+ * @param[in] str				start of the string (UTF-8)
+ * @param[in] length			length of the string; >= 0, can be @c -1 for NULL-terminated
+ * @param[in] span_condition	specifies the containment condition
  *
  * @return the start of the trailing substring according to the @a span_condition;
- *         the string length if the end of the string does not fit the @a span_condition
+ *		   the string length if the end of the string does not fit the @a span_condition
  *
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
@@ -999,7 +999,7 @@ int32_t i18n_uset_span_back_utf8(const i18n_uset_h set, const char *str, int32_t
  * of set2, and vice versa. It answers the question, 'Is set1 equal to set2?'
  *
  * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section.
+ *			Error codes are described in Exceptions section.
  *
  * @since_tizen 2.3.1
  * @param[in] set1 Set to be checked for containment. Must not be @c NULL.
@@ -1018,52 +1018,52 @@ i18n_ubool i18n_uset_equals(const i18n_uset_h set1, const i18n_uset_h set2);
 /**
  * @brief Serializes this @a set into an array of 16-bit integers.
  * @details Serialization (currently) only records the characters in the set;
- *          multicharacter strings are ignored.
+ *			multicharacter strings are ignored.
  *
- *          The array has following format (each line is one 16-bit integer):
+ *			The array has following format (each line is one 16-bit integer):
  *
- *          length     = (n+2*m) | (m!=0?0x8000:0)
- *          bmpLength  = n;
- *          present if m!=0
- *          bmp[0]
- *          bmp[1]
- *          ...
- *          bmp[n-1]
- *          supp-high[0]
- *          supp-low[0]
- *          supp-high[1]
- *          supp-low[1]
- *          ...
- *          supp-high[m-1]
- *          supp-low[m-1]
+ *			length	   = (n+2*m) | (m!=0?0x8000:0)
+ *			bmpLength  = n;
+ *			present if m!=0
+ *			bmp[0]
+ *			bmp[1]
+ *			...
+ *			bmp[n-1]
+ *			supp-high[0]
+ *			supp-low[0]
+ *			supp-high[1]
+ *			supp-low[1]
+ *			...
+ *			supp-high[m-1]
+ *			supp-low[m-1]
  *
- *          The array starts with a header. After the header are n bmp
- *          code points, then m supplementary code points. Either n or m
- *          or both may be zero. n+2*m is always <= 0x7FFF.
+ *			The array starts with a header. After the header are n bmp
+ *			code points, then m supplementary code points. Either n or m
+ *			or both may be zero. n+2*m is always <= 0x7FFF.
  *
- *          If there are no supplementary characters (if m==0) then the
- *          header is one 16-bit integer, 'length', with value n.
+ *			If there are no supplementary characters (if m==0) then the
+ *			header is one 16-bit integer, 'length', with value n.
  *
- *          If there are supplementary characters (if m!=0) then the header
- *          is two 16-bit integers. The first, 'length', has value
- *          (n+2*m)|0x8000.  The second, 'bmpLength', has value n.
+ *			If there are supplementary characters (if m!=0) then the header
+ *			is two 16-bit integers. The first, 'length', has value
+ *			(n+2*m)|0x8000.	 The second, 'bmpLength', has value n.
  *
- *          After the header the code points are stored in ascending order.
- *          Supplementary code points are stored as most significant 16
- *          bits followed by least significant 16 bits.
+ *			After the header the code points are stored in ascending order.
+ *			Supplementary code points are stored as most significant 16
+ *			bits followed by least significant 16 bits.
  * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section and in #i18n_error_code_e description.
+ *			Error codes are described in Exceptions section and in #i18n_error_code_e description.
  * @since_tizen 2.3.1
  *
- * @param[in] set               the set. Must not be @c NULL.
- * @param[out] dest             pointer to buffer of @a dest_capacity 16-bit integers
- *                              May be NULL only if @a dest_capacity is zero.
- * @param[in] dest_capacity     size of @a dest, or zero
- *                              Must not be negative.
+ * @param[in] set				the set. Must not be @c NULL.
+ * @param[out] dest				pointer to buffer of @a dest_capacity 16-bit integers
+ *								May be NULL only if @a dest_capacity is zero.
+ * @param[in] dest_capacity		size of @a dest, or zero
+ *								Must not be negative.
  *
  * @return the total length of the serialized format, including
- *         the header, that is, <code>n+2*m+(m != 0 ? 2 : 1)</code>,
- *         or @c 0 on error other than #I18N_ERROR_BUFFER_OVERFLOW.
+ *		   the header, that is, <code>n+2*m+(m != 0 ? 2 : 1)</code>,
+ *		   or @c 0 on error other than #I18N_ERROR_BUFFER_OVERFLOW.
  *
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
@@ -1075,12 +1075,12 @@ int32_t i18n_uset_serialize(const i18n_uset_h set, uint16_t *dest, int32_t dest_
 /**
  * @brief Given a serialized array, fill in the given serialized set object.
  * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section.
+ *			Error codes are described in Exceptions section.
  * @since_tizen 2.3.1
  *
- * @param[in] src           pointer to start of array. Must not be @c NULL.
- * @param[in] src_length    length of @a src array, >= 0.
- * @param[out] fill_set     the serialized set to be filled
+ * @param[in] src			pointer to start of array. Must not be @c NULL.
+ * @param[in] src_length	length of @a src array, >= 0.
+ * @param[out] fill_set		the serialized set to be filled
  *
  * @return @c true if the given array is valid, otherwise @c false
  *
@@ -1089,14 +1089,14 @@ int32_t i18n_uset_serialize(const i18n_uset_h set, uint16_t *dest, int32_t dest_
  *
  * @see #i18n_userialized_set_s
  */
-i18n_ubool i18n_uset_get_serialized_set(const uint16_t *src, int32_t src_length, i18n_userialized_set_s* fill_set);
+i18n_ubool i18n_uset_get_serialized_set(const uint16_t *src, int32_t src_length, i18n_userialized_set_s *fill_set);
 
 /**
  * @brief Sets the #i18n_userialized_set_s to contain the given @a character (and nothing else).
  * @since_tizen 2.3.1
  *
- * @param[in] character     the code point to set
- * @param[out] fill_set     the serialized set to be filled
+ * @param[in] character		the code point to set
+ * @param[out] fill_set		the serialized set to be filled
  *
  * @return Error code.
  * @retval #I18N_ERROR_NONE Successful
@@ -1104,16 +1104,16 @@ i18n_ubool i18n_uset_get_serialized_set(const uint16_t *src, int32_t src_length,
  *
  * @see #i18n_userialized_set_s
  */
-int i18n_uset_set_serialized_to_one(i18n_uchar32 character, i18n_userialized_set_s* fill_set);
+int i18n_uset_set_serialized_to_one(i18n_uchar32 character, i18n_userialized_set_s *fill_set);
 
 /**
  * @brief Returns @c true if the given #i18n_userialized_set_s contains the given @a character.
  * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section.
+ *			Error codes are described in Exceptions section.
  * @since_tizen 2.3.1
  *
- * @param[in] set           the serialized set. Must not be @c NULL.
- * @param[in] character     the code point to check for within the @a set
+ * @param[in] set			the serialized set. Must not be @c NULL.
+ * @param[in] character		the code point to check for within the @a set
  *
  * @return @c true if @a set contains @a character
  *
@@ -1121,7 +1121,7 @@ int i18n_uset_set_serialized_to_one(i18n_uchar32 character, i18n_userialized_set
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  * @see #i18n_userialized_set_s
  */
-i18n_ubool i18n_uset_serialized_contains(const i18n_userialized_set_s* set, i18n_uchar32 character);
+i18n_ubool i18n_uset_serialized_contains(const i18n_userialized_set_s *set, i18n_uchar32 character);
 
 /**
  * @brief Returns the number of disjoint ranges of characters contained in
@@ -1129,7 +1129,7 @@ i18n_ubool i18n_uset_serialized_contains(const i18n_userialized_set_s* set, i18n
  * @details Ignores any strings contained in the set.
  *
  * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section.
+ *			Error codes are described in Exceptions section.
  *
  * @since_tizen 2.3.1
  * @param[in] set The serialized set. Must not be @c NULL.
@@ -1139,13 +1139,13 @@ i18n_ubool i18n_uset_serialized_contains(const i18n_userialized_set_s* set, i18n
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  * @see #i18n_userialized_set_s
  */
-int32_t i18n_uset_get_serialized_range_count(const i18n_userialized_set_s* set);
+int32_t i18n_uset_get_serialized_range_count(const i18n_userialized_set_s *set);
 
 /**
  * @brief Returns a range of characters contained in the given serialized set.
  *
  * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section.
+ *			Error codes are described in Exceptions section.
  *
  * @since_tizen 2.3.1
  * @param[in] set The serialized set. Must not be @c NULL.
@@ -1161,7 +1161,7 @@ int32_t i18n_uset_get_serialized_range_count(const i18n_userialized_set_s* set);
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  * @see #i18n_userialized_set_s
  */
-i18n_ubool i18n_uset_get_serialized_range(const i18n_userialized_set_s* set, int32_t range_index, i18n_uchar32 *p_start, i18n_uchar32 *p_end);
+i18n_ubool i18n_uset_get_serialized_range(const i18n_userialized_set_s *set, int32_t range_index, i18n_uchar32 *p_start, i18n_uchar32 *p_end);
 
 /**
  * @}

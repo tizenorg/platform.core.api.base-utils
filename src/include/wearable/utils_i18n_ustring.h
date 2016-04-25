@@ -1,20 +1,20 @@
 /*
  * Copyright (c) 2015 Samsung Electronics Co., Ltd All Rights Reserved
  *
- *    Licensed under the Apache License, Version 2.0 (the "License");
- *    you may not use this file except in compliance with the License.
- *    You may obtain a copy of the License at
+ *	  Licensed under the Apache License, Version 2.0 (the "License");
+ *	  you may not use this file except in compliance with the License.
+ *	  You may obtain a copy of the License at
  *
- *        http://www.apache.org/licenses/LICENSE-2.0
+ *		  http://www.apache.org/licenses/LICENSE-2.0
  *
- *    Unless required by applicable law or agreed to in writing, software
- *    distributed under the License is distributed on an "AS IS" BASIS,
- *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *    See the License for the specific language governing permissions and
- *    limitations under the License.
+ *	  Unless required by applicable law or agreed to in writing, software
+ *	  distributed under the License is distributed on an "AS IS" BASIS,
+ *	  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *	  See the License for the specific language governing permissions and
+ *	  limitations under the License.
  *
  * Copyright (C) 1998-2012, International Business Machines
- * Corporation and others.  All Rights Reserved.
+ * Corporation and others.	All Rights Reserved.
  */
 
 #ifndef __UTILS_I18N_USTRING_H__
@@ -38,7 +38,7 @@ extern "C" {
  * @brief The Ustring module provides general unicode string handling information.
  *
  * @section CAPI_BASE_UTILS_I18N_USTRING_MODULE_HEADER Required Header
- *  \#include <utils_i18n.h>
+ *	\#include <utils_i18n.h>
  *
  * @section CAPI_BASE_UTILS_I18N_USTRING_MODULE_OVERVIEW Overview
  * @details The Ustring module provides general unicode string handling information.
@@ -46,23 +46,23 @@ extern "C" {
  * @section CAPI_BASE_UTILS_I18N_USTIRING_MODULE_SAMPLE_CODE_1 Sample Code 1
  * @brief It converts a byte string to a unicode string and then to uppercase letters.
  * @code
-    char str_1[64] = {0,};
-    i18n_uchar uchar_str_1[64] = {0,};
-    i18n_uchar uchar_str_2[64] = {0,};
-    int uchar_len = 0;
-    i18n_uerror_code_e err_code = I18N_ERROR_NONE;
+	char str_1[64] = {0,};
+	i18n_uchar uchar_str_1[64] = {0,};
+	i18n_uchar uchar_str_2[64] = {0,};
+	int uchar_len = 0;
+	i18n_uerror_code_e err_code = I18N_ERROR_NONE;
 
-    strcpy(str_1, "tizen");
-    dlog_print(DLOG_INFO, LOG_TAG, "str_1 is %s\n", str_1);    // str_1 is tizen
+	strcpy(str_1, "tizen");
+	dlog_print(DLOG_INFO, LOG_TAG, "str_1 is %s\n", str_1);	   // str_1 is tizen
 
-    // converts a byte string to a unicode string
-    i18n_ustring_copy_ua_n(uchar_str_1, str_1, strlen(str_1));
+	// converts a byte string to a unicode string
+	i18n_ustring_copy_ua_n(uchar_str_1, str_1, strlen(str_1));
 
-    // converts to uppercase letters
-    i18n_ustring_to_upper(uchar_str_2, 64, uchar_str_1, i18n_ustring_get_length( uchar_str_1 ), "en_US", &err_code);
+	// converts to uppercase letters
+	i18n_ustring_to_upper(uchar_str_2, 64, uchar_str_1, i18n_ustring_get_length( uchar_str_1 ), "en_US", &err_code);
 
-    i18n_ustring_copy_au(str_1, uchar_str_2);
-    dlog_print(DLOG_INFO, LOG_TAG, "str_1 is %s\n", str_1);    // str_1 is TIZEN
+	i18n_ustring_copy_au(str_1, uchar_str_2);
+	dlog_print(DLOG_INFO, LOG_TAG, "str_1 is %s\n", str_1);	   // str_1 is TIZEN
  * @endcode
  */
 
@@ -74,10 +74,10 @@ extern "C" {
 /**
  * @brief Determines the length of an array of #i18n_uchar.
  * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section.
+ *			Error codes are described in Exceptions section.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
- * @param[in] s     The array of #i18n_uchar characters, @c NULL (U+0000) terminated.
+ * @param[in] s		The array of #i18n_uchar characters, @c NULL (U+0000) terminated.
  *
  * @return The number of #i18n_uchar characters in @c chars, minus the terminator
  * @exception #I18N_ERROR_NONE Success
@@ -88,14 +88,14 @@ int32_t i18n_ustring_get_length(const i18n_uchar *s);
 /**
  * @brief Counts Unicode code points in the length #i18n_uchar code units of the string.
  * @details A code point may occupy either one or two #i18n_uchar code units.
- *          Counting code points involves reading all code units.
+ *			Counting code points involves reading all code units.
  * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section.
+ *			Error codes are described in Exceptions section.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
- * @param[in] s         The input string.
- * @param[in] length    The number of #i18n_uchar code units to be checked, or @c -1 to count
- *                      all code points before the first NULL (U+0000).
+ * @param[in] s			The input string.
+ * @param[in] length	The number of #i18n_uchar code units to be checked, or @c -1 to count
+ *						all code points before the first NULL (U+0000).
  *
  * @return The number of code points in the specified code units.
  * @exception #I18N_ERROR_NONE Success
@@ -106,17 +106,17 @@ int32_t i18n_ustring_count_char32(const i18n_uchar *s, int32_t length);
 /**
  * @brief Checks if the string contains more Unicode code points than a certain number.
  * @details This is more efficient than counting all code points in the entire string and comparing that number with a threshold.
- *          This function may not need to scan the string at all if the length is known (not @c -1 for NULL-termination) and falls within a certain range,
- *          and never needs to count more than 'number+1' code points.
- *          Logically equivalent to ( i18n_ustring_count_char32 (s, length, &number_of_code_points); number_of_code_points > number ).
- *          A Unicode code point may occupy either one or two #i18n_uchar code units.
+ *			This function may not need to scan the string at all if the length is known (not @c -1 for NULL-termination) and falls within a certain range,
+ *			and never needs to count more than 'number+1' code points.
+ *			Logically equivalent to ( i18n_ustring_count_char32 (s, length, &number_of_code_points); number_of_code_points > number ).
+ *			A Unicode code point may occupy either one or two #i18n_uchar code units.
  * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section.
+ *			Error codes are described in Exceptions section.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
- * @param[in] s         The input string.
- * @param[in] length    The length of the string, or @c -1 if it is NULL-terminated.
- * @param[in] number    The number of code points in the string is compared against the @a number parameter.
+ * @param[in] s			The input string.
+ * @param[in] length	The length of the string, or @c -1 if it is NULL-terminated.
+ * @param[in] number	The number of code points in the string is compared against the @a number parameter.
  *
  * @return Boolean value for whether the string contains more Unicode code points than @a number. Same as ( i18n_ustring_count_char32 (s, length, &number_of_code_points); number_of_code_points > number).
  * @exception #I18N_ERROR_NONE Success
@@ -127,53 +127,53 @@ i18n_ubool i18n_ustring_has_more_char32_than(const i18n_uchar *s, int32_t length
 /**
  * @brief Concatenates two ustrings.
  * @details Appends a copy of @a src, including the NULL terminator, to @a dest.
- *          The initial copied character from @a src overwrites the NULL terminator in @a dest.
+ *			The initial copied character from @a src overwrites the NULL terminator in @a dest.
  * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section.
+ *			Error codes are described in Exceptions section.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
- * @param[out] dest     The destination string.
- * @param[in] src       The source string.
+ * @param[out] dest		The destination string.
+ * @param[in] src		The source string.
  *
  * @return A pointer to @a dest.
  * @exception #I18N_ERROR_NONE Success
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-i18n_uchar* i18n_ustring_cat(i18n_uchar *dest, const i18n_uchar *src);
+i18n_uchar *i18n_ustring_cat(i18n_uchar *dest, const i18n_uchar *src);
 
 /**
  * @brief Concatenate two ustrings.
  * @details Appends a copy of @a src, including the NULL terminator, to @a dest.
- *          The initial copied character from @a src overwrites the NULL terminator in @a dest.
+ *			The initial copied character from @a src overwrites the NULL terminator in @a dest.
  * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section.
+ *			Error codes are described in Exceptions section.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
- * @param[out] dest     The destination string.
- * @param[in] src       The source string.
- * @param[in] n         The maximum number of characters to append; no-op if <=0.
+ * @param[out] dest		The destination string.
+ * @param[in] src		The source string.
+ * @param[in] n			The maximum number of characters to append; no-op if <=0.
  *
  * @return A pointer to @a dest.
  * @exception #I18N_ERROR_NONE Success
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-i18n_uchar* i18n_ustring_cat_n(i18n_uchar *dest, const i18n_uchar *src, int32_t n);
+i18n_uchar *i18n_ustring_cat_n(i18n_uchar *dest, const i18n_uchar *src, int32_t n);
 
 /**
  * @brief Finds the first occurrence of a substring in a string.
  * @details The substring is found at code point boundaries. That means that if the substring begins with a trail surrogate
- *          or ends with a lead surrogate, then it is found only if these surrogates stand alone in the text.
- *          Otherwise, the substring edge units would be matched against halves of surrogate pairs.
+ *			or ends with a lead surrogate, then it is found only if these surrogates stand alone in the text.
+ *			Otherwise, the substring edge units would be matched against halves of surrogate pairs.
  * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section.
+ *			Error codes are described in Exceptions section.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
- * @param[in] s             The string to search (NULL-terminated).
- * @param[in] sub_string    The substring to find (NULL-terminated).
+ * @param[in] s				The string to search (NULL-terminated).
+ * @param[in] sub_string	The substring to find (NULL-terminated).
  *
  * @return A pointer to the first occurrence of @a sub_string in @a s,
- *         or @a s itself if the @a sub_string is empty,
- *         or @c NULL if @a sub_string is not in @a s.
+ *		   or @a s itself if the @a sub_string is empty,
+ *		   or @c NULL if @a sub_string is not in @a s.
  *
  * @exception #I18N_ERROR_NONE Success
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
@@ -182,25 +182,25 @@ i18n_uchar* i18n_ustring_cat_n(i18n_uchar *dest, const i18n_uchar *src, int32_t 
  * @see i18n_ustring_find_first()
  * @see i18n_ustring_find_last()
  */
-i18n_uchar* i18n_ustring_string(const i18n_uchar *s, const i18n_uchar *sub_string);
+i18n_uchar *i18n_ustring_string(const i18n_uchar *s, const i18n_uchar *sub_string);
 
 /**
  * @brief Finds the first occurrence of a substring in a string.
  * @details The substring is found at code point boundaries. That means that if the substring begins with a trail surrogate
- *          or ends with a lead surrogate, then it is found only if these surrogates stand alone in the text.
- *          Otherwise, the substring edge units would be matched against halves of surrogate pairs.
+ *			or ends with a lead surrogate, then it is found only if these surrogates stand alone in the text.
+ *			Otherwise, the substring edge units would be matched against halves of surrogate pairs.
  * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section.
+ *			Error codes are described in Exceptions section.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
- * @param[in] s             The string to search (NULL-terminated).
- * @param[in] length        The length of @a s (number of #i18n_uchar characters), or @c -1 if it is NULL-terminated.
- * @param[in] sub_string    The substring to find (NULL-terminated).
- * @param[in] sub_length    The length of substring (number of #i18n_uchar characters), or @c -1 if it is NULL-terminated.
+ * @param[in] s				The string to search (NULL-terminated).
+ * @param[in] length		The length of @a s (number of #i18n_uchar characters), or @c -1 if it is NULL-terminated.
+ * @param[in] sub_string	The substring to find (NULL-terminated).
+ * @param[in] sub_length	The length of substring (number of #i18n_uchar characters), or @c -1 if it is NULL-terminated.
  *
  * @return A pointer to the first occurrence of @a sub_string in @a s,
- *         or @a s itself if the @a sub_string is empty,
- *         or @c NULL if @a sub_string is not in @a s.
+ *		   or @a s itself if the @a sub_string is empty,
+ *		   or @c NULL if @a sub_string is not in @a s.
  *
  * @exception #I18N_ERROR_NONE Success
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
@@ -208,13 +208,13 @@ i18n_uchar* i18n_ustring_string(const i18n_uchar *s, const i18n_uchar *sub_strin
  * @see i18n_ustring_string()
  * @see i18n_ustring_find_last()
  */
-i18n_uchar* i18n_ustring_find_first(const i18n_uchar *s, int32_t length, const i18n_uchar *sub_string, int32_t sub_length);
+i18n_uchar *i18n_ustring_find_first(const i18n_uchar *s, int32_t length, const i18n_uchar *sub_string, int32_t sub_length);
 
 /**
  * @brief Finds the first occurrence of a BMP code point in a string.
  * @details A surrogate code point is found only if its match in the text is not part of a surrogate pair. A NULL character is found at the string terminator.
  * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section.
+ *			Error codes are described in Exceptions section.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
  * @param[in] s The string to search (NULL-terminated).
@@ -229,13 +229,13 @@ i18n_uchar* i18n_ustring_find_first(const i18n_uchar *s, int32_t length, const i
  * @see i18n_ustring_string()
  * @see i18n_ustring_find_first()
  */
-i18n_uchar* i18n_ustring_char(const i18n_uchar *s, i18n_uchar c);
+i18n_uchar *i18n_ustring_char(const i18n_uchar *s, i18n_uchar c);
 
 /**
  * @brief Finds the first occurrence of a code point in a string.
  * @details A surrogate code point is found only if its match in the text is not part of a surrogate pair. A NULL character is found at the string terminator.
  * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section.
+ *			Error codes are described in Exceptions section.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
  * @param[in] s The string to search (NULL-terminated).
@@ -250,7 +250,7 @@ i18n_uchar* i18n_ustring_char(const i18n_uchar *s, i18n_uchar c);
  * @see i18n_ustring_string()
  * @see i18n_ustring_find_first()
  */
-i18n_uchar* i18n_ustring_char32(const i18n_uchar *s, i18n_uchar32 c);
+i18n_uchar *i18n_ustring_char32(const i18n_uchar *s, i18n_uchar32 c);
 
 /**
  * @brief Finds the last occurrence of a substring in a string.
@@ -258,7 +258,7 @@ i18n_uchar* i18n_ustring_char32(const i18n_uchar *s, i18n_uchar32 c);
  * or ends with a lead surrogate, then it is found only if these surrogates stand alone in the text.
  * Otherwise, the substring edge units would be matched against halves of surrogate pairs.
  * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section.
+ *			Error codes are described in Exceptions section.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
  * @param[in] s The string to search (NULL-terminated).
@@ -273,7 +273,7 @@ i18n_uchar* i18n_ustring_char32(const i18n_uchar *s, i18n_uchar32 c);
  * @see i18n_ustring_find_first()
  * @see i18n_ustring_find_last()
  */
-i18n_uchar* i18n_ustring_r_string(const i18n_uchar *s, const i18n_uchar *sub_string);
+i18n_uchar *i18n_ustring_r_string(const i18n_uchar *s, const i18n_uchar *sub_string);
 
 /**
  * @brief Finds the last occurrence of a substring in a string.
@@ -281,7 +281,7 @@ i18n_uchar* i18n_ustring_r_string(const i18n_uchar *s, const i18n_uchar *sub_str
  * or ends with a lead surrogate, then it is found only if these surrogates stand alone in the text.
  * Otherwise, the substring edge units would be matched against halves of surrogate pairs.
  * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section.
+ *			Error codes are described in Exceptions section.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
  * @param[in] s The string to search.
@@ -297,13 +297,13 @@ i18n_uchar* i18n_ustring_r_string(const i18n_uchar *s, const i18n_uchar *sub_str
  * @see i18n_ustring_string()
  * @see i18n_ustring_find_first()
  */
-i18n_uchar* i18n_ustring_find_last(const i18n_uchar *s, int32_t length, const i18n_uchar *sub_string, int32_t sub_length);
+i18n_uchar *i18n_ustring_find_last(const i18n_uchar *s, int32_t length, const i18n_uchar *sub_string, int32_t sub_length);
 
 /**
  * @brief Finds the last occurrence of a BMP code point in a string.
  * @details A surrogate code point is found only if its match in the text is not part of a surrogate pair. A NULL character is found at the string terminator.
  * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section.
+ *			Error codes are described in Exceptions section.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
  * @param[in] s The string to search (NULL-terminated).
@@ -318,13 +318,13 @@ i18n_uchar* i18n_ustring_find_last(const i18n_uchar *s, int32_t length, const i1
  * @see i18n_ustring_string()
  * @see i18n_ustring_find_first()
  */
-i18n_uchar* i18n_ustring_r_char(const i18n_uchar *s, i18n_uchar c);
+i18n_uchar *i18n_ustring_r_char(const i18n_uchar *s, i18n_uchar c);
 
 /**
  * @brief Finds the last occurrence of a code point in a string.
  * @details A surrogate code point is found only if its match in the text is not part of a surrogate pair. A NULL character is found at the string terminator.
  * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section.
+ *			Error codes are described in Exceptions section.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
  * @param[in] s The string to search (NULL-terminated).
@@ -339,13 +339,13 @@ i18n_uchar* i18n_ustring_r_char(const i18n_uchar *s, i18n_uchar c);
  * @see i18n_ustring_string()
  * @see i18n_ustring_find_first()
  */
-i18n_uchar* i18n_ustring_r_char32(const i18n_uchar *s, i18n_uchar32 c);
+i18n_uchar *i18n_ustring_r_char32(const i18n_uchar *s, i18n_uchar32 c);
 
 /**
  * @brief Locates the first occurrence in the string of any of the characters in the string matchSet.
  * @details Works just like C's strpbrk but with Unicode.
  * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section.
+ *			Error codes are described in Exceptions section.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
  * @param[in] string The string in which to search, NULL-terminated.
@@ -353,16 +353,16 @@ i18n_uchar* i18n_ustring_r_char32(const i18n_uchar *s, i18n_uchar32 c);
  *
  * @exception #I18N_ERROR_NONE Success
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
- * @return A pointer to the  character in @a string that matches one of the
+ * @return A pointer to the	 character in @a string that matches one of the
  * characters in @a match_set, or NULL if no such character is found.
  */
-i18n_uchar* i18n_ustring_pbrk(const i18n_uchar *string, const i18n_uchar *match_set);
+i18n_uchar *i18n_ustring_pbrk(const i18n_uchar *string, const i18n_uchar *match_set);
 
 /**
  * @brief Returns the number of consecutive characters in string, beginning with the first, that do not occur somewhere in match_set.
  * @details Works just like C's strcspn but with Unicode.
  * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section.
+ *			Error codes are described in Exceptions section.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
  * @param[in] string The string in which to search, NULL-terminated.
@@ -379,7 +379,7 @@ int32_t i18n_ustring_cspn(const i18n_uchar *string, const i18n_uchar *match_set)
  * @brief Returns the number of consecutive characters in string, beginning with the first, that occur somewhere in match_set.
  * @details Works just like C's strspn but with Unicode.
  * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section.
+ *			Error codes are described in Exceptions section.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
  * @param[in] string The string in which to search, NULL-terminated.
@@ -396,7 +396,7 @@ int32_t i18n_ustring_spn(const i18n_uchar *string, const i18n_uchar *match_set);
  * @brief The string tokenizer API allows an application to break a string into tokens.
  * @details Works just like C's strspn but with Unicode.
  * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section.
+ *			Error codes are described in Exceptions section.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
  * @param[in] src String containing token(s). This string will be modified. After the first call to #i18n_ustring_tokenizer_r(), this argument must be NULL to get to the next token.
@@ -408,12 +408,12 @@ int32_t i18n_ustring_spn(const i18n_uchar *string, const i18n_uchar *match_set);
  * @exception #I18N_ERROR_NONE Success
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-i18n_uchar* i18n_ustring_tokenizer_r(i18n_uchar *src, const i18n_uchar *delim, i18n_uchar **save_state);
+i18n_uchar *i18n_ustring_tokenizer_r(i18n_uchar *src, const i18n_uchar *delim, i18n_uchar **save_state);
 
 /**
  * @brief Compares two Unicode strings for bitwise equality (code unit order).
  * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section.
+ *			Error codes are described in Exceptions section.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
  * @param[in] s1 A string to compare.
@@ -430,7 +430,7 @@ int32_t i18n_ustring_compare(const i18n_uchar *s1, const i18n_uchar *s2);
  * @brief Compare two Unicode strings in code point order.
  * @details See #i18n_ustring_compare() for details.
  * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section.
+ *			Error codes are described in Exceptions section.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
  * @param[in] s1 A string to compare.
@@ -451,7 +451,7 @@ int32_t i18n_ustring_compare_code_point_order(const i18n_uchar *s1, const i18n_u
  * This functions works with strings of different explicitly specified lengths unlike the ANSI C-like #i18n_ustring_compare() and #i18n_ustring_mem_compare() etc.
  * NULL-terminated strings are possible with length arguments of -1.
  * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section.
+ *			Error codes are described in Exceptions section.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
  * @param[in] s1 First source string.
@@ -494,7 +494,7 @@ int32_t i18n_ustring_case_compare_with_length(const i18n_uchar *s1, int32_t leng
  * @brief Compare two ustrings for bitwise equality.
  * @details Compares at most n characters.
  * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section.
+ *			Error codes are described in Exceptions section.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
  * @param[in] s1 A string to compare (can be NULL/invalid if n<=0).
@@ -512,7 +512,7 @@ int32_t i18n_ustring_compare_n(const i18n_uchar *s1, const i18n_uchar *s2, int32
  * @brief Compare two Unicode strings in code point order.
  * @details This is different in UTF-16 from #i18n_ustring_compare_n() if supplementary characters are present. For details, see #i18n_ustring_compare_binary_order().
  * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section.
+ *			Error codes are described in Exceptions section.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
  * @param[in] s1 A string to compare.
@@ -529,15 +529,15 @@ int32_t i18n_ustring_compare_n_code_point_order(const i18n_uchar *s1, const i18n
 /**
  * @brief Compare two strings case-insensitively using full case folding.
  * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section.
+ *			Error codes are described in Exceptions section.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
  * @param[in] s1 A string to compare.
  * @param[in] s2 A string to compare.
  * @param[in] options  bit set of options:\n
- *  - #I18N_USTRING_U_FOLD_CASE_DEFAULT or 0 is used for default options: Comparison in code unit order with default case folding.
- *  - #I18N_USTRING_U_COMPARE_CODE_POINT_ORDER Set to choose code point order instead of code unit order (see u_strCompare for details).
- *  - #I18N_USTRING_U_FOLD_CASE_EXCLUDE_SPECIAL_I
+ *	- #I18N_USTRING_U_FOLD_CASE_DEFAULT or 0 is used for default options: Comparison in code unit order with default case folding.
+ *	- #I18N_USTRING_U_COMPARE_CODE_POINT_ORDER Set to choose code point order instead of code unit order (see u_strCompare for details).
+ *	- #I18N_USTRING_U_FOLD_CASE_EXCLUDE_SPECIAL_I
  * @return A negative, zero, or positive integer indicating the comparison result.
  * @exception #I18N_ERROR_NONE Success
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
@@ -547,16 +547,16 @@ int32_t i18n_ustring_case_compare(const i18n_uchar *s1, const i18n_uchar *s2, ui
 /**
  * @brief Compare two strings case-insensitively using full case folding.
  * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section.
+ *			Error codes are described in Exceptions section.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
  * @param[in] s1 A string to compare.
  * @param[in] s2 A string to compare.
  * @param[in] n The maximum number of characters each string to case-fold and then compare.
  * @param[in] options A bit set of options:\n
- *  - #I18N_USTRING_U_FOLD_CASE_DEFAULT or 0 is used for default options: Comparison in code unit order with default case folding.
- *  - #I18N_USTRING_U_COMPARE_CODE_POINT_ORDER Set to choose code point order instead of code unit order (see u_strCompare for details).
- *  - #I18N_USTRING_U_FOLD_CASE_EXCLUDE_SPECIAL_I
+ *	- #I18N_USTRING_U_FOLD_CASE_DEFAULT or 0 is used for default options: Comparison in code unit order with default case folding.
+ *	- #I18N_USTRING_U_COMPARE_CODE_POINT_ORDER Set to choose code point order instead of code unit order (see u_strCompare for details).
+ *	- #I18N_USTRING_U_FOLD_CASE_EXCLUDE_SPECIAL_I
  * @return A negative, zero, or positive integer indicating the comparison result.
  * @exception #I18N_ERROR_NONE Success
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
@@ -566,16 +566,16 @@ int32_t i18n_ustring_case_compare_n(const i18n_uchar *s1, const i18n_uchar *s2, 
 /**
  * @brief Compare two strings case-insensitively using full case folding.
  * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section.
+ *			Error codes are described in Exceptions section.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
  * @param[in] s1 A string to compare.
  * @param[in] s2 A string to compare.
  * @param[in] length The number of characters in each string to case-fold and then compare.
  * @param[in] options A bit set of options:\n
- *  - #I18N_USTRING_U_FOLD_CASE_DEFAULT or 0 is used for default options: Comparison in code unit order with default case folding.
- *  - #I18N_USTRING_U_COMPARE_CODE_POINT_ORDER Set to choose code point order instead of code unit order (see u_strCompare for details).
- *  - #I18N_USTRING_U_FOLD_CASE_EXCLUDE_SPECIAL_I
+ *	- #I18N_USTRING_U_FOLD_CASE_DEFAULT or 0 is used for default options: Comparison in code unit order with default case folding.
+ *	- #I18N_USTRING_U_COMPARE_CODE_POINT_ORDER Set to choose code point order instead of code unit order (see u_strCompare for details).
+ *	- #I18N_USTRING_U_FOLD_CASE_EXCLUDE_SPECIAL_I
  * @return A negative, zero, or positive integer indicating the comparison result.
  * @exception #I18N_ERROR_NONE Success
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
@@ -585,24 +585,24 @@ int32_t i18n_ustring_mem_case_compare(const i18n_uchar *s1, const i18n_uchar *s2
 /**
  * @brief Copies a ustring. Adds a NULL terminator.
  * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section.
+ *			Error codes are described in Exceptions section.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
- * @param[out]  dest The destination string
- * @param[in]   src The source string
+ * @param[out]	dest The destination string
+ * @param[in]	src The source string
  *
  * @return A pointer to @a dest.
  * @exception #I18N_ERROR_NONE Success
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-i18n_uchar* i18n_ustring_copy(i18n_uchar *dest, const i18n_uchar *src);
+i18n_uchar *i18n_ustring_copy(i18n_uchar *dest, const i18n_uchar *src);
 
 /**
  * @brief Copies a ustring.
  * @details Copies at most @a n characters. The result will be NULL terminated
  * if the length of @a src is less than @a n.
  * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section.
+ *			Error codes are described in Exceptions section.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
  * @param[out] dest The destination string
@@ -613,13 +613,13 @@ i18n_uchar* i18n_ustring_copy(i18n_uchar *dest, const i18n_uchar *src);
  * @exception #I18N_ERROR_NONE Success
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-i18n_uchar* i18n_ustring_copy_n(i18n_uchar *dest, const i18n_uchar *src, int32_t n);
+i18n_uchar *i18n_ustring_copy_n(i18n_uchar *dest, const i18n_uchar *src, int32_t n);
 
 /**
  * @brief Copies a byte string encoded in the default codepage to a ustring.
  * @details Adds a NULL terminator. Performs a host byte to #i18n_uchar conversion.
  * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section.
+ *			Error codes are described in Exceptions section.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
  * @param[out] dest The destination string
@@ -629,15 +629,15 @@ i18n_uchar* i18n_ustring_copy_n(i18n_uchar *dest, const i18n_uchar *src, int32_t
  * @exception #I18N_ERROR_NONE Success
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-i18n_uchar* i18n_ustring_copy_ua(i18n_uchar *dest, const char *src);
+i18n_uchar *i18n_ustring_copy_ua(i18n_uchar *dest, const char *src);
 
 /**
  * @brief Copies a byte string encoded in the default codepage to a ustring.
- * @details Copies at most @a n characters.  The result will be NULL terminated
+ * @details Copies at most @a n characters.	 The result will be NULL terminated
  * if the length of @a src is less than @a n.
  * Performs a host byte to #i18n_uchar conversion.
  * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section.
+ *			Error codes are described in Exceptions section.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
  * @param[out] dest The destination string
@@ -648,13 +648,13 @@ i18n_uchar* i18n_ustring_copy_ua(i18n_uchar *dest, const char *src);
  * @exception #I18N_ERROR_NONE Success
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-i18n_uchar* i18n_ustring_copy_ua_n(i18n_uchar *dest, const char *src, int32_t n);
+i18n_uchar *i18n_ustring_copy_ua_n(i18n_uchar *dest, const char *src, int32_t n);
 
 /**
  * @brief Copies a ustring to a byte string encoded in the default codepage.
  * @details Adds a NULL terminator. Performs an #i18n_uchar to host byte conversion.
  * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section.
+ *			Error codes are described in Exceptions section.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
  * @param[out] dest The destination string
@@ -664,15 +664,15 @@ i18n_uchar* i18n_ustring_copy_ua_n(i18n_uchar *dest, const char *src, int32_t n)
  * @exception #I18N_ERROR_NONE Success
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-char* i18n_ustring_copy_au(char *dest, const i18n_uchar *src);
+char *i18n_ustring_copy_au(char *dest, const i18n_uchar *src);
 
 /**
  * @brief Copies a ustring to a byte string encoded in the default codepage.
- * @details Copies at most @a n characters.  The result will be NULL terminated
+ * @details Copies at most @a n characters.	 The result will be NULL terminated
  * if the length of @a src is less than @a n.
  * Performs an #i18n_uchar to host byte conversion.
  * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section.
+ *			Error codes are described in Exceptions section.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
  * @param[out] dest The destination string
@@ -683,12 +683,12 @@ char* i18n_ustring_copy_au(char *dest, const i18n_uchar *src);
  * @exception #I18N_ERROR_NONE Success
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-char* i18n_ustring_copy_au_n(char *dest, const i18n_uchar *src, int32_t n);
+char *i18n_ustring_copy_au_n(char *dest, const i18n_uchar *src, int32_t n);
 
 /**
  * @brief Synonym for memcpy(), but with #i18n_uchar characters only.
  * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section.
+ *			Error codes are described in Exceptions section.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
  * @param[out] dest The destination string
@@ -699,12 +699,12 @@ char* i18n_ustring_copy_au_n(char *dest, const i18n_uchar *src, int32_t n);
  * @exception #I18N_ERROR_NONE Success
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-i18n_uchar* i18n_ustring_mem_copy(i18n_uchar *dest, const i18n_uchar *src, int32_t count);
+i18n_uchar *i18n_ustring_mem_copy(i18n_uchar *dest, const i18n_uchar *src, int32_t count);
 
 /**
  * @brief Synonym for memmove(), but with #i18n_uchar characters only.
  * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section.
+ *			Error codes are described in Exceptions section.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
  * @param[out] dest The destination string
@@ -715,12 +715,12 @@ i18n_uchar* i18n_ustring_mem_copy(i18n_uchar *dest, const i18n_uchar *src, int32
  * @exception #I18N_ERROR_NONE Success
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-i18n_uchar* i18n_ustring_mem_move(i18n_uchar *dest, const i18n_uchar *src, int32_t count);
+i18n_uchar *i18n_ustring_mem_move(i18n_uchar *dest, const i18n_uchar *src, int32_t count);
 
 /**
  * @brief Initialize count characters of dest to c.
  * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section.
+ *			Error codes are described in Exceptions section.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
  * @param[out] dest The destination string
@@ -731,12 +731,12 @@ i18n_uchar* i18n_ustring_mem_move(i18n_uchar *dest, const i18n_uchar *src, int32
  * @exception #I18N_ERROR_NONE Success
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-i18n_uchar* i18n_ustring_mem_set(i18n_uchar *dest, const i18n_uchar c, int32_t count);
+i18n_uchar *i18n_ustring_mem_set(i18n_uchar *dest, const i18n_uchar c, int32_t count);
 
 /**
  * @brief Compare the first count #i18n_uchar characters of each buffer.
  * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section.
+ *			Error codes are described in Exceptions section.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
  * @param[in] buf1 The first string to compare.
@@ -754,7 +754,7 @@ int32_t i18n_ustring_mem_compare(const i18n_uchar *buf1, const i18n_uchar *buf2,
  * @brief Compare two Unicode strings in code point order.
  * @details This is different in UTF-16 from #i18n_ustring_mem_compare() if supplementary characters are present. For details, see #i18n_ustring_compare_binary_order().
  * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section.
+ *			Error codes are described in Exceptions section.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
  * @param[in] s1 A string to compare.
@@ -772,7 +772,7 @@ int32_t i18n_ustring_mem_compare_code_point_order(const i18n_uchar *s1, const i1
  * @brief Finds the first occurrence of a BMP code point in a string.
  * @details A surrogate code point is found only if its match in the text is not part of a surrogate pair. A NULL character is found at the string terminator.
  * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section.
+ *			Error codes are described in Exceptions section.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
  * @param[in] s The string to search (contains count #i18n_uchar characters).
@@ -786,13 +786,13 @@ int32_t i18n_ustring_mem_compare_code_point_order(const i18n_uchar *s1, const i1
  * @see i18n_ustring_mem_char32()
  * @see i18n_ustring_find_first()
  */
-i18n_uchar* i18n_ustring_mem_char(const i18n_uchar *s, i18n_uchar c, int32_t count);
+i18n_uchar *i18n_ustring_mem_char(const i18n_uchar *s, i18n_uchar c, int32_t count);
 
 /**
  * @brief Finds the first occurrence of a code point in a string.
  * @details A surrogate code point is found only if its match in the text is not part of a surrogate pair. A NULL character is found at the string terminator.
  * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section.
+ *			Error codes are described in Exceptions section.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
  * @param[in] s The string to search (contains count #i18n_uchar characters).
@@ -803,13 +803,13 @@ i18n_uchar* i18n_ustring_mem_char(const i18n_uchar *s, i18n_uchar c, int32_t cou
  * @exception #I18N_ERROR_NONE Success
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-i18n_uchar* i18n_ustring_mem_char32(const i18n_uchar *s, i18n_uchar32 c, int32_t count);
+i18n_uchar *i18n_ustring_mem_char32(const i18n_uchar *s, i18n_uchar32 c, int32_t count);
 
 /**
  * @brief Finds the last occurrence of a BMP code point in a string.
  * @details A surrogate code point is found only if its match in the text is not part of a surrogate pair. A NULL character is found at the string terminator.
  * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section.
+ *			Error codes are described in Exceptions section.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
  * @param[in] s The string to search (contains count #i18n_uchar characters).
@@ -823,13 +823,13 @@ i18n_uchar* i18n_ustring_mem_char32(const i18n_uchar *s, i18n_uchar32 c, int32_t
  * @see #i18n_ustring_mem_r_char32
  * @see #i18n_ustring_find_last
  */
-i18n_uchar* i18n_ustring_mem_r_char(const i18n_uchar *s, i18n_uchar c, int32_t count);
+i18n_uchar *i18n_ustring_mem_r_char(const i18n_uchar *s, i18n_uchar c, int32_t count);
 
 /**
  * @brief Finds the last occurrence of a code point in a string.
  * @details A surrogate code point is found only if its match in the text is not part of a surrogate pair. A NULL character is found at the string terminator.
  * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section.
+ *			Error codes are described in Exceptions section.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
  * @param[in] s The string to search (contains count #i18n_uchar characters).
@@ -843,7 +843,7 @@ i18n_uchar* i18n_ustring_mem_r_char(const i18n_uchar *s, i18n_uchar c, int32_t c
  * @see #i18n_ustring_mem_r_char
  * @see #i18n_ustring_find_last
  */
-i18n_uchar* i18n_ustring_mem_r_char32(const i18n_uchar *s, i18n_uchar32 c, int32_t count);
+i18n_uchar *i18n_ustring_mem_r_char32(const i18n_uchar *s, i18n_uchar32 c, int32_t count);
 
 /**
  * @brief Unescape a string of characters and write the resulting Unicode characters to the destination buffer.
@@ -854,7 +854,7 @@ i18n_uchar* i18n_ustring_mem_r_char32(const i18n_uchar *s, i18n_uchar32 c, int32
  * Anything else following a backslash is generically escaped. For example, "[a\-z]" returns "[a-z]".\n
  * If an escape sequence is ill-formed, this method returns an empty string. An example of an ill-formed sequence is "\\u" followed by fewer than 4 hex digits.
  * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section.
+ *			Error codes are described in Exceptions section.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
  * @param[in] src a zero-terminated string of invariant characters
@@ -875,7 +875,7 @@ int32_t i18n_ustring_unescape(const char *src, i18n_uchar *dest, int32_t dest_ca
  * If offset is out of range, or if the escape sequence is ill-formed, (i18n_uchar32)0xFFFFFFFF is returned.
  * See documentation of #i18n_ustring_unescape() for a list of recognized sequences.
  * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section.
+ *			Error codes are described in Exceptions section.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
  * @param[in] char_at callback function that returns a #i18n_uchar of the source text given an offset and a context pointer.
@@ -966,7 +966,7 @@ int32_t i18n_ustring_to_lower(i18n_uchar *dest, int32_t dest_capacity, const i18
  * If it is @c 0, then @a dest may be @c NULL and the function will only return the length of the result
  * without writing any of the result string.
  * @param[in] src The original string
- * @param[in] src_len The length of the original string.\n  If @c -1, then @a src must be zero-terminated.
+ * @param[in] src_len The length of the original string.\n	If @c -1, then @a src must be zero-terminated.
  * @param[in] title_iter A break iterator to find the first characters of words
  * that are to be titlecased.\n
  * If none are provided (@c NULL), then a standard titlecase
@@ -994,7 +994,7 @@ int32_t i18n_ustring_to_title_new(i18n_uchar *dest, int32_t dest_capacity, const
  * If it is @c 0, then @a dest may be @c NULL and the function will only return the length of the result
  * without writing any of the result string.
  * @param[in] src The original string
- * @param[in] src_len The length of the original string.\n  If @c -1, then @a src must be zero-terminated.
+ * @param[in] src_len The length of the original string.\n	If @c -1, then @a src must be zero-terminated.
  * @param[in] options Either #I18N_USTRING_U_FOLD_CASE_DEFAULT or #I18N_USTRING_U_FOLD_CASE_EXCLUDE_SPECIAL_I
  * @param[out] error_code Must be a valid pointer to an error code value,
  * which must not indicate a failure before the function call.
@@ -1018,14 +1018,14 @@ int32_t i18n_ustring_fold_case(i18n_uchar *dest, int32_t dest_capacity, const i1
  * @param[out] dest_len A pointer to receive the number of units written to the destination.\n
  * If dest_len!=NULL then *dest_len is always set to the number of output units corresponding to the transformation of all the input units, even in case of a buffer overflow.
  * @param[in] src The original source string.
- * @param[in] src_len The length of the original string.\n  If @c -1, then @a src must be zero-terminated.
+ * @param[in] src_len The length of the original string.\n	If @c -1, then @a src must be zero-terminated.
  * @param[out] error_code Must be a valid pointer to an error code value,
  * which must not indicate a failure before the function call.
  * @return The pointer to destination buffer.
  * @exception #I18N_ERROR_NONE Success
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-wchar_t* i18n_ustring_to_WCS(wchar_t *dest, int32_t dest_capacity, int32_t *dest_len, const i18n_uchar *src, int32_t src_len, i18n_error_code_e *error_code);
+wchar_t *i18n_ustring_to_WCS(wchar_t *dest, int32_t dest_capacity, int32_t *dest_len, const i18n_uchar *src, int32_t src_len, i18n_error_code_e *error_code);
 
 /**
  * @brief Convert a wchar_t string to UTF-16.
@@ -1040,14 +1040,14 @@ wchar_t* i18n_ustring_to_WCS(wchar_t *dest, int32_t dest_capacity, int32_t *dest
  * @param[out] dest_len A pointer to receive the number of units written to the destination.\n
  * If dest_len!=NULL then *dest_len is always set to the number of output units corresponding to the transformation of all the input units, even in case of a buffer overflow.
  * @param[in] src The original source string.
- * @param[in] src_len The length of the original string.\n  If @c -1, then @a src must be zero-terminated.
+ * @param[in] src_len The length of the original string.\n	If @c -1, then @a src must be zero-terminated.
  * @param[out] error_code Must be a valid pointer to an error code value,
  * which must not indicate a failure before the function call.
  * @return The pointer to destination buffer.
  * @exception #I18N_ERROR_NONE Success
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-i18n_uchar* i18n_ustring_from_WCS(i18n_uchar *dest, int32_t dest_capacity, int32_t *dest_len, const wchar_t *src, int32_t src_len, i18n_error_code_e *error_code);
+i18n_uchar *i18n_ustring_from_WCS(i18n_uchar *dest, int32_t dest_capacity, int32_t *dest_len, const wchar_t *src, int32_t src_len, i18n_error_code_e *error_code);
 
 /**
  * @brief Converts a UTF-16 string to UTF-8.
@@ -1056,7 +1056,7 @@ i18n_uchar* i18n_ustring_from_WCS(i18n_uchar *dest, int32_t dest_capacity, int32
  *
  * @param[out] dest A buffer for the result string.\n
  * The result will be zero-terminated if the buffer is large enough.
- * @param[in] dest_capacity  The size of the buffer (number of chars)\n
+ * @param[in] dest_capacity	 The size of the buffer (number of chars)\n
  * If it is @c 0, then @a dest may be @c NULL and the function will only return the length of the
  * result without writing any of the result string (pre-flighting).
  * @param[out] dest_len A pointer to receive the number of units written to the destination.\n
@@ -1073,7 +1073,7 @@ i18n_uchar* i18n_ustring_from_WCS(i18n_uchar *dest, int32_t dest_capacity, int32
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  * @see i18n_ustring_from_UTF8()
  */
-char* i18n_ustring_to_UTF8(char *dest, int32_t dest_capacity, int32_t *dest_len, const i18n_uchar *src, int32_t src_len, i18n_error_code_e *error_code);
+char *i18n_ustring_to_UTF8(char *dest, int32_t dest_capacity, int32_t *dest_len, const i18n_uchar *src, int32_t src_len, i18n_error_code_e *error_code);
 
 /**
  * @brief Converts a UTF-8 string to UTF-16.
@@ -1082,7 +1082,7 @@ char* i18n_ustring_to_UTF8(char *dest, int32_t dest_capacity, int32_t *dest_len,
  *
  * @param[out] dest A buffer for the result string.\n
  * The result will be zero-terminated if the buffer is large enough.
- * @param[in] dest_capacity  The size of the buffer (number of #i18n_uchar characters)\n
+ * @param[in] dest_capacity	 The size of the buffer (number of #i18n_uchar characters)\n
  * If it is @c 0, then @a dest may be @c NULL and the function will only return the length of the
  * result without writing any of the result string (pre-flighting).
  * @param[out] dest_len A pointer to receive the number of units written to the destination.\n
@@ -1098,7 +1098,7 @@ char* i18n_ustring_to_UTF8(char *dest, int32_t dest_capacity, int32_t *dest_len,
  * @exception #I18N_ERROR_NONE Success
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-i18n_uchar* i18n_ustring_from_UTF8(i18n_uchar *dest, int32_t dest_capacity, int32_t *dest_len, const char *src, int32_t src_len, i18n_error_code_e *error_code);
+i18n_uchar *i18n_ustring_from_UTF8(i18n_uchar *dest, int32_t dest_capacity, int32_t *dest_len, const char *src, int32_t src_len, i18n_error_code_e *error_code);
 
 /**
  * @brief Convert a UTF-16 string to UTF-8.
@@ -1107,7 +1107,7 @@ i18n_uchar* i18n_ustring_from_UTF8(i18n_uchar *dest, int32_t dest_capacity, int3
  *
  * @param[out] dest A buffer for the result string.\n
  * The result will be zero-terminated if the buffer is large enough.
- * @param[in] dest_capacity  The size of the buffer (number of chars)\n
+ * @param[in] dest_capacity	 The size of the buffer (number of chars)\n
  * If it is @c 0, then @a dest may be @c NULL and the function will only return the length of the
  * result without writing any of the result string (pre-flighting).
  * @param[out] dest_len A pointer to receive the number of units written to the destination.\n
@@ -1129,7 +1129,7 @@ i18n_uchar* i18n_ustring_from_UTF8(i18n_uchar *dest, int32_t dest_capacity, int3
  * @see i18n_ustring_to_UTF8()
  * @see i18n_ustring_from_UTF8_with_sub()
  */
-char* i18n_ustring_to_UTF8_with_sub(char *dest, int32_t dest_capacity, int32_t *dest_len, const i18n_uchar *src, int32_t src_len, i18n_uchar32 sub_char, int32_t *num_substitutions, i18n_error_code_e *error_code);
+char *i18n_ustring_to_UTF8_with_sub(char *dest, int32_t dest_capacity, int32_t *dest_len, const i18n_uchar *src, int32_t src_len, i18n_uchar32 sub_char, int32_t *num_substitutions, i18n_error_code_e *error_code);
 
 /**
  * @brief Convert a UTF-8 string to UTF-16.
@@ -1137,7 +1137,7 @@ char* i18n_ustring_to_UTF8_with_sub(char *dest, int32_t dest_capacity, int32_t *
  *
  * @param[out] dest A buffer for the result string.\n
  * The result will be zero-terminated if the buffer is large enough.
- * @param[in] dest_capacity  The size of the buffer (number of #i18n_uchar characters)\n
+ * @param[in] dest_capacity	 The size of the buffer (number of #i18n_uchar characters)\n
  * If it is @c 0, then @a dest may be @c NULL and the function will only return the length of the
  * result without writing any of the result string (pre-flighting).
  * @param[out] dest_len A pointer to receive the number of units written to the destination.\n
@@ -1160,8 +1160,8 @@ char* i18n_ustring_to_UTF8_with_sub(char *dest, int32_t dest_capacity, int32_t *
  * @see i18n_ustring_from_UTF8_lenient()
  * @see i18n_ustring_to_UTF8_with_sub()
  */
-i18n_uchar* i18n_ustring_from_UTF8_with_sub(i18n_uchar *dest, int32_t dest_capacity, int32_t *dest_len, const char *src, int32_t src_len, i18n_uchar32 sub_char,
-    int32_t *num_substitutions, i18n_error_code_e *error_code);
+i18n_uchar *i18n_ustring_from_UTF8_with_sub(i18n_uchar *dest, int32_t dest_capacity, int32_t *dest_len, const char *src, int32_t src_len, i18n_uchar32 sub_char,
+											int32_t *num_substitutions, i18n_error_code_e *error_code);
 
 /**
  * @brief Convert a UTF-8 string to UTF-16.
@@ -1178,7 +1178,7 @@ i18n_uchar* i18n_ustring_from_UTF8_with_sub(i18n_uchar *dest, int32_t dest_capac
  *
  * @param[out] dest A buffer for the result string.\n
  * The result will be zero-terminated if the buffer is large enough.
- * @param[in] dest_capacity  The size of the buffer (number of #i18n_uchar characters)\n
+ * @param[in] dest_capacity	 The size of the buffer (number of #i18n_uchar characters)\n
  * If it is @c 0, then @a dest may be @c NULL and the function will only return the length of the
  * result without writing any of the result string (pre-flighting).
  * Unlike for other I18N functions, if src_len>=0 then it must be dest_capacity>=src_len.
@@ -1199,7 +1199,7 @@ i18n_uchar* i18n_ustring_from_UTF8_with_sub(i18n_uchar *dest, int32_t dest_capac
  * @see i18n_ustring_to_UTF8_with_sub()
  * @see i18n_ustring_from_UTF8_with_sub()
  */
-i18n_uchar* i18n_ustring_from_UTF8_lenient(i18n_uchar *dest, int32_t dest_capacity, int32_t *dest_len, const char *src, int32_t src_len, i18n_error_code_e *error_code);
+i18n_uchar *i18n_ustring_from_UTF8_lenient(i18n_uchar *dest, int32_t dest_capacity, int32_t *dest_len, const char *src, int32_t src_len, i18n_error_code_e *error_code);
 
 /**
  * @brief Convert a UTF-16 string to UTF-32.
@@ -1208,7 +1208,7 @@ i18n_uchar* i18n_ustring_from_UTF8_lenient(i18n_uchar *dest, int32_t dest_capaci
  *
  * @param[out] dest A buffer for the result string.\n
  * The result will be zero-terminated if the buffer is large enough.
- * @param[in] dest_capacity  The size of the buffer (number of #i18n_uchar32 characters)\n
+ * @param[in] dest_capacity	 The size of the buffer (number of #i18n_uchar32 characters)\n
  * If it is @c 0, then @a dest may be @c NULL and the function will only return the length of the
  * result without writing any of the result string (pre-flighting).
  * @param[out] dest_len A pointer to receive the number of units written to the destination.\n
@@ -1225,7 +1225,7 @@ i18n_uchar* i18n_ustring_from_UTF8_lenient(i18n_uchar *dest, int32_t dest_capaci
  * @see i18n_ustring_to_UTF32_with_sub()
  * @see i18n_ustring_from_UTF32()
  */
-i18n_uchar32* i18n_ustring_to_UTF32(i18n_uchar32 *dest, int32_t dest_capacity, int32_t *dest_len, const i18n_uchar *src, int32_t src_len, i18n_error_code_e *error_code);
+i18n_uchar32 *i18n_ustring_to_UTF32(i18n_uchar32 *dest, int32_t dest_capacity, int32_t *dest_len, const i18n_uchar *src, int32_t src_len, i18n_error_code_e *error_code);
 
 /**
  * @brief Convert a UTF-32 string to UTF-16.
@@ -1234,7 +1234,7 @@ i18n_uchar32* i18n_ustring_to_UTF32(i18n_uchar32 *dest, int32_t dest_capacity, i
  *
  * @param[out] dest A buffer for the result string.\n
  * The result will be zero-terminated if the buffer is large enough.
- * @param[in] dest_capacity  The size of the buffer (number of #i18n_uchar characters)\n
+ * @param[in] dest_capacity	 The size of the buffer (number of #i18n_uchar characters)\n
  * If it is @c 0, then @a dest may be @c NULL and the function will only return the length of the
  * result without writing any of the result string (pre-flighting).
  * @param[out] dest_len A pointer to receive the number of units written to the destination.\n
@@ -1251,7 +1251,7 @@ i18n_uchar32* i18n_ustring_to_UTF32(i18n_uchar32 *dest, int32_t dest_capacity, i
  * @see i18n_ustring_from_UTF32_with_sub()
  * @see i18n_ustring_to_UTF32()
  */
-i18n_uchar* i18n_ustring_from_UTF32(i18n_uchar *dest, int32_t dest_capacity, int32_t *dest_len, const i18n_uchar32 *src, int32_t src_len, i18n_error_code_e *error_code);
+i18n_uchar *i18n_ustring_from_UTF32(i18n_uchar *dest, int32_t dest_capacity, int32_t *dest_len, const i18n_uchar32 *src, int32_t src_len, i18n_error_code_e *error_code);
 
 /**
  * @brief Convert a UTF-16 string to UTF-32.
@@ -1260,7 +1260,7 @@ i18n_uchar* i18n_ustring_from_UTF32(i18n_uchar *dest, int32_t dest_capacity, int
  *
  * @param[out] dest A buffer for the result string.\n
  * The result will be zero-terminated if the buffer is large enough.
- * @param[in] dest_capacity  The size of the buffer (number of i18n_char32s)\n
+ * @param[in] dest_capacity	 The size of the buffer (number of i18n_char32s)\n
  * If it is @c 0, then @a dest may be @c NULL and the function will only return the length of the
  * result without writing any of the result string (pre-flighting).
  * @param[out] dest_len A pointer to receive the number of units written to the destination.\n
@@ -1281,8 +1281,8 @@ i18n_uchar* i18n_ustring_from_UTF32(i18n_uchar *dest, int32_t dest_capacity, int
  * @see i18n_ustring_to_UTF32()
  * @see i18n_ustring_from_UTF32_with_sub()
  */
-i18n_uchar32* i18n_ustring_to_UTF32_with_sub(i18n_uchar32 *dest, int32_t dest_capacity, int32_t *dest_len, const i18n_uchar *src, int32_t src_len,
-        i18n_uchar32 sub_char, int32_t *num_substitutions, i18n_error_code_e *error_code);
+i18n_uchar32 *i18n_ustring_to_UTF32_with_sub(i18n_uchar32 *dest, int32_t dest_capacity, int32_t *dest_len, const i18n_uchar *src, int32_t src_len,
+											 i18n_uchar32 sub_char, int32_t *num_substitutions, i18n_error_code_e *error_code);
 
 /**
  * @brief Convert a UTF-32 string to UTF-16.
@@ -1291,7 +1291,7 @@ i18n_uchar32* i18n_ustring_to_UTF32_with_sub(i18n_uchar32 *dest, int32_t dest_ca
  *
  * @param[out] dest A buffer for the result string.\n
  * The result will be zero-terminated if the buffer is large enough.
- * @param[in] dest_capacity  The size of the buffer (number of i18n_chars)\n
+ * @param[in] dest_capacity	 The size of the buffer (number of i18n_chars)\n
  * If it is @c 0, then @a dest may be @c NULL and the function will only return the length of the
  * result without writing any of the result string (pre-flighting).
  * @param[out] dest_len A pointer to receive the number of units written to the destination.\n
@@ -1313,7 +1313,7 @@ i18n_uchar32* i18n_ustring_to_UTF32_with_sub(i18n_uchar32 *dest, int32_t dest_ca
  * @see i18n_ustring_from_UTF32()
  * @see i18n_ustring_to_UTF32_with_sub()
  */
-i18n_uchar* i18n_ustring_from_UTF32_with_sub(i18n_uchar *dest, int32_t dest_capacity, int32_t *dest_len, const i18n_uchar32 *src, int32_t src_len, i18n_uchar32 sub_char, int32_t *num_substitutions, i18n_error_code_e *error_code);
+i18n_uchar *i18n_ustring_from_UTF32_with_sub(i18n_uchar *dest, int32_t dest_capacity, int32_t *dest_len, const i18n_uchar32 *src, int32_t src_len, i18n_uchar32 sub_char, int32_t *num_substitutions, i18n_error_code_e *error_code);
 
 #ifdef __cplusplus
 }
@@ -1323,4 +1323,4 @@ i18n_uchar* i18n_ustring_from_UTF32_with_sub(i18n_uchar *dest, int32_t dest_capa
  * @}
  * @}
  */
-#endif  /* __UTILS_I18N_USTRING_H__*/
+#endif	/* __UTILS_I18N_USTRING_H__*/

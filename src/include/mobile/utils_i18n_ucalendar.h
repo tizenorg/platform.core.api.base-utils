@@ -1,17 +1,17 @@
 /*
  * Copyright (c) 2015 Samsung Electronics Co., Ltd All Rights Reserved
  *
- *    Licensed under the Apache License, Version 2.0 (the "License");
- *    you may not use this file except in compliance with the License.
- *    You may obtain a copy of the License at
+ *	  Licensed under the Apache License, Version 2.0 (the "License");
+ *	  you may not use this file except in compliance with the License.
+ *	  You may obtain a copy of the License at
  *
- *        http://www.apache.org/licenses/LICENSE-2.0
+ *		  http://www.apache.org/licenses/LICENSE-2.0
  *
- *    Unless required by applicable law or agreed to in writing, software
- *    distributed under the License is distributed on an "AS IS" BASIS,
- *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *    See the License for the specific language governing permissions and
- *    limitations under the License.
+ *	  Unless required by applicable law or agreed to in writing, software
+ *	  distributed under the License is distributed on an "AS IS" BASIS,
+ *	  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *	  See the License for the specific language governing permissions and
+ *	  limitations under the License.
  */
 
 #ifndef __UTILS_I18N_UCALENDAR_H__
@@ -29,14 +29,14 @@
  * @ingroup CAPI_BASE_UTILS_I18N_MODULE
  * @defgroup CAPI_BASE_UTILS_I18N_UCALENDAR_MODULE Ucalendar
  * @brief The Ucalendar is used for converting between an udate module and a set of integer fields
- *       such as #I18N_UCALENDAR_YEAR, #I18N_UCALENDAR_MONTH, #I18N_UCALENDAR_DATE, #I18N_UCALENDAR_HOUR, and so on.
+ *		 such as #I18N_UCALENDAR_YEAR, #I18N_UCALENDAR_MONTH, #I18N_UCALENDAR_DATE, #I18N_UCALENDAR_HOUR, and so on.
  * @section CAPI_BASE_UTILS_I18N_UCALENDAR_MODULE_HEADER Required Header
- *  \#include <utils_i18n.h>
+ *	\#include <utils_i18n.h>
  * @section CAPI_BASE_UTILS_I18N_UCALENDAR_MODULE_OVERVIEW Overview
  * @details The Ucalendar is used for converting between an udate module and a set of integer fields
- *       such as #I18N_UCALENDAR_YEAR, #I18N_UCALENDAR_MONTH, #I18N_UCALENDAR_DATE, #I18N_UCALENDAR_HOUR, and so on.
- *       (An udate module represents a specific instant in time with millisecond precision. See udate for
- *       information about the udate.)
+ *		 such as #I18N_UCALENDAR_YEAR, #I18N_UCALENDAR_MONTH, #I18N_UCALENDAR_DATE, #I18N_UCALENDAR_HOUR, and so on.
+ *		 (An udate module represents a specific instant in time with millisecond precision. See udate for
+ *		 information about the udate.)
  *
  * @section CAPI_BASE_UTILS_I18N_UCALENDAR_MODULE_SAMPLE_CODE_1 Sample Code 1
  * @brief Converts the given date and time to the corresponding UTC time(number of seconds that have elapsed since January 1, 1970), considering the given time zone
@@ -47,66 +47,66 @@
   // get time in sec from input date and time
   long long int _time_convert_itol(char *tzid, int y, int mon, int d, int h, int min, int s)
  {
-     long long int lli;
-     i18n_ucalendar_h ucal;
-     i18n_udate date;
-     int ret = I18N_ERROR_NONE;
-     int year, month, day, hour, minute, second;
-     int len;
+	 long long int lli;
+	 i18n_ucalendar_h ucal;
+	 i18n_udate date;
+	 int ret = I18N_ERROR_NONE;
+	 int year, month, day, hour, minute, second;
+	 int len;
 
-     i18n_uchar *_tzid = NULL;
+	 i18n_uchar *_tzid = NULL;
 
-     if (tzid == NULL) {
-         tzid = "Etc/GMT";
-     }
-     _tzid = (i18n_uchar*)calloc(strlen(tzid) + 1, sizeof(i18n_uchar));
-     if (_tzid == NULL) {
-         return -1;
-     }
-     // converts 'tzid' to unicode string
-     i18n_ustring_copy_ua(_tzid, tzid);
+	 if (tzid == NULL) {
+		 tzid = "Etc/GMT";
+	 }
+	 _tzid = (i18n_uchar*)calloc(strlen(tzid) + 1, sizeof(i18n_uchar));
+	 if (_tzid == NULL) {
+		 return -1;
+	 }
+	 // converts 'tzid' to unicode string
+	 i18n_ustring_copy_ua(_tzid, tzid);
 
-     // gets length of '_tzid'
-     len = i18n_ustring_get_length(_tzid);
-     // creates i18n_ucalendar_h
-     ret = i18n_ucalendar_create(_tzid, len, "en_US", I18N_UCALENDAR_TRADITIONAL, &ucal);
-     if (ret) {
-         dlog_print(DLOG_INFO, LOG_TAG, "i18n_ucalendar_create failed.\n");
-         return -1;
-     }
+	 // gets length of '_tzid'
+	 len = i18n_ustring_get_length(_tzid);
+	 // creates i18n_ucalendar_h
+	 ret = i18n_ucalendar_create(_tzid, len, "en_US", I18N_UCALENDAR_TRADITIONAL, &ucal);
+	 if (ret) {
+		 dlog_print(DLOG_INFO, LOG_TAG, "i18n_ucalendar_create failed.\n");
+		 return -1;
+	 }
 
-     // sets i18n_ucalendar_h's date
-     i18n_ucalendar_set_date_time(ucal, y, mon-1, d, h, min, s);
+	 // sets i18n_ucalendar_h's date
+	 i18n_ucalendar_set_date_time(ucal, y, mon-1, d, h, min, s);
 
-     // gets the current value of a field from i18n_ucalendar_h
-     i18n_ucalendar_get(ucal, I18N_UCALENDAR_YEAR, &year);
-     i18n_ucalendar_get(ucal, I18N_UCALENDAR_MONTH, &month);
-     i18n_ucalendar_get(ucal, I18N_UCALENDAR_DATE, &day);
-     i18n_ucalendar_get(ucal, I18N_UCALENDAR_HOUR, &hour);
-     i18n_ucalendar_get(ucal, I18N_UCALENDAR_MINUTE, &minute);
-     i18n_ucalendar_get(ucal, I18N_UCALENDAR_SECOND, &second);
-     dlog_print(DLOG_INFO, LOG_TAG, "Date from ucal, year:%d month:%d day:%d hour:%d minute:%d second:%d.\n",year, month, day, hour, minute, second);
+	 // gets the current value of a field from i18n_ucalendar_h
+	 i18n_ucalendar_get(ucal, I18N_UCALENDAR_YEAR, &year);
+	 i18n_ucalendar_get(ucal, I18N_UCALENDAR_MONTH, &month);
+	 i18n_ucalendar_get(ucal, I18N_UCALENDAR_DATE, &day);
+	 i18n_ucalendar_get(ucal, I18N_UCALENDAR_HOUR, &hour);
+	 i18n_ucalendar_get(ucal, I18N_UCALENDAR_MINUTE, &minute);
+	 i18n_ucalendar_get(ucal, I18N_UCALENDAR_SECOND, &second);
+	 dlog_print(DLOG_INFO, LOG_TAG, "Date from ucal, year:%d month:%d day:%d hour:%d minute:%d second:%d.\n",year, month, day, hour, minute, second);
 
-     // gets i18n_ucalendar's current time and converts it from milliseconds to seconds
-     i18n_ucalendar_get_milliseconds(ucal, &date);
-     lli = ms2sec(date);
-     // destroys i18n_ucalendar_h
-     i18n_ucalendar_destroy(ucal);
-     if (_tzid) {
-         free(_tzid);
-     }
+	 // gets i18n_ucalendar's current time and converts it from milliseconds to seconds
+	 i18n_ucalendar_get_milliseconds(ucal, &date);
+	 lli = ms2sec(date);
+	 // destroys i18n_ucalendar_h
+	 i18n_ucalendar_destroy(ucal);
+	 if (_tzid) {
+		 free(_tzid);
+	 }
 
-     return lli;
+	 return lli;
  }
  * @endcode
  *
  * @section CAPI_BASE_UTILS_I18N_UCALENDAR_MODULE_SAMPLE_CODE_2 Sample Code 2
  * @brief Describes an example that uses _time_convert_itol from 'Sample Code 2'
  * @code
-       // converts the given time to UTC time(number of seconds that have elapsed since January 1, 1970)
-     long long int time = _time_convert_itol("Etc/GMT", 2014, 5, 28, 15, 14, 0);
-     dlog_print(DLOG_INFO, LOG_TAG, "Time Zone: %s\t, %d/%d/%d/%d/%d/%d\n", "Etc/GMT", 2014, 5, 28, 15, 14, 0);
-     dlog_print(DLOG_INFO, LOG_TAG, "_time_convert_itol test : %lld\n", time);
+	   // converts the given time to UTC time(number of seconds that have elapsed since January 1, 1970)
+	 long long int time = _time_convert_itol("Etc/GMT", 2014, 5, 28, 15, 14, 0);
+	 dlog_print(DLOG_INFO, LOG_TAG, "Time Zone: %s\t, %d/%d/%d/%d/%d/%d\n", "Etc/GMT", 2014, 5, 28, 15, 14, 0);
+	 dlog_print(DLOG_INFO, LOG_TAG, "_time_convert_itol test : %lld\n", time);
  * @endcode
  */
 
@@ -154,17 +154,17 @@ int i18n_ucalendar_get_now(i18n_udate *date);
  * @remarks Must release @a calendar using i18n_ucalendar_destroy().
  *
  * @param[in] zone_id The desired TimeZone ID \n
- *                    If @c 0, use the default time zone.
+ *					  If @c 0, use the default time zone.
  * @param[in] len The length of the zone ID,
- *                    otherwise @c -1 if null-terminated
+ *					  otherwise @c -1 if null-terminated
  * @param[in] locale The desired locale
- *                  If @c NULL, the default locale will be used.
+ *					If @c NULL, the default locale will be used.
  * @param[in] type The type of #I18N_UCALENDAR_DEFAULT to create \n
- *                  This can be #I18N_UCALENDAR_GREGORIAN to create the Gregorian
+ *					This can be #I18N_UCALENDAR_GREGORIAN to create the Gregorian
  * calendar for the locale, or #I18N_UCALENDAR_DEFAULT to create the default calendar for the locale (the
  * default calendar may also be Gregorian).
  * @param[out] calendar A pointer to an #i18n_ucalendar_h,
- *                    otherwise @c 0 if an error occurs
+ *					  otherwise @c 0 if an error occurs
  *
  * @return An #i18n_error_code_e error code
  * @retval #I18N_ERROR_NONE Successful
@@ -201,14 +201,14 @@ int i18n_ucalendar_clone(const i18n_ucalendar_h cal, i18n_ucalendar_h *identical
  * @details A display name is suitable for presentation to a user.
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  *
- * @param[in] calendar     The #i18n_ucalendar_h to query
- * @param[in] type         The desired display name format \n
- *                         One of #I18N_UCALENDAR_STANDARD, #I18N_UCALENDAR_SHORT_STANDARD, #I18N_UCALENDAR_DST, or #I18N_UCALENDAR_SHORT_DST
- * @param[in] locale       The desired locale for the display name
- * @param[out] result      A pointer to a buffer to receive the formatted number
+ * @param[in] calendar	   The #i18n_ucalendar_h to query
+ * @param[in] type		   The desired display name format \n
+ *						   One of #I18N_UCALENDAR_STANDARD, #I18N_UCALENDAR_SHORT_STANDARD, #I18N_UCALENDAR_DST, or #I18N_UCALENDAR_SHORT_DST
+ * @param[in] locale	   The desired locale for the display name
+ * @param[out] result	   A pointer to a buffer to receive the formatted number
  * @param[in] result_len The maximum size of the result
  * @param[out] buf_size_needed The total buffer size needed \n
- *              If greater than @a result_len, the output is truncated
+ *				If greater than @a result_len, the output is truncated
  *
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
@@ -222,7 +222,7 @@ int i18n_ucalendar_get_timezone_displayname(const i18n_ucalendar_h calendar, i18
  *
  * @param[in] calendar The #i18n_ucalendar_h to query
  * @param[out] is_in   If @c true @a calendar is currently in daylight savings time,
- *                     otherwise @c false
+ *					   otherwise @c false
  *
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
@@ -236,7 +236,7 @@ int i18n_ucalendar_is_in_daylight_time(const i18n_ucalendar_h calendar, i18n_ubo
  *
  * @param[in] cal The #i18n_ucalendar_h to modify
  * @param[in] field The field to set \n
- *              One of #I18N_UCALENDAR_ERA, #I18N_UCALENDAR_YEAR,
+ *				One of #I18N_UCALENDAR_ERA, #I18N_UCALENDAR_YEAR,
  * #I18N_UCALENDAR_MONTH, #I18N_UCALENDAR_WEEK_OF_YEAR, #I18N_UCALENDAR_WEEK_OF_MONTH,
  * #I18N_UCALENDAR_DATE, #I18N_UCALENDAR_DAY_OF_YEAR, #I18N_UCALENDAR_DAY_OF_WEEK,
  * #I18N_UCALENDAR_DAY_OF_WEEK_IN_MONTH, #I18N_UCALENDAR_AM_PM, #I18N_UCALENDAR_HOUR,
@@ -256,7 +256,7 @@ int i18n_ucalendar_set(i18n_ucalendar_h cal, i18n_ucalendar_date_fields_e field,
  *
  * @param[in] calendar The #i18n_ucalendar_h to modify
  * @param[in] attr The desired attribute \n
- *              One of #I18N_UCALENDAR_LENIENT, #I18N_UCALENDAR_FIRST_DAY_OF_WEEK,
+ *				One of #I18N_UCALENDAR_LENIENT, #I18N_UCALENDAR_FIRST_DAY_OF_WEEK,
  * or #I18N_UCALENDAR_MINIMAL_DAYS_IN_FIRST_WEEK.
  *
  * @param[in] val The new value of @a attr
@@ -274,7 +274,7 @@ int i18n_ucalendar_set_attribute(i18n_ucalendar_h calendar, i18n_ucalendar_attri
  *
  * @param[in] calendar The i18n_ucalendar to query
  * @param[in] attr The desired attribute \n
- *              One of #I18N_UCALENDAR_LENIENT, #I18N_UCALENDAR_FIRST_DAY_OF_WEEK,
+ *				One of #I18N_UCALENDAR_LENIENT, #I18N_UCALENDAR_FIRST_DAY_OF_WEEK,
  * or #I18N_UCALENDAR_MINIMAL_DAYS_IN_FIRST_WEEK.
  *
  * @param[out] val The value of @a attr
@@ -321,8 +321,8 @@ int i18n_ucalendar_set_milliseconds(i18n_ucalendar_h calendar, i18n_udate millis
  * @param[in] calendar The #i18n_ucalendar_h to set
  * @param[in] year The desired year
  * @param[in] month The desired month\n
- *          One of #I18N_UCALENDAR_JANUARY, #I18N_UCALENDAR_FEBRUARY, #I18N_UCALENDAR_MARCH, #I18N_UCALENDAR_APRIL, #I18N_UCALENDAR_MAY,
- *          #I18N_UCALENDAR_JUNE, #I18N_UCALENDAR_JULY, #I18N_UCALENDAR_AUGUST, #I18N_UCALENDAR_SEPTEMBER, #I18N_UCALENDAR_OCTOBER, #I18N_UCALENDAR_NOVEMBER, or #I18N_UCALENDAR_DECEMBER
+ *			One of #I18N_UCALENDAR_JANUARY, #I18N_UCALENDAR_FEBRUARY, #I18N_UCALENDAR_MARCH, #I18N_UCALENDAR_APRIL, #I18N_UCALENDAR_MAY,
+ *			#I18N_UCALENDAR_JUNE, #I18N_UCALENDAR_JULY, #I18N_UCALENDAR_AUGUST, #I18N_UCALENDAR_SEPTEMBER, #I18N_UCALENDAR_OCTOBER, #I18N_UCALENDAR_NOVEMBER, or #I18N_UCALENDAR_DECEMBER
  * @param[in] date The desired day of the month
  * @param[in] hour The desired hour of the day
  * @param[in] min The desired minute
@@ -361,8 +361,8 @@ int i18n_ucalendar_is_equivalent_to(const i18n_ucalendar_h calendar1, const i18n
  * #I18N_UCALENDAR_DAY_OF_WEEK_IN_MONTH, #I18N_UCALENDAR_AM_PM, #I18N_UCALENDAR_HOUR, #I18N_UCALENDAR_HOUR_OF_DAY, #I18N_UCALENDAR_MINUTE, #I18N_UCALENDAR_SECOND,
  * #I18N_UCALENDAR_MILLISECOND.
  * @param[in] amount The signed amount to add to the field \n
- *              If the amount causes the value to exceed to maximum or minimum values for that field,
- *              other fields are modified to preserve the magnitude of the change.
+ *				If the amount causes the value to exceed to maximum or minimum values for that field,
+ *				other fields are modified to preserve the magnitude of the change.
  *
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
@@ -388,32 +388,32 @@ int i18n_ucalendar_add(i18n_ucalendar_h calendar, i18n_ucalendar_date_fields_e f
 int i18n_ucalendar_get(const i18n_ucalendar_h calendar, i18n_ucalendar_date_fields_e field, int32_t *val);
 
 
-// Newly Added APIs
+/* Newly Added APIs */
 
 
 
 /**
  * @brief Returns the difference between the target time and the time this calendar object is currently set to.
  * @details If the target time is after the current calendar setting, the the returned value will be positive.
- *          The field parameter specifies the units of the return value.
- *          For example, if field is I18N_UCALENDAR_MONTH and i18n_ucalendar_get_field_difference returns 3,
- *          then the target time is 3 to less than 4 months after the current calendar setting. <br>
- *          As a side effect of this call, this calendar is advanced toward target by the given amount.
- *          That is, calling this function has the side effect of calling i18n_ucalendar_add on this calendar with the
- *          specified field and an amount equal to the return value from this function. <br>
- *          A typical way of using this function is to call it first with the largest field of interest, then with progressively smaller fields.
+ *			The field parameter specifies the units of the return value.
+ *			For example, if field is I18N_UCALENDAR_MONTH and i18n_ucalendar_get_field_difference returns 3,
+ *			then the target time is 3 to less than 4 months after the current calendar setting. <br>
+ *			As a side effect of this call, this calendar is advanced toward target by the given amount.
+ *			That is, calling this function has the side effect of calling i18n_ucalendar_add on this calendar with the
+ *			specified field and an amount equal to the return value from this function. <br>
+ *			A typical way of using this function is to call it first with the largest field of interest, then with progressively smaller fields.
  * @since_tizen 2.3.1
  *
  * @param[in] calendar The i18n_ucalendar_h to compare and update.
  * @param[in] target   The target date to compare to the current calendar setting.
- * @param[in] field    One of #I18N_UCALENDAR_ERA, #I18N_UCALENDAR_YEAR, #I18N_UCALENDAR_MONTH,
- *                     #I18N_UCALENDAR_WEEK_OF_YEAR, #I18N_UCALENDAR_WEEK_OF_MONTH, #I18N_UCALENDAR_DATE,
- *                     #I18N_UCALENDAR_DAY_OF_YEAR, #I18N_UCALENDAR_DAY_OF_WEEK, #I18N_UCALENDAR_DAY_OF_WEEK_IN_MONTH,
- *                     #I18N_UCALENDAR_AM_PM, #I18N_UCALENDAR_HOUR, #I18N_UCALENDAR_HOUR_OF_DAY, #I18N_UCALENDAR_MINUTE,
- *                     #I18N_UCALENDAR_SECOND, #I18N_UCALENDAR_MILLISECOND.
- *                     <strong>Please note</strong> that the returned value type is int32_t. In case of #I18N_UCALENDAR_MILLISECOND, maximal
- *                     difference between dates may be equal to the maximal value of the int32_t, which is 2147483647 (about one month difference).
- *                     If the difference is bigger, then the #I18N_ERROR_INVALID_PARAMETER error will be returned.
+ * @param[in] field	   One of #I18N_UCALENDAR_ERA, #I18N_UCALENDAR_YEAR, #I18N_UCALENDAR_MONTH,
+ *					   #I18N_UCALENDAR_WEEK_OF_YEAR, #I18N_UCALENDAR_WEEK_OF_MONTH, #I18N_UCALENDAR_DATE,
+ *					   #I18N_UCALENDAR_DAY_OF_YEAR, #I18N_UCALENDAR_DAY_OF_WEEK, #I18N_UCALENDAR_DAY_OF_WEEK_IN_MONTH,
+ *					   #I18N_UCALENDAR_AM_PM, #I18N_UCALENDAR_HOUR, #I18N_UCALENDAR_HOUR_OF_DAY, #I18N_UCALENDAR_MINUTE,
+ *					   #I18N_UCALENDAR_SECOND, #I18N_UCALENDAR_MILLISECOND.
+ *					   <strong>Please note</strong> that the returned value type is int32_t. In case of #I18N_UCALENDAR_MILLISECOND, maximal
+ *					   difference between dates may be equal to the maximal value of the int32_t, which is 2147483647 (about one month difference).
+ *					   If the difference is bigger, then the #I18N_ERROR_INVALID_PARAMETER error will be returned.
  * @param[out] status  A pointer to an i18n_error_code_e to receive any errors
  *
  * @return The date difference for the specified field.
@@ -426,12 +426,12 @@ int32_t i18n_ucalendar_get_field_difference(i18n_ucalendar_h calendar, i18n_udat
  *
  * @param[in] zone_type The system time zone type.
  * @param[in] region The ISO 3166 two-letter country code or UN M.49 three-digit
- *      area code. When @c NULL, no filtering done by region.
+ *		area code. When @c NULL, no filtering done by region.
  * @param[in] raw_offset An offset from GMT in milliseconds, ignoring the effect
- *      of daylight savings time, if any. When @c NULL, no filtering done by zone offset.
+ *		of daylight savings time, if any. When @c NULL, no filtering done by zone offset.
  *
  * @param[out] enumeration A Pointer to the enumeration object that the caller must dispose of using
- *      i18n_uenumeration_destroy(), or@c  NULL upon failure.
+ *		i18n_uenumeration_destroy(), or@c  NULL upon failure.
  *
  * @return Error code. Error codes not listed below are described in #i18n_error_code_e
  * @retval #I18N_ERROR_NONE Successful
@@ -444,13 +444,13 @@ int i18n_ucalendar_timezone_id_enumeration_create(i18n_system_timezone_type_e zo
  * @since_tizen 2.3.1
  *
  * @param[out] enumeration A pointer to the enumeration object that the caller must dispose of using
- *      i18n_uenumeration_destroy(), or @c NULL upon failure.
+ *		i18n_uenumeration_destroy(), or @c NULL upon failure.
  *
  * @return Error code. Error codes not listed below are described in #i18n_error_code_e
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_ucalendar_timezones_create(i18n_uenumeration_h * enumeration);
+int i18n_ucalendar_timezones_create(i18n_uenumeration_h *enumeration);
 
 /**
  * @brief Creates an enumeration over all time zones associated with the given country.
@@ -460,25 +460,25 @@ int i18n_ucalendar_timezones_create(i18n_uenumeration_h * enumeration);
  * @param[in] country The ISO 3166 two-letter country code, or @c NULL to retrieve zones not affiliated with any country
  *
  * @param[out] enumeration A pointer to the enumeration object that the caller must dispose of using
- *      i18n_uenumeration_destroy(), or @c NULL upon failure.
+ *		i18n_uenumeration_destroy(), or @c NULL upon failure.
  *
  * @return Error code. Error codes not listed below are described in #i18n_error_code_e
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_ucalendar_country_timezones_create(const char *country, i18n_uenumeration_h * enumeration);
+int i18n_ucalendar_country_timezones_create(const char *country, i18n_uenumeration_h *enumeration);
 
 /**
  * @brief Returns the default time zone.
  * @details The default is determined initially by querying the host operating system.
- *      It may be changed with i18n_ucalendar_set_default_timezone()
- *      or with the C++ TimeZone API.
+ *		It may be changed with i18n_ucalendar_set_default_timezone()
+ *		or with the C++ TimeZone API.
  * @remarks The specific error code can be obtained using the get_last_result()
- *      method. Error codes are described in #i18n_error_code_e description.
+ *		method. Error codes are described in #i18n_error_code_e description.
  * @since_tizen 2.3.1
  *
  * @param[out] result A buffer to receive the result, or @c NULL
- * @param[in]     result_capacity The capacity of the @c result buffer
+ * @param[in]	  result_capacity The capacity of the @c result buffer
  *
  * @return The @c result string length, not including the terminating @c NULL.
  * @exception #I18N_ERROR_NONE Successful
@@ -504,8 +504,8 @@ int i18n_ucalendar_set_timezone(i18n_ucalendar_h calendar, const i18n_uchar *zon
 /**
  * @brief Gets the ID of the calendar's time zone.
  * @remarks The specific error code can be obtained using the get_last_result()
- *      method. Error codes are described in Exceptions section and
- *      #i18n_error_code_e description.
+ *		method. Error codes are described in Exceptions section and
+ *		#i18n_error_code_e description.
  * @since_tizen 2.3.1
  *
  * @param[in] calendar The #i18n_ucalendar_h to query.
@@ -521,11 +521,11 @@ int32_t i18n_ucalendar_get_timezone_id(const i18n_ucalendar_h calendar, i18n_uch
 /**
  * @brief Sets the Gregorian Calendar change date.
  * @details This is the point when the switch from Julian dates to Gregorian dates
- *      occurred. Default is 00:00:00 local time, October 15, 1582.
- *      Previous to this time and date will be Julian dates.
- *      This function works only for Gregorian calendars. If the #i18n_ucalendar_h
- *      is not an instance of a Gregorian calendar, then a
- *      #I18N_ERROR_NOT_SUPPORTED error code is set.
+ *		occurred. Default is 00:00:00 local time, October 15, 1582.
+ *		Previous to this time and date will be Julian dates.
+ *		This function works only for Gregorian calendars. If the #i18n_ucalendar_h
+ *		is not an instance of a Gregorian calendar, then a
+ *		#I18N_ERROR_NOT_SUPPORTED error code is set.
  * @since_tizen 2.3.1
  *
  * @param[in] calendar The calendar object.
@@ -542,11 +542,11 @@ int i18n_ucalendar_set_gregorian_change(i18n_ucalendar_h calendar, i18n_udate da
 /**
  * @brief Gets the Gregorian Calendar change date.
  * @details This is the point when the switch from Julian dates to Gregorian dates
- *      occurred. Default is 00:00:00 local time, October 15, 1582.
- *      Previous to this time and date will be Julian dates.
- *      This function works only for Gregorian calendars. If the #i18n_ucalendar_h
- *      is not an instance of a Gregorian calendar, then a
- *      #I18N_ERROR_NOT_SUPPORTED error code is set.
+ *		occurred. Default is 00:00:00 local time, October 15, 1582.
+ *		Previous to this time and date will be Julian dates.
+ *		This function works only for Gregorian calendars. If the #i18n_ucalendar_h
+ *		is not an instance of a Gregorian calendar, then a
+ *		#I18N_ERROR_NOT_SUPPORTED error code is set.
  * @since_tizen 2.3.1
  *
  * @param[in] calendar The calendar object.
@@ -563,9 +563,9 @@ int i18n_ucalendar_get_gregorian_change(const i18n_ucalendar_h calendar, i18n_ud
 /**
  * @brief Gets a locale for which calendars are available.
  * @details A #i18n_ucalendar_h in a locale returned by this function will contain
- *      the correct day and month names for the locale.
+ *		the correct day and month names for the locale.
  * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section.
+ *			Error codes are described in Exceptions section.
  * @since_tizen 2.3.1
  *
  * @param[in] locale_index The index of the desired locale.
@@ -575,13 +575,13 @@ int i18n_ucalendar_get_gregorian_change(const i18n_ucalendar_h calendar, i18n_ud
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid parameter
  * @see i18n_ucalendar_count_available()
  */
-const char * i18n_ucalendar_get_available(int32_t locale_index);
+const char *i18n_ucalendar_get_available(int32_t locale_index);
 
 /**
  * @brief Determines how many locales have calendars available.
  * @details This function is most useful as determining the loop ending condition for calls to i18n_ucalendar_get_available().
  * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section.
+ *			Error codes are described in Exceptions section.
  * @since_tizen 2.3.1
  *
  * @return The number of locales for which calendars are available.
@@ -598,8 +598,8 @@ int32_t i18n_ucalendar_count_available(void);
  * @param[in] calendar The #i18n_ucalendar_h to set.
  * @param[in] year The desired year.
  * @param[in] month The desired month; one of #I18N_UCALENDAR_JANUARY, #I18N_UCALENDAR_FEBRUARY, #I18N_UCALENDAR_MARCH,
- *      #I18N_UCALENDAR_APRIL, #I18N_UCALENDAR_MAY, #I18N_UCALENDAR_JUNE, #I18N_UCALENDAR_JULY, #I18N_UCALENDAR_AUGUST,
- *      #I18N_UCALENDAR_SEPTEMBER, #I18N_UCALENDAR_OCTOBER, #I18N_UCALENDAR_NOVEMBER, #I18N_UCALENDAR_DECEMBER
+ *		#I18N_UCALENDAR_APRIL, #I18N_UCALENDAR_MAY, #I18N_UCALENDAR_JUNE, #I18N_UCALENDAR_JULY, #I18N_UCALENDAR_AUGUST,
+ *		#I18N_UCALENDAR_SEPTEMBER, #I18N_UCALENDAR_OCTOBER, #I18N_UCALENDAR_NOVEMBER, #I18N_UCALENDAR_DECEMBER
  * @param[in] date The desired day of the month.
  *
  * @return Error code. Error codes not listed below are described in #i18n_error_code_e
@@ -616,29 +616,29 @@ int i18n_ucalendar_set_date(i18n_ucalendar_h calendar, int32_t year, int32_t mon
 /**
  * @brief Adds a specified signed amount to a particular field in a #i18n_ucalendar_h.
  * @details This will not modify more significant fields in the calendar.
- *      Rolling by a positive value always means moving forward in time
- *      (unless the limit of the field is reached, in which case it may pin or wrap),
- *      so for Gregorian calendar, starting with 100 BC and
- *      rolling the year by +1 results in 99 BC.
- *      When eras have a definite beginning and end (as in the Chinese calendar,
- *      or as in most eras in the Japanese calendar) then rolling the year past either
- *      limit of the era will cause the year to wrap around. When eras only have a limit at one end,
- *      then attempting to roll the year past that limit will result in pinning the year at that limit.
- *      Note that for most calendars in which era 0 years move forward in time (such as Buddhist, Hebrew, or Islamic),
- *      it is possible for add or roll to result in negative years for era 0 (that is the
- *      only way to represent years before the calendar epoch).
+ *		Rolling by a positive value always means moving forward in time
+ *		(unless the limit of the field is reached, in which case it may pin or wrap),
+ *		so for Gregorian calendar, starting with 100 BC and
+ *		rolling the year by +1 results in 99 BC.
+ *		When eras have a definite beginning and end (as in the Chinese calendar,
+ *		or as in most eras in the Japanese calendar) then rolling the year past either
+ *		limit of the era will cause the year to wrap around. When eras only have a limit at one end,
+ *		then attempting to roll the year past that limit will result in pinning the year at that limit.
+ *		Note that for most calendars in which era 0 years move forward in time (such as Buddhist, Hebrew, or Islamic),
+ *		it is possible for add or roll to result in negative years for era 0 (that is the
+ *		only way to represent years before the calendar epoch).
  * @since_tizen 2.3.1
  *
  * @param[in] calendar The #i18n_ucalendar_h to which to add.
  * @param[in] field The field to which to add the signed value; one of #I18N_UCALENDAR_ERA,
- *      #I18N_UCALENDAR_YEAR, #I18N_UCALENDAR_MONTH, #I18N_UCALENDAR_WEEK_OF_YEAR,
- *      #I18N_UCALENDAR_WEEK_OF_MONTH, #I18N_UCALENDAR_DATE, #I18N_UCALENDAR_DAY_OF_YEAR,
- *      #I18N_UCALENDAR_DAY_OF_WEEK, #I18N_UCALENDAR_DAY_OF_WEEK_IN_MONTH, #I18N_UCALENDAR_AM_PM,
- *      #I18N_UCALENDAR_HOUR, #I18N_UCALENDAR_HOUR_OF_DAY, #I18N_UCALENDAR_MINUTE,
- *      #I18N_UCALENDAR_SECOND, #I18N_UCALENDAR_MILLISECOND.
+ *		#I18N_UCALENDAR_YEAR, #I18N_UCALENDAR_MONTH, #I18N_UCALENDAR_WEEK_OF_YEAR,
+ *		#I18N_UCALENDAR_WEEK_OF_MONTH, #I18N_UCALENDAR_DATE, #I18N_UCALENDAR_DAY_OF_YEAR,
+ *		#I18N_UCALENDAR_DAY_OF_WEEK, #I18N_UCALENDAR_DAY_OF_WEEK_IN_MONTH, #I18N_UCALENDAR_AM_PM,
+ *		#I18N_UCALENDAR_HOUR, #I18N_UCALENDAR_HOUR_OF_DAY, #I18N_UCALENDAR_MINUTE,
+ *		#I18N_UCALENDAR_SECOND, #I18N_UCALENDAR_MILLISECOND.
  * @param[in] amount The signed amount to add to the @c field. If the amount causes the
- *      value to exceed to maximum or minimum values for that field, the field is pinned
- *      to a permissible value.
+ *		value to exceed to maximum or minimum values for that field, the field is pinned
+ *		to a permissible value.
  *
  * @return Error code. Error codes not listed below are described in #i18n_error_code_e
  * @retval #I18N_ERROR_NONE Successful
@@ -652,11 +652,11 @@ int i18n_ucalendar_roll(i18n_ucalendar_h calendar, i18n_ucalendar_date_fields_e 
  * @brief Determines if a field in a #i18n_ucalendar_h is set.
  * @details All fields are represented as 32-bit integers.
  * @remarks The specific error code can be obtained using the get_last_result()
- *      method. Error codes are described in Exceptions section.
+ *		method. Error codes are described in Exceptions section.
  * @since_tizen 2.3.1
  *
  * @param[in] calendar The #i18n_ucalendar_h to query.
- * @param[in] field    The desired field.
+ * @param[in] field	   The desired field.
  *
  * @return @c true if field is set, @c false otherwise.
  * @exception #I18N_ERROR_NONE Successful
@@ -675,7 +675,7 @@ i18n_ubool i18n_ucalendar_is_set(const i18n_ucalendar_h calendar, i18n_ucalendar
  * @since_tizen 2.3.1
  *
  * @param[in] calendar The #i18n_ucalendar_h containing the field to clear.
- * @param[in] field    The field to clear.
+ * @param[in] field	   The field to clear.
  *
  * @return Error code
  * @retval #I18N_ERROR_NONE Successful
@@ -710,21 +710,21 @@ int i18n_ucalendar_clear(i18n_ucalendar_h calendar);
  * @brief Determines a limit for a field in an #i18n_ucalendar_h.
  * @details A limit is a maximum or minimum value for a field.
  * @remarks The specific error code can be obtained using the get_last_result() method.
- *          Error codes are described in Exceptions section and #i18n_error_code_e description.
+ *			Error codes are described in Exceptions section and #i18n_error_code_e description.
  * @since_tizen 2.3.1
  *
  * @param[in] calendar The #i18n_ucalendar_h to query.
- * @param[in] field    The desired field; one of #I18N_UCALENDAR_ERA, #I18N_UCALENDAR_YEAR, #I18N_UCALENDAR_MONTH,
- *                     #I18N_UCALENDAR_WEEK_OF_YEAR, #I18N_UCALENDAR_WEEK_OF_MONTH, #I18N_UCALENDAR_DATE,
- *                     #I18N_UCALENDAR_DAY_OF_YEAR, #I18N_UCALENDAR_DAY_OF_WEEK, #I18N_UCALENDAR_DAY_OF_WEEK_IN_MONTH,
- *                     #I18N_UCALENDAR_AM_PM, #I18N_UCALENDAR_HOUR, #I18N_UCALENDAR_HOUR_OF_DAY,
- *                     #I18N_UCALENDAR_MINUTE, #I18N_UCALENDAR_SECOND, #I18N_UCALENDAR_MILLISECOND,
- *                     #I18N_UCALENDAR_ZONE_OFFSET, #I18N_UCALENDAR_DST_OFFSET, #I18N_UCALENDAR_YEAR_WOY,
- *                     #I18N_UCALENDAR_DOW_LOCAL, #I18N_UCALENDAR_EXTENDED_YEAR, #I18N_UCALENDAR_JULIAN_DAY,
- *                     #I18N_UCALENDAR_MILLISECONDS_IN_DAY, #I18N_UCALENDAR_IS_LEAP_MONTH.
- * @param[in] type     The desired critical point; one of #I18N_UCALENDAR_MINIMUM, #I18N_UCALENDAR_MAXIMUM,
- *                     #I18N_UCALENDAR_GREATEST_MINIMUM, #I18N_UCALENDAR_LEAST_MAXIMUM,
- *                     #I18N_UCALENDAR_ACTUAL_MINIMUM, #I18N_UCALENDAR_ACTUAL_MAXIMUM.
+ * @param[in] field	   The desired field; one of #I18N_UCALENDAR_ERA, #I18N_UCALENDAR_YEAR, #I18N_UCALENDAR_MONTH,
+ *					   #I18N_UCALENDAR_WEEK_OF_YEAR, #I18N_UCALENDAR_WEEK_OF_MONTH, #I18N_UCALENDAR_DATE,
+ *					   #I18N_UCALENDAR_DAY_OF_YEAR, #I18N_UCALENDAR_DAY_OF_WEEK, #I18N_UCALENDAR_DAY_OF_WEEK_IN_MONTH,
+ *					   #I18N_UCALENDAR_AM_PM, #I18N_UCALENDAR_HOUR, #I18N_UCALENDAR_HOUR_OF_DAY,
+ *					   #I18N_UCALENDAR_MINUTE, #I18N_UCALENDAR_SECOND, #I18N_UCALENDAR_MILLISECOND,
+ *					   #I18N_UCALENDAR_ZONE_OFFSET, #I18N_UCALENDAR_DST_OFFSET, #I18N_UCALENDAR_YEAR_WOY,
+ *					   #I18N_UCALENDAR_DOW_LOCAL, #I18N_UCALENDAR_EXTENDED_YEAR, #I18N_UCALENDAR_JULIAN_DAY,
+ *					   #I18N_UCALENDAR_MILLISECONDS_IN_DAY, #I18N_UCALENDAR_IS_LEAP_MONTH.
+ * @param[in] type	   The desired critical point; one of #I18N_UCALENDAR_MINIMUM, #I18N_UCALENDAR_MAXIMUM,
+ *					   #I18N_UCALENDAR_GREATEST_MINIMUM, #I18N_UCALENDAR_LEAST_MAXIMUM,
+ *					   #I18N_UCALENDAR_ACTUAL_MINIMUM, #I18N_UCALENDAR_ACTUAL_MAXIMUM.
  *
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
@@ -737,8 +737,8 @@ int32_t i18n_ucalendar_get_limit(const i18n_ucalendar_h calendar, i18n_ucalendar
  * @brief Gets the locale for this @c calendar object.
  * @details You can choose between valid and actual locale.
  * @remarks The specific error code can be obtained using the get_last_result()
- *      method. Error codes are described in Exceptions section and
- *      #i18n_error_code_e description.
+ *		method. Error codes are described in Exceptions section and
+ *		#i18n_error_code_e description.
  * @since_tizen 2.3.1
  *
  * @param[in] calendar The calendar object
@@ -753,7 +753,7 @@ const char *i18n_ucalendar_get_locale_by_type(const i18n_ucalendar_h calendar, i
 /**
  * @brief Returns the timezone data version currently used by ICU.
  * @remarks The specific error code can be obtained using the get_last_result()
- *      method. Error codes are described in #i18n_error_code_e description.
+ *		method. Error codes are described in #i18n_error_code_e description.
  * @since_tizen 2.3.1
  *
  * @return The version string, such as "2007f".
@@ -764,8 +764,8 @@ const char *i18n_ucalendar_get_tz_data_version(void);
 /**
  * @brief Returns the canonical system timezone ID or the normalized custom time zone ID for the given time zone ID.
  * @remarks The specific error code can be obtained using the get_last_result()
- *      method. Error codes are described in Exceptions section and
- *      #i18n_error_code_e description.
+ *		method. Error codes are described in Exceptions section and
+ *		#i18n_error_code_e description.
  * @since_tizen 2.3.1
  *
  * @param[in] id The input timezone ID to be canonicalized.
@@ -778,13 +778,13 @@ const char *i18n_ucalendar_get_tz_data_version(void);
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int32_t i18n_ucalendar_get_canonical_timezone_id(const i18n_uchar *id, int32_t length, i18n_uchar *result, int32_t result_capacity,  i18n_ubool *is_system_id);
+int32_t i18n_ucalendar_get_canonical_timezone_id(const i18n_uchar *id, int32_t length, i18n_uchar *result, int32_t result_capacity,	 i18n_ubool *is_system_id);
 
 /**
  * @brief Gets the resource keyword value string designating the calendar type for the #i18n_ucalendar_h.
  * @remarks The specific error code can be obtained using the get_last_result()
- *      method. Error codes are described in Exceptions section and
- *      #i18n_error_code_e description.
+ *		method. Error codes are described in Exceptions section and
+ *		#i18n_error_code_e description.
  * @since_tizen 2.3.1
  *
  * @param[in] calendar The #i18n_ucalendar_h to query.
@@ -798,15 +798,15 @@ const char *i18n_ucalendar_get_type(const i18n_ucalendar_h calendar);
 /**
  * @brief Given a key and a locale, returns an array of string values in a preferred order that would make a difference.
  * @details These are all and only those values where the open (creation) of the service with the
- *      locale formed from the input locale plus input keyword and that value
- *      has different behavior than creation with the input locale alone.
+ *		locale formed from the input locale plus input keyword and that value
+ *		has different behavior than creation with the input locale alone.
  * @since_tizen 2.3.1
  *
  * @param[in] key One of the keys supported by this service. For now, only "calendar" is supported.
  * @param[in] locale The locale
  * @param[in] commonly_used If set to @c true it will return only commonly used values with
- *      the given locale in preferred order. Otherwise, it will return all the available
- *      values for the locale.
+ *		the given locale in preferred order. Otherwise, it will return all the available
+ *		values for the locale.
  *
  * @param[out] enumeration A pointer to the string enumeration over keyword values for the given key and the locale.
  *
@@ -818,14 +818,14 @@ int i18n_ucalendar_get_keyword_values_for_locale(const char *key, const char *lo
 
 /**
  * @brief Returns whether the given day of the week is a weekday, a weekend day,
- *      or a day that transitions from one to the other, for the locale and calendar system
- *      associated with this @c #i18n_ucalendar_h (the locale's region is often the most determinant factor).
+ *		or a day that transitions from one to the other, for the locale and calendar system
+ *		associated with this @c #i18n_ucalendar_h (the locale's region is often the most determinant factor).
  * @details If a transition occurs at midnight, then the days before and after the
- *      transition will have the type #I18N_UCALENDAR_WEEKDAY or #I18N_UCALENDAR_WEEKEND.
- *      If a transition occurs at a time other than midnight, then the day of the
- *      transition will have the type #I18N_UCALENDAR_WEEKEND_ONSET or #I18N_UCALENDAR_WEEKEND_CEASE.
- *      In this case, the function i18n_ucalendar_get_weekend_transition() will
- *      return the point of transition.
+ *		transition will have the type #I18N_UCALENDAR_WEEKDAY or #I18N_UCALENDAR_WEEKEND.
+ *		If a transition occurs at a time other than midnight, then the day of the
+ *		transition will have the type #I18N_UCALENDAR_WEEKEND_ONSET or #I18N_UCALENDAR_WEEKEND_CEASE.
+ *		In this case, the function i18n_ucalendar_get_weekend_transition() will
+ *		return the point of transition.
  * @since_tizen 2.3.1
  *
  * @param[in] calendar The #i18n_ucalendar_h to query.
@@ -842,14 +842,14 @@ int i18n_ucalendar_get_day_of_week_type(const i18n_ucalendar_h calendar, i18n_uc
 /**
  * @brief Returns the time during the day at which the weekend begins or ends in this calendar system.
  * @details If i18n_ucalendar_get_day_of_week_type() returns #I18N_UCALENDAR_WEEKEND_ONSET
- *      for the specified @c day_of_week, return the time at which the weekend begins. If
- *      i18n_ucalendar_get_day_of_week_type() returns #I18N_UCALENDAR_WEEKEND_CEASE for
- *      the specified @c day_of_week, return the time at which the weekend ends. If
- *      i18n_ucalendar_get_day_of_week_type() returns some other #i18n_ucalendar_weekday_type_e
- *      for the specified @c day_of_week, it is an error condition (#I18N_ERROR_INVALID_PARAMETER).
+ *		for the specified @c day_of_week, return the time at which the weekend begins. If
+ *		i18n_ucalendar_get_day_of_week_type() returns #I18N_UCALENDAR_WEEKEND_CEASE for
+ *		the specified @c day_of_week, return the time at which the weekend ends. If
+ *		i18n_ucalendar_get_day_of_week_type() returns some other #i18n_ucalendar_weekday_type_e
+ *		for the specified @c day_of_week, it is an error condition (#I18N_ERROR_INVALID_PARAMETER).
  * @remarks The specific error code can be obtained using the get_last_result()
- *      method. Error codes are described in Exceptions section and
- *      #i18n_error_code_e description.
+ *		method. Error codes are described in Exceptions section and
+ *		#i18n_error_code_e description.
  * @since_tizen 2.3.1
  *
  * @param[in] calendar The #i18n_ucalendar_h to query.
@@ -859,13 +859,13 @@ int i18n_ucalendar_get_day_of_week_type(const i18n_ucalendar_h calendar, i18n_uc
  * @exception #I18N_ERROR_NONE Successful
  * @exception #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int32_t  i18n_ucalendar_get_weekend_transition(const i18n_ucalendar_h calendar, i18n_ucalendar_days_of_week_e day_of_week);
+int32_t	 i18n_ucalendar_get_weekend_transition(const i18n_ucalendar_h calendar, i18n_ucalendar_days_of_week_e day_of_week);
 
 /**
  * @brief Returns @c true if the given #i18n_udate is in the weekend in this calendar system.
  * @remarks The specific error code can be obtained using the get_last_result()
- *      method. Error codes are described in Exceptions section and
- *      #i18n_error_code_e description.
+ *		method. Error codes are described in Exceptions section and
+ *		#i18n_error_code_e description.
  * @since_tizen 2.3.1
  *
  * @param[in] calendar The #i18n_ucalendar_h to query.
@@ -879,18 +879,18 @@ i18n_ubool i18n_ucalendar_is_weekend(i18n_ucalendar_h calendar, i18n_udate date)
 
 /**
  * @brief Get the #i18n_udate for the next/previous time zone transition relative
- *      to the calendar's current date, in the time zone to which the calendar is currently set.
+ *		to the calendar's current date, in the time zone to which the calendar is currently set.
  * @details If there is no known time zone transition of the requested type relative
- *      to the calendar's date, the function returns @c false.
+ *		to the calendar's date, the function returns @c false.
  * @remarks The specific error code can be obtained using the get_last_result()
- *      method. Error codes are described in Exceptions section and
- *      #i18n_error_code_e description.
+ *		method. Error codes are described in Exceptions section and
+ *		#i18n_error_code_e description.
  * @since_tizen 2.3.1
  *
  * @param[in] calendar The #i18n_ucalendar_h to query.
  * @param[in] type The type of transition desired.
  * @param[out] transition A pointer to a #i18n_udate to be set to the transition time.
- *      If the function returns @c false, the value set is unspecified.
+ *		If the function returns @c false, the value set is unspecified.
  *
  * @return @c true if the given #i18n_udate is in the weekend in this calendar system, @c false otherwise.
  * @exception #I18N_ERROR_NONE Successful
