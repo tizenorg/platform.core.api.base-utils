@@ -2811,6 +2811,99 @@ typedef enum {
 	I18N_USCRIPT_CODE_LIMIT					   = 159 /**< Count of i18n_uscript_code_e enumerators*/
 } i18n_uscript_code_e;
 
+/**
+ * @brief The base class for all formats.
+ * @since_tizen 3.0
+ */
+typedef void* i18n_format_h;
+
+/**
+ * @brief Handle for object that represents a formatter for measure objects.
+ * @since_tizen 3.0
+ */
+typedef void* i18n_measure_format_h;
+
+/**
+ * @brief Constants for various widths.
+ * @since_tizen 3.0
+ */
+typedef enum {
+    I18N_UMEASFMT_WIDTH_WIDE = 0,     /**< Spell out measure units */
+    I18N_UMEASFMT_WIDTH_SHORT = 1,    /**< Abbreviate measure units */
+    I18N_UMEASFMT_WIDTH_NARROW = 2,   /**< Use symbols for measure units when possible */
+    I18N_UMEASFMT_WIDTH_NUMERIC = 3,  /**< Completely omit measure units when possible
+                                      For example, format '5 hours, 37 minutes' as '5:37' */
+    I18N_UMEASFMT_WIDTH_COUNT = 4,    /**< Count of values in this enum */
+} i18n_umeasure_width_format_e;
+
+/**
+ * @brief The class used for formatting i18n_format_h and its subclasses.
+ * @since_tizen 3.0
+ */
+typedef void* i18n_formattable_h;
+
+/**
+ * @brief Lets the callers distinguish between the two types of i18n_formattable_h constructors.
+ * @since_tizen 3.0
+ */
+typedef enum {
+    I18N_FORMATTABLE_IS_DATE = 0
+} i18n_formattable_is_date_e;
+
+/**
+ * @brief Selector for flavor of data type contained within a i18n_formattable_h object.
+ * @since_tizen 3.0
+ */
+typedef enum {
+    I18N_FORMATTABLE_K_DATE = 0,    /**< Selector indicating a UDate value */
+    I18N_FORMATTABLE_K_DOUBLE = 1,  /**< Selector indicating a double value */
+    I18N_FORMATTABLE_K_LONG = 2,    /**< Selector indicating a 32-bit integer value */
+    I18N_FORMATTABLE_K_STRING = 3,  /**< Selector indicating a UnicodeString value */
+    I18N_FORMATTABLE_K_ARRAY = 4,   /**< Selector indicating an array of i18n_formattable_h */
+    I18N_FORMATTABLE_K_INT64 = 5,   /**< Selector indicating a 64-bit integer value */
+    I18N_FORMATTABLE_K_OBJECT = 6,  /**< Selector indicating a UObject value */
+} i18n_formattable_type_e;
+
+/**
+ * @brief Used i18n_format_h and its subclasses to identify fields in formatted output.
+ * @since_tizen 3.0
+ */
+typedef void* i18n_field_position_h;
+
+/**
+ * @brief An amount of a specified unit, consisting of a number and a Unit.
+ * @since_tizen 3.0
+ */
+typedef void* i18n_measure_h;
+/**
+ * @brief A unit such as length, mass, volume, currency, etc.
+ * @since_tizen 3.0
+ */
+typedef void* i18n_measure_unit_h;
+
+/**
+ * @brief Callback function for i18n_measure_unit_get_available_types()
+ *        that returns an enumeration over all recognized types.
+ * @since_tizen 3.0
+ *
+ * @param[in] type_id    The type ID
+ * @param[in] user_data  The user data passed to the callback function
+ *
+ * @return @c true to continue with the next iteration of the loop,
+ *         otherwise @c false to break out of the loop.
+ */
+typedef bool (*i18n_measure_unit_types_cb)(const char *type_id, void* user_data);
+
+/**
+ * @brief Selector for flavor of data type contained within a i18n_formattable_h object.
+ * @since_tizen 3.0
+ */
+typedef enum {
+    I18N_ULOC_ACTUAL_LOCALE = 0,    /**< This is locale the data actually comes from */
+    I18N_ULOC_VALID_LOCALE = 1,     /**< This is the most specific locale supported by ICU */
+    ULOC_REQUESTED_LOCALE = 2,      /**< This is the requested locale (deprecated) */
+} i18n_uloc_data_locale_type_e;
+
 #ifdef __cplusplus
 }
 #endif
