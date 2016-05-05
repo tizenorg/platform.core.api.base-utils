@@ -66,20 +66,5 @@ cat LICENSE.ICU >> %{buildroot}/usr/share/license/%{name}
 
 %files devel
 %defattr(-,root,root,-)
-%{_includedir}/base/utils_i18n_ucalendar.h
-%{_includedir}/base/utils_i18n_udate.h
-%{_includedir}/base/utils_i18n_udatepg.h
-%{_includedir}/base/utils_i18n_ulocale.h
-%{_includedir}/base/utils_i18n_unumber.h
-%{_includedir}/base/utils_i18n_uchar.h
-%{_includedir}/base/utils_i18n_ucollator.h
-%{_includedir}/base/utils_i18n_unormalization.h
-%{_includedir}/base/utils_i18n_usearch.h
-%{_includedir}/base/utils_i18n_ustring.h
-%{_includedir}/base/utils_i18n_timezone.h
-%{_includedir}/base/utils_i18n_types.h
-%{_includedir}/base/utils_i18n_uenumeration.h
-%{_includedir}/base/utils_i18n_uset.h
-%{_includedir}/base/utils_i18n_ubrk.h
-%{_includedir}/base/utils_i18n.h
+%{_includedir}/base/utils_i18n*.h
 %{_libdir}/pkgconfig/*.pc
