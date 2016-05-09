@@ -35,6 +35,7 @@
 #include <utils_i18n_formattable.h>
 #include <utils_i18n_measure_unit.h>
 #include <utils_i18n_measure.h>
+#include <utils_i18n_format.h>
 
 /**
  * @file utils_i18n.h
@@ -138,6 +139,10 @@ extern "C" {
  * <tr>
  *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_MODULE</td>
  *	  <td>The Measure module represents an amount of a specified unit, consisting of a number and a unit.</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_FORMAT_MODULE</td>
+ *	  <td>The Format module represents the base class for all formats.</td>
  * </tr>
  * </table>
  *
