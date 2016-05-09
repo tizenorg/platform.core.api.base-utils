@@ -38,6 +38,9 @@ cmake . -DCMAKE_INSTALL_PREFIX=%{_prefix} -DLIB_INSTALL_DIR:PATH=%{_libdir} -DIN
 %if "%{profile}" == "mobile"
     -DTIZEN_MOBILE=YES \
 %endif
+%if "%{profile}" == "common"
+    -DTIZEN_MOBILE=YES \
+%endif
 
 make %{?jobs:-j%jobs}
 
