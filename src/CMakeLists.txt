@@ -34,6 +34,7 @@ SET(BASEUTILS_SRCS
     utils_i18n_ubrk.c
     utils_i18n_timezone.cpp
     utils_i18n_formattable.cpp
+    utils_i18n_measure_unit.cpp
 )
 
 ADD_LIBRARY(${target_name} SHARED ${BASEUTILS_SRCS}
@@ -71,3 +72,4 @@ INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/${INC_DIR}/utils_i18n_ubrk.h DESTINATI
 INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/${INC_DIR}/utils_i18n.h DESTINATION ${INCLUDE_INSTALL_DIR}/base)
 INSTALL(FILES ${CMAKE_CURRENT_BINARY_DIR}/${pc_name}.pc DESTINATION ${LIB_INSTALL_DIR}/pkgconfig)
 INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/${INC_DIR}/utils_i18n_formattable.h DESTINATION ${INCLUDE_INSTALL_DIR}/base)
+INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/${INC_DIR}/utils_i18n_measure_unit.h DESTINATION ${INCLUDE_INSTALL_DIR}/base)
