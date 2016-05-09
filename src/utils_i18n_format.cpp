@@ -88,23 +88,14 @@ int i18n_format_parse_object(char **source, i18n_formattable_h *result)
     return _i18n_error_mapping(status);
 }
 
-int i18n_format_get_locale(i18n_uloc_data_locale_type_e type, char **language, char **country)
+int i18n_format_get_locale(i18n_format_h format, i18n_uloc_data_locale_type_e type, char **language, char **country)
 {
+    retv_if(format == NULL, I18N_ERROR_INVALID_PARAMETER);
     UErrorCode status = U_ZERO_ERROR;
 
-    Locale locale = Format::getLocale(type, status);
+    Locale locale = ((Format *) format)->getLocale(type, status);
     *language = locale->getLanguage();
     *country = locale->getCountry();
-
-    return _i18n_error_mapping(status);
-}
-
-int i18n_format_get_locale_id(i18n_uloc_data_locale_type_e type, char **id)
-{
-    UErrorCode status = U_ZERO_ERROR;
-
-    Locale locale = Format::getLocale(type, status);
-    *id = locale->getName();
 
     return _i18n_error_mapping(status);
 }

@@ -32,6 +32,7 @@
 #include <utils_i18n_uenumeration.h>
 #include <utils_i18n_uset.h>
 #include <utils_i18n_ubrk.h>
+#include <utils_i18n_format.h>
 
 /**
  * @file utils_i18n.h
@@ -68,6 +69,10 @@ extern "C" {
  * <tr>
  *	  <td>@ref CAPI_BASE_UTILS_I18N_TIMEZONE_MODULE</td>
  *	  <td>The Timezone module represents a time zone offset, and also figures out daylight savings.</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_FORMAT_MODULE</td>
+ *	  <td>The Format module represents the base class for all formats.</td>
  * </tr>
  * <tr>
  *	  <td>@ref CAPI_BASE_UTILS_I18N_UENUMERATION_MODULE</td>
@@ -1777,6 +1782,31 @@ extern "C" {
  *	  <td>@ref CAPI_BASE_UTILS_I18N_USTRING_MODULE</td>
  *	  <td>#i18n_ustring_from_UTF32_with_sub</td>
  *	  <td>u_strFromUTF32WithSub</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_FORMAT_MODULE</td>
+ *	  <td>#i18n_format_destroy</td>
+ *	  <td>~Format</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_FORMAT_MODULE</td>
+ *	  <td>#i18n_format_clone</td>
+ *	  <td>clone</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_FORMAT_MODULE</td>
+ *	  <td>#i18n_format_format</td>
+ *	  <td>format</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_FORMAT_MODULE</td>
+ *	  <td>#i18n_format_parse_object</td>
+ *	  <td>parseObject</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_FORMAT_MODULE</td>
+ *	  <td>#i18n_format_get_locale</td>
+ *	  <td>getLocale</td>
  * </tr>
  * </table>
  */
