@@ -1674,12 +1674,12 @@ typedef enum {
 	I18N_UDATE_FORMAT_SYMBOL_TYPE_STANDALONE_SHORT_MONTHS,	   /**< Standalone short months */
 	I18N_UDATE_FORMAT_SYMBOL_TYPE_STANDALONE_NARROW_MONTHS,	   /**< Standalone narrow months */
 	I18N_UDATE_FORMAT_SYMBOL_TYPE_STANDALONE_WEEKDAYS,		   /**< Standalone weekdays */
-	I18N_UDATE_FORMAT_SYMBOL_TYPE_STANDALONE_SHORT_WEEKDAYS,   /**< Standalone short weekdays */
-	I18N_UDATE_FORMAT_SYMBOL_TYPE_STANDALONE_NARROW_WEEKDAYS,  /**< Standalone narrow weekdays */
+	I18N_UDATE_FORMAT_SYMBOL_TYPE_STANDALONE_SHORT_WEEKDAYS, /**< Standalone short weekdays */
+	I18N_UDATE_FORMAT_SYMBOL_TYPE_STANDALONE_NARROW_WEEKDAYS,/**< Standalone narrow weekdays */
 	I18N_UDATE_FORMAT_SYMBOL_TYPE_QUARTERS,					   /**< Quarters */
 	I18N_UDATE_FORMAT_SYMBOL_TYPE_SHORT_QUARTERS,			   /**< Short quarters */
 	I18N_UDATE_FORMAT_SYMBOL_TYPE_STANDALONE_QUARTERS,		   /**< Standalone quarters */
-	I18N_UDATE_FORMAT_SYMBOL_TYPE_STANDALONE_SHORT_QUARTERS,   /**< Standalone short quarters */
+	I18N_UDATE_FORMAT_SYMBOL_TYPE_STANDALONE_SHORT_QUARTERS, /**< Standalone short quarters */
 	I18N_UDATE_FORMAT_SYMBOL_TYPE_SHORTER_WEEKDAYS,			   /**< Shorter weekdays */
 	I18N_UDATE_FORMAT_SYMBOL_TYPE_STANDALONE_SHORTER_WEEKDAYS, /**< Standalone shorter weekdays */
 } i18n_udate_format_symbol_type_e;
@@ -1705,11 +1705,11 @@ typedef enum {
 typedef enum {
 	I18N_UDISPLAY_CONTEXT_STANDARD_NAMES						   = (I18N_UDISPCTX_TYPE_DIALECT_HANDLING<<8) + 0, /**< Standard names */
 	I18N_UDISPLAY_CONTEXT_DIALECT_NAMES							   = (I18N_UDISPCTX_TYPE_DIALECT_HANDLING<<8) + 1, /**< Dialect names */
-	I18N_UDISPLAY_CONTEXT_CAPITALIZATION_NONE					   = (I18N_UDISPCTX_TYPE_CAPITALIZATION<<8) + 0,   /**< Capitalization: None */
-	I18N_UDISPLAY_CONTEXT_CAPITALIZATION_FOR_MIDDLE_OF_SENTENCE	   = (I18N_UDISPCTX_TYPE_CAPITALIZATION<<8) + 1,   /**< Capitalization: For middle of sentence */
-	I18N_UDISPLAY_CONTEXT_CAPITALIZATION_FOR_BEGINNING_OF_SENTENCE = (I18N_UDISPCTX_TYPE_CAPITALIZATION<<8) + 2,   /**< Capitalization: For beginning of sentence */
-	I18N_UDISPLAY_CONTEXT_CAPITALIZATION_FOR_UI_LIST_OR_MENU	   = (I18N_UDISPCTX_TYPE_CAPITALIZATION<<8) + 3,   /**< Capitalization: For UI list or menu */
-	I18N_UDISPLAY_CONTEXT_CAPITALIZATION_FOR_STANDALONE			   = (I18N_UDISPCTX_TYPE_CAPITALIZATION<<8) + 4,   /**< Capitalization: For standalone */
+	I18N_UDISPLAY_CONTEXT_CAPITALIZATION_NONE					   = (I18N_UDISPCTX_TYPE_CAPITALIZATION<<8) + 0, /**< Capitalization: None */
+	I18N_UDISPLAY_CONTEXT_CAPITALIZATION_FOR_MIDDLE_OF_SENTENCE	   = (I18N_UDISPCTX_TYPE_CAPITALIZATION<<8) + 1, /**< Capitalization: For middle of sentence */
+	I18N_UDISPLAY_CONTEXT_CAPITALIZATION_FOR_BEGINNING_OF_SENTENCE = (I18N_UDISPCTX_TYPE_CAPITALIZATION<<8) + 2, /**< Capitalization: For beginning of sentence */
+	I18N_UDISPLAY_CONTEXT_CAPITALIZATION_FOR_UI_LIST_OR_MENU	   = (I18N_UDISPCTX_TYPE_CAPITALIZATION<<8) + 3, /**< Capitalization: For UI list or menu */
+	I18N_UDISPLAY_CONTEXT_CAPITALIZATION_FOR_STANDALONE			   = (I18N_UDISPCTX_TYPE_CAPITALIZATION<<8) + 4, /**< Capitalization: For standalone */
 } i18n_udisplay_context_e;
 
 /* Skeletons for dates. */
@@ -2334,9 +2334,9 @@ typedef enum {
  * @see i18n_ulocale_accept_language()
  */
 typedef enum {
-	I18N_ULOCALE_ACCEPT_FAILED	 = 0,  /**< No exact match was found */
-	I18N_ULOCALE_ACCEPT_VALID	 = 1,  /**< An exact match was found */
-	I18N_ULOCALE_ACCEPT_FALLBACK = 2,  /**< A fallback was found, for example,
+	I18N_ULOCALE_ACCEPT_FAILED	 = 0,/**< No exact match was found */
+	I18N_ULOCALE_ACCEPT_VALID	 = 1,/**< An exact match was found */
+	I18N_ULOCALE_ACCEPT_FALLBACK = 2,/**< A fallback was found, for example,
 										  accept list contained 'ja_JP' which matched available locale 'ja' */
 } i18n_ulocale_accept_result_e;
 
@@ -2355,10 +2355,10 @@ typedef enum {
  * @since_tizen 2.3.1
  */
 typedef enum {
-	I18N_ULOCALE_LAYOUT_LTR		= 0,  /**< Left-to-right */
-	I18N_ULOCALE_LAYOUT_RTL		= 1,  /**< Right-to-left */
-	I18N_ULOCALE_LAYOUT_TTB		= 2,  /**< Top-to-bottom */
-	I18N_ULOCALE_LAYOUT_BTT		= 3,  /**< Bottom-to-top */
+	I18N_ULOCALE_LAYOUT_LTR		= 0,/**< Left-to-right */
+	I18N_ULOCALE_LAYOUT_RTL		= 1,/**< Right-to-left */
+	I18N_ULOCALE_LAYOUT_TTB		= 2,/**< Top-to-bottom */
+	I18N_ULOCALE_LAYOUT_BTT		= 3,/**< Bottom-to-top */
 	I18N_ULOCALE_LAYOUT_UNKNOWN		  /**< Unknown		 */
 } i18n_ulocale_layout_type_e;
 
@@ -2828,12 +2828,12 @@ typedef void* i18n_measure_format_h;
  * @since_tizen 3.0
  */
 typedef enum {
-    I18N_UMEASFMT_WIDTH_WIDE = 0,     /**< Spell out measure units */
-    I18N_UMEASFMT_WIDTH_SHORT = 1,    /**< Abbreviate measure units */
-    I18N_UMEASFMT_WIDTH_NARROW = 2,   /**< Use symbols for measure units when possible */
-    I18N_UMEASFMT_WIDTH_NUMERIC = 3,  /**< Completely omit measure units when possible
+    I18N_UMEASFMT_WIDTH_WIDE = 0,   /**< Spell out measure units */
+    I18N_UMEASFMT_WIDTH_SHORT = 1,  /**< Abbreviate measure units */
+    I18N_UMEASFMT_WIDTH_NARROW = 2, /**< Use symbols for measure units when possible */
+    I18N_UMEASFMT_WIDTH_NUMERIC = 3,/**< Completely omit measure units when possible
                                       For example, format '5 hours, 37 minutes' as '5:37' */
-    I18N_UMEASFMT_WIDTH_COUNT = 4,    /**< Count of values in this enum */
+    I18N_UMEASFMT_WIDTH_COUNT = 4,  /**< Count of values in this enum */
 } i18n_umeasure_width_format_e;
 
 /**
@@ -2855,13 +2855,13 @@ typedef enum {
  * @since_tizen 3.0
  */
 typedef enum {
-    I18N_FORMATTABLE_K_DATE = 0,    /**< Selector indicating a UDate value */
-    I18N_FORMATTABLE_K_DOUBLE = 1,  /**< Selector indicating a double value */
-    I18N_FORMATTABLE_K_LONG = 2,    /**< Selector indicating a 32-bit integer value */
-    I18N_FORMATTABLE_K_STRING = 3,  /**< Selector indicating a UnicodeString value */
-    I18N_FORMATTABLE_K_ARRAY = 4,   /**< Selector indicating an array of i18n_formattable_h */
-    I18N_FORMATTABLE_K_INT64 = 5,   /**< Selector indicating a 64-bit integer value */
-    I18N_FORMATTABLE_K_OBJECT = 6,  /**< Selector indicating a UObject value */
+    I18N_FORMATTABLE_K_DATE = 0,  /**< Selector indicating a UDate value */
+    I18N_FORMATTABLE_K_DOUBLE = 1,/**< Selector indicating a double value */
+    I18N_FORMATTABLE_K_LONG = 2,  /**< Selector indicating a 32-bit integer value */
+    I18N_FORMATTABLE_K_STRING = 3,/**< Selector indicating a UnicodeString value */
+    I18N_FORMATTABLE_K_ARRAY = 4, /**< Selector indicating an array of i18n_formattable_h */
+    I18N_FORMATTABLE_K_INT64 = 5, /**< Selector indicating a 64-bit integer value */
+    I18N_FORMATTABLE_K_OBJECT = 6,/**< Selector indicating a UObject value */
 } i18n_formattable_type_e;
 
 /**
@@ -2899,9 +2899,9 @@ typedef bool (*i18n_measure_unit_types_cb)(const char *type_id, void* user_data)
  * @since_tizen 3.0
  */
 typedef enum {
-    I18N_ULOC_ACTUAL_LOCALE = 0,    /**< This is locale the data actually comes from */
-    I18N_ULOC_VALID_LOCALE = 1,     /**< This is the most specific locale supported by ICU */
-    ULOC_REQUESTED_LOCALE = 2,      /**< This is the requested locale (deprecated) */
+    I18N_ULOC_ACTUAL_LOCALE = 0,  /**< This is locale the data actually comes from */
+    I18N_ULOC_VALID_LOCALE = 1,   /**< This is the most specific locale supported by ICU */
+    ULOC_REQUESTED_LOCALE = 2,    /**< This is the requested locale (deprecated) */
 } i18n_uloc_data_locale_type_e;
 
 #ifdef __cplusplus
