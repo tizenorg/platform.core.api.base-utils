@@ -35,7 +35,7 @@ int i18n_measure_unit_create(i18n_measure_unit_h *measure_unit)
     retv_if(measure_unit == NULL, I18N_ERROR_INVALID_PARAMETER);
 
     const MeasureUnit *mu = MeasureUnit::MeasureUnit();
-    retv_if(mu == NULL, I18N_ERROR_OUT_OF_MEMORY);
+    retv_if(mu == NULL, I18N_ERROR_INVALID_PARAMETER);
 
     *measure_unit = mu->clone();
     if(mu != NULL) {
@@ -79,6 +79,7 @@ int i18n_measure_unit_get_type(i18n_measure_unit_h measure_unit, char **type)
 {
     retv_if(measure_unit == NULL, I18N_ERROR_INVALID_PARAMETER);
     *type = ((MeasureUnit *) measure_unit)->getType();
+    retv_if(type == NULL, I18N_ERROR_OUT_OF_MEMORY);
 
     return I18N_ERROR_NONE;
 }
@@ -87,6 +88,7 @@ int i18n_measure_unit_get_subtype(i18n_measure_unit_h measure_unit, char **subty
 {
     retv_if(measure_unit == NULL, I18N_ERROR_INVALID_PARAMETER);
     *subtype = ((MeasureUnit *) measure_unit)->getType();
+    retv_if(subtype == NULL, I18N_ERROR_OUT_OF_MEMORY);
 
     return I18N_ERROR_NONE;
 }
@@ -97,6 +99,7 @@ int i18n_measure_unit_get_available(int32_t *available, i18n_measure_unit_h *des
     UErrorCode status = U_ZERO_ERROR;
 
     *available = MeasureUnit::getAvailable((MeasureUnit *) dest_array, dest_capacity, status);
+    retv_if(available == NULL, I18N_ERROR_OUT_OF_MEMORY);
 
     return _i18n_error_mapping(status);
 }
@@ -107,6 +110,7 @@ int i18n_measure_unit_get_available_with_type(int32_t *available, const char *ty
     UErrorCode status = U_ZERO_ERROR;
 
     *available = MeasureUnit::getAvailable(type, (MeasureUnit *) dest_array, dest_capacity, status);
+    retv_if(available == NULL, I18N_ERROR_OUT_OF_MEMORY);
 
     return _i18n_error_mapping(status);
 }
@@ -173,13 +177,6 @@ int i18n_measure_unit_create_radian(i18n_measure_unit_h measure_unit)
     return _i18n_error_mapping(status);
 }
 
-int i18n_measure_unit_create_revolution_angle(i18n_measure_unit_h measure_unit)
-{
-    UErrorCode status = U_ZERO_ERROR;
-    *measure_unit = MeasureUnit::createRevolutionAngle(status);
-    return _i18n_error_mapping(status);
-}
-
 int i18n_measure_unit_create_acre(i18n_measure_unit_h measure_unit)
 {
     UErrorCode status = U_ZERO_ERROR;
@@ -243,41 +240,6 @@ int i18n_measure_unit_create_square_yard(i18n_measure_unit_h measure_unit)
     return _i18n_error_mapping(status);
 }
 
-int i18n_measure_unit_create_karat(i18n_measure_unit_h measure_unit)
-{
-    UErrorCode status = U_ZERO_ERROR;
-    *measure_unit = MeasureUnit::createKarat(status);
-    return _i18n_error_mapping(status);
-}
-
-int i18n_measure_unit_create_milligram_per_deciliter(i18n_measure_unit_h measure_unit)
-{
-    UErrorCode status = U_ZERO_ERROR;
-    *measure_unit = MeasureUnit::createMilligramPerDeciliter(status);
-    return _i18n_error_mapping(status);
-}
-
-int i18n_measure_unit_create_millimole_per_liter(i18n_measure_unit_h measure_unit)
-{
-    UErrorCode status = U_ZERO_ERROR;
-    *measure_unit = MeasureUnit::createMillimolePerLiter(status);
-    return _i18n_error_mapping(status);
-}
-
-int i18n_measure_unit_create_part_per_million(i18n_measure_unit_h measure_unit)
-{
-    UErrorCode status = U_ZERO_ERROR;
-    *measure_unit = MeasureUnit::createPartPerMillion(status);
-    return _i18n_error_mapping(status);
-}
-
-int i18n_measure_unit_create_liter_per_100_kilometers(i18n_measure_unit_h measure_unit)
-{
-    UErrorCode status = U_ZERO_ERROR;
-    *measure_unit = MeasureUnit::createLiterPer100Kilometers(status);
-    return _i18n_error_mapping(status);
-}
-
 int i18n_measure_unit_create_liter_per_kilometer(i18n_measure_unit_h measure_unit)
 {
     UErrorCode status = U_ZERO_ERROR;
@@ -289,13 +251,6 @@ int i18n_measure_unit_create_mile_per_gallon(i18n_measure_unit_h measure_unit)
 {
     UErrorCode status = U_ZERO_ERROR;
     *measure_unit = MeasureUnit::createMilePerGallon(status);
-    return _i18n_error_mapping(status);
-}
-
-int i18n_measure_unit_create_mile_per_gallon_imperial(i18n_measure_unit_h measure_unit)
-{
-    UErrorCode status = U_ZERO_ERROR;
-    *measure_unit = MeasureUnit::createMilePerGallonImperial(status);
     return _i18n_error_mapping(status);
 }
 
@@ -366,13 +321,6 @@ int i18n_measure_unit_create_terabyte(i18n_measure_unit_h measure_unit)
 {
     UErrorCode status = U_ZERO_ERROR;
     *measure_unit = MeasureUnit::createTerabyte(status);
-    return _i18n_error_mapping(status);
-}
-
-int i18n_measure_unit_create_century(i18n_measure_unit_h measure_unit)
-{
-    UErrorCode status = U_ZERO_ERROR;
-    *measure_unit = MeasureUnit::createCentury(status);
     return _i18n_error_mapping(status);
 }
 
@@ -628,13 +576,6 @@ int i18n_measure_unit_create_mile(i18n_measure_unit_h measure_unit)
     return _i18n_error_mapping(status);
 }
 
-int i18n_measure_unit_create_mile_scandinavian(i18n_measure_unit_h measure_unit)
-{
-    UErrorCode status = U_ZERO_ERROR;
-    *measure_unit = MeasureUnit::createMileScandinavian(status);
-    return _i18n_error_mapping(status);
-}
-
 int i18n_measure_unit_create_millimeter(i18n_measure_unit_h measure_unit)
 {
     UErrorCode status = U_ZERO_ERROR;
@@ -838,17 +779,17 @@ int i18n_measure_unit_create_pound_per_square_inch(i18n_measure_unit_h measure_u
     return _i18n_error_mapping(status);
 }
 
+int i18n_measure_unit_create_karat(i18n_measure_unit_h measure_unit)
+{
+    UErrorCode status = U_ZERO_ERROR;
+    *measure_unit = MeasureUnit::createKarat(status);
+    return _i18n_error_mapping(status);
+}
+
 int i18n_measure_unit_create_kilometer_per_hour(i18n_measure_unit_h measure_unit)
 {
     UErrorCode status = U_ZERO_ERROR;
     *measure_unit = MeasureUnit::createKilometerePerHour(status);
-    return _i18n_error_mapping(status);
-}
-
-int i18n_measure_unit_create_knot(i18n_measure_unit_h measure_unit)
-{
-    UErrorCode status = U_ZERO_ERROR;
-    *measure_unit = MeasureUnit::createKnot(status);
     return _i18n_error_mapping(status);
 }
 
@@ -877,13 +818,6 @@ int i18n_measure_unit_create_fahrenheit(i18n_measure_unit_h measure_unit)
 {
     UErrorCode status = U_ZERO_ERROR;
     *measure_unit = MeasureUnit::createFahrenheit(status);
-    return _i18n_error_mapping(status);
-}
-
-int i18n_measure_unit_create_generic_temperature(i18n_measure_unit_h measure_unit)
-{
-    UErrorCode status = U_ZERO_ERROR;
-    *measure_unit = MeasureUnit::createGenericTemperature(status);
     return _i18n_error_mapping(status);
 }
 
@@ -971,13 +905,6 @@ int i18n_measure_unit_create_cup(i18n_measure_unit_h measure_unit)
     return _i18n_error_mapping(status);
 }
 
-int i18n_measure_unit_create_cup_metric(i18n_measure_unit_h measure_unit)
-{
-    UErrorCode status = U_ZERO_ERROR;
-    *measure_unit = MeasureUnit::createCupMetric(status);
-    return _i18n_error_mapping(status);
-}
-
 int i18n_measure_unit_create_deciliter(i18n_measure_unit_h measure_unit)
 {
     UErrorCode status = U_ZERO_ERROR;
@@ -996,13 +923,6 @@ int i18n_measure_unit_create_gallon(i18n_measure_unit_h measure_unit)
 {
     UErrorCode status = U_ZERO_ERROR;
     *measure_unit = MeasureUnit::createGallon(status);
-    return _i18n_error_mapping(status);
-}
-
-int i18n_measure_unit_create_gallon_imperial(i18n_measure_unit_h measure_unit)
-{
-    UErrorCode status = U_ZERO_ERROR;
-    *measure_unit = MeasureUnit::createGallonImperial(status);
     return _i18n_error_mapping(status);
 }
 
@@ -1038,13 +958,6 @@ int i18n_measure_unit_create_pint(i18n_measure_unit_h measure_unit)
 {
     UErrorCode status = U_ZERO_ERROR;
     *measure_unit = MeasureUnit::createPint(status);
-    return _i18n_error_mapping(status);
-}
-
-int i18n_measure_unit_create_pint_metric(i18n_measure_unit_h measure_unit)
-{
-    UErrorCode status = U_ZERO_ERROR;
-    *measure_unit = MeasureUnit::createPintMetric(status);
     return _i18n_error_mapping(status);
 }
 
