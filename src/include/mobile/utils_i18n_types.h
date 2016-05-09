@@ -1126,7 +1126,7 @@ typedef enum {
 	I18N_UCHAR_U_NT_DECIMAL,	  /**< [de] */
 	I18N_UCHAR_U_NT_DIGIT,		  /**< [di] */
 	I18N_UCHAR_U_NT_NUMERIC,	  /**< [nu] */
-	I18N_UCHAR_U_NT_COUNT		  /**<	*/
+	I18N_UCHAR_U_NT_COUNT		  /**<  */
 } i18n_uchar_u_numeric_type_e;
 
 /**
@@ -1163,7 +1163,7 @@ typedef enum {
 	I18N_UCHAR_U_SB_EXTEND,		   /**< [EX] */
 	I18N_UCHAR_U_SB_LF,			   /**< [LF] */
 	I18N_UCHAR_U_SB_SCONTINUE,	   /**< [SC] */
-	I18N_UCHAR_U_SB_COUNT		   /**<	 */
+	I18N_UCHAR_U_SB_COUNT		   /**<  */
 } i18n_uchar_u_sentence_break_e;
 
 /**
@@ -1208,7 +1208,7 @@ typedef enum {
 	I18N_UCHAR_U_GCB_V,						   /**< [V] */
 	I18N_UCHAR_U_GCB_SPACING_MARK,			   /**< [SM] */
 	I18N_UCHAR_U_GCB_PREPEND,				   /**< [PP] */
-	I18N_UCHAR_UCHAR_U_GCB_COUNT			   /**<	 */
+	I18N_UCHAR_UCHAR_U_GCB_COUNT			   /**<  */
 } i18n_uchar_u_grapheme_cluster_break_e;
 
 /**
@@ -2334,9 +2334,9 @@ typedef enum {
  * @see i18n_ulocale_accept_language()
  */
 typedef enum {
-	I18N_ULOCALE_ACCEPT_FAILED	 = 0,  /**< No exact match was found */
-	I18N_ULOCALE_ACCEPT_VALID	 = 1,  /**< An exact match was found */
-	I18N_ULOCALE_ACCEPT_FALLBACK = 2,  /**< A fallback was found, for example,
+	I18N_ULOCALE_ACCEPT_FAILED	 = 0,/**< No exact match was found */
+	I18N_ULOCALE_ACCEPT_VALID	 = 1,/**< An exact match was found */
+	I18N_ULOCALE_ACCEPT_FALLBACK = 2,/**< A fallback was found, for example,
 										  accept list contained 'ja_JP' which matched available locale 'ja' */
 } i18n_ulocale_accept_result_e;
 
@@ -2828,12 +2828,12 @@ typedef void* i18n_measure_format_h;
  * @since_tizen 3.0
  */
 typedef enum {
-    I18N_UMEASFMT_WIDTH_WIDE = 0,     /**< Spell out measure units */
-    I18N_UMEASFMT_WIDTH_SHORT = 1,    /**< Abbreviate measure units */
-    I18N_UMEASFMT_WIDTH_NARROW = 2,   /**< Use symbols for measure units when possible */
-    I18N_UMEASFMT_WIDTH_NUMERIC = 3,  /**< Completely omit measure units when possible
-                                      For example, format '5 hours, 37 minutes' as '5:37' */
-    I18N_UMEASFMT_WIDTH_COUNT = 4,    /**< Count of values in this enum */
+	I18N_UMEASFMT_WIDTH_WIDE = 0,   /**< Spell out measure units */
+	I18N_UMEASFMT_WIDTH_SHORT = 1,  /**< Abbreviate measure units */
+	I18N_UMEASFMT_WIDTH_NARROW = 2, /**< Use symbols for measure units when possible */
+	I18N_UMEASFMT_WIDTH_NUMERIC = 3,/**< Completely omit measure units when possible
+									  For example, format '5 hours, 37 minutes' as '5:37' */
+	I18N_UMEASFMT_WIDTH_COUNT = 4,  /**< Count of values in this enum */
 } i18n_umeasure_width_format_e;
 
 /**
@@ -2847,7 +2847,7 @@ typedef void* i18n_formattable_h;
  * @since_tizen 3.0
  */
 typedef enum {
-    I18N_FORMATTABLE_IS_DATE = 0
+	I18N_FORMATTABLE_IS_DATE = 0
 } i18n_formattable_is_date_e;
 
 /**
@@ -2855,13 +2855,13 @@ typedef enum {
  * @since_tizen 3.0
  */
 typedef enum {
-    I18N_FORMATTABLE_K_DATE = 0,    /**< Selector indicating a UDate value */
-    I18N_FORMATTABLE_K_DOUBLE = 1,  /**< Selector indicating a double value */
-    I18N_FORMATTABLE_K_LONG = 2,    /**< Selector indicating a 32-bit integer value */
-    I18N_FORMATTABLE_K_STRING = 3,  /**< Selector indicating a UnicodeString value */
-    I18N_FORMATTABLE_K_ARRAY = 4,   /**< Selector indicating an array of i18n_formattable_h */
-    I18N_FORMATTABLE_K_INT64 = 5,   /**< Selector indicating a 64-bit integer value */
-    I18N_FORMATTABLE_K_OBJECT = 6,  /**< Selector indicating a UObject value */
+	I18N_FORMATTABLE_K_DATE = 0,   /**< Selector indicating a UDate value */
+	I18N_FORMATTABLE_K_DOUBLE = 1, /**< Selector indicating a double value */
+	I18N_FORMATTABLE_K_LONG = 2,   /**< Selector indicating a 32-bit integer value */
+	I18N_FORMATTABLE_K_STRING = 3, /**< Selector indicating a UnicodeString value */
+	I18N_FORMATTABLE_K_ARRAY = 4,  /**< Selector indicating an array of i18n_formattable_h */
+	I18N_FORMATTABLE_K_INT64 = 5,  /**< Selector indicating a 64-bit integer value */
+	I18N_FORMATTABLE_K_OBJECT = 6, /**< Selector indicating a UObject value */
 } i18n_formattable_type_e;
 
 /**
@@ -2883,14 +2883,14 @@ typedef void* i18n_measure_unit_h;
 
 /**
  * @brief Callback function for i18n_measure_unit_get_available_types()
- *        that returns an enumeration over all recognized types.
+ *		that returns an enumeration over all recognized types.
  * @since_tizen 3.0
  *
- * @param[in] type_id    The type ID
+ * @param[in] type_id	The type ID
  * @param[in] user_data  The user data passed to the callback function
  *
  * @return @c true to continue with the next iteration of the loop,
- *         otherwise @c false to break out of the loop.
+ *		 otherwise @c false to break out of the loop.
  */
 typedef bool (*i18n_measure_unit_types_cb)(const char *type_id, void* user_data);
 
@@ -2899,9 +2899,9 @@ typedef bool (*i18n_measure_unit_types_cb)(const char *type_id, void* user_data)
  * @since_tizen 3.0
  */
 typedef enum {
-    I18N_ULOC_ACTUAL_LOCALE = 0,    /**< This is locale the data actually comes from */
-    I18N_ULOC_VALID_LOCALE = 1,     /**< This is the most specific locale supported by ICU */
-    ULOC_REQUESTED_LOCALE = 2,      /**< This is the requested locale (deprecated) */
+	I18N_ULOC_ACTUAL_LOCALE = 0,  /**< This is locale the data actually comes from */
+	I18N_ULOC_VALID_LOCALE = 1,   /**< This is the most specific locale supported by ICU */
+	ULOC_REQUESTED_LOCALE = 2,	  /**< This is the requested locale (deprecated) */
 } i18n_uloc_data_locale_type_e;
 
 #ifdef __cplusplus
