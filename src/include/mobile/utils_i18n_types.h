@@ -1336,7 +1336,7 @@ typedef enum {
 /**
  * @brief Result values for normalization quick check functions.
  *
- * @since_tizen 3.0
+ * @since_tizen 2.4
  */
 typedef enum {
 	I18N_UNORMALIZATION_NO,		/**< The input string is not in the normalization form. */
@@ -2642,7 +2642,7 @@ typedef void *i18n_uenumeration_h;
 
 /**
  * @brief Constants for ISO 15924 script codes.
- * @since_tizen 3.0
+ * @since_tizen 2.4
  */
 typedef enum {
 	I18N_USCRIPT_INVALID_CODE = -1,
@@ -2901,7 +2901,7 @@ typedef bool (*i18n_measure_unit_types_cb)(const char *type_id, void* user_data)
 typedef enum {
     I18N_ULOC_ACTUAL_LOCALE = 0,    /**< This is locale the data actually comes from */
     I18N_ULOC_VALID_LOCALE = 1,     /**< This is the most specific locale supported by ICU */
-    I18N_ULOC_REQUESTED_LOCALE = 2,      /**< This is the requested locale (deprecated) */
+    ULOC_REQUESTED_LOCALE = 2,      /**< This is the requested locale (deprecated) */
 } i18n_uloc_data_locale_type_e;
 
 #ifdef __cplusplus
