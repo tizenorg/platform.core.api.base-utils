@@ -1336,7 +1336,7 @@ typedef enum {
 /**
  * @brief Result values for normalization quick check functions.
  *
- * @since_tizen 3.0
+ * @since_tizen 2.4
  */
 typedef enum {
 	I18N_UNORMALIZATION_NO,		/**< The input string is not in the normalization form. */
@@ -2642,7 +2642,7 @@ typedef void *i18n_uenumeration_h;
 
 /**
  * @brief Constants for ISO 15924 script codes.
- * @since_tizen 3.0
+ * @since_tizen 2.4
  */
 typedef enum {
 	I18N_USCRIPT_INVALID_CODE = -1,
