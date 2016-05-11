@@ -32,6 +32,7 @@
 #include <utils_i18n_uenumeration.h>
 #include <utils_i18n_uset.h>
 #include <utils_i18n_ubrk.h>
+#include <utils_i18n_measure.h>
 
 /**
  * @file utils_i18n.h
@@ -67,6 +68,10 @@ extern "C" {
  * </tr>
  * <tr>
  *	  <td>@ref CAPI_BASE_UTILS_I18N_TIMEZONE_MODULE</td>
+ *	  <td>The Timezone module represents a time zone offset, and also figures out daylight savings.</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_MODULE</td>
  *	  <td>The Timezone module represents a time zone offset, and also figures out daylight savings.</td>
  * </tr>
  * <tr>
@@ -1777,6 +1782,36 @@ extern "C" {
  *	  <td>@ref CAPI_BASE_UTILS_I18N_USTRING_MODULE</td>
  *	  <td>#i18n_ustring_from_UTF32_with_sub</td>
  *	  <td>u_strFromUTF32WithSub</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_MODULE</td>
+ *	  <td>#i18n_measure_create</td>
+ *	  <td>Measure</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_MODULE</td>
+ *	  <td>#i18n_measure_create_form_other</td>
+ *	  <td>Measure</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_MODULE</td>
+ *	  <td>#i18n_measure_clone</td>
+ *	  <td>clone</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_MODULE</td>
+ *	  <td>#i18n_measure_destroy</td>
+ *	  <td>~Measure</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_MODULE</td>
+ *	  <td>#i18n_measure_get_number</td>
+ *	  <td>getNumber</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_MODULE</td>
+ *	  <td>#i18n_measure_get_unit</td>
+ *	  <td>getUnit</td>
  * </tr>
  * </table>
  */

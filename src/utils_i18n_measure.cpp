@@ -44,6 +44,7 @@ int i18n_measure_create_form_other(i18n_measure_h *measure, const i18n_measure_h
     retv_if(measure == NULL || other == NULL, I18N_ERROR_INVALID_PARAMETER);
 
     *measure = Measure((Measure *) other);
+    retv_if(measure == NULL, I18N_ERROR_OUT_OF_MEMORY);
 
     return I18N_ERROR_NONE;
 }
@@ -53,6 +54,7 @@ int i18n_measure_clone(i18n_measure_h measure, i18n_measure_h *clone)
     retv_if(measure == NULL || clone == NULL, I18N_ERROR_INVALID_PARAMETER);
 
     *clone = ((Measure *) measure)->clone();
+    retv_if(clone == NULL, I18N_ERROR_OUT_OF_MEMORY);
 
     return I18N_ERROR_NONE;
 }
@@ -71,6 +73,7 @@ int i18n_measure_get_number(i18n_measure_h measure, i18n_formattable_h *formatta
     retv_if(measure == NULL || formattable == NULL, I18N_ERROR_INVALID_PARAMETER);
 
     *formattable = ((Measure *) measure)->getNumber();
+    retv_if(formattable == NULL, I18N_ERROR_OUT_OF_MEMORY);
 
     return I18N_ERROR_NONE;
 }
@@ -80,6 +83,7 @@ int i18n_measure_get_unit(i18n_measure_h measure, i18n_measure_unit_h *measure_u
     retv_if(measure == NULL || measure_unit == NULL, I18N_ERROR_INVALID_PARAMETER);
 
     *measure_unit = ((Measure *) measure)->getUnit();
+    retv_if(measure_unit == NULL, I18N_ERROR_OUT_OF_MEMORY);
 
     return I18N_ERROR_NONE;
 }
