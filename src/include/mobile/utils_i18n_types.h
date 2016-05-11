@@ -2834,7 +2834,7 @@ typedef enum {
     I18N_UMEASFMT_WIDTH_NUMERIC = 3,  /**< Completely omit measure units when possible
                                       For example, format '5 hours, 37 minutes' as '5:37' */
     I18N_UMEASFMT_WIDTH_COUNT = 4,    /**< Count of values in this enum */
-} i18n_umeasure_width_format_e;
+} i18n_umeasure_format_width_e;
 
 /**
  * @brief The class used for formatting i18n_format_h and its subclasses.
