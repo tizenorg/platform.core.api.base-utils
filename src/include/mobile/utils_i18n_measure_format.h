@@ -29,16 +29,103 @@
 extern "C" {
 #endif
 
+/**
+ * @ingroup CAPI_BASE_UTILS_I18N_MODULE
+ * @defgroup CAPI_BASE_UTILS_I18N_MEASURE_FORMAT_MODULE MeasureFormat
+ * @brief The MeasureFormat is a formatter for Measure objects.
+ * @section CAPI_BASE_UTILS_I18N_MEASURE_FORMAT_MODULE_HEADER Required Header
+ *»       \#include <utils_i18n.h>
+ *
+ * @section CAPI_BASE_UTILS_I18N_MEASURE_FORMAT_MODULE_OVERVIEW Overview
+ * @details
+ */
+
+/**
+ * @addtogroup CAPI_BASE_UTILS_I18N_MEASURE_FORMAT_MODULE
+ * @{
+ */
+
+/**
+ * @brief Creates the measure format object using given locale.
+ * @since_tizen 3.0
+ *
+ * @param[out] measure_format  The created measure format object
+ * @param[in] language         The language of the locale
+ * @param[in] country          The country of the locale
+ * @param[in] width_format     The format width
+ *
+ * @return Error code. Error codes not listed below are described in #i18n_error_code_e
+ * @retval #I18N_ERROR_NONE Successful
+ * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
+ * @retval #I18N_ERROR_OUT_OF_MEMORY Out of memory
+ */
 int i18n_measure_format_create(i18n_measure_format_h *measure_format, const char *language, const char *country, i18n_umeasure_width_format_e width_format);
-//int i18n_measure_format_create_with_number_format(i18n_measure_format_h *measure_format, const char *language, const char *country, i18n_umeasure_width_format_e width_format, i18n_number_format_h number_format);
+
+/**
+ * @brief Creates the measure format object from the other measure format object.
+ * @deatils Function invokes the copy constructor.
+ * @since_tizen 3.0
+ *
+ * @param[out] measure_format  The created measure format object
+ * @param[in]  other           The measure format object from which the new object is created
+ *
+ * @return Error code. Error codes not listed below are described in #i18n_error_code_e
+ * @retval #I18N_ERROR_NONE Successful
+ * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
+ * @retval #I18N_ERROR_OUT_OF_MEMORY Out of memory
+ */
 int i18n_measure_format_from_other(i18n_measure_format_h *measure_format, const i18n_measure_format_h other);
+
+/**
+ * @brief Destroys the measure format object
+ * @since_tizen 3.0
+ *
+ * @param[in] measure_format  The measure format object to destroy
+ *
+ * @retval #I18N_ERROR_NONE Successful
+ * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
+ */
 int i18n_measure_format_destroy(i18n_measure_format_h measure_format);
+
+/**
+ * @brief Creates a polymorphic clone of the given @a clone object.
+ * @since_tizen 3.0
+ *
+ * @param[out] measure_format  The created measure format object
+ * @param[in]  other           The measure format object from which the new object is created
+ *
+ * @retval #I18N_ERROR_NONE Successful
+ * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
+ * @retval #I18N_ERROR_OUT_OF_MEMORY Out of memory
+ */
 int i18n_measure_format_clone(i18n_measure_format_h measure_format, i18n_format_h *clone);
-int i18n_measure_format_format(i18n_measure_format_h measure_format, char **format_string, const i18n_formattable_h *formattable, char **appendTo, i18n_field_position_h field_position);
-int i18n_measure_format_parse_object(i18n_measure_format_h measure_format, char *source, const i18n_formattable_h result, i18n_field_position_h field_position);
-//int i18n_measure_format_format_measures(i18n_measure_h *measures, i18n_measure_unit_h measure_unit, char **appendTo, i18n_field_position_h field_position);
-//int i18n_measure_format_format_measure_per_unit(i18n_measure_h measure, i18n_measure_unit_h measure_unit, char **appendTo, i18n_field_position_h field_position);
+
+/**
+ * @brief Gets a formatter for currency amount objects in the given locale.
+ * @since_tizen 3.0
+ *
+ * @param[out] measure_format  The measure format object
+ * @param[in] language          The language of the locale
+ * @param[in] country           The country of the locale
+ *
+ * @return Error code. Error codes not listed below are described in #i18n_error_code_e
+ * @retval #I18N_ERROR_NONE Successful
+ * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
+ * @retval #I18N_ERROR_OUT_OF_MEMORY Out of memory
+ */
 int i18n_measure_format_create_currency_format_from_locale(i18n_measure_format_h measure_format, const char *language, const char *country);
+
+/**
+ * @brief Gets a formatter for currency amount objects in the default locale.
+ * @since_tizen 3.0
+ *
+ * @param[out] measure_format  The measure format object
+ *
+ * @return Error code. Error codes not listed below are described in #i18n_error_code_e
+ * @retval #I18N_ERROR_NONE Successful
+ * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
+ * @retval #I18N_ERROR_OUT_OF_MEMORY Out of memory
+ */
 int i18n_measure_format_create_currency_format(i18n_measure_format_h measure_format);
 
 /**
