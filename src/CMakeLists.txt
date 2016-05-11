@@ -33,6 +33,7 @@ SET(BASEUTILS_SRCS
     utils_i18n_uset.c
     utils_i18n_ubrk.c
     utils_i18n_timezone.cpp
+    utils_i18n_formattable.cpp
 )
 
 ADD_LIBRARY(${target_name} SHARED ${BASEUTILS_SRCS}
