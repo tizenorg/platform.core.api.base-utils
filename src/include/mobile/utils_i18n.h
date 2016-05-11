@@ -2654,6 +2654,36 @@ extern "C" {
  *	  <td>#i18n_measure_unit_create_teaspoon</td>
  *	  <td>createTeaspoon</td>
  * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_MODULE</td>
+ *	  <td>#i18n_measure_create</td>
+ *	  <td>Measure</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_MODULE</td>
+ *	  <td>#i18n_measure_create_form_other</td>
+ *	  <td>Measure</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_MODULE</td>
+ *	  <td>#i18n_measure_clone</td>
+ *	  <td>clone</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_MODULE</td>
+ *	  <td>#i18n_measure_destroy</td>
+ *	  <td>~Measure</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_MODULE</td>
+ *	  <td>#i18n_measure_get_number</td>
+ *	  <td>getNumber</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_MODULE</td>
+ *	  <td>#i18n_measure_get_unit</td>
+ *	  <td>getUnit</td>
+ * </tr>
  * </table>
  */
 
