@@ -32,6 +32,7 @@
 #include <utils_i18n_uenumeration.h>
 #include <utils_i18n_uset.h>
 #include <utils_i18n_ubrk.h>
+#include <utils_i18n_measure_format.h>
 
 /**
  * @file utils_i18n.h
@@ -68,6 +69,10 @@ extern "C" {
  * <tr>
  *	  <td>@ref CAPI_BASE_UTILS_I18N_TIMEZONE_MODULE</td>
  *	  <td>The Timezone module represents a time zone offset, and also figures out daylight savings.</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_FORMAT_MODULE</td>
+ *	  <td>The Measure Format module represents a formatter for measure objects.</td>
  * </tr>
  * <tr>
  *	  <td>@ref CAPI_BASE_UTILS_I18N_UENUMERATION_MODULE</td>
@@ -1777,6 +1782,41 @@ extern "C" {
  *	  <td>@ref CAPI_BASE_UTILS_I18N_USTRING_MODULE</td>
  *	  <td>#i18n_ustring_from_UTF32_with_sub</td>
  *	  <td>u_strFromUTF32WithSub</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_FORMAT_MODULE</td>
+ *	  <td>#i18n_measure_format_create</td>
+ *	  <td>MeasureFormat</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_FORMAT_MODULE</td>
+ *	  <td>#i18n_measure_format_create_from_other</td>
+ *	  <td>MeasureFormat</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_FORMAT_MODULE</td>
+ *	  <td>#i18n_measure_format_destroy</td>
+ *	  <td>~MeasureFormat</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_FORMAT_MODULE</td>
+ *	  <td>#i18n_measure_format_clone</td>
+ *	  <td>clone</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_FORMAT_MODULE</td>
+ *	  <td>#i18n_measure_format_clone</td>
+ *	  <td>clone</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_FORMAT_MODULE</td>
+ *	  <td>#i18n_measure_format_create_currency_format_from_locale</td>
+ *	  <td>createCurrencyFormat</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_FORMAT_MODULE</td>
+ *	  <td>#i18n_measure_format_create_currency_format</td>
+ *	  <td>createCurrencyFormat</td>
  * </tr>
  * </table>
  */
