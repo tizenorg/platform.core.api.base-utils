@@ -2912,6 +2912,12 @@ typedef enum {
     I18N_FIELD_POSITION_DONT_CARE = -1,
 } i18n_field_position_dont_care_e;
 
+/**
+ * @brief A simple class used by Format and its subclasses to identify fields in formatted output.
+ * @since_tizen 3.0
+ */
+typedef void *i18n_parse_position_h;
+
 #ifdef __cplusplus
 }
 #endif
