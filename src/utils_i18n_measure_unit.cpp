@@ -72,7 +72,7 @@ int i18n_measure_unit_destroy(i18n_measure_unit_h measure_unit)
 
 int i18n_measure_unit_get_type(i18n_measure_unit_h measure_unit, const char **type)
 {
-    retv_if(measure_unit == NULL, I18N_ERROR_INVALID_PARAMETER);
+    retv_if(measure_unit == NULL || type == NULL, I18N_ERROR_INVALID_PARAMETER);
     *type = ((MeasureUnit *) measure_unit)->getType();
     retv_if(*type == NULL, I18N_ERROR_OUT_OF_MEMORY);
 
@@ -81,31 +81,48 @@ int i18n_measure_unit_get_type(i18n_measure_unit_h measure_unit, const char **ty
 
 int i18n_measure_unit_get_subtype(i18n_measure_unit_h measure_unit, const char **subtype)
 {
-    retv_if(measure_unit == NULL, I18N_ERROR_INVALID_PARAMETER);
+    retv_if(measure_unit == NULL || subtype == NULL, I18N_ERROR_INVALID_PARAMETER);
     *subtype = ((MeasureUnit *) measure_unit)->getType();
     retv_if(*subtype == NULL, I18N_ERROR_OUT_OF_MEMORY);
 
     return I18N_ERROR_NONE;
 }
 
-int i18n_measure_unit_get_available(int32_t *available, i18n_measure_unit_h *dest_array, int32_t dest_capacity)
+int i18n_measure_unit_get_available(int32_t *available, i18n_measure_unit_h **dest_array, int32_t dest_capacity)
 {
+    retv_if(available == NULL, I18N_ERROR_INVALID_PARAMETER);
     retv_if(dest_array == NULL, I18N_ERROR_INVALID_PARAMETER);
+    retv_if(dest_capacity < 0, I18N_ERROR_INVALID_PARAMETER);
     UErrorCode status = U_ZERO_ERROR;
 
-    *available = MeasureUnit::getAvailable((MeasureUnit *) dest_array, dest_capacity, status);
+    MeasureUnit *mu_array = (MeasureUnit *) malloc(dest_capacity * sizeof(MeasureUnit));
+    *available = MeasureUnit::getAvailable(mu_array, dest_capacity, status);
     retv_if(available == NULL, I18N_ERROR_OUT_OF_MEMORY);
+
+    *dest_array = new i18n_measure_unit_h[dest_capacity];
+    for (int i = 0; i < dest_capacity; ++i) {
+        (*dest_array)[i] = (const i18n_measure_unit_h) &mu_array[i];
+    }
 
     return _i18n_error_mapping(status);
 }
 
-int i18n_measure_unit_get_available_with_type(int32_t *available, const char *type, i18n_measure_unit_h *dest_array, int32_t dest_capacity)
+int i18n_measure_unit_get_available_with_type(int32_t *available, const char *type, i18n_measure_unit_h **dest_array, int32_t dest_capacity)
 {
+    retv_if(available == NULL, I18N_ERROR_INVALID_PARAMETER);
+    retv_if(type == NULL, I18N_ERROR_INVALID_PARAMETER);
     retv_if(dest_array == NULL, I18N_ERROR_INVALID_PARAMETER);
+    retv_if(dest_capacity < 0, I18N_ERROR_INVALID_PARAMETER);
     UErrorCode status = U_ZERO_ERROR;
 
-    *available = MeasureUnit::getAvailable(type, (MeasureUnit *) dest_array, dest_capacity, status);
+    MeasureUnit *mu_array = (MeasureUnit *) malloc(dest_capacity * sizeof(MeasureUnit));
+    *available = MeasureUnit::getAvailable(type, mu_array, dest_capacity, status);
     retv_if(available == NULL, I18N_ERROR_OUT_OF_MEMORY);
+
+    *dest_array = new i18n_measure_unit_h[dest_capacity];
+    for (int i = 0; i < dest_capacity; ++i) {
+        (*dest_array)[i] = (const i18n_measure_unit_h) &mu_array[i];
+    }
 
     return _i18n_error_mapping(status);
 }

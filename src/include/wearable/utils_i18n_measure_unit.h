@@ -143,7 +143,7 @@ int i18n_measure_unit_get_subtype(i18n_measure_unit_h measure_unit, const char *
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  * @retval #I18N_ERROR_OUT_OF_MEMORY Out of memory
  */
-int i18n_measure_unit_get_available(int32_t *available, i18n_measure_unit_h *dest_array, int32_t dest_capacity);
+int i18n_measure_unit_get_available(int32_t *available, i18n_measure_unit_h **dest_array, int32_t dest_capacity);
 
 /**
  * @brief Gets all of the available units for a specific type.
@@ -161,7 +161,7 @@ int i18n_measure_unit_get_available(int32_t *available, i18n_measure_unit_h *des
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  * @retval #I18N_ERROR_OUT_OF_MEMORY Out of memory
  */
-int i18n_measure_unit_get_available_with_type(int32_t *available, const char *type, i18n_measure_unit_h *dest_array, int32_t dest_capacity);
+int i18n_measure_unit_get_available_with_type(int32_t *available, const char *type, i18n_measure_unit_h **dest_array, int32_t dest_capacity);
 
 /**
  * @brief Gets all of the available types.
