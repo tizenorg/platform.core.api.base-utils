@@ -2906,18 +2906,24 @@ typedef enum {
 } i18n_uloc_data_locale_type_e;
 
 /**
- * @brief A simple class used by Format and its subclasses to identify fields in formatted output
+ * @brief A simple class used by Format and its subclasses to identify fields in formatted output.
  * @since_tizen 3.0
  */
 typedef void *i18n_field_position_h;
 
 /**
- * @brief DONT_CARE may be specified as the field to indicate that the caller doesn't need to specify a field. 
+ * @brief DONT_CARE may be specified as the field to indicate that the caller doesn't need to specify a field.
  * @since_tizen 3.0
  */
 typedef enum {
     I18N_FIELD_POSITION_DONT_CARE = -1,
 } i18n_field_position_dont_care_e;
+
+/**
+ * @brief A simple class used by Format and its subclasses to identify fields in formatted output.
+ * @since_tizen 3.0
+ */
+typedef void *i18n_parse_position_h;
 
 #ifdef __cplusplus
 }
