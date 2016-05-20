@@ -2834,7 +2834,7 @@ typedef enum {
     I18N_UMEASFMT_WIDTH_NUMERIC = 3,  /**< Completely omit measure units when possible
                                       For example, format '5 hours, 37 minutes' as '5:37' */
     I18N_UMEASFMT_WIDTH_COUNT = 4,    /**< Count of values in this enum */
-} i18n_umeasure_format_width_e;
+} i18n_umeasure_format_widthe;
 
 /**
  * @brief The class used for formatting i18n_format_h and its subclasses.
@@ -2863,12 +2863,6 @@ typedef enum {
     I18N_FORMATTABLE_K_INT64 = 5,   /**< Selector indicating a 64-bit integer value */
     I18N_FORMATTABLE_K_OBJECT = 6,  /**< Selector indicating a UObject value */
 } i18n_formattable_type_e;
-
-/**
- * @brief Used i18n_format_h and its subclasses to identify fields in formatted output.
- * @since_tizen 3.0
- */
-typedef void* i18n_field_position_h;
 
 /**
  * @brief An amount of a specified unit, consisting of a number and a Unit.
@@ -2903,6 +2897,20 @@ typedef enum {
     I18N_ULOC_VALID_LOCALE = 1,     /**< This is the most specific locale supported by ICU */
     I18N_ULOC_REQUESTED_LOCALE = 2,      /**< This is the requested locale (deprecated) */
 } i18n_uloc_data_locale_type_e;
+
+/**
+ * @brief A simple class used by Format and its subclasses to identify fields in formatted output
+ * @since_tizen 3.0
+ */
+typedef void *i18n_field_position_h;
+
+/**
+ * @brief DONT_CARE may be specified as the field to indicate that the caller doesn't need to specify a field.
+ * @since_tizen 3.0
+ */
+typedef enum {
+    I18N_FIELD_POSITION_DONT_CARE = -1,
+} i18n_field_position_dont_care_e;
 
 #ifdef __cplusplus
 }
