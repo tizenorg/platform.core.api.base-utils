@@ -124,7 +124,7 @@
 	if (ret != I18N_ERROR_NONE) {
 		dlog_print(DLOG_INFO, LOG_TAG, "i18n_udate_create failed !!! \n");
 	}
-	if (!formatter_LA) {
+	if (!formatter_SaoPaulo) {
 		dlog_print(DLOG_INFO, LOG_TAG, "formatter is NULL\n");
 	}
 
