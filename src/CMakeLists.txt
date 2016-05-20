@@ -38,6 +38,7 @@ SET(BASEUTILS_SRCS
     utils_i18n_measure.cpp
     utils_i18n_format.cpp
     utils_i18n_measure_format.cpp
+    utils_i18n_field_position.cpp
 )
 
 ADD_LIBRARY(${target_name} SHARED ${BASEUTILS_SRCS}

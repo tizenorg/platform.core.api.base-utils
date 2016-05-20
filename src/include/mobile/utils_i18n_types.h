@@ -2815,13 +2815,13 @@ typedef enum {
  * @brief The base class for all formats.
  * @since_tizen 3.0
  */
-typedef void* i18n_format_h;
+typedef void *i18n_format_h;
 
 /**
  * @brief Handle for object that represents a formatter for measure objects.
  * @since_tizen 3.0
  */
-typedef void* i18n_measure_format_h;
+typedef void *i18n_measure_format_h;
 
 /**
  * @brief Constants for various widths.
@@ -2840,7 +2840,7 @@ typedef enum {
  * @brief The class used for formatting i18n_format_h and its subclasses.
  * @since_tizen 3.0
  */
-typedef void* i18n_formattable_h;
+typedef void *i18n_formattable_h;
 
 /**
  * @brief Lets the callers distinguish between the two types of i18n_formattable_h constructors.
@@ -2868,18 +2868,19 @@ typedef enum {
  * @brief Used i18n_format_h and its subclasses to identify fields in formatted output.
  * @since_tizen 3.0
  */
-typedef void* i18n_field_position_h;
+typedef void *i18n_field_position_h;
 
 /**
  * @brief An amount of a specified unit, consisting of a number and a Unit.
  * @since_tizen 3.0
  */
-typedef void* i18n_measure_h;
+typedef void *i18n_measure_h;
+
 /**
  * @brief A unit such as length, mass, volume, currency, etc.
  * @since_tizen 3.0
  */
-typedef void* i18n_measure_unit_h;
+typedef void *i18n_measure_unit_h;
 
 /**
  * @brief Callback function for i18n_measure_unit_get_available_types()
@@ -2903,6 +2904,20 @@ typedef enum {
     I18N_ULOC_VALID_LOCALE = 1,     /**< This is the most specific locale supported by ICU */
     I18N_ULOC_REQUESTED_LOCALE = 2,      /**< This is the requested locale (deprecated) */
 } i18n_uloc_data_locale_type_e;
+
+/**
+ * @brief A simple class used by Format and its subclasses to identify fields in formatted output
+ * @since_tizen 3.0
+ */
+typedef void *i18n_field_position_h;
+
+/**
+ * @brief DONT_CARE may be specified as the field to indicate that the caller doesn't need to specify a field. 
+ * @since_tizen 3.0
+ */
+typedef enum {
+    I18N_FIELD_POSITION_DONT_CARE = -1,
+} i18n_field_position_dont_care_e;
 
 #ifdef __cplusplus
 }
