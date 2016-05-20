@@ -39,6 +39,7 @@ SET(BASEUTILS_SRCS
     utils_i18n_format.cpp
     utils_i18n_measure_format.cpp
     utils_i18n_field_position.cpp
+    utils_i18n_parse_position.cpp
 )
 
 ADD_LIBRARY(${target_name} SHARED ${BASEUTILS_SRCS}
@@ -81,3 +82,4 @@ INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/${INC_DIR}/utils_i18n_measure.h DESTIN
 INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/${INC_DIR}/utils_i18n_format.h DESTINATION ${INCLUDE_INSTALL_DIR}/base)
 INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/${INC_DIR}/utils_i18n_measure_format.h DESTINATION ${INCLUDE_INSTALL_DIR}/base)
 INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/${INC_DIR}/utils_i18n_field_position.h DESTINATION ${INCLUDE_INSTALL_DIR}/base)
+INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/${INC_DIR}/utils_i18n_parse_position.h DESTINATION ${INCLUDE_INSTALL_DIR}/base)
