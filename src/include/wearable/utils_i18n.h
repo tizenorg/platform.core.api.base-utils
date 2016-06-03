@@ -35,6 +35,7 @@
 #include <utils_i18n_formattable.h>
 #include <utils_i18n_measure_unit.h>
 #include <utils_i18n_measure.h>
+#include <utils_i18n_format.h>
 
 /**
  * @file utils_i18n.h
@@ -50,7 +51,7 @@ extern "C" {
  * @ingroup CAPI_BASE_UTILS_MODULE
  * @defgroup CAPI_BASE_UTILS_I18N_MODULE i18n
  * @brief The i18n module contains uchar, ucollator, unormalization, usearch, ustring, ucalendar, udate, udatepg, ulocale, unumber, formattable,
- *     measure unit and measure.
+ *     measure unit, measure and format.
  *	   This module provides flexible generation of number or date format patterns and helps you format and parse dates/number for any locale.
  * The i18n module provides various features based on data from ICU. The following table shows the version of ICU used in each Tizen platform.
  * <table>
@@ -138,6 +139,10 @@ extern "C" {
  * <tr>
  *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_MODULE</td>
  *	  <td>The Measure module represents an amount of a specified unit, consisting of a number and a unit.</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_FORMAT_MODULE</td>
+ *	  <td>The Format module represents the base class for all formats.</td>
  * </tr>
  * </table>
  *
@@ -2679,6 +2684,31 @@ extern "C" {
  *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_MODULE</td>
  *	  <td>#i18n_measure_get_unit</td>
  *	  <td>getUnit</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_FORMAT_MODULE</td>
+ *	  <td>#i18n_format_destroy</td>
+ *	  <td>~Format</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_FORMAT_MODULE</td>
+ *	  <td>#i18n_format_clone</td>
+ *	  <td>clone</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_FORMAT_MODULE</td>
+ *	  <td>#i18n_format_format</td>
+ *	  <td>format</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_FORMAT_MODULE</td>
+ *	  <td>#i18n_format_parse_object</td>
+ *	  <td>parseObject</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_FORMAT_MODULE</td>
+ *	  <td>#i18n_format_get_locale</td>
+ *	  <td>getLocale</td>
  * </tr>
  * </table>
  */
