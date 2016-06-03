@@ -101,6 +101,58 @@ int i18n_measure_format_destroy(i18n_measure_format_h measure_format);
 int i18n_measure_format_clone(i18n_measure_format_h measure_format, i18n_format_h *clone);
 
 /**
+ * @brief Formats an object to produce a string.
+ * @since_tizen 3.0
+ *
+ * @param[in]  measure_format  The format object
+ * @param[in]  formattable     The object to format
+ * @param[out] append_to       Output parameter to receive result. Result is appended to existing contents
+ * @param[in]  field_position  The field position
+ *
+ * @return Error code. Error codes not listed below are described in #i18n_error_code_e
+ * @retval #I18N_ERROR_NONE Successful
+ * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
+ * @retval #I18N_ERROR_OUT_OF_MEMORY Out of memory
+ */
+int i18n_measure_format_format(i18n_measure_format_h measure_format, i18n_formattable_h formattable, char **append_to, i18n_field_position_h field_position);
+
+/**
+ * @brief Parses a string to produce an object.
+ * @since_tizen 3.0
+ *
+ * @param[in]  measure_format  The format object
+ * @param[in]  source          The string to be parsed into an object
+ * @param[out] result          The formattable object to be set to the parse result. If parse fails,
+ *                             return contents are undefined.
+ * @param[in]  parse_position  The parse position
+ *
+ * @retval #I18N_ERROR_NONE Successful
+ * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
+ * @retval #I18N_ERROR_OUT_OF_MEMORY Out of memory
+ */
+int i18n_measure_format_parse_object(i18n_measure_format_h measure_format, char *source, i18n_formattable_h *result, i18n_parse_position_h parse_position);
+
+/**
+ * @brief Formats measure objects to produce a string.
+ * @details An example of such a formatted string is 3 meters, 3.5 centimeters.
+ * @reamrks Measure objects appear in the formatted string in the same order they appear
+ *          in the @a measures array.
+ * @since_tizen 3.0
+ *
+ * @param[in]  measure_format  The format object
+ * @param[in]  measures        The array of measure objects
+ * @param[in]  measure_count   The number of measure objects
+ * @param[out] append_to       Output parameter to receive result. Result is appended to existing contents
+ * @param[in]  field_position  The field position
+ *
+ * @return Error code. Error codes not listed below are described in #i18n_error_code_e
+ * @retval #I18N_ERROR_NONE Successful
+ * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
+ * @retval #I18N_ERROR_OUT_OF_MEMORY Out of memory
+ */
+int i18n_measure_format_format_measures(i18n_measure_format_h measure_format, i18n_measure_h *measures, int32_t measure_count, char **append_to, i18n_field_position_h field_position);
+
+/**
  * @brief Gets a formatter for currency amount objects in the given locale.
  * @since_tizen 3.0
  *
