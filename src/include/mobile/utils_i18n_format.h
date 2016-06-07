@@ -90,6 +90,44 @@ int i18n_format_clone(i18n_format_h format, i18n_format_h *clone);
 int i18n_format_format(i18n_format_h format, i18n_formattable_h formattable, char **append_to);
 
 /**
+ * @brief Formats an object to produce a string.
+ * @details This is a convenience method which calls the pure virtual parseObject() method.
+ * @since_tizen 3.0
+ *
+ * @param[in] format              The format object
+ * @param[in] formattable         The object to format
+ * @param[out] append_to          Output parameter to receive result. Result is appended to existing contents
+ * @param[in/out] field_position  On input: an alignment field, if desired. On output: the offsets of the alignment field. 
+ *
+ * @return Error code. Error codes not listed below are described in the #i18n_error_code_e
+ * @retval #I18N_ERROR_NONE Successful
+ * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
+ * @retval #I18N_ERROR_OUT_OF_MEMORY Out of memory
+ */
+int i18n_format_format_with_field_position(i18n_format_h format, i18n_formattable_h formattable, char **append_to, i18n_field_position_h field_position);
+
+
+/**
+ * @brief Parses a string to produce an object.
+ * @details The caller is responsible for deleting the result when done.
+ * @since_tizen 3.0
+ *
+ * @param[in] format              The format object
+ * @param[in] source              The string to be parsed into an object
+ * @param[out] result             The formattable object to be set to the parse result.
+ *                                If parse fails, return contents are undefined.
+ * @param[in/out] parse_position  The position to start parsing at. Upon return this parameter is set
+ *                                to the position after the last character successfully parsed. If the source
+ *                                is not parsed successfully, this parameter will remain unchanged.
+ *
+ * @return Error code. Error codes not listed below are described in the #i18n_error_code_e
+ * @retval #I18N_ERROR_NONE Successful
+ * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
+ * @retval #I18N_ERROR_OUT_OF_MEMORY Out of memory
+ */
+int i18n_format_parse_object_with_parse_position(i18n_format_h format, char *source, i18n_formattable_h *result, i18n_parse_position_h parse_position);
+
+/**
  * @brief Parses a string to produce an object.
  * @details The caller is responsible for deleting the result when done.
  * @since_tizen 3.0
