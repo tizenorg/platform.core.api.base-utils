@@ -32,6 +32,7 @@
 #include <utils_i18n_uenumeration.h>
 #include <utils_i18n_uset.h>
 #include <utils_i18n_ubrk.h>
+#include <utils_i18n_alpha_idx.h>
 
 /**
  * @file utils_i18n.h

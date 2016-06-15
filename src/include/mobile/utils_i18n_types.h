@@ -2811,6 +2811,15 @@ typedef enum {
 	I18N_USCRIPT_CODE_LIMIT					   = 159 /**< Count of i18n_uscript_code_e enumerators*/
 } i18n_uscript_code_e;
 
+typedef void *i18_alpha_idx_h;
+
+typedef enum {
+	I18_ALPHAINDEX_NORMAL,
+	I18_ALPHAINDEX_UNDERFLOW,
+	I18_ALPHAINDEX_INFLOW,
+	I18_ALPHINDEX_OVERFLOW,
+} i18_alpha_idx_label_type;
+
 #ifdef __cplusplus
 }
 #endif
