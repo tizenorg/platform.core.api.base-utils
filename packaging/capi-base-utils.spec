@@ -1,6 +1,6 @@
 Name:       capi-base-utils
 Summary:    Base Utils
-Version:    1.2.3
+Version:    1.2.4
 Release:    1
 Group:      Base
 License:    Apache-2.0 and ICU
@@ -81,5 +81,6 @@ cat LICENSE.ICU >> %{buildroot}/usr/share/license/%{name}
 %{_includedir}/base/utils_i18n_uenumeration.h
 %{_includedir}/base/utils_i18n_uset.h
 %{_includedir}/base/utils_i18n_ubrk.h
+%{_includedir}/base/utils_i18n_alpha_idx.h
 %{_includedir}/base/utils_i18n.h
 %{_libdir}/pkgconfig/*.pc
