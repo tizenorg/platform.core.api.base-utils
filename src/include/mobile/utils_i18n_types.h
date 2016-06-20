@@ -603,253 +603,263 @@ typedef enum {
  *
  */
 typedef enum {
-	I18N_UCHAR_UBLOCK_NO_BLOCK,													 /**< No Block */
-	I18N_UCHAR_UBLOCK_BASIC_LATIN,												 /**< Basic Latin */
-	I18N_UCHAR_UBLOCK_LATIN_1_SUPPLEMENT,										 /**< Latin_1 Supplement */
-	I18N_UCHAR_UBLOCK_LATIN_EXTENDED_A,											 /**< Latin Extended A */
-	I18N_UCHAR_UBLOCK_LATIN_EXTENDED_B,											 /**< Latin Extended B */
-	I18N_UCHAR_UBLOCK_IPA_EXTENSIONS,											 /**< IPA Extensions */
-	I18N_UCHAR_UBLOCK_SPACING_MODIFIER_LETTERS,									 /**< Spacing Modifier Letters */
-	I18N_UCHAR_UBLOCK_COMBINING_DIACRITICAL_MARKS,								 /**< Combining Diacritical Marks */
-	I18N_UCHAR_UBLOCK_GREEK,													 /**< Greek */
-	I18N_UCHAR_UBLOCK_CYRILLIC,													 /**< Cyrillic */
-	I18N_UCHAR_UBLOCK_ARMENIAN,													 /**< Armenian */
-	I18N_UCHAR_UBLOCK_HEBREW,													 /**< Hebrew */
-	I18N_UCHAR_UBLOCK_ARABIC,													 /**< Arabic */
-	I18N_UCHAR_UBLOCK_SYRIAC,													 /**< Syriac */
-	I18N_UCHAR_UBLOCK_THAANA,													 /**< Thaana */
-	I18N_UCHAR_UBLOCK_DEVANAGARI,												 /**< Devanagari */
-	I18N_UCHAR_UBLOCK_BENGALI,													 /**< Bengali */
-	I18N_UCHAR_UBLOCK_GURMUKHI,													 /**< Gurmukhi */
-	I18N_UCHAR_UBLOCK_GUJARATI,													 /**< Gujarati */
-	I18N_UCHAR_UBLOCK_ORIYA,													 /**< Oriya */
-	I18N_UCHAR_UBLOCK_TAMIL,													 /**< Tamil */
-	I18N_UCHAR_UBLOCK_TELUGU,													 /**< Telugu */
-	I18N_UCHAR_UBLOCK_KANNADA,													 /**< Kannada */
-	I18N_UCHAR_UBLOCK_MALAYALAM,												 /**< Malayalam */
-	I18N_UCHAR_UBLOCK_SINHALA,													 /**< Sinhala */
-	I18N_UCHAR_UBLOCK_THAI,														 /**< Thai */
-	I18N_UCHAR_UBLOCK_LAO,														 /**< Lao */
-	I18N_UCHAR_UBLOCK_TIBETAN,													 /**< Tibetan */
-	I18N_UCHAR_UBLOCK_MYANMAR,													 /**< Myanmar */
-	I18N_UCHAR_UBLOCK_GEORGIAN,													 /**< Georgian */
-	I18N_UCHAR_UBLOCK_HANGUL_JAMO,												 /**< Hangul Jamo */
-	I18N_UCHAR_UBLOCK_ETHIOPIC,													 /**< Ethiopic */
-	I18N_UCHAR_UBLOCK_CHEROKEE,													 /**< Cherokee */
-	I18N_UCHAR_UBLOCK_UNIFIED_CANADIAN_ABORIGINAL_SYLLABICS,					 /**< Unified Canadian Aboriginal Syllabics */
-	I18N_UCHAR_UBLOCK_OGHAM,													 /**< Ogham */
-	I18N_UCHAR_UBLOCK_RUNIC,													 /**< Runic */
-	I18N_UCHAR_UBLOCK_KHMER,													 /**< Khmer */
-	I18N_UCHAR_UBLOCK_MONGOLIAN,												 /**< Mongolian */
-	I18N_UCHAR_UBLOCK_LATIN_EXTENDED_ADDITIONAL,								 /**< Latin Extended Additional */
-	I18N_UCHAR_UBLOCK_GREEK_EXTENDED,											 /**< Greek Extended */
-	I18N_UCHAR_UBLOCK_GENERAL_PUNCTUATION,										 /**< General Punctuation */
-	I18N_UCHAR_UBLOCK_SUPERSCRIPTS_AND_SUBSCRIPTS,								 /**< Superscripts And Subscripts */
-	I18N_UCHAR_UBLOCK_CURRENCY_SYMBOLS,											 /**< Currency Symbols */
-	I18N_UCHAR_UBLOCK_COMBINING_MARKS_FOR_SYMBOLS,								 /**< Combining Marks For Symbols */
-	I18N_UCHAR_UBLOCK_LETTERLIKE_SYMBOLS,										 /**< Letterlike Symbols */
-	I18N_UCHAR_UBLOCK_NUMBER_FORMS,												 /**< Number Forms */
-	I18N_UCHAR_UBLOCK_ARROWS,													 /**< Arrows */
-	I18N_UCHAR_UBLOCK_MATHEMATICAL_OPERATORS,									 /**< Mathematical Operators */
-	I18N_UCHAR_UBLOCK_MISCELLANEOUS_TECHNICAL,									 /**< Miscellaneous Technical */
-	I18N_UCHAR_UBLOCK_CONTROL_PICTURES,											 /**< Control Pictures */
-	I18N_UCHAR_UBLOCK_OPTICAL_CHARACTER_RECOGNITION,							 /**< Optical Character Recognition */
-	I18N_UCHAR_UBLOCK_ENCLOSED_ALPHANUMERICS,									 /**< Enclosed Alphanumerics */
-	I18N_UCHAR_UBLOCK_BOX_DRAWING,												 /**< Box Drawing */
-	I18N_UCHAR_UBLOCK_BLOCK_ELEMENTS,											 /**< Block Elements */
-	I18N_UCHAR_UBLOCK_GEOMETRIC_SHAPES,											 /**< Geometric Shapes */
-	I18N_UCHAR_UBLOCK_MISCELLANEOUS_SYMBOLS,									 /**< Miscellaneous Symbols */
-	I18N_UCHAR_UBLOCK_DINGBATS,													 /**< Dingbats */
-	I18N_UCHAR_UBLOCK_BRAILLE_PATTERNS,											 /**< Braille Patterns */
-	I18N_UCHAR_UBLOCK_CJK_RADICALS_SUPPLEMENT,									 /**< CJK Radicals Supplement */
-	I18N_UCHAR_UBLOCK_KANGXI_RADICALS,											 /**< Kangxi Radicals */
-	I18N_UCHAR_UBLOCK_IDEOGRAPHIC_DESCRIPTION_CHARACTERS,						 /**< Ideographic Description Characters */
-	I18N_UCHAR_UBLOCK_CJK_SYMBOLS_AND_PUNCTUATION,								 /**< CJK Symbols And Punctuation */
-	I18N_UCHAR_UBLOCK_HIRAGANA,													 /**< Hiragana */
-	I18N_UCHAR_UBLOCK_KATAKANA,													 /**< Katakana */
-	I18N_UCHAR_UBLOCK_BOPOMOFO,													 /**< Bopomofo */
-	I18N_UCHAR_UBLOCK_HANGUL_COMPATIBILITY_JAMO,								 /**< Hangul Compatibility Jamo */
-	I18N_UCHAR_UBLOCK_KANBUN,													 /**< Kanbun */
-	I18N_UCHAR_UBLOCK_BOPOMOFO_EXTENDED,										 /**< Bopomofo Extended */
-	I18N_UCHAR_UBLOCK_ENCLOSED_CJK_LETTERS_AND_MONTHS,							 /**< Enclosed CJK Letters And Months */
-	I18N_UCHAR_UBLOCK_CJK_COMPATIBILITY,										 /**< CJK Compatibility */
-	I18N_UCHAR_UBLOCK_CJK_UNIFIED_IDEOGRAPHS_EXTENSION_A,						 /**< CJK Unified Ideographs Extension A */
-	I18N_UCHAR_UBLOCK_CJK_UNIFIED_IDEOGRAPHS,									 /**< CJK Unified Ideographs */
-	I18N_UCHAR_UBLOCK_YI_SYLLABLES,												 /**< Yi Syllables */
-	I18N_UCHAR_UBLOCK_YI_RADICALS,												 /**< Yi Radicals */
-	I18N_UCHAR_UBLOCK_HANGUL_SYLLABLES,											 /**< Hangul Syllables */
-	I18N_UCHAR_UBLOCK_HIGH_SURROGATES,											 /**< High Surrogates */
-	I18N_UCHAR_UBLOCK_HIGH_PRIVATE_USE_SURROGATES,								 /**< High Private Use Surrogates */
-	I18N_UCHAR_UBLOCK_LOW_SURROGATES,											 /**< Low Surrogates */
-	I18N_UCHAR_UBLOCK_PRIVATE_USE_AREA,											 /**< Private Use Area */
-	I18N_UCHAR_UBLOCK_PRIVATE_USE,												 /**< Private Use */
-	I18N_UCHAR_UBLOCK_CJK_COMPATIBILITY_IDEOGRAPHS,								 /**< CJK Compatibility Ideographs */
+	I18N_UCHAR_UBLOCK_NO_BLOCK										 = 0,		 /**< No Block */
+	I18N_UCHAR_UBLOCK_BASIC_LATIN									 = 1,		 /**< Basic Latin */
+	I18N_UCHAR_UBLOCK_LATIN_1_SUPPLEMENT							 = 2,		 /**< Latin_1 Supplement */
+	I18N_UCHAR_UBLOCK_LATIN_EXTENDED_A								 = 3,		 /**< Latin Extended A */
+	I18N_UCHAR_UBLOCK_LATIN_EXTENDED_B								 = 4,		 /**< Latin Extended B */
+	I18N_UCHAR_UBLOCK_IPA_EXTENSIONS								 = 5,		 /**< IPA Extensions */
+	I18N_UCHAR_UBLOCK_SPACING_MODIFIER_LETTERS						 = 6,		 /**< Spacing Modifier Letters */
+	I18N_UCHAR_UBLOCK_COMBINING_DIACRITICAL_MARKS					 = 7,		 /**< Combining Diacritical Marks */
+	I18N_UCHAR_UBLOCK_GREEK											 = 8,		 /**< Greek */
+	I18N_UCHAR_UBLOCK_CYRILLIC										 = 9,		 /**< Cyrillic */
+	I18N_UCHAR_UBLOCK_ARMENIAN										 = 10,		 /**< Armenian */
+	I18N_UCHAR_UBLOCK_HEBREW										 = 11,		 /**< Hebrew */
+	I18N_UCHAR_UBLOCK_ARABIC										 = 12,		 /**< Arabic */
+	I18N_UCHAR_UBLOCK_SYRIAC										 = 13,		 /**< Syriac */
+	I18N_UCHAR_UBLOCK_THAANA										 = 14,		 /**< Thaana */
+	I18N_UCHAR_UBLOCK_DEVANAGARI									 = 15,		 /**< Devanagari */
+	I18N_UCHAR_UBLOCK_BENGALI										 = 16,		 /**< Bengali */
+	I18N_UCHAR_UBLOCK_GURMUKHI										 = 17,		 /**< Gurmukhi */
+	I18N_UCHAR_UBLOCK_GUJARATI										 = 18,		 /**< Gujarati */
+	I18N_UCHAR_UBLOCK_ORIYA											 = 19,		 /**< Oriya */
+	I18N_UCHAR_UBLOCK_TAMIL											 = 20,		 /**< Tamil */
+	I18N_UCHAR_UBLOCK_TELUGU										 = 21,		 /**< Telugu */
+	I18N_UCHAR_UBLOCK_KANNADA										 = 22,		 /**< Kannada */
+	I18N_UCHAR_UBLOCK_MALAYALAM										 = 23,		 /**< Malayalam */
+	I18N_UCHAR_UBLOCK_SINHALA										 = 24,		 /**< Sinhala */
+	I18N_UCHAR_UBLOCK_THAI											 = 25,		 /**< Thai */
+	I18N_UCHAR_UBLOCK_LAO											 = 26,		 /**< Lao */
+	I18N_UCHAR_UBLOCK_TIBETAN										 = 27,		 /**< Tibetan */
+	I18N_UCHAR_UBLOCK_MYANMAR										 = 28,		 /**< Myanmar */
+	I18N_UCHAR_UBLOCK_GEORGIAN										 = 29,		 /**< Georgian */
+	I18N_UCHAR_UBLOCK_HANGUL_JAMO									 = 30,		 /**< Hangul Jamo */
+	I18N_UCHAR_UBLOCK_ETHIOPIC										 = 31,		 /**< Ethiopic */
+	I18N_UCHAR_UBLOCK_CHEROKEE										 = 32,		 /**< Cherokee */
+	I18N_UCHAR_UBLOCK_UNIFIED_CANADIAN_ABORIGINAL_SYLLABICS			 = 33,		 /**< Unified Canadian Aboriginal Syllabics */
+	I18N_UCHAR_UBLOCK_OGHAM											 = 34,		 /**< Ogham */
+	I18N_UCHAR_UBLOCK_RUNIC											 = 35,		 /**< Runic */
+	I18N_UCHAR_UBLOCK_KHMER											 = 36,		 /**< Khmer */
+	I18N_UCHAR_UBLOCK_MONGOLIAN										 = 37,		 /**< Mongolian */
+	I18N_UCHAR_UBLOCK_LATIN_EXTENDED_ADDITIONAL						 = 38,		 /**< Latin Extended Additional */
+	I18N_UCHAR_UBLOCK_GREEK_EXTENDED								 = 39,		 /**< Greek Extended */
+	I18N_UCHAR_UBLOCK_GENERAL_PUNCTUATION							 = 40,		 /**< General Punctuation */
+	I18N_UCHAR_UBLOCK_SUPERSCRIPTS_AND_SUBSCRIPTS					 = 41,		 /**< Superscripts And Subscripts */
+	I18N_UCHAR_UBLOCK_CURRENCY_SYMBOLS								 = 42,		 /**< Currency Symbols */
+	I18N_UCHAR_UBLOCK_COMBINING_MARKS_FOR_SYMBOLS					 = 43,		 /**< Combining Marks For Symbols */
+	I18N_UCHAR_UBLOCK_LETTERLIKE_SYMBOLS							 = 44,		 /**< Letterlike Symbols */
+	I18N_UCHAR_UBLOCK_NUMBER_FORMS									 = 45,		 /**< Number Forms */
+	I18N_UCHAR_UBLOCK_ARROWS										 = 46,		 /**< Arrows */
+	I18N_UCHAR_UBLOCK_MATHEMATICAL_OPERATORS						 = 47,		 /**< Mathematical Operators */
+	I18N_UCHAR_UBLOCK_MISCELLANEOUS_TECHNICAL						 = 48,		 /**< Miscellaneous Technical */
+	I18N_UCHAR_UBLOCK_CONTROL_PICTURES								 = 49,		 /**< Control Pictures */
+	I18N_UCHAR_UBLOCK_OPTICAL_CHARACTER_RECOGNITION					 = 50,		 /**< Optical Character Recognition */
+	I18N_UCHAR_UBLOCK_ENCLOSED_ALPHANUMERICS						 = 51,		 /**< Enclosed Alphanumerics */
+	I18N_UCHAR_UBLOCK_BOX_DRAWING									 = 52,		 /**< Box Drawing */
+	I18N_UCHAR_UBLOCK_BLOCK_ELEMENTS								 = 53,		 /**< Block Elements */
+	I18N_UCHAR_UBLOCK_GEOMETRIC_SHAPES								 = 54,		 /**< Geometric Shapes */
+	I18N_UCHAR_UBLOCK_MISCELLANEOUS_SYMBOLS							 = 55,		 /**< Miscellaneous Symbols */
+	I18N_UCHAR_UBLOCK_DINGBATS										 = 56,		 /**< Dingbats */
+	I18N_UCHAR_UBLOCK_BRAILLE_PATTERNS								 = 57,		 /**< Braille Patterns */
+	I18N_UCHAR_UBLOCK_CJK_RADICALS_SUPPLEMENT						 = 58,		 /**< CJK Radicals Supplement */
+	I18N_UCHAR_UBLOCK_KANGXI_RADICALS								 = 59,		 /**< Kangxi Radicals */
+	I18N_UCHAR_UBLOCK_IDEOGRAPHIC_DESCRIPTION_CHARACTERS			 = 60,		 /**< Ideographic Description Characters */
+	I18N_UCHAR_UBLOCK_CJK_SYMBOLS_AND_PUNCTUATION					 = 61,		 /**< CJK Symbols And Punctuation */
+	I18N_UCHAR_UBLOCK_HIRAGANA										 = 62,		 /**< Hiragana */
+	I18N_UCHAR_UBLOCK_KATAKANA										 = 63,		 /**< Katakana */
+	I18N_UCHAR_UBLOCK_BOPOMOFO										 = 64,		 /**< Bopomofo */
+	I18N_UCHAR_UBLOCK_HANGUL_COMPATIBILITY_JAMO						 = 65,		 /**< Hangul Compatibility Jamo */
+	I18N_UCHAR_UBLOCK_KANBUN										 = 66,		 /**< Kanbun */
+	I18N_UCHAR_UBLOCK_BOPOMOFO_EXTENDED								 = 67,		 /**< Bopomofo Extended */
+	I18N_UCHAR_UBLOCK_ENCLOSED_CJK_LETTERS_AND_MONTHS				 = 68,		 /**< Enclosed CJK Letters And Months */
+	I18N_UCHAR_UBLOCK_CJK_COMPATIBILITY								 = 69,		 /**< CJK Compatibility */
+	I18N_UCHAR_UBLOCK_CJK_UNIFIED_IDEOGRAPHS_EXTENSION_A			 = 70,		 /**< CJK Unified Ideographs Extension A */
+	I18N_UCHAR_UBLOCK_CJK_UNIFIED_IDEOGRAPHS						 = 71,		 /**< CJK Unified Ideographs */
+	I18N_UCHAR_UBLOCK_YI_SYLLABLES									 = 72,		 /**< Yi Syllables */
+	I18N_UCHAR_UBLOCK_YI_RADICALS									 = 73,		 /**< Yi Radicals */
+	I18N_UCHAR_UBLOCK_HANGUL_SYLLABLES								 = 74,		 /**< Hangul Syllables */
+	I18N_UCHAR_UBLOCK_HIGH_SURROGATES								 = 75,		 /**< High Surrogates */
+	I18N_UCHAR_UBLOCK_HIGH_PRIVATE_USE_SURROGATES					 = 76,		 /**< High Private Use Surrogates */
+	I18N_UCHAR_UBLOCK_LOW_SURROGATES								 = 77,		 /**< Low Surrogates */
+	I18N_UCHAR_UBLOCK_PRIVATE_USE_AREA								 = 78,		 /**< Private Use Area */
+	I18N_UCHAR_UBLOCK_PRIVATE_USE									 = I18N_UCHAR_UBLOCK_PRIVATE_USE_AREA, /**< Private Use */
+	I18N_UCHAR_UBLOCK_CJK_COMPATIBILITY_IDEOGRAPHS					 = 79,		 /**< CJK Compatibility Ideographs */
 
-	I18N_UCHAR_UBLOCK_ALPHABETIC_PRESENTATION_FORMS,							 /**< Alphabetic Presentation Forms */
-	I18N_UCHAR_UBLOCK_ARABIC_PRESENTATION_FORMS_A,								 /**< Arabic Presentation Forms A */
-	I18N_UCHAR_UBLOCK_COMBINING_HALF_MARKS,										 /**< Combining Half Marks */
-	I18N_UCHAR_UBLOCK_CJK_COMPATIBILITY_FORMS,									 /**< CJK Compatibility Forms */
-	I18N_UCHAR_UBLOCK_SMALL_FORM_VARIANTS,										 /**< Small Form Variants */
-	I18N_UCHAR_UBLOCK_ARABIC_PRESENTATION_FORMS_B,								 /**< Arabic Presentation Forms B */
-	I18N_UCHAR_UBLOCK_SPECIALS,													 /**< Specials */
-	I18N_UCHAR_UBLOCK_HALFWIDTH_AND_FULLWIDTH_FORMS,							 /**< Halfwidth And Fullwidth Forms */
-	I18N_UCHAR_UBLOCK_OLD_ITALIC,												 /**< Old Italic */
-	I18N_UCHAR_UBLOCK_GOTHIC,													 /**< Gothic */
-	I18N_UCHAR_UBLOCK_DESERET,													 /**< Deseret */
-	I18N_UCHAR_UBLOCK_BYZANTINE_MUSICAL_SYMBOLS,								 /**< Byzantine Musical Symbols */
-	I18N_UCHAR_UBLOCK_MUSICAL_SYMBOLS,											 /**< Musical Symbols */
-	I18N_UCHAR_UBLOCK_MATHEMATICAL_ALPHANUMERIC_SYMBOLS,						 /**< Mathematical Alphanumeric Symbols */
-	I18N_UCHAR_UBLOCK_CJK_UNIFIED_IDEOGRAPHS_EXTENSION_B,						 /**< CJK Unified Ideographs Extension B */
-	I18N_UCHAR_UBLOCK_CJK_COMPATIBILITY_IDEOGRAPHS_SUPPLEMENT,					 /**< CJK Compatibility Ideographs Supplement */
-	I18N_UCHAR_UBLOCK_TAGS,														 /**< Tags */
-	I18N_UCHAR_UBLOCK_CYRILLIC_SUPPLEMENT,										 /**< Cyrillic Supplement */
-	I18N_UCHAR_UBLOCK_CYRILLIC_SUPPLEMENTARY,									 /**< Cyrillic Supplementary */
-	I18N_UCHAR_UBLOCK_TAGALOG,													 /**< Tagalog */
-	I18N_UCHAR_UBLOCK_HANUNOO,													 /**< Hanunoo */
-	I18N_UCHAR_UBLOCK_BUHID,													 /**< Buhid */
-	I18N_UCHAR_UBLOCK_TAGBANWA,													 /**< Tagbanwa */
-	I18N_UCHAR_UBLOCK_MISCELLANEOUS_MATHEMATICAL_SYMBOLS_A,						 /**< Miscellaneous Mathematical Symbols A */
-	I18N_UCHAR_UBLOCK_SUPPLEMENTAL_ARROWS_A,									 /**< Supplemental Arrows A */
-	I18N_UCHAR_UBLOCK_SUPPLEMENTAL_ARROWS_B,									 /**< Supplemental Arrows B */
-	I18N_UCHAR_UBLOCK_MISCELLANEOUS_MATHEMATICAL_SYMBOLS_B,						 /**< Miscellaneous Mathematical Symbols B */
-	I18N_UCHAR_UBLOCK_SUPPLEMENTAL_MATHEMATICAL_OPERATORS,						 /**< Supplemental Mathematical Operators */
-	I18N_UCHAR_UBLOCK_KATAKANA_PHONETIC_EXTENSIONS,								 /**< Katakana Phonetic Extensions */
-	I18N_UCHAR_UBLOCK_VARIATION_SELECTORS,										 /**< Variation Selectors */
-	I18N_UCHAR_UBLOCK_SUPPLEMENTARY_PRIVATE_USE_AREA_A,							 /**< Supplementary Private Use Area A */
-	I18N_UCHAR_UBLOCK_SUPPLEMENTARY_PRIVATE_USE_AREA_B,							 /**< Supplementary Private Use Area B */
-	I18N_UCHAR_UBLOCK_LIMBU,													 /**< Limbu */
-	I18N_UCHAR_UBLOCK_TAI_LE,													 /**< Tai Le */
-	I18N_UCHAR_UBLOCK_KHMER_SYMBOLS,											 /**< Khmer Symbols */
-	I18N_UCHAR_UBLOCK_PHONETIC_EXTENSIONS,										 /**< Phonetic Extensions */
-	I18N_UCHAR_UBLOCK_MISCELLANEOUS_SYMBOLS_AND_ARROWS,							 /**< Miscellaneous Symbols And Arrows */
-	I18N_UCHAR_UBLOCK_YIJING_HEXAGRAM_SYMBOLS,									 /**< Yijing Hexagram Symbols */
-	I18N_UCHAR_UBLOCK_LINEAR_B_SYLLABARY,										 /**< Linear B Syllabary */
-	I18N_UCHAR_UBLOCK_LINEAR_B_IDEOGRAMS,										 /**< Linear B Ideograms */
-	I18N_UCHAR_UBLOCK_AEGEAN_NUMBERS,											 /**< Aegean Numbers */
-	I18N_UCHAR_UBLOCK_UGARITIC,													 /**< Ugaritic */
-	I18N_UCHAR_UBLOCK_SHAVIAN,													 /**< Shavian */
-	I18N_UCHAR_UBLOCK_OSMANYA,													 /**< Osmanya */
-	I18N_UCHAR_UBLOCK_CYPRIOT_SYLLABARY,										 /**< Cypriot Syllabary */
-	I18N_UCHAR_UBLOCK_TAI_XUAN_JING_SYMBOLS,									 /**< Tai Xuan Jing Symbols */
-	I18N_UCHAR_UBLOCK_VARIATION_SELECTORS_SUPPLEMENT,							 /**< Variation Selectors Supplement */
-	I18N_UCHAR_UBLOCK_ANCIENT_GREEK_MUSICAL_NOTATION,							 /**< Ancient Greek Musical Notation */
-	I18N_UCHAR_UBLOCK_ANCIENT_GREEK_NUMBERS,									 /**< Ancient Greek Numbers */
-	I18N_UCHAR_UBLOCK_ARABIC_SUPPLEMENT,										 /**< Arabic Supplement */
-	I18N_UCHAR_UBLOCK_BUGINESE,													 /**< Buginese */
-	I18N_UCHAR_UBLOCK_CJK_STROKES,												 /**< CJK Strokes */
-	I18N_UCHAR_UBLOCK_COMBINING_DIACRITICAL_MARKS_SUPPLEMENT,					 /**< Combining Diacritical Marks Supplement */
-	I18N_UCHAR_UBLOCK_COPTIC,													 /**< Coptic */
-	I18N_UCHAR_UBLOCK_ETHIOPIC_EXTENDED,										 /**< Ethiopic Extended */
-	I18N_UCHAR_UBLOCK_ETHIOPIC_SUPPLEMENT,										 /**< Ethiopic Supplement */
-	I18N_UCHAR_UBLOCK_GEORGIAN_SUPPLEMENT,										 /**< Georgian Supplement */
-	I18N_UCHAR_UBLOCK_GLAGOLITIC,												 /**< Glagolitic */
-	I18N_UCHAR_UBLOCK_KHAROSHTHI,												 /**< Kharoshthi */
-	I18N_UCHAR_UBLOCK_MODIFIER_TONE_LETTERS,									 /**< Modifier Tone Letters */
-	I18N_UCHAR_UBLOCK_NEW_TAI_LUE,												 /**< New Tai Lue */
-	I18N_UCHAR_UBLOCK_OLD_PERSIAN,												 /**< Old Persian */
-	I18N_UCHAR_UBLOCK_PHONETIC_EXTENSIONS_SUPPLEMENT,							 /**< Phonetic Extensions Supplement */
-	I18N_UCHAR_UBLOCK_SUPPLEMENTAL_PUNCTUATION,									 /**< Supplemental Punctuation */
-	I18N_UCHAR_UBLOCK_SYLOTI_NAGRI,												 /**< Syloti Nagri */
-	I18N_UCHAR_UBLOCK_TIFINAGH,													 /**< Tifinagh */
-	I18N_UCHAR_UBLOCK_VERTICAL_FORMS,											 /**< Vertical Forms */
-	I18N_UCHAR_UBLOCK_NKO,														 /**< Nko */
-	I18N_UCHAR_UBLOCK_BALINESE,													 /**< Balinese */
-	I18N_UCHAR_UBLOCK_LATIN_EXTENDED_C,											 /**< Latin Extended C */
-	I18N_UCHAR_UBLOCK_LATIN_EXTENDED_D,											 /**< Latin Extended D */
-	I18N_UCHAR_UBLOCK_PHAGS_PA,													 /**< Phags Pa */
-	I18N_UCHAR_UBLOCK_PHOENICIAN,												 /**< Phoenician */
-	I18N_UCHAR_UBLOCK_CUNEIFORM,												 /**< Cuneiform */
-	I18N_UCHAR_UBLOCK_CUNEIFORM_NUMBERS_AND_PUNCTUATION,						 /**< Cuneiform Numbers And Punctuation */
-	I18N_UCHAR_UBLOCK_COUNTING_ROD_NUMERALS,									 /**< Counting Rod Numerals */
-	I18N_UCHAR_UBLOCK_SUNDANESE,												 /**< Sundanese */
-	I18N_UCHAR_UBLOCK_LEPCHA,													 /**< Lepcha */
-	I18N_UCHAR_UBLOCK_OL_CHIKI,													 /**< Ol Chiki */
-	I18N_UCHAR_UBLOCK_CYRILLIC_EXTENDED_A,										 /**< Cyrillic Extended A */
-	I18N_UCHAR_UBLOCK_VAI,														 /**< Vai */
-	I18N_UCHAR_UBLOCK_CYRILLIC_EXTENDED_B,										 /**< Cyrillic Extended B */
-	I18N_UCHAR_UBLOCK_SAURASHTRA,												 /**< Saurashtra */
-	I18N_UCHAR_UBLOCK_KAYAH_LI,													 /**< Kayah Li */
-	I18N_UCHAR_UBLOCK_REJANG,													 /**< Rejang */
-	I18N_UCHAR_UBLOCK_CHAM,														 /**< Cham */
-	I18N_UCHAR_UBLOCK_ANCIENT_SYMBOLS,											 /**< Ancient Symbols */
-	I18N_UCHAR_UBLOCK_PHAISTOS_DISC,											 /**< Phaistos Disc */
-	I18N_UCHAR_UBLOCK_LYCIAN,													 /**< Lycian */
-	I18N_UCHAR_UBLOCK_CARIAN,													 /**< Carian */
-	I18N_UCHAR_UBLOCK_LYDIAN,													 /**< Lydian */
-	I18N_UCHAR_UBLOCK_MAHJONG_TILES,											 /**< Mahjong Tiles */
-	I18N_UCHAR_UBLOCK_DOMINO_TILES,												 /**< Domino Tiles */
-	I18N_UCHAR_UBLOCK_SAMARITAN,												 /**< Samaritan */
-	I18N_UCHAR_UBLOCK_UNIFIED_CANADIAN_ABORIGINAL_SYLLABICS_EXTENDED,			 /**< Unified Canadian Aboriginal Syllabics Extended */
-	I18N_UCHAR_UBLOCK_TAI_THAM,													 /**< Tai Tham */
-	I18N_UCHAR_UBLOCK_VEDIC_EXTENSIONS,											 /**< Vedic Extensions */
-	I18N_UCHAR_UBLOCK_LISU,														 /**< Lisu */
-	I18N_UCHAR_UBLOCK_BAMUM,													 /**< Bamum */
-	I18N_UCHAR_UBLOCK_COMMON_INDIC_NUMBER_FORMS,								 /**< Common Indic Number Forms */
-	I18N_UCHAR_UBLOCK_DEVANAGARI_EXTENDED,										 /**< Devanagari Extended */
-	I18N_UCHAR_UBLOCK_HANGUL_JAMO_EXTENDED_A,									 /**< Hangul Jamo Extended A */
-	I18N_UCHAR_UBLOCK_JAVANESE,													 /**< Javanese */
-	I18N_UCHAR_UBLOCK_MYANMAR_EXTENDED_A,										 /**< Myanmar Extended A */
-	I18N_UCHAR_UBLOCK_TAI_VIET,													 /**< Tai Viet */
-	I18N_UCHAR_UBLOCK_MEETEI_MAYEK,												 /**< Meetei Mayek */
-	I18N_UCHAR_UBLOCK_HANGUL_JAMO_EXTENDED_B,									 /**< Hangul Jamo Extended B */
-	I18N_UCHAR_UBLOCK_IMPERIAL_ARAMAIC,											 /**< Imperial Aramaic */
-	I18N_UCHAR_UBLOCK_OLD_SOUTH_ARABIAN,										 /**< Old South Arabian */
-	I18N_UCHAR_UBLOCK_AVESTAN,													 /**< Avestan */
-	I18N_UCHAR_UBLOCK_INSCRIPTIONAL_PARTHIAN,									 /**< Inscriptional Parthian */
-	I18N_UCHAR_UBLOCK_INSCRIPTIONAL_PAHLAVI,									 /**< Inscriptional Pahlavi */
-	I18N_UCHAR_UBLOCK_OLD_TURKIC,												 /**< Old Turkic */
-	I18N_UCHAR_UBLOCK_RUMI_NUMERAL_SYMBOLS,										 /**< Rumi Numeral Symbols */
-	I18N_UCHAR_UBLOCK_KAITHI,													 /**< Kaithi */
-	I18N_UCHAR_UBLOCK_EGYPTIAN_HIEROGLYPHS,										 /**< Egyptian Hieroglyphs */
-	I18N_UCHAR_UBLOCK_ENCLOSED_ALPHANUMERIC_SUPPLEMENT,							 /**< Enclosed Alphanumeric Supplement */
-	I18N_UCHAR_UBLOCK_ENCLOSED_IDEOGRAPHIC_SUPPLEMENT,							 /**< Enclosed Ideographic Supplement */
-	I18N_UCHAR_UBLOCK_CJK_UNIFIED_IDEOGRAPHS_EXTENSION_C,						 /**< CJK Unified Ideographs Extension C */
-	I18N_UCHAR_UBLOCK_MANDAIC,													 /**< Mandaic */
-	I18N_UCHAR_UBLOCK_BATAK,													 /**< Batak */
-	I18N_UCHAR_UBLOCK_ETHIOPIC_EXTENDED_A,										 /**< Ethiopic Extended A */
-	I18N_UCHAR_UBLOCK_BRAHMI,													 /**< Brahmi */
-	I18N_UCHAR_UBLOCK_BAMUM_SUPPLEMENT,											 /**< Bamum Supplement */
-	I18N_UCHAR_UBLOCK_KANA_SUPPLEMENT,											 /**< Kana Supplement */
-	I18N_UCHAR_UBLOCK_PLAYING_CARDS,											 /**< Playing Cards */
-	I18N_UCHAR_UBLOCK_MISCELLANEOUS_SYMBOLS_AND_PICTOGRAPHS,					 /**< Miscellaneous Symbols And Pictographs */
-	I18N_UCHAR_UBLOCK_EMOTICONS,												 /**< Emoticons */
-	I18N_UCHAR_UBLOCK_TRANSPORT_AND_MAP_SYMBOLS,								 /**< Transport And Map Symbols */
-	I18N_UCHAR_UBLOCK_ALCHEMICAL_SYMBOLS,										 /**< Alchemical Symbols */
-	I18N_UCHAR_UBLOCK_CJK_UNIFIED_IDEOGRAPHS_EXTENSION_D,						 /**< CJK Unified Ideographs Extension D */
-	I18N_UCHAR_UBLOCK_BASSA_VAH = 221,											 /**< Bassa Vah (Since 3.0) */
-	I18N_UCHAR_UBLOCK_CAUCASIAN_ALBANIAN = 222,									 /**< Caucasian Albanian (Since 3.0) */
-	I18N_UCHAR_UBLOCK_COPTIC_EPACT_NUMBERS = 223,								 /**< Coptic Epact Numbers (Since 3.0) */
-	I18N_UCHAR_UBLOCK_COMBINING_DIACRITICAL_MARKS_EXTENDED = 224,				 /**< Combining Diacritical Marks Extended (Since 3.0) */
-	I18N_UCHAR_UBLOCK_DUPLOYAN = 225,											 /**< Duployan (Since 3.0) */
-	I18N_UCHAR_UBLOCK_ELBASAN = 226,											 /**< Elbasan (Since 3.0) */
-	I18N_UCHAR_UBLOCK_GEOMETRIC_SHAPES_EXTENDED = 227,							 /**< Geometric Shapes Extended (Since 3.0) */
-	I18N_UCHAR_UBLOCK_GRANTHA = 228,											 /**< Grantha (Since 3.0) */
-	I18N_UCHAR_UBLOCK_KHOJKI = 229,												 /**< Khojki (Since 3.0) */
-	I18N_UCHAR_UBLOCK_KHUDAWADI = 230,											 /**< Khudawadi (Since 3.0) */
-	I18N_UCHAR_UBLOCK_LATIN_EXTENDED_E = 231,									 /**< Latin Extended E (Since 3.0) */
-	I18N_UCHAR_UBLOCK_LINEAR_A = 232,											 /**< Linear A (Since 3.0) */
-	I18N_UCHAR_UBLOCK_MAHAJANI = 233,											 /**< Mahajani (Since 3.0) */
-	I18N_UCHAR_UBLOCK_MANICHAEAN = 234,											 /**< Manichaean (Since 3.0) */
-	I18N_UCHAR_UBLOCK_MENDE_KIKAKUI = 235,										 /**< Mende Kikakui (Since 3.0) */
-	I18N_UCHAR_UBLOCK_MODI = 236,												 /**< Modi (Since 3.0) */
-	I18N_UCHAR_UBLOCK_MRO = 237,												 /**< Mro (Since 3.0) */
-	I18N_UCHAR_UBLOCK_MYANMAR_EXTENDED_B = 238,									 /**< Myanmar Extended B (Since 3.0) */
-	I18N_UCHAR_UBLOCK_NABATAEAN = 239,											 /**< Nabataean (Since 3.0) */
-	I18N_UCHAR_UBLOCK_OLD_NORTH_ARABIAN = 240,									 /**< Old North Arabian (Since 3.0) */
-	I18N_UCHAR_UBLOCK_OLD_PERMIC = 241,											 /**< Old Permic (Since 3.0) */
-	I18N_UCHAR_UBLOCK_ORNAMENTAL_DINGBATS = 242,								 /**< Ornamental Dingbats (Since 3.0) */
-	I18N_UCHAR_UBLOCK_PAHAWH_HMONG = 243,										 /**< Pahawh Hmong (Since 3.0) */
-	I18N_UCHAR_UBLOCK_PALMYRENE = 244,											 /**< Palmyrene (Since 3.0) */
-	I18N_UCHAR_UBLOCK_PAU_CIN_HAU = 245,										 /**< Pau Cin Hau (Since 3.0) */
-	I18N_UCHAR_UBLOCK_PSALTER_PAHLAVI = 246,									 /**< Psalter Pahlavi (Since 3.0) */
-	I18N_UCHAR_UBLOCK_SHORTHAND_FORMAT_CONTROLS = 247,							 /**< Shorthand Format Controls (Since 3.0) */
-	I18N_UCHAR_UBLOCK_SIDDHAM = 248,											 /**< Siddham (Since 3.0) */
-	I18N_UCHAR_UBLOCK_SINHALA_ARCHAIC_NUMBERS = 249,							 /**< Sinhala Archaic Numbers (Since 3.0) */
-	I18N_UCHAR_UBLOCK_SUPPLEMENTAL_ARROWS_C = 250,								 /**< Supplemental Arrows C (Since 3.0) */
-	I18N_UCHAR_UBLOCK_TIRHUTA = 251,											 /**< Tirhuta (Since 3.0) */
-	I18N_UCHAR_UBLOCK_WARANG_CITI = 252,										 /**< Warang Citi (Since 3.0) */
-	I18N_UCHAR_UBLOCK_COUNT,													 /**< Count */
-	I18N_UCHAR_UBLOCK_INVALID_CODE = -1											 /**< Invalid Code */
+	I18N_UCHAR_UBLOCK_ALPHABETIC_PRESENTATION_FORMS					 = 80,		 /**< Alphabetic Presentation Forms */
+	I18N_UCHAR_UBLOCK_ARABIC_PRESENTATION_FORMS_A					 = 81,		 /**< Arabic Presentation Forms A */
+	I18N_UCHAR_UBLOCK_COMBINING_HALF_MARKS							 = 82,		 /**< Combining Half Marks */
+	I18N_UCHAR_UBLOCK_CJK_COMPATIBILITY_FORMS						 = 83,		 /**< CJK Compatibility Forms */
+	I18N_UCHAR_UBLOCK_SMALL_FORM_VARIANTS							 = 84,		 /**< Small Form Variants */
+	I18N_UCHAR_UBLOCK_ARABIC_PRESENTATION_FORMS_B					 = 85,		 /**< Arabic Presentation Forms B */
+	I18N_UCHAR_UBLOCK_SPECIALS										 = 86,		 /**< Specials */
+	I18N_UCHAR_UBLOCK_HALFWIDTH_AND_FULLWIDTH_FORMS					 = 87,		 /**< Halfwidth And Fullwidth Forms */
+	I18N_UCHAR_UBLOCK_OLD_ITALIC									 = 88,		 /**< Old Italic */
+	I18N_UCHAR_UBLOCK_GOTHIC										 = 89,		 /**< Gothic */
+	I18N_UCHAR_UBLOCK_DESERET										 = 90,		 /**< Deseret */
+	I18N_UCHAR_UBLOCK_BYZANTINE_MUSICAL_SYMBOLS						 = 91,		 /**< Byzantine Musical Symbols */
+	I18N_UCHAR_UBLOCK_MUSICAL_SYMBOLS								 = 92,		 /**< Musical Symbols */
+	I18N_UCHAR_UBLOCK_MATHEMATICAL_ALPHANUMERIC_SYMBOLS				 = 93,		 /**< Mathematical Alphanumeric Symbols */
+	I18N_UCHAR_UBLOCK_CJK_UNIFIED_IDEOGRAPHS_EXTENSION_B			 = 94,		 /**< CJK Unified Ideographs Extension B */
+	I18N_UCHAR_UBLOCK_CJK_COMPATIBILITY_IDEOGRAPHS_SUPPLEMENT	 	 = 95,		 /**< CJK Compatibility Ideographs Supplement */
+	I18N_UCHAR_UBLOCK_TAGS											 = 96,		 /**< Tags */
+	I18N_UCHAR_UBLOCK_CYRILLIC_SUPPLEMENT							 = 97, 		 /**< Cyrillic Supplement */
+	I18N_UCHAR_UBLOCK_CYRILLIC_SUPPLEMENTARY						 = I18N_UCHAR_UBLOCK_CYRILLIC_SUPPLEMENT, /**< Cyrillic Supplementary */
+	I18N_UCHAR_UBLOCK_TAGALOG										 = 98,		 /**< Tagalog */
+	I18N_UCHAR_UBLOCK_HANUNOO										 = 99,		 /**< Hanunoo */
+	I18N_UCHAR_UBLOCK_BUHID											 = 100,		 /**< Buhid */
+	I18N_UCHAR_UBLOCK_TAGBANWA										 = 101,		 /**< Tagbanwa */
+	I18N_UCHAR_UBLOCK_MISCELLANEOUS_MATHEMATICAL_SYMBOLS_A			 = 102,		 /**< Miscellaneous Mathematical Symbols A */
+	I18N_UCHAR_UBLOCK_SUPPLEMENTAL_ARROWS_A							 = 103,		 /**< Supplemental Arrows A */
+	I18N_UCHAR_UBLOCK_SUPPLEMENTAL_ARROWS_B							 = 104,		 /**< Supplemental Arrows B */
+	I18N_UCHAR_UBLOCK_MISCELLANEOUS_MATHEMATICAL_SYMBOLS_B			 = 105,		 /**< Miscellaneous Mathematical Symbols B */
+	I18N_UCHAR_UBLOCK_SUPPLEMENTAL_MATHEMATICAL_OPERATORS			 = 106,		 /**< Supplemental Mathematical Operators */
+	I18N_UCHAR_UBLOCK_KATAKANA_PHONETIC_EXTENSIONS					 = 107,		 /**< Katakana Phonetic Extensions */
+	I18N_UCHAR_UBLOCK_VARIATION_SELECTORS							 = 108,		 /**< Variation Selectors */
+	I18N_UCHAR_UBLOCK_SUPPLEMENTARY_PRIVATE_USE_AREA_A				 = 109,		 /**< Supplementary Private Use Area A */
+	I18N_UCHAR_UBLOCK_SUPPLEMENTARY_PRIVATE_USE_AREA_B				 = 110,		 /**< Supplementary Private Use Area B */
+	I18N_UCHAR_UBLOCK_LIMBU											 = 111,		 /**< Limbu */
+	I18N_UCHAR_UBLOCK_TAI_LE										 = 112,		 /**< Tai Le */
+	I18N_UCHAR_UBLOCK_KHMER_SYMBOLS									 = 113,		 /**< Khmer Symbols */
+	I18N_UCHAR_UBLOCK_PHONETIC_EXTENSIONS							 = 114,		 /**< Phonetic Extensions */
+	I18N_UCHAR_UBLOCK_MISCELLANEOUS_SYMBOLS_AND_ARROWS				 = 115,		 /**< Miscellaneous Symbols And Arrows */
+	I18N_UCHAR_UBLOCK_YIJING_HEXAGRAM_SYMBOLS						 = 116,		 /**< Yijing Hexagram Symbols */
+	I18N_UCHAR_UBLOCK_LINEAR_B_SYLLABARY							 = 117,		 /**< Linear B Syllabary */
+	I18N_UCHAR_UBLOCK_LINEAR_B_IDEOGRAMS							 = 118,		 /**< Linear B Ideograms */
+	I18N_UCHAR_UBLOCK_AEGEAN_NUMBERS								 = 119,		 /**< Aegean Numbers */
+	I18N_UCHAR_UBLOCK_UGARITIC										 = 120,		 /**< Ugaritic */
+	I18N_UCHAR_UBLOCK_SHAVIAN										 = 121,		 /**< Shavian */
+	I18N_UCHAR_UBLOCK_OSMANYA										 = 122,		 /**< Osmanya */
+	I18N_UCHAR_UBLOCK_CYPRIOT_SYLLABARY								 = 123,		 /**< Cypriot Syllabary */
+	I18N_UCHAR_UBLOCK_TAI_XUAN_JING_SYMBOLS							 = 124,		 /**< Tai Xuan Jing Symbols */
+	I18N_UCHAR_UBLOCK_VARIATION_SELECTORS_SUPPLEMENT				 = 125,		 /**< Variation Selectors Supplement */
+	I18N_UCHAR_UBLOCK_ANCIENT_GREEK_MUSICAL_NOTATION				 = 126,		 /**< Ancient Greek Musical Notation */
+	I18N_UCHAR_UBLOCK_ANCIENT_GREEK_NUMBERS							 = 127,		 /**< Ancient Greek Numbers */
+	I18N_UCHAR_UBLOCK_ARABIC_SUPPLEMENT								 = 128,		 /**< Arabic Supplement */
+	I18N_UCHAR_UBLOCK_BUGINESE										 = 129,		 /**< Buginese */
+	I18N_UCHAR_UBLOCK_CJK_STROKES									 = 130,		 /**< CJK Strokes */
+	I18N_UCHAR_UBLOCK_COMBINING_DIACRITICAL_MARKS_SUPPLEMENT	 	 = 131,		 /**< Combining Diacritical Marks Supplement */
+	I18N_UCHAR_UBLOCK_COPTIC										 = 132,		 /**< Coptic */
+	I18N_UCHAR_UBLOCK_ETHIOPIC_EXTENDED								 = 133,		 /**< Ethiopic Extended */
+	I18N_UCHAR_UBLOCK_ETHIOPIC_SUPPLEMENT							 = 134,		 /**< Ethiopic Supplement */
+	I18N_UCHAR_UBLOCK_GEORGIAN_SUPPLEMENT							 = 135,		 /**< Georgian Supplement */
+	I18N_UCHAR_UBLOCK_GLAGOLITIC									 = 136,		 /**< Glagolitic */
+	I18N_UCHAR_UBLOCK_KHAROSHTHI									 = 137,		 /**< Kharoshthi */
+	I18N_UCHAR_UBLOCK_MODIFIER_TONE_LETTERS							 = 138,		 /**< Modifier Tone Letters */
+	I18N_UCHAR_UBLOCK_NEW_TAI_LUE									 = 139,		 /**< New Tai Lue */
+	I18N_UCHAR_UBLOCK_OLD_PERSIAN									 = 140,		 /**< Old Persian */
+	I18N_UCHAR_UBLOCK_PHONETIC_EXTENSIONS_SUPPLEMENT				 = 141,		 /**< Phonetic Extensions Supplement */
+	I18N_UCHAR_UBLOCK_SUPPLEMENTAL_PUNCTUATION						 = 142,		 /**< Supplemental Punctuation */
+	I18N_UCHAR_UBLOCK_SYLOTI_NAGRI									 = 143,		 /**< Syloti Nagri */
+	I18N_UCHAR_UBLOCK_TIFINAGH										 = 144,		 /**< Tifinagh */
+	I18N_UCHAR_UBLOCK_VERTICAL_FORMS								 = 145,		 /**< Vertical Forms */
+	I18N_UCHAR_UBLOCK_NKO											 = 146,		 /**< Nko */
+	I18N_UCHAR_UBLOCK_BALINESE										 = 147,		 /**< Balinese */
+	I18N_UCHAR_UBLOCK_LATIN_EXTENDED_C								 = 148,		 /**< Latin Extended C */
+	I18N_UCHAR_UBLOCK_LATIN_EXTENDED_D								 = 149,		 /**< Latin Extended D */
+	I18N_UCHAR_UBLOCK_PHAGS_PA										 = 150,		 /**< Phags Pa */
+	I18N_UCHAR_UBLOCK_PHOENICIAN									 = 151,		 /**< Phoenician */
+	I18N_UCHAR_UBLOCK_CUNEIFORM										 = 152,		 /**< Cuneiform */
+	I18N_UCHAR_UBLOCK_CUNEIFORM_NUMBERS_AND_PUNCTUATION				 = 153,		 /**< Cuneiform Numbers And Punctuation */
+	I18N_UCHAR_UBLOCK_COUNTING_ROD_NUMERALS							 = 154,		 /**< Counting Rod Numerals */
+	I18N_UCHAR_UBLOCK_SUNDANESE										 = 155,		 /**< Sundanese */
+	I18N_UCHAR_UBLOCK_LEPCHA										 = 156,		 /**< Lepcha */
+	I18N_UCHAR_UBLOCK_OL_CHIKI										 = 157,		 /**< Ol Chiki */
+	I18N_UCHAR_UBLOCK_CYRILLIC_EXTENDED_A							 = 158,		 /**< Cyrillic Extended A */
+	I18N_UCHAR_UBLOCK_VAI											 = 159,		 /**< Vai */
+	I18N_UCHAR_UBLOCK_CYRILLIC_EXTENDED_B							 = 160,		 /**< Cyrillic Extended B */
+	I18N_UCHAR_UBLOCK_SAURASHTRA									 = 161,		 /**< Saurashtra */
+	I18N_UCHAR_UBLOCK_KAYAH_LI										 = 162,		 /**< Kayah Li */
+	I18N_UCHAR_UBLOCK_REJANG										 = 163,		 /**< Rejang */
+	I18N_UCHAR_UBLOCK_CHAM											 = 164,		 /**< Cham */
+	I18N_UCHAR_UBLOCK_ANCIENT_SYMBOLS								 = 165,		 /**< Ancient Symbols */
+	I18N_UCHAR_UBLOCK_PHAISTOS_DISC									 = 166,		 /**< Phaistos Disc */
+	I18N_UCHAR_UBLOCK_LYCIAN										 = 167,		 /**< Lycian */
+	I18N_UCHAR_UBLOCK_CARIAN										 = 168,		 /**< Carian */
+	I18N_UCHAR_UBLOCK_LYDIAN										 = 169,		 /**< Lydian */
+	I18N_UCHAR_UBLOCK_MAHJONG_TILES									 = 170,		 /**< Mahjong Tiles */
+	I18N_UCHAR_UBLOCK_DOMINO_TILES									 = 171,		 /**< Domino Tiles */
+	I18N_UCHAR_UBLOCK_SAMARITAN										 = 172,		 /**< Samaritan */
+	I18N_UCHAR_UBLOCK_UNIFIED_CANADIAN_ABORIGINAL_SYLLABICS_EXTENDED = 173,		 /**< Unified Canadian Aboriginal Syllabics Extended */
+	I18N_UCHAR_UBLOCK_TAI_THAM										 = 174,		 /**< Tai Tham */
+	I18N_UCHAR_UBLOCK_VEDIC_EXTENSIONS								 = 175,		 /**< Vedic Extensions */
+	I18N_UCHAR_UBLOCK_LISU											 = 176,		 /**< Lisu */
+	I18N_UCHAR_UBLOCK_BAMUM											 = 177,		 /**< Bamum */
+	I18N_UCHAR_UBLOCK_COMMON_INDIC_NUMBER_FORMS						 = 178,		 /**< Common Indic Number Forms */
+	I18N_UCHAR_UBLOCK_DEVANAGARI_EXTENDED							 = 179,		 /**< Devanagari Extended */
+	I18N_UCHAR_UBLOCK_HANGUL_JAMO_EXTENDED_A						 = 180,		 /**< Hangul Jamo Extended A */
+	I18N_UCHAR_UBLOCK_JAVANESE										 = 181,		 /**< Javanese */
+	I18N_UCHAR_UBLOCK_MYANMAR_EXTENDED_A							 = 182,		 /**< Myanmar Extended A */
+	I18N_UCHAR_UBLOCK_TAI_VIET										 = 183,		 /**< Tai Viet */
+	I18N_UCHAR_UBLOCK_MEETEI_MAYEK									 = 184,		 /**< Meetei Mayek */
+	I18N_UCHAR_UBLOCK_HANGUL_JAMO_EXTENDED_B						 = 185,		 /**< Hangul Jamo Extended B */
+	I18N_UCHAR_UBLOCK_IMPERIAL_ARAMAIC								 = 186,		 /**< Imperial Aramaic */
+	I18N_UCHAR_UBLOCK_OLD_SOUTH_ARABIAN								 = 187,		 /**< Old South Arabian */
+	I18N_UCHAR_UBLOCK_AVESTAN										 = 188,		 /**< Avestan */
+	I18N_UCHAR_UBLOCK_INSCRIPTIONAL_PARTHIAN						 = 189,		 /**< Inscriptional Parthian */
+	I18N_UCHAR_UBLOCK_INSCRIPTIONAL_PAHLAVI							 = 190,		 /**< Inscriptional Pahlavi */
+	I18N_UCHAR_UBLOCK_OLD_TURKIC									 = 191,		 /**< Old Turkic */
+	I18N_UCHAR_UBLOCK_RUMI_NUMERAL_SYMBOLS							 = 192,		 /**< Rumi Numeral Symbols */
+	I18N_UCHAR_UBLOCK_KAITHI										 = 193,		 /**< Kaithi */
+	I18N_UCHAR_UBLOCK_EGYPTIAN_HIEROGLYPHS							 = 194,		 /**< Egyptian Hieroglyphs */
+	I18N_UCHAR_UBLOCK_ENCLOSED_ALPHANUMERIC_SUPPLEMENT				 = 195,		 /**< Enclosed Alphanumeric Supplement */
+	I18N_UCHAR_UBLOCK_ENCLOSED_IDEOGRAPHIC_SUPPLEMENT				 = 196,		 /**< Enclosed Ideographic Supplement */
+	I18N_UCHAR_UBLOCK_CJK_UNIFIED_IDEOGRAPHS_EXTENSION_C			 = 197,		 /**< CJK Unified Ideographs Extension C */
+	I18N_UCHAR_UBLOCK_MANDAIC										 = 198,		 /**< Mandaic */
+	I18N_UCHAR_UBLOCK_BATAK											 = 199,		 /**< Batak */
+	I18N_UCHAR_UBLOCK_ETHIOPIC_EXTENDED_A							 = 200,		 /**< Ethiopic Extended A */
+	I18N_UCHAR_UBLOCK_BRAHMI										 = 201,		 /**< Brahmi */
+	I18N_UCHAR_UBLOCK_BAMUM_SUPPLEMENT								 = 202,		 /**< Bamum Supplement */
+	I18N_UCHAR_UBLOCK_KANA_SUPPLEMENT								 = 203,		 /**< Kana Supplement */
+	I18N_UCHAR_UBLOCK_PLAYING_CARDS									 = 204,		 /**< Playing Cards */
+	I18N_UCHAR_UBLOCK_MISCELLANEOUS_SYMBOLS_AND_PICTOGRAPHS			 = 205,		 /**< Miscellaneous Symbols And Pictographs */
+	I18N_UCHAR_UBLOCK_EMOTICONS										 = 206,		 /**< Emoticons */
+	I18N_UCHAR_UBLOCK_TRANSPORT_AND_MAP_SYMBOLS						 = 207,		 /**< Transport And Map Symbols */
+	I18N_UCHAR_UBLOCK_ALCHEMICAL_SYMBOLS							 = 208,		 /**< Alchemical Symbols */
+	I18N_UCHAR_UBLOCK_CJK_UNIFIED_IDEOGRAPHS_EXTENSION_D			 = 209,		 /**< CJK Unified Ideographs Extension D */
+	I18N_UCHAR_UBLOCK_ARABIC_EXTENDED_A								 = 210,		 /**< Arabic Extended A (Since 3.0) */
+	I18N_UCHAR_UBLOCK_ARABIC_MATHEMATICAL_ALPHABETIC_SYMBOLS       	 = 211,		 /**< Arabic Mathematical Alphabetic Symbols (Since 3.0) */
+	I18N_UCHAR_UBLOCK_CHAKMA  								         = 212,		 /**< Chakma (Since 3.0) */
+	I18N_UCHAR_UBLOCK_MEETEI_MAYEK_EXTENSIONS				         = 213,		 /**< Meetei Mayek Extension (Since 3.0) */
+	I18N_UCHAR_UBLOCK_MEROITIC_CURSIVE						         = 214,		 /**< Meriotic Cursive (Since 3.0) */
+	I18N_UCHAR_UBLOCK_MEROITIC_HIEROGLYPHS					         = 215,		 /**< Meroitic Hieroglyphs (Since 3.0) */
+	I18N_UCHAR_UBLOCK_MIAO									         = 216,		 /**< Miao (Since 3.0) */
+	I18N_UCHAR_UBLOCK_SHARADA     							       	 = 217,		 /**< Sharada (Since 3.0) */
+	I18N_UCHAR_UBLOCK_SORA_SOMPENG 							         = 218,		 /**< Sora Sompeng (Since 3.0) */
+	I18N_UCHAR_UBLOCK_SUNDANESE_SUPPLEMENT					         = 219,		 /**< Sundanese Supplement (Since 3.0) */
+	I18N_UCHAR_UBLOCK_TAKRI   								         = 220,		 /**< Takri (Since 3.0) */
+	I18N_UCHAR_UBLOCK_CAUCASIAN_ALBANIAN							 = 222,		 /**< Caucasian Albanian (Since 3.0) */
+	I18N_UCHAR_UBLOCK_COPTIC_EPACT_NUMBERS							 = 223,		 /**< Coptic Epact Numbers (Since 3.0) */
+	I18N_UCHAR_UBLOCK_COMBINING_DIACRITICAL_MARKS_EXTENDED			 = 224,		 /**< Combining Diacritical Marks Extended (Since 3.0) */
+	I18N_UCHAR_UBLOCK_DUPLOYAN										 = 225,		 /**< Duployan (Since 3.0) */
+	I18N_UCHAR_UBLOCK_ELBASAN										 = 226,		 /**< Elbasan (Since 3.0) */
+	I18N_UCHAR_UBLOCK_GEOMETRIC_SHAPES_EXTENDED						 = 227,		 /**< Geometric Shapes Extended (Since 3.0) */
+	I18N_UCHAR_UBLOCK_GRANTHA										 = 228,		 /**< Grantha (Since 3.0) */
+	I18N_UCHAR_UBLOCK_KHOJKI										 = 229,		 /**< Khojki (Since 3.0) */
+	I18N_UCHAR_UBLOCK_KHUDAWADI										 = 230,		 /**< Khudawadi (Since 3.0) */
+	I18N_UCHAR_UBLOCK_LATIN_EXTENDED_E								 = 231,		 /**< Latin Extended E (Since 3.0) */
+	I18N_UCHAR_UBLOCK_LINEAR_A										 = 232,		 /**< Linear A (Since 3.0) */
+	I18N_UCHAR_UBLOCK_MAHAJANI										 = 233,		 /**< Mahajani (Since 3.0) */
+	I18N_UCHAR_UBLOCK_MANICHAEAN									 = 234,		 /**< Manichaean (Since 3.0) */
+	I18N_UCHAR_UBLOCK_MENDE_KIKAKUI									 = 235,		 /**< Mende Kikakui (Since 3.0) */
+	I18N_UCHAR_UBLOCK_MODI											 = 236,		 /**< Modi (Since 3.0) */
+	I18N_UCHAR_UBLOCK_MRO											 = 237,		 /**< Mro (Since 3.0) */
+	I18N_UCHAR_UBLOCK_MYANMAR_EXTENDED_B							 = 238,		 /**< Myanmar Extended B (Since 3.0) */
+	I18N_UCHAR_UBLOCK_NABATAEAN										 = 239,		 /**< Nabataean (Since 3.0) */
+	I18N_UCHAR_UBLOCK_OLD_NORTH_ARABIAN								 = 240,		 /**< Old North Arabian (Since 3.0) */
+	I18N_UCHAR_UBLOCK_OLD_PERMIC									 = 241,		 /**< Old Permic (Since 3.0) */
+	I18N_UCHAR_UBLOCK_ORNAMENTAL_DINGBATS 							 = 242,		 /**< Ornamental Dingbats (Since 3.0) */
+	I18N_UCHAR_UBLOCK_PAHAWH_HMONG 									 = 243,		 /**< Pahawh Hmong (Since 3.0) */
+	I18N_UCHAR_UBLOCK_PALMYRENE										 = 244,		 /**< Palmyrene (Since 3.0) */
+	I18N_UCHAR_UBLOCK_PAU_CIN_HAU									 = 245,		 /**< Pau Cin Hau (Since 3.0) */
+	I18N_UCHAR_UBLOCK_PSALTER_PAHLAVI								 = 246,		 /**< Psalter Pahlavi (Since 3.0) */
+	I18N_UCHAR_UBLOCK_SHORTHAND_FORMAT_CONTROLS						 = 247,		 /**< Shorthand Format Controls (Since 3.0) */
+	I18N_UCHAR_UBLOCK_SIDDHAM										 = 248,		 /**< Siddham (Since 3.0) */
+	I18N_UCHAR_UBLOCK_SINHALA_ARCHAIC_NUMBERS						 = 249,		 /**< Sinhala Archaic Numbers (Since 3.0) */
+	I18N_UCHAR_UBLOCK_SUPPLEMENTAL_ARROWS_C							 = 250,		 /**< Supplemental Arrows C (Since 3.0) */
+	I18N_UCHAR_UBLOCK_TIRHUTA										 = 251,		 /**< Tirhuta (Since 3.0) */
+	I18N_UCHAR_UBLOCK_WARANG_CITI									 = 252,		 /**< Warang Citi (Since 3.0) */
+	I18N_UCHAR_UBLOCK_COUNT											 = 253,		 /**< Count */
+	I18N_UCHAR_UBLOCK_INVALID_CODE									 = -1		 /**< Invalid Code */
 } i18n_uchar_ublock_code_e;
 
 /**
@@ -2089,20 +2099,22 @@ typedef struct {
  * @since_tizen @if MOBILE 2.3 @elseif WEARABLE 2.3.1 @endif
  */
 typedef enum {
-	I18N_UNUMBER_PATTERN_DECIMAL	  = 0,	/**< Decimal format defined by a pattern string */
-	I18N_UNUMBER_DECIMAL			  = 1,	/**< Decimal format ("normal" style) */
-	I18N_UNUMBER_CURRENCY,					/**< Currency format with a currency symbol, e.g., "$1.00" */
-	I18N_UNUMBER_PERCENT,					/**< Percent format */
-	I18N_UNUMBER_SCIENTIFIC,				/**< Scientific format */
-	I18N_UNUMBER_SPELLOUT,					/**< Spellout rule-based format */
-	I18N_UNUMBER_ORDINAL,					/**< Ordinal rule-based format */
-	I18N_UNUMBER_DURATION,					/**< Duration rule-based format */
-	I18N_UNUMBER_NUMBERING_SYSTEM,			/**< Numbering system rule-based format */
-	I18N_UNUMBER_PATTERN_RULEBASED,			/**< Rule-based format defined by a pattern string */
-	I18N_UNUMBER_CURRENCY_ISO,				/**< Currency format with an ISO currency code, e.g., "USD1.00" */
-	I18N_UNUMBER_CURRENCY_PLURAL,			/**< Currency format with a pluralized currency name, e.g., "1.00 US dollar" and "3.00 US dollars" */
+	I18N_UNUMBER_PATTERN_DECIMAL	  = 0,		/**< Decimal format defined by a pattern string */
+	I18N_UNUMBER_DECIMAL			  = 1,		/**< Decimal format ("normal" style) */
+	I18N_UNUMBER_CURRENCY			  = 2,		/**< Currency format with a currency symbol, e.g., "$1.00" */
+	I18N_UNUMBER_PERCENT			  = 3,		/**< Percent format */
+	I18N_UNUMBER_SCIENTIFIC			  = 4,		/**< Scientific format */
+	I18N_UNUMBER_SPELLOUT			  = 5,		/**< Spellout rule-based format */
+	I18N_UNUMBER_ORDINAL			  = 6,		/**< Ordinal rule-based format */
+	I18N_UNUMBER_DURATION			  = 7,		/**< Duration rule-based format */
+	I18N_UNUMBER_NUMBERING_SYSTEM	  = 8,		/**< Numbering system rule-based format */
+	I18N_UNUMBER_PATTERN_RULEBASED	  = 9,		/**< Rule-based format defined by a pattern string */
+	I18N_UNUMBER_CURRENCY_ISO		  = 10,		/**< Currency format with an ISO currency code, e.g., "USD1.00" */
+	I18N_UNUMBER_CURRENCY_PLURAL	  = 11,		/**< Currency format with a pluralized currency name, e.g., "1.00 US dollar" and "3.00 US dollars" */
+	I18N_UNUMBER_CURRENCY_ACCOUNTING  = 12,		/**< Currency format for accounting, e.g., "($3.00)" for negative currency amount instead of "-$3.00" */
+	I18N_UNUMBER_CASH_CURRENCY		  = 13,		/**< Currency format with a currency symbol given CASH usage, e.g., "NT$3" instead of "NT$3.23" */
 
-	I18N_UNUMBER_FORMAT_STYLE_COUNT,										/**< One more than the highest number format style constant */
+	I18N_UNUMBER_FORMAT_STYLE_COUNT   = 14,									/**< One more than the highest number format style constant */
 	I18N_UNUMBER_DEFAULT			  = I18N_UNUMBER_DECIMAL,				/**< Default format */
 	I18N_UNUMBER_IGNORE				  = I18N_UNUMBER_PATTERN_DECIMAL		/**< Alias for #I18N_UNUMBER_PATTERN_DECIMAL */
 } i18n_unumber_format_style_e;
