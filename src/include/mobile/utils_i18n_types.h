@@ -848,7 +848,6 @@ typedef enum {
 	I18N_UCHAR_UBLOCK_SUPPLEMENTAL_ARROWS_C = 250,								 /**< Supplemental Arrows C (Since 3.0) */
 	I18N_UCHAR_UBLOCK_TIRHUTA = 251,											 /**< Tirhuta (Since 3.0) */
 	I18N_UCHAR_UBLOCK_WARANG_CITI = 252,										 /**< Warang Citi (Since 3.0) */
-	I18N_UCHAR_UBLOCK_COUNT,													 /**< Count */
 	I18N_UCHAR_UBLOCK_INVALID_CODE = -1											 /**< Invalid Code */
 } i18n_uchar_ublock_code_e;
 
