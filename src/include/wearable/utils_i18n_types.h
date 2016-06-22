@@ -2811,6 +2811,51 @@ typedef enum {
 	I18N_USCRIPT_CODE_LIMIT					   = 159 /**< Count of i18n_uscript_code_e enumerators*/
 } i18n_uscript_code_e;
 
+/**
+ * @brief The Alphabetic index handle.
+ * @since_tizen 3.0
+ */
+typedef void *i18_alpha_idx_h;
+
+/**
+ * @brief Enumeration for alphabetic index label types.
+ * @since_tizen 3.0
+ *
+ * @see i18n_alpha_idx_get_bucket_label_type()
+ */
+typedef enum {
+	/**
+	 * Normal Label, typically the starting letter of the names in the bucket with this label.
+	 */
+	I18_ALPHA_IDX_NORMAL,
+
+	/**
+	 * Undeflow Label.
+	 *
+	 * The bucket with this label contains names in scripts that sort before any
+	 * of the bucket labels in this index.
+	 */
+	I18_ALPHA_IDX_UNDERFLOW,
+
+	/**
+	 * Inflow Label.
+	 *
+	 * The bucket with this label contains names in scripts that sort between
+	 * two of the bucket labels in this index. Inflow labels are created when
+	 * an index contains normal labels for multiple scripts, and skips other
+	 * scripts that sort between some of the included scripts.
+	 */
+	I18_ALPHA_IDX_INFLOW,
+
+	/**
+	 * Overflow Label.
+	 *
+	 * The bucket with this label contains names in scripts that sort after
+	 * all of the bucket labels in this index.
+	 */
+	I18_ALPHA_IDX_OVERFLOW,
+} i18_alpha_idx_label_type_e;
+
 #ifdef __cplusplus
 }
 #endif
