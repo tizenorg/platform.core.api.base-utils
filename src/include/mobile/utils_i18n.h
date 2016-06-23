@@ -33,6 +33,7 @@
 #include <utils_i18n_uset.h>
 #include <utils_i18n_ubrk.h>
 #include <utils_i18n_formattable.h>
+#include <utils_i18n_measure_unit.h>
 
 /**
  * @file utils_i18n.h
@@ -47,7 +48,7 @@ extern "C" {
 /**
  * @ingroup CAPI_BASE_UTILS_MODULE
  * @defgroup CAPI_BASE_UTILS_I18N_MODULE i18n
- * @brief The i18n module contains uchar, ucollator, unormalization, usearch, ustring, ucalendar, udate, udatepg, ulocale, unumber and formattable.
+ * @brief The i18n module contains uchar, ucollator, unormalization, usearch, ustring, ucalendar, udate, udatepg, ulocale, unumber, formattable and measure unit.
  *	   This module provides flexible generation of number or date format patterns and helps you format and parse dates/number for any locale.
  * The i18n module provides various features based on data from ICU. The following table shows the version of ICU used in each Tizen platform.
  * <table>
@@ -127,6 +128,10 @@ extern "C" {
  * <tr>
  *    <td>@ref CAPI_BASE_UTILS_I18N_FORMATTABLE_MODULE</td>
  *    <td>Formattable interconverts between the primitive numeric types (double, long, etc.) as well as the #i18n_udate and char string.</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>The MeasureUnit module contains units such as length, mass, volume, currency, etc...</td>
  * </tr>
  * </table>
  *
@@ -1917,6 +1922,717 @@ extern "C" {
  *    <td>@ref CAPI_BASE_UTILS_I18N_FORMATTABLE_MODULE</td>
  *    <td>#i18n_formattable_set_string</td>
  *    <td>Formattable::setString</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create</td>
+ *	  <td>MeasureUnit</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_clone</td>
+ *	  <td>clone</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_destroy</td>
+ *	  <td>~MeasureUnit</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_get_type</td>
+ *	  <td>getType</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_get_subtype</td>
+ *	  <td>getSubtype</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_get_available</td>
+ *	  <td>getAvailable</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_get_available_with_type</td>
+ *	  <td>getAvailable</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_get_available_types</td>
+ *	  <td>getAvailableTypes</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_g_force</td>
+ *	  <td>createGForce</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_meter_per_second_squared</td>
+ *	  <td>createMeterPerSecondSquared</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_arc_minute</td>
+ *	  <td>createArcMinute</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_arc_second</td>
+ *	  <td>createArcSecond</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_degree</td>
+ *	  <td>createDegree</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_radian</td>
+ *	  <td>createRadian</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_revolution_angle</td>
+ *	  <td>createRevolutionAngle</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_acre</td>
+ *	  <td>createAcre</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_hectare</td>
+ *	  <td>createHectare</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_square_centimeter</td>
+ *	  <td>createSquareCentimeter</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_square_foot</td>
+ *	  <td>createSquareFoot</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_square_inch</td>
+ *	  <td>createSquareInch</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_square_kilometer</td>
+ *	  <td>createSquareKilometer</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_square_meter</td>
+ *	  <td>createSquareMeter</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_square_mile</td>
+ *	  <td>createSquareMile</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_square_yard</td>
+ *	  <td>createSquareYard</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_karat</td>
+ *	  <td>createKarat</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_milligram_per_deciliter</td>
+ *	  <td>createMilligramPerDeciliter</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_millimole_per_liter</td>
+ *	  <td>createMillimolePerLiter</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_part_per_million</td>
+ *	  <td>createPartPerMillion</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_liter_per_100_kilometers</td>
+ *	  <td>createLiterPer100Kilometers</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_liter_per_kilometer</td>
+ *	  <td>createLiterPerKilometer</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_mile_per_gallon</td>
+ *	  <td>createMilePerGallon</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_mile_per_gallon_imperial</td>
+ *	  <td>createMilePerGallonImperial</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_bit</td>
+ *	  <td>createBit</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_byte</td>
+ *	  <td>createByte</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_gigabit</td>
+ *	  <td>createGigabit</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_gigabyte</td>
+ *	  <td>createGigabyte</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_kilobit</td>
+ *	  <td>createKilobit</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_kilobyte</td>
+ *	  <td>createKilobyte</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_megabit</td>
+ *	  <td>createMegabit</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_megabyte</td>
+ *	  <td>createMegabyte</td>
+ * </tr>
+ * <tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_terabit</td>
+ *	  <td>createTerabit</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_terabyte</td>
+ *	  <td>createTerabyte</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_century</td>
+ *	  <td>createCentury</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_day</td>
+ *	  <td>createDay</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_hour</td>
+ *	  <td>createHour</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_microsecond</td>
+ *	  <td>createMicrosecond</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_millisecond</td>
+ *	  <td>createMillisecond</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_minute</td>
+ *	  <td>createMinute</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_month</td>
+ *	  <td>createMonth</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_nanosecond</td>
+ *	  <td>createNanosecond</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_second</td>
+ *	  <td>createSecond</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_week</td>
+ *	  <td>createWeek</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_year</td>
+ *	  <td>createYear</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_ampere</td>
+ *	  <td>createAmpere</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_milliampere</td>
+ *	  <td>createMilliampere</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_ohm</td>
+ *	  <td>createOhm</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_volt</td>
+ *	  <td>createVolt</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_calorie</td>
+ *	  <td>createCalorie</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_foodcalorie</td>
+ *	  <td>createFoodcalorie</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_joule</td>
+ *	  <td>createJoule</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_kilocalorie</td>
+ *	  <td>createKilocalorie</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_kilojoule</td>
+ *	  <td>createKilojoule</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_kilowatt_hour</td>
+ *	  <td>createKilowattHour</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_gigahertz</td>
+ *	  <td>createGigahertz</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_hertz</td>
+ *	  <td>createHertz</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_kilohertz</td>
+ *	  <td>createKilohertz</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_megahertz</td>
+ *	  <td>createMegahertz</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_astronomical_unit</td>
+ *	  <td>createAstronomicalUnit</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_centimeter</td>
+ *	  <td>createCentimeter</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_decimeter</td>
+ *	  <td>createDecimeter</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_fathom</td>
+ *	  <td>createFathom</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_foot</td>
+ *	  <td>createFoot</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_furlong</td>
+ *	  <td>createFurlong</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_inch</td>
+ *	  <td>createInch</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_kilometer</td>
+ *	  <td>createKilometer</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_light_year</td>
+ *	  <td>createLightYear</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_meter</td>
+ *	  <td>createMeter</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_micrometer</td>
+ *	  <td>createMicrometer</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_mile</td>
+ *	  <td>createMile</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_mile_scandinavian</td>
+ *	  <td>createMileScandinavian</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_millimeter</td>
+ *	  <td>createMillimeter</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_nanometer</td>
+ *	  <td>createNanometer</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_nautical_mile</td>
+ *	  <td>createNauticalMile</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_parsec</td>
+ *	  <td>createParsec</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_picometer</td>
+ *	  <td>createPicometer</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_yard</td>
+ *	  <td>createYard</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_lux</td>
+ *	  <td>createLux</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_carat</td>
+ *	  <td>createCarat</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_gram</td>
+ *	  <td>createGram</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_kilogram</td>
+ *	  <td>createKilogram</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_metric_ton</td>
+ *	  <td>createMetricTon</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_microgram</td>
+ *	  <td>createMicrogram</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_milligram</td>
+ *	  <td>createMilligram</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_ounce</td>
+ *	  <td>createOunce</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_ounce_troy</td>
+ *	  <td>createOunceTroy</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_pound</td>
+ *	  <td>createPound</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_stone</td>
+ *	  <td>createStone</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_ton</td>
+ *	  <td>createTon</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_gigawatt</td>
+ *	  <td>createGigawatt</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_horsepower</td>
+ *	  <td>createHorsepower</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_kilowatt</td>
+ *	  <td>createKilowatt</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_megawatt</td>
+ *	  <td>createMegawatt</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_milliwatt</td>
+ *	  <td>createMilliwatt</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_watt</td>
+ *	  <td>createWatt</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_hectopascal</td>
+ *	  <td>createHectopascal</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_inch_hg</td>
+ *	  <td>createInchHg</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_millibar</td>
+ *	  <td>createMillibar</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_millimeter_of_mercury</td>
+ *	  <td>createMillimeterOfMercury</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_pound_per_square_inch</td>
+ *	  <td>createPoundPerSquareInch</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_kilometer_per_hour</td>
+ *	  <td>createKilometerPerHour</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_knot</td>
+ *	  <td>createKnot</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_meter_per_second</td>
+ *	  <td>createMeterPerSecond</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_mile_per_hour</td>
+ *	  <td>createMilePerHour</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_celsius</td>
+ *	  <td>createCelsius</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_fahrenheit</td>
+ *	  <td>createFahrenheit</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_generic_temperature</td>
+ *	  <td>createGenericTemperature</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_kelvin</td>
+ *	  <td>createKelvin</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_acre_foot</td>
+ *	  <td>createAcreFoot</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_bushel</td>
+ *	  <td>createBushel</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_centiliter</td>
+ *	  <td>createCentiliter</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_cubic_centimeter</td>
+ *	  <td>createCubicCentimeter</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_cubic_foot</td>
+ *	  <td>createCubicFoot</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_cubic_inch</td>
+ *	  <td>createCubicInch</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_cubic_kilometer</td>
+ *	  <td>createCubicKilometer</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_cubic_meter</td>
+ *	  <td>createCubicMeter</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_cubic_mile</td>
+ *	  <td>createCubicMile</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_cubic_yard</td>
+ *	  <td>createCubicYard</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_cup</td>
+ *	  <td>createCup</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_cup_metric</td>
+ *	  <td>createCupMetric</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_deciliter</td>
+ *	  <td>createDeciliter</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_fluid_ounce</td>
+ *	  <td>createFluidOunce</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_gallon</td>
+ *	  <td>createGallon</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_gallon_imperial</td>
+ *	  <td>createGallonImperial</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_hectoliter</td>
+ *	  <td>createHectoliter</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_liter</td>
+ *	  <td>createLiter</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_megaliter</td>
+ *	  <td>createMegaliter</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_milliliter</td>
+ *	  <td>createMilliliter</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_pint</td>
+ *	  <td>createPint</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_pint_metric</td>
+ *	  <td>createPintMetric</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_quart</td>
+ *	  <td>createQuart</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_tablespoon</td>
+ *	  <td>createTablespoon</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
+ *	  <td>#i18n_measure_unit_create_teaspoon</td>
+ *	  <td>createTeaspoon</td>
  * </tr>
  * </table>
  */
