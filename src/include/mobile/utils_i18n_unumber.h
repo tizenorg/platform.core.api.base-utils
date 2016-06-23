@@ -481,6 +481,9 @@ int32_t i18n_unumber_get_attribute(const i18n_unumber_format_h fmt, i18n_unumber
  * @details An example of a numeric attribute is the number of integer digits a formatter will produce.
  *			If the formatter does not understand the attribute, the call is ignored. Rule-based formatters only understand
  *			the lenient-parse attribute. The #I18N_UNUMBER_ROUNDING_INCREMENT attribute is not supported.
+ *
+ *			Note that the value for the #I18N_UNUMBER_PADDING_POSITION attribute should be one of the #i18n_unumber_pad_position_e
+ *			enumeration values.
  * @remarks Error codes are described in #i18n_error_code_e description.
  * @since_tizen 2.3.1
  *
@@ -498,6 +501,7 @@ int32_t i18n_unumber_get_attribute(const i18n_unumber_format_h fmt, i18n_unumber
  * @return The obtained error code.
  * @retval #I18N_ERROR_NONE Successful.
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
+ * @retval #I18N_ERROR_NOT_SUPPORTED Not supported
  */
 int i18n_unumber_set_attribute(i18n_unumber_format_h fmt, i18n_unumber_format_attribute_e attr, int32_t new_value);
 

@@ -2180,6 +2180,17 @@ typedef enum {
 } i18n_unumber_format_attribute_e;
 
 /**
+ * @brief Enumeration for the possible values of the #I18N_UNUMBER_PADDING_POSITION attribute.
+ * @since_tizen 3.0
+ */
+typedef enum {
+    I18N_UNUMBER_PAD_BEFORE_PREFIX,
+    I18N_UNUMBER_PAD_AFTER_PREFIX,
+    I18N_UNUMBER_PAD_BEFORE_SUFFIX,
+    I18N_UNUMBER_PAD_AFTER_SUFFIX,
+} i18n_unumber_pad_position_e;
+
+/**
  * @brief The possible #i18n_unumber_format_h text attributes.
  * @since_tizen 2.3.1
  */

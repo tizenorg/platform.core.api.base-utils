@@ -320,8 +320,13 @@ int32_t i18n_unumber_get_attribute(const i18n_unumber_format_h fmt,
 int i18n_unumber_set_attribute(i18n_unumber_format_h fmt, i18n_unumber_format_attribute_e attr,
 							   int32_t new_value)
 {
-	if (fmt == NULL || attr == I18N_UNUMBER_ROUNDING_INCREMENT)
-		return I18N_ERROR_INVALID_PARAMETER;
+	if (fmt == NULL) return I18N_ERROR_INVALID_PARAMETER;
+
+	if (attr == I18N_UNUMBER_ROUNDING_INCREMENT) return I18N_ERROR_NOT_SUPPORTED;
+
+	if (attr == I18N_UNUMBER_PADDING_POSITION &&
+	        (new_value < I18N_UNUMBER_PAD_BEFORE_PREFIX || new_value > I18N_UNUMBER_PAD_AFTER_SUFFIX))
+	    return I18N_ERROR_INVALID_PARAMETER;
 
 	unum_setAttribute(fmt, attr, new_value);
 	return I18N_ERROR_NONE;
