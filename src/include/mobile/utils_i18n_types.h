@@ -2833,7 +2833,7 @@ typedef enum {
     I18N_UMEASFMT_WIDTH_NARROW = 2,   /**< Use symbols for measure units when possible */
     I18N_UMEASFMT_WIDTH_NUMERIC = 3,  /**< Completely omit measure units when possible
                                       For example, format '5 hours, 37 minutes' as '5:37' */
-    I18N_UMEASFMT_WIDTH_COUNT = 4,    /**< Count of values in this enumeration. */
+    I18N_UMEASFMT_WIDTH_COUNT = 4,    /**< Count of values in this enumeration */
 } i18n_umeasure_format_width_e;
 
 /**
@@ -2898,7 +2898,7 @@ typedef enum {
 } i18n_uloc_data_locale_type_e;
 
 /**
- * @brief A simple class used by Format and its subclasses to identify fields in formatted output
+ * @brief Handle to the object used by the Format and its subtypes to identify fields in formatted output.
  * @since_tizen 3.0
  */
 typedef void *i18n_field_position_h;
@@ -2910,6 +2910,12 @@ typedef void *i18n_field_position_h;
 typedef enum {
     I18N_FIELD_POSITION_DONT_CARE = -1,
 } i18n_field_position_dont_care_e;
+
+/**
+ * @brief Handle to the object used by the Format and its subtypes to keep track of the current position during parsing.
+ * @since_tizen 3.0
+ */
+typedef void *i18n_parse_position_h;
 
 #ifdef __cplusplus
 }
