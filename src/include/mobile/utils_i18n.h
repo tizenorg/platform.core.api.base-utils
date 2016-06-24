@@ -32,6 +32,7 @@
 #include <utils_i18n_uenumeration.h>
 #include <utils_i18n_uset.h>
 #include <utils_i18n_ubrk.h>
+#include <utils_i18n_formattable.h>
 
 /**
  * @file utils_i18n.h
@@ -46,7 +47,7 @@ extern "C" {
 /**
  * @ingroup CAPI_BASE_UTILS_MODULE
  * @defgroup CAPI_BASE_UTILS_I18N_MODULE i18n
- * @brief The i18n module contains uchar, ucollator, unormalization, usearch, ustring, ucalendar, udate, udatepg, ulocale and unumber.
+ * @brief The i18n module contains uchar, ucollator, unormalization, usearch, ustring, ucalendar, udate, udatepg, ulocale, unumber and formattable.
  *	   This module provides flexible generation of number or date format patterns and helps you format and parse dates/number for any locale.
  * The i18n module provides various features based on data from ICU. The following table shows the version of ICU used in each Tizen platform.
  * <table>
@@ -122,6 +123,10 @@ extern "C" {
  * <tr>
  *	  <td>@ref CAPI_BASE_UTILS_I18N_UNUMBER_MODULE</td>
  *	  <td>Unumber helps you format and parse numbers for any locale.</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_FORMATTABLE_MODULE</td>
+ *    <td>Formattable interconverts between the primitive numeric types (double, long, etc.) as well as the #i18n_udate and char string.</td>
  * </tr>
  * </table>
  *
@@ -1777,6 +1782,136 @@ extern "C" {
  *	  <td>@ref CAPI_BASE_UTILS_I18N_USTRING_MODULE</td>
  *	  <td>#i18n_ustring_from_UTF32_with_sub</td>
  *	  <td>u_strFromUTF32WithSub</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_FORMATTABLE_MODULE</td>
+ *    <td>#i18n_formattable_create_default</td>
+ *    <td>Formattable()</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_FORMATTABLE_MODULE</td>
+ *    <td>#i18n_formattable_create_with_udate</td>
+ *    <td>Formattable(UDate d, ISDATE flag)</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_FORMATTABLE_MODULE</td>
+ *    <td>#i18n_formattable_create_with_double</td>
+ *    <td>Formattable(double d)</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_FORMATTABLE_MODULE</td>
+ *    <td>#i18n_formattable_create_with_long</td>
+ *    <td>Formattable(int32_t l)</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_FORMATTABLE_MODULE</td>
+ *    <td>#i18n_formattable_create_with_int64</td>
+ *    <td>Formattable(int64_t ll)</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_FORMATTABLE_MODULE</td>
+ *    <td>#i18n_formattable_create_with_char_string</td>
+ *    <td>Formattable(const char* strToCopy)</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_FORMATTABLE_MODULE</td>
+ *    <td>#i18n_formattable_create_with_formattable_array</td>
+ *    <td>Formattable(const Formattable* arrayToCopy, int32_t count)</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_FORMATTABLE_MODULE</td>
+ *    <td>#i18n_formattable_destroy</td>
+ *    <td>delete</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_FORMATTABLE_MODULE</td>
+ *    <td>#i18n_formattable_clone</td>
+ *    <td>Formattable::clone</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_FORMATTABLE_MODULE</td>
+ *    <td>#i18n_formattable_get_array</td>
+ *    <td>Formattable::getArray</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_FORMATTABLE_MODULE</td>
+ *    <td>#i18n_formattable_get_date</td>
+ *    <td>Formattable::getDate</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_FORMATTABLE_MODULE</td>
+ *    <td>#i18n_formattable_get_double</td>
+ *    <td>Formattable::getDouble</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_FORMATTABLE_MODULE</td>
+ *    <td>#i18n_formattable_get_int64</td>
+ *    <td>Formattable::getInt64</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_FORMATTABLE_MODULE</td>
+ *    <td>#i18n_formattable_get_long</td>
+ *    <td>Formattable::getLong</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_FORMATTABLE_MODULE</td>
+ *    <td>#i18n_formattable_get_string</td>
+ *    <td>Formattable::getString</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_FORMATTABLE_MODULE</td>
+ *    <td>#i18n_formattable_get_type</td>
+ *    <td>Formattable::getType</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_FORMATTABLE_MODULE</td>
+ *    <td>#i18n_formattable_is_numeric</td>
+ *    <td>Formattable::isNumeric</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_FORMATTABLE_MODULE</td>
+ *    <td>#i18n_formattable_not_equal</td>
+ *    <td>Formattable::operator!=</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_FORMATTABLE_MODULE</td>
+ *    <td>#i18n_formattable_equal</td>
+ *    <td>Formattable::operator==</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_FORMATTABLE_MODULE</td>
+ *    <td>#i18n_formattable_element_at</td>
+ *    <td>Formattable::operator[]</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_FORMATTABLE_MODULE</td>
+ *    <td>#i18n_formattable_set_array</td>
+ *    <td>Formattable::setArray</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_FORMATTABLE_MODULE</td>
+ *    <td>#i18n_formattable_set_date</td>
+ *    <td>Formattable::setDate</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_FORMATTABLE_MODULE</td>
+ *    <td>#i18n_formattable_set_double</td>
+ *    <td>Formattable::setDouble</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_FORMATTABLE_MODULE</td>
+ *    <td>#i18n_formattable_set_int64</td>
+ *    <td>Formattable::setInt64</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_FORMATTABLE_MODULE</td>
+ *    <td>#i18n_formattable_set_long</td>
+ *    <td>Formattable::setLong</td>
+ * </tr>
+ * <tr>
+ *    <td>@ref CAPI_BASE_UTILS_I18N_FORMATTABLE_MODULE</td>
+ *    <td>#i18n_formattable_set_string</td>
+ *    <td>Formattable::setString</td>
  * </tr>
  * </table>
  */
