@@ -32,6 +32,7 @@
 #include <utils_i18n_uenumeration.h>
 #include <utils_i18n_uset.h>
 #include <utils_i18n_ubrk.h>
+#include <utils_i18n_alpha_idx.h>
 
 /**
  * @file utils_i18n.h
@@ -46,7 +47,7 @@ extern "C" {
 /**
  * @ingroup CAPI_BASE_UTILS_MODULE
  * @defgroup CAPI_BASE_UTILS_I18N_MODULE i18n
- * @brief The i18n module contains uchar, ucollator, unormalization, usearch, ustring, ucalendar, udate, udatepg, ulocale and unumber.
+ * @brief The i18n module contains uchar, ucollator, unormalization, usearch, ustring, ucalendar, udate, udatepg, ulocale, unumber and alpha_idx.
  *	   This module provides flexible generation of number or date format patterns and helps you format and parse dates/number for any locale.
  * The i18n module provides various features based on data from ICU. The following table shows the version of ICU used in each Tizen platform.
  * <table>
@@ -122,6 +123,10 @@ extern "C" {
  * <tr>
  *	  <td>@ref CAPI_BASE_UTILS_I18N_UNUMBER_MODULE</td>
  *	  <td>Unumber helps you format and parse numbers for any locale.</td>
+ * </tr>
+ *  <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_ALPHA_IDX_MODULE</td>
+ *	  <td>Alpha_idx supports the creation of a UI index appropriate for a given language.</td>
  * </tr>
  * </table>
  *
@@ -1777,6 +1782,136 @@ extern "C" {
  *	  <td>@ref CAPI_BASE_UTILS_I18N_USTRING_MODULE</td>
  *	  <td>#i18n_ustring_from_UTF32_with_sub</td>
  *	  <td>u_strFromUTF32WithSub</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_ALPHA_IDX_MODULE</td>
+ *	  <td>#i18n_alpha_idx_create</td>
+ *	  <td>AlphabeticIndex</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_ALPHA_IDX_MODULE</td>
+ *	  <td>#i18n_alpha_idx_destroy</td>
+ *	  <td>~AlphabeticIndex</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_ALPHA_IDX_MODULE</td>
+ *	  <td>#i18n_alpha_idx_add_labels</td>
+ *	  <td>addLabels</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_ALPHA_IDX_MODULE</td>
+ *	  <td>#i18n_alpha_idx_add_record</td>
+ *	  <td>addRecord</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_ALPHA_IDX_MODULE</td>
+ *	  <td>#i18n_alpha_idx_get_next_bucket</td>
+ *	  <td>nextBucket</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_ALPHA_IDX_MODULE</td>
+ *	  <td>#i18n_alpha_idx_get_next_record</td>
+ *	  <td>nextRecord</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_ALPHA_IDX_MODULE</td>
+ *	  <td>#i18n_alpha_idx_get_bucket_record_count</td>
+ *	  <td>getBucketRecordCount</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_ALPHA_IDX_MODULE</td>
+ *	  <td>#i18n_alpha_idx_get_bucket_label</td>
+ *	  <td>getBucketLabel</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_ALPHA_IDX_MODULE</td>
+ *	  <td>#i18n_alpha_idx_get_record_data</td>
+ *	  <td>getRecordData</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_ALPHA_IDX_MODULE</td>
+ *	  <td>#i18n_alpha_idx_get_inflow_label</td>
+ *	  <td>getInflowLabel</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_ALPHA_IDX_MODULE</td>
+ *	  <td>#i18n_alpha_idx_set_inflow_label</td>
+ *	  <td>setInflowLabel</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_ALPHA_IDX_MODULE</td>
+ *	  <td>#i18n_alpha_idx_get_overflow_label</td>
+ *	  <td>getOverflowLabel</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_ALPHA_IDX_MODULE</td>
+ *	  <td>#i18n_alpha_idx_set_overflow_label</td>
+ *	  <td>setOverflowLabel</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_ALPHA_IDX_MODULE</td>
+ *	  <td>#i18n_alpha_idx_get_underflow_label</td>
+ *	  <td>getUnderflowLabel</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_ALPHA_IDX_MODULE</td>
+ *	  <td>#i18n_alpha_idx_set_underflow_label</td>
+ *	  <td>setUnderflowLabel</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_ALPHA_IDX_MODULE</td>
+ *	  <td>#i18n_alpha_idx_get_max_label_count</td>
+ *	  <td>getMaxLabelCount</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_ALPHA_IDX_MODULE</td>
+ *	  <td>#i18n_alpha_idx_set_max_label_count</td>
+ *	  <td>setMaxLabelCount</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_ALPHA_IDX_MODULE</td>
+ *	  <td>#i18n_alpha_idx_clear_records</td>
+ *	  <td>clearRecords</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_ALPHA_IDX_MODULE</td>
+ *	  <td>#i18n_alpha_idx_get_bucket_count</td>
+ *	  <td>getBucketCount</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_ALPHA_IDX_MODULE</td>
+ *	  <td>#i18n_alpha_idx_get_record_count</td>
+ *	  <td>getRecordCount</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_ALPHA_IDX_MODULE</td>
+ *	  <td>#i18n_alpha_idx_get_bucket_index</td>
+ *	  <td>getBucketIndex(const UnicodeString &itemName, UErrorCode &status)</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_ALPHA_IDX_MODULE</td>
+ *	  <td>#i18n_alpha_idx_get_current_bucket_index</td>
+ *	  <td>getBucketIndex()</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_ALPHA_IDX_MODULE</td>
+ *	  <td>#i18n_alpha_idx_get_bucket_label_type</td>
+ *	  <td>getBucketLabelType</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_ALPHA_IDX_MODULE</td>
+ *	  <td>#i18n_alpha_idx_get_record_name</td>
+ *	  <td>getRecordName</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_ALPHA_IDX_MODULE</td>
+ *	  <td>#i18n_alpha_idx_reset_bucket_iter</td>
+ *	  <td>resetBucketIterator</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_ALPHA_IDX_MODULE</td>
+ *	  <td>#i18n_alpha_idx_reset_record_iter</td>
+ *	  <td>resetRecordIterator</td>
  * </tr>
  * </table>
  */
