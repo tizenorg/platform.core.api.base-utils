@@ -2828,10 +2828,10 @@ typedef void *i18n_measure_format_h;
  * @since_tizen 3.0
  */
 typedef enum {
-    I18N_UMEASFMT_WIDTH_WIDE = 0,     /**< Spell out measure units. */
-    I18N_UMEASFMT_WIDTH_SHORT = 1,    /**< Abbreviate measure units. */
-    I18N_UMEASFMT_WIDTH_NARROW = 2,   /**< Use symbols for measure units when possible. */
-    I18N_UMEASFMT_WIDTH_NUMERIC = 3,  /**< Completely omit measure units when possible.
+    I18N_UMEASFMT_WIDTH_WIDE = 0,     /**< Spell out measure units */
+    I18N_UMEASFMT_WIDTH_SHORT = 1,    /**< Abbreviate measure units */
+    I18N_UMEASFMT_WIDTH_NARROW = 2,   /**< Use symbols for measure units when possible */
+    I18N_UMEASFMT_WIDTH_NUMERIC = 3,  /**< Completely omit measure units when possible
                                       For example, format '5 hours, 37 minutes' as '5:37' */
     I18N_UMEASFMT_WIDTH_COUNT = 4,    /**< Count of values in this enumeration. */
 } i18n_umeasure_format_width_e;
