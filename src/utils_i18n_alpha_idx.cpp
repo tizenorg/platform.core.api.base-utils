@@ -25,6 +25,8 @@ int i18n_alpha_idx_create(const char *language, const char *country,
                           i18_alpha_idx_h *index)
 {
     retv_if(index == NULL, I18N_ERROR_INVALID_PARAMETER);
+    retv_if(language == NULL, I18N_ERROR_INVALID_PARAMETER);
+    retv_if(country == NULL, I18N_ERROR_INVALID_PARAMETER);
 
     Locale locale(language, country, 0, 0);
     UErrorCode status = U_ZERO_ERROR;
@@ -48,6 +50,8 @@ int i18n_alpha_idx_add_labels(i18_alpha_idx_h index,
                               const char *language, const char *country)
 {
     retv_if(index == NULL, I18N_ERROR_INVALID_PARAMETER);
+    retv_if(language == NULL, I18N_ERROR_INVALID_PARAMETER);
+    retv_if(country == NULL, I18N_ERROR_INVALID_PARAMETER);
 
     Locale locale(language, country, 0, 0);
     UErrorCode status = U_ZERO_ERROR;
@@ -61,6 +65,7 @@ int i18n_alpha_idx_add_record(i18_alpha_idx_h index, const char *name,
                               const void *data)
 {
     retv_if(index == NULL, I18N_ERROR_INVALID_PARAMETER);
+    retv_if(name == NULL, I18N_ERROR_INVALID_PARAMETER);
 
     const UnicodeString _name(name);
     UErrorCode status = U_ZERO_ERROR;

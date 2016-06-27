@@ -85,11 +85,13 @@ int i18n_formattable_create_with_formattable_array(const i18n_formattable_h *arr
     retv_if(array_to_copy == NULL, I18N_ERROR_INVALID_PARAMETER);
     retv_if(count < 0, I18N_ERROR_INVALID_PARAMETER);
     retv_if(formattable == NULL, I18N_ERROR_INVALID_PARAMETER);
+    for (int i = 0; i < count; i++) {
+        retv_if(array_to_copy[i] == NULL, I18N_ERROR_INVALID_PARAMETER);
+    }
 
     Formattable *f_array = new Formattable[count];
 
     for (int i = 0; i < count; i++) {
-        retv_if(array_to_copy[i] == NULL, I18N_ERROR_INVALID_PARAMETER);
         f_array[i] = *((Formattable *)array_to_copy[i]);
     }
 
@@ -276,11 +278,13 @@ int i18n_formattable_set_array(i18n_formattable_h formattable, const i18n_format
     retv_if(formattable == NULL, I18N_ERROR_INVALID_PARAMETER);
     retv_if(array == NULL, I18N_ERROR_INVALID_PARAMETER);
     retv_if(count < 0, I18N_ERROR_INVALID_PARAMETER);
+    for (int i = 0; i < count; i++) {
+        retv_if(array[i] == NULL, I18N_ERROR_INVALID_PARAMETER);
+    }
 
     Formattable *f_array = new Formattable[count];
 
     for (int i = 0; i < count; i++) {
-        retv_if(array[i] == NULL, I18N_ERROR_INVALID_PARAMETER);
         f_array[i] = *((Formattable *)array[i]);
     }
 

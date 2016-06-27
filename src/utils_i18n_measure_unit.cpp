@@ -19,6 +19,7 @@
 
 #include <unicode/measunit.h>
 #include <unicode/strenum.h>
+#include <string.h>
 
 int i18n_measure_unit_create(i18n_measure_unit_h *measure_unit)
 {
@@ -62,21 +63,29 @@ int i18n_measure_unit_array_destroy(i18n_measure_unit_h *array, int32_t array_si
     return I18N_ERROR_NONE;
 }
 
-int i18n_measure_unit_get_type(i18n_measure_unit_h measure_unit, const char **type)
+int i18n_measure_unit_get_type(i18n_measure_unit_h measure_unit, char **type)
 {
     retv_if(measure_unit == NULL, I18N_ERROR_INVALID_PARAMETER);
     retv_if(type == NULL, I18N_ERROR_INVALID_PARAMETER);
-    *type = ((MeasureUnit *) measure_unit)->getType();
+    const char *const_type;
+    const_type = ((MeasureUnit *) measure_unit)->getType();
+
+    *type = strdup(const_type);
+
     retv_if(*type == NULL, I18N_ERROR_OUT_OF_MEMORY);
 
     return I18N_ERROR_NONE;
 }
 
-int i18n_measure_unit_get_subtype(i18n_measure_unit_h measure_unit, const char **subtype)
+int i18n_measure_unit_get_subtype(i18n_measure_unit_h measure_unit, char **subtype)
 {
     retv_if(measure_unit == NULL, I18N_ERROR_INVALID_PARAMETER);
     retv_if(subtype == NULL, I18N_ERROR_INVALID_PARAMETER);
-    *subtype = ((MeasureUnit *) measure_unit)->getSubtype();
+    const char *const_subtype;
+    const_subtype = ((MeasureUnit *) measure_unit)->getSubtype();
+
+    *subtype = strdup(const_subtype);
+
     retv_if(*subtype == NULL, I18N_ERROR_OUT_OF_MEMORY);
 
     return I18N_ERROR_NONE;
@@ -117,7 +126,7 @@ int i18n_measure_unit_get_available_with_type(int32_t dest_capacity, const char 
 
     *dest_array = new i18n_measure_unit_h[dest_capacity];
     for (int i = 0; i < dest_capacity; ++i) {
-        (*dest_array)[i] = (const i18n_measure_unit_h) mu_array[i].clone();
+        (*dest_array)[i] = (i18n_measure_unit_h) mu_array[i].clone();
     }
 
     delete[] mu_array;
