@@ -57,6 +57,12 @@ extern "C" {
  *	 <td>CLDR 23</td>
  *	 <td>Unicode 6.2</td>
  *	</tr>
+ *	<tr>
+ *   <td>Tizen 3.0</td>
+ *   <td>ICU 54</td>
+ *   <td>CLDR 26</td>
+ *   <td>Unicode 7.0</td>
+ *  </tr>
  * </table>
  * @section CAPI_BASE_UTILS_I18N_MODULE_HEADER Required Header
  *	\#include <utils_i18n.h>

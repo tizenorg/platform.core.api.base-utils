@@ -31,8 +31,8 @@ extern "C" {
 
 /**
  * @ingroup CAPI_BASE_UTILS_I18N_MODULE
- * @defgroup CAPI_BASE_UTILS_I18N_ALPHA_IDX_MODULE AlphabeticIndex
- * @brief AlphabeticIndex supports the creation of a UI index appropriate for a given language.
+ * @defgroup CAPI_BASE_UTILS_I18N_ALPHA_IDX_MODULE Alphabetic Index
+ * @brief Alphabetic Index supports the creation of a UI index appropriate for a given language.
  * @section CAPI_BASE_UTILS_I18N_ALPHA_IDX_MODULE_HEADER Required Header
  *          \#include <utils_i18n.h>
  *
@@ -114,30 +114,30 @@ int i18n_alpha_idx_add_record(i18_alpha_idx_h index, const char *name,
 /**
  * @brief Sets the next bucket as current bucket in the index.
  *
- * @param[in] index    The alphabetic index, which contains buckets
- * @param[out] success A flag set to @c true if the iteration succeeded,
- *                     or @c false at the end of iteration.
+ * @param[in] index       The alphabetic index, which contains buckets
+ * @param[out] available  A flag set to @c true if the next bucket was available,
+ *                        or @c false if there were no more buckets.
  *
  * @return @c 0 on success, otherwise a negative error value
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_alpha_idx_get_next_bucket(i18_alpha_idx_h index, bool *success);
+int i18n_alpha_idx_get_next_bucket(i18_alpha_idx_h index, bool *available);
 
 /**
  * @brief Sets the next record as current record in current bucket of the index.
- * @details When i18n_alpha_idx_next_bucket() is called, record iteration is reset
+ * @details When i18n_alpha_idx_get_next_bucket() is called, record iteration is reset
  *          to just before the first record in the new bucket.
  *
- * @param[in] index    The alphabetic index, which contains buckets with records
- * @param[out] success A flag set to @c true if the iteration succeeded,
- *                     or @c false at the end of iteration.
+ * @param[in] index       The alphabetic index, which contains buckets with records
+ * @param[out] available  A flag set to @c true if the next record was available,
+ *                        or @c false if there were no more records.
  *
  * @return @c 0 on success, otherwise a negative error value
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_alpha_idx_get_next_record(i18_alpha_idx_h index, bool *success);
+int i18n_alpha_idx_get_next_record(i18_alpha_idx_h index, bool *available);
 
 /**
  * @brief Gets the number of <name, data> records in the current bucket.
@@ -161,6 +161,7 @@ int i18n_alpha_idx_get_bucket_record_count(i18_alpha_idx_h index, int32_t *recor
  * @return @c 0 on success, otherwise a negative error value
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
+ * @retval #I18N_ERROR_OUT_OF_MEMORY Out of memory
  */
 int i18n_alpha_idx_get_bucket_label(i18_alpha_idx_h index, char **label);
 
@@ -189,6 +190,7 @@ int i18n_alpha_idx_get_record_data(i18_alpha_idx_h index, const void **data);
  * @return @c 0 on success, otherwise a negative error value
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
+ * @retval #I18N_ERROR_OUT_OF_MEMORY Out of memory
  */
 int i18n_alpha_idx_get_inflow_label(i18_alpha_idx_h index, char **label);
 
@@ -218,6 +220,7 @@ int i18n_alpha_idx_set_inflow_label(i18_alpha_idx_h index, const char *label);
  * @return @c 0 on success, otherwise a negative error value
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
+ * @retval #I18N_ERROR_OUT_OF_MEMORY Out of memory
  */
 int i18n_alpha_idx_get_overflow_label(i18_alpha_idx_h index, char **label);
 
@@ -245,6 +248,7 @@ int i18n_alpha_idx_set_overflow_label(i18_alpha_idx_h index, const char *label);
  * @return @c 0 on success, otherwise a negative error value
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
+ * @retval #I18N_ERROR_OUT_OF_MEMORY Out of memory
  */
 int i18n_alpha_idx_get_underflow_label(i18_alpha_idx_h index, char **label);
 
@@ -376,13 +380,14 @@ int i18n_alpha_idx_get_bucket_label_type(i18_alpha_idx_h index,
  * @return @c 0 on success, otherwise a negative error value
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
+ * @retval #I18N_ERROR_OUT_OF_MEMORY Out of memory
  * @retval #I18N_ERROR_INDEX_OUTOFBOUNDS Trying to access the index that is out of bounds
  */
 int i18n_alpha_idx_get_record_name(i18_alpha_idx_h index, char **record_name);
 
 /**
  * @brief Resets the bucket iteration for this index.
- * @details The next call to i18n_alpha_idx_next_bucket() will restart the iteration at the first label.
+ * @details The next call to i18n_alpha_idx_get_next_bucket() will restart the iteration at the first label.
  *
  * @param[in] index The alphabetic index, which contains buckets with records
  *
@@ -394,7 +399,7 @@ int i18n_alpha_idx_reset_bucket_iter(i18_alpha_idx_h index);
 
 /**
  * @brief Resets the record iteration for this index.
- * @details The next call to i18n_alpha_idx_next_record() will restart the iteration at the first label.
+ * @details The next call to i18n_alpha_idx_get_next_record() will restart the iteration at the first label.
  *
  * @param[in] index The alphabetic index, which contains buckets with records
  *

@@ -70,28 +70,28 @@ int i18n_alpha_idx_add_record(i18_alpha_idx_h index, const char *name,
     return _i18n_error_mapping(status);
 }
 
-int i18n_alpha_idx_get_next_bucket(i18_alpha_idx_h index, bool *success)
+int i18n_alpha_idx_get_next_bucket(i18_alpha_idx_h index, bool *available)
 {
     retv_if(index == NULL, I18N_ERROR_INVALID_PARAMETER);
 
     UErrorCode status = U_ZERO_ERROR;
 
-    if(success != NULL)
-        *success = ((AlphabeticIndex *) index)->nextBucket(status);
+    if(available != NULL)
+        *available = ((AlphabeticIndex *) index)->nextBucket(status);
     else
         ((AlphabeticIndex *) index)->nextBucket(status);
 
     return _i18n_error_mapping(status);
 }
 
-int i18n_alpha_idx_get_next_record(i18_alpha_idx_h index, bool *success)
+int i18n_alpha_idx_get_next_record(i18_alpha_idx_h index, bool *available)
 {
     retv_if(index == NULL, I18N_ERROR_INVALID_PARAMETER);
 
     UErrorCode status = U_ZERO_ERROR;
 
-    if(success != NULL)
-        *success = ((AlphabeticIndex *) index)->nextRecord(status);
+    if(available != NULL)
+        *available = ((AlphabeticIndex *) index)->nextRecord(status);
     else
         ((AlphabeticIndex *) index)->nextRecord(status);
 
@@ -121,6 +121,7 @@ int i18n_alpha_idx_get_bucket_label(i18_alpha_idx_h index,
     _label.toUTF8String(_label_string);
 
     *label = strdup(_label_string.c_str());
+    retv_if(*label == NULL, I18N_ERROR_OUT_OF_MEMORY);
 
     return I18N_ERROR_NONE;
 }
@@ -149,6 +150,7 @@ int i18n_alpha_idx_get_inflow_label(i18_alpha_idx_h index,
     _label.toUTF8String(_label_string);
 
     *label = strdup(_label_string.c_str());
+    retv_if(*label == NULL, I18N_ERROR_OUT_OF_MEMORY);
 
     return I18N_ERROR_NONE;
 }
@@ -179,6 +181,7 @@ int i18n_alpha_idx_get_overflow_label(i18_alpha_idx_h index,
     overflow_label.toUTF8String(_label_string);
 
     *label = strdup(_label_string.c_str());
+    retv_if(*label == NULL, I18N_ERROR_OUT_OF_MEMORY);
 
     return I18N_ERROR_NONE;
 }
@@ -209,6 +212,7 @@ int i18n_alpha_idx_get_underflow_label(i18_alpha_idx_h index,
     overflow_label.toUTF8String(_label_string);
 
     *label = strdup(_label_string.c_str());
+    retv_if(*label == NULL, I18N_ERROR_OUT_OF_MEMORY);
 
     return I18N_ERROR_NONE;
 }
@@ -337,6 +341,7 @@ int i18n_alpha_idx_get_record_name(i18_alpha_idx_h index,
     _record_name.toUTF8String(_record_name_string);
 
     *record_name = strdup(_record_name_string.c_str());
+    retv_if(*record_name == NULL, I18N_ERROR_OUT_OF_MEMORY);
 
     if(_record_name.isEmpty()) {
         return I18N_ERROR_INDEX_OUTOFBOUNDS;
