@@ -2855,13 +2855,13 @@ typedef enum {
  * @since_tizen 3.0
  */
 typedef enum {
-    I18N_FORMATTABLE_K_DATE = 0,    /**< Selector indicating a UDate value */
-    I18N_FORMATTABLE_K_DOUBLE = 1,  /**< Selector indicating a double value */
-    I18N_FORMATTABLE_K_LONG = 2,    /**< Selector indicating a 32-bit integer value */
-    I18N_FORMATTABLE_K_STRING = 3,  /**< Selector indicating a UnicodeString value */
-    I18N_FORMATTABLE_K_ARRAY = 4,   /**< Selector indicating an array of i18n_formattable_h */
-    I18N_FORMATTABLE_K_INT64 = 5,   /**< Selector indicating a 64-bit integer value */
-    I18N_FORMATTABLE_K_OBJECT = 6,  /**< Selector indicating a UObject value */
+    I18N_FORMATTABLE_TYPE_DATE = 0,    /**< Selector indicating a UDate value */
+    I18N_FORMATTABLE_TYPE_DOUBLE = 1,  /**< Selector indicating a double value */
+    I18N_FORMATTABLE_TYPE_LONG = 2,    /**< Selector indicating a 32-bit integer value */
+    I18N_FORMATTABLE_TYPE_STRING = 3,  /**< Selector indicating a UnicodeString value */
+    I18N_FORMATTABLE_TYPE_ARRAY = 4,   /**< Selector indicating an array of i18n_formattable_h */
+    I18N_FORMATTABLE_TYPE_INT64 = 5,   /**< Selector indicating a 64-bit integer value */
+    I18N_FORMATTABLE_TYPE_UNINITIALIZED = 6,  /**< Selector indicating a uninitialized type */
 } i18n_formattable_type_e;
 
 /**
@@ -2899,7 +2899,7 @@ typedef enum {
 } i18n_uloc_data_locale_type_e;
 
 /**
- * @brief A simple class used by Format and its subclasses to identify fields in formatted output
+ * @brief A simple type used by Format module and its submodules to identify fields in formatted output
  * @since_tizen 3.0
  */
 typedef void *i18n_field_position_h;
@@ -2913,7 +2913,7 @@ typedef enum {
 } i18n_field_position_dont_care_e;
 
 /**
- * @brief A simple class used by Format and its subclasses to identify fields in formatted output.
+ * @brief A simple type used by Format module and its submodules to identify fields in formatted output.
  * @since_tizen 3.0
  */
 typedef void *i18n_parse_position_h;

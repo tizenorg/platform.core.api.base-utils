@@ -32,16 +32,16 @@ extern "C" {
 /**
  * @ingroup CAPI_BASE_UTILS_I18N_MODULE
  * @defgroup CAPI_BASE_UTILS_I18N_PARSE_POSITION_MODULE ParsePosition
- * @brief Parse Position is a simple class used by Format and its subclasses to keep track of the current position during parsing.
+ * @brief Parse Position is a simple object used by the Format and its subtypes
+ *        to keep track of the current position during parsing.
  * @section CAPI_BASE_UTILS_I18N_PARSE_POSITION_MODULE_HEADER Required Header
  *        \#include <utils_i18n.h>
  *
  * @section CAPI_BASE_UTILS_I18N_PARSE_POSITION_MODULE_OVERVIEW Overview
- * @details The i18n_format_parse_object() method in the Format classes requires
+ * @details The i18n_format_parse_object() method in the Format types requires
  * a Parse Position object as an argument.
  * By design, as you parse through a string with different formats, you can use
  * the same Parse Position, since the index parameter records the current position.
- * The Parse Position class is not suitable for subclassing.
  */
 
 /**
@@ -51,11 +51,14 @@ extern "C" {
 
 /**
  * @brief Creates a parse position object.
- * @deatils This function invokes the default constructor, the index starts with 0 as default.
+ * @remarks The created object should be released by the caller with the
+ *          i18n_parse_position_destroy() function.
+ * @details The index is set to position 0.
  * @since_tizen 3.0
  *
- * @param[out] parse_position  The parse position object
+ * @param[out] parse_position  The created parse position object
  *
+ * @return @c 0 on success, otherwise a negative error value
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  * @retval #I18N_ERROR_OUT_OF_MEMORY Out of memory
@@ -63,32 +66,20 @@ extern "C" {
 int i18n_parse_position_create(i18n_parse_position_h *parse_position);
 
 /**
- * @brief Creates a parse position object.
- * @deatils This function invokes the default constructor, the index starts with 0 as default.
+ * @brief Creates a parse position object with the given initial index.
+ * @remarks The created object should be released by the caller with the
+ *          i18n_parse_position_destroy() function.
  * @since_tizen 3.0
  *
  * @param[out] parse_position  The parse position object
  * @param[in]  new_index       The new text offset
  *
+ * @return @c 0 on success, otherwise a negative error value
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  * @retval #I18N_ERROR_OUT_OF_MEMORY Out of memory
  */
-int i18n_parse_position_create_with_index(i18n_parse_position_h *parse_position, int32_t new_index);
-
-/**
- * @brief Creates a parse position object from the other parse position object.
- * @deatils Function invokes the copy constructor.
- * @since_tizen 3.0
- *
- * @param[out] parse position  The created parse position object
- * @param[in]  other           The parse position object from which the new object is created
- *
- * @retval #I18N_ERROR_NONE Successful
- * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
- * @retval #I18N_ERROR_OUT_OF_MEMORY Out of memory
- */
-int i18n_parse_position_create_from_other(i18n_parse_position_h *parse_position, const i18n_parse_position_h other);
+int i18n_parse_position_create_with_index(int32_t new_index, i18n_parse_position_h *parse_position);
 
 /**
  * @brief Destroys the parse position object.
@@ -96,18 +87,22 @@ int i18n_parse_position_create_from_other(i18n_parse_position_h *parse_position,
  *
  * @param[in] parse_position  The parse position object to destroy
  *
+ * @return @c 0 on success, otherwise a negative error value
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
 int i18n_parse_position_destroy(i18n_parse_position_h parse_position);
 
 /**
- * @brief Creates a polymorphic clone of the given @a parse_position object.
+ * @brief Creates a clone of the given @a parse_position object.
+ * @remarks The @a clone object should be released by the caller with the
+ *          i18n_parse_position_destroy() function.
  * @since_tizen 3.0
  *
- * @param[in]  parse_position  The parse position object from which the new object is created
+ * @param[in]  parse_position  The parse position object to be cloned
  * @param[out] clone           The created parse position object
  *
+ * @return @c 0 on success, otherwise a negative error value
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  * @retval #I18N_ERROR_OUT_OF_MEMORY Out of memory
@@ -124,6 +119,7 @@ int i18n_parse_position_clone(i18n_parse_position_h parse_position, i18n_parse_p
  * @param[in]  parse_position  The parse position object
  * @param[out] index           The current index
  *
+ * @return @c 0 on success, otherwise a negative error value
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
@@ -136,6 +132,7 @@ int i18n_parse_position_get_index(i18n_parse_position_h parse_position, int32_t 
  * @param[in] parse_position  The parse position object
  * @param[in] index           The new index
  *
+ * @return @c 0 on success, otherwise a negative error value
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
@@ -151,6 +148,7 @@ int i18n_parse_position_set_index(i18n_parse_position_h parse_position, int32_t 
  * @param[in] parse_position  The parse position object
  * @param[in] error_index     The error index
  *
+ * @return @c 0 on success, otherwise a negative error value
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
@@ -164,10 +162,15 @@ int i18n_parse_position_set_error_index(i18n_parse_position_h parse_position, in
  * @param[in]  parse_position  The parse position object
  * @param[out] error_index     The index at which an error occurred
  *
+ * @return @c 0 on success, otherwise a negative error value
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
 int i18n_parse_position_get_error_index(i18n_parse_position_h parse_position, int32_t *error_index);
+
+/**
+ * @}
+ */
 
 #ifdef __cplusplus
 }

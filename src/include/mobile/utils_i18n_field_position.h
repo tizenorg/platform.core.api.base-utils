@@ -32,19 +32,18 @@ extern "C" {
 /**
  * @ingroup CAPI_BASE_UTILS_I18N_MODULE
  * @defgroup CAPI_BASE_UTILS_I18N_FIELD_POSITION_MODULE FieldPosition
- * @brief Field Position is a simple class used by Format and its subclasses to identify fields in formatted output.
+ * @brief Field Position is a simple type used by Format module and its submodules to identify fields in formatted output.
  * @section CAPI_BASE_UTILS_I18N_FIELD_POSITION_MODULE_HEADER Required Header
  *        \#include <utils_i18n.h>
  *
  * @section CAPI_BASE_UTILS_I18N_FIELD_POSITION_MODULE_OVERVIEW Overview
  * @details Fields are identified by constants, whose names typically end with _FIELD,
- * defined in the various subclasses of Format. Field position keeps track of the position
+ * defined in the various submodules of Format module. Field position keeps track of the position
  * of the field within the formatted output with two indices: the index of the first
  * character of the field and the index of the last character of the field. One version
- * of the format method in the various Format classes requires a Field Position object
- * as an argument. You use this format method to perform partial formatting or to get
+ * of the format function in the various Format modules requires a Field Position object
+ * as an argument. You use this format function to perform partial formatting or to get
  * information about the formatted output (such as the position of a field).
- * The FieldPosition class is not suitable for subclassing.
  */
 
 /**
@@ -108,7 +107,7 @@ int i18n_field_position_create_from_other(i18n_field_position_h *field_position,
 int i18n_field_position_destroy(i18n_field_position_h field_position);
 
 /**
- * @brief Creates a polymorphic clone of the given @a field_position object.
+ * @brief Creates a clone of the given @a field_position object.
  * @since_tizen 3.0
  *
  * @param[in]  field_position  The field position object from which the new object is created
