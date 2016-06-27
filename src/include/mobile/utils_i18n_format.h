@@ -32,7 +32,7 @@ extern "C" {
 /**
  * @ingroup CAPI_BASE_UTILS_I18N_MODULE
  * @defgroup CAPI_BASE_UTILS_I18N_FORMAT_MODULE Format
- * @brief The Format module represents the base class for all formats.
+ * @brief The Format module represents the base module for all formats.
  * @section CAPI_BASE_UTILS_I18N_FORMAT_MODULE_HEADER Required Header
  *	\#include <utils_i18n.h>
  *
@@ -68,9 +68,9 @@ int i18n_format_destroy(i18n_format_h format);
 
 /**
  * @brief Creates a polymorphic clone of the given @a format object.
+ * @since_tizen 3.0
  * @remarks The cloned object should be released by the caller with the
  *          i18n_format_destroy() function.
- * @since_tizen 3.0
  *
  * @param[in]  format  The format object to be cloned
  * @param[out] clone   The clone of the given @a format object
@@ -84,9 +84,9 @@ int i18n_format_clone(i18n_format_h format, i18n_format_h *clone);
 
 /**
  * @brief Formats an object to produce a string.
+ * @since_tizen 3.0
  * @remarks The @a append_to parameter should be released by the caller with the
  *          free() function.
- * @since_tizen 3.0
  *
  * @param[in] format         The format object
  * @param[in] formattable    The object to format
@@ -102,9 +102,9 @@ int i18n_format_format(i18n_format_h format, i18n_formattable_h formattable, cha
 
 /**
  * @brief Formats an object to produce a string.
+ * @since_tizen 3.0
  * @remarks The @a append_to parameter should be released by the caller with the
  *          free() function.
- * @since_tizen 3.0
  *
  * @param[in] format              The format object
  * @param[in] formattable         The object to format
@@ -122,9 +122,9 @@ int i18n_format_format_with_field_position(i18n_format_h format, i18n_formattabl
 
 /**
  * @brief Parses a string to produce an object.
+ * @since_tizen 3.0
  * @remarks The obtained @a result formattable object should be released by the caller with the
  *          i18n_formattable_destroy() function.
- * @since_tizen 3.0
  *
  * @param[in] format   The format object
  * @param[in] source   The string to be parsed into an object
@@ -139,9 +139,9 @@ int i18n_format_parse_object(i18n_format_h format, const char *source, i18n_form
 
 /**
  * @brief Parses a string to produce an object.
+ * @since_tizen 3.0
  * @remarks The obtained @a result formattable object should be released by the caller with the
  *          i18n_formattable_destroy() function.
- * @since_tizen 3.0
  *
  * @param[in] format              The format object
  * @param[in] source              The string to be parsed into an object
@@ -151,7 +151,7 @@ int i18n_format_parse_object(i18n_format_h format, const char *source, i18n_form
  * @param[out] result             The formattable object to be set to the parse result.
  *                                If parse fails, return contents are undefined.
  *
- * @return Error code. Error codes not listed below are described in the #i18n_error_code_e
+ * @return @c 0 on success, otherwise a negative error value
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
@@ -160,8 +160,8 @@ int i18n_format_parse_object_with_parse_position(i18n_format_h format, const cha
 /**
  * @brief Gets the locale for the given format object.
  * @details You can choose between valid and actual locale.
- * @remarks Both @a language and @a country should be released by the caller with the free() function.
  * @since_tizen 3.0
+ * @remarks Both @a language and @a country should be released by the caller with the free() function.
  *
  * @param[in] format     The format object
  * @param[in] type       The type of the locale we're looking for (valid or actual)
@@ -174,7 +174,7 @@ int i18n_format_parse_object_with_parse_position(i18n_format_h format, const cha
  * @retval #I18N_ERROR_OUT_OF_MEMORY Out of memory
  */
 int i18n_format_get_locale(i18n_format_h format,
-        i18n_uloc_data_locale_type_e type, const char **language, const char **country);
+        i18n_uloc_data_locale_type_e type, char **language, char **country);
 
 /**
  * @}
