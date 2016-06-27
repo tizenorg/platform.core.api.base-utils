@@ -38,6 +38,7 @@
 #include <utils_i18n_measure.h>
 #include <utils_i18n_format.h>
 #include <utils_i18n_measure_format.h>
+#include <utils_i18n_field_position.h>
 
 /**
  * @file utils_i18n.h
@@ -52,7 +53,7 @@ extern "C" {
 /**
  * @ingroup CAPI_BASE_UTILS_MODULE
  * @defgroup CAPI_BASE_UTILS_I18N_MODULE i18n
- * @brief The i18n module contains uchar, ucollator, unormalization, usearch, ustring, ucalendar, udate, udatepg, ulocale, unumber, alpha_idx, formattable, measure unit, measure, format and measure format.
+ * @brief The i18n module contains uchar, ucollator, unormalization, usearch, ustring, ucalendar, udate, udatepg, ulocale, unumber, alpha_idx, formattable, measure unit, measure, format, measure format and field position.
  *	   This module provides flexible generation of number or date format patterns and helps you format and parse dates/number for any locale.
  * The i18n module provides various features based on data from ICU. The following table shows the version of ICU used in each Tizen platform.
  * <table>
@@ -151,6 +152,10 @@ extern "C" {
  * <tr>
  *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_FORMAT_MODULE</td>
  *	  <td>The Measure Format module represents a formatter for measure objects.</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_FIELD_POSITION</td>
+ *	  <td>The Field Position module is used to identify fields in a formatted output.</td>
  * </tr>
  * </table>
  *
@@ -2852,6 +2857,56 @@ extern "C" {
  *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_FORMAT_MODULE</td>
  *	  <td>#i18n_measure_format_create_currency_format</td>
  *	  <td>createCurrencyFormat</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_FIELD_POSITION_MODULE</td>
+ *	  <td>#i18n_field_position_create</td>
+ *	  <td>FieldPosition</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_FIELD_POSITION_MODULE</td>
+ *	  <td>#i18n_field_position_create_for_field</td>
+ *	  <td>FieldPosition</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_FIELD_POSITION_MODULE</td>
+ *	  <td>#i18n_field_position_destroy</td>
+ *	  <td>~FieldPosition</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_FIELD_POSITION_MODULE</td>
+ *	  <td>#i18n_field_position_clone</td>
+ *	  <td>clone</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_FIELD_POSITION_MODULE</td>
+ *	  <td>#i18n_field_position_get_field</td>
+ *	  <td>getField</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_FIELD_POSITION_MODULE</td>
+ *	  <td>#i18n_field_position_get_begin_index</td>
+ *	  <td>getBeginIndex</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_FIELD_POSITION_MODULE</td>
+ *	  <td>#i18n_field_position_get_end_index</td>
+ *	  <td>getEndIndex</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_FIELD_POSITION_MODULE</td>
+ *	  <td>#i18n_field_position_set_field</td>
+ *	  <td>setField</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_FIELD_POSITION_MODULE</td>
+ *	  <td>#i18n_field_position_set_begin_index</td>
+ *	  <td>setBeginIndex</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_FIELD_POSITION_MODULE</td>
+ *	  <td>#i18n_field_position_set_end_index</td>
+ *	  <td>setEndIndex</td>
  * </tr>
  * </table>
  */
