@@ -35,6 +35,7 @@
 #include <utils_i18n_alpha_idx.h>
 #include <utils_i18n_formattable.h>
 #include <utils_i18n_measure_unit.h>
+#include <utils_i18n_measure.h>
 
 /**
  * @file utils_i18n.h
@@ -49,7 +50,7 @@ extern "C" {
 /**
  * @ingroup CAPI_BASE_UTILS_MODULE
  * @defgroup CAPI_BASE_UTILS_I18N_MODULE i18n
- * @brief The i18n module contains uchar, ucollator, unormalization, usearch, ustring, ucalendar, udate, udatepg, ulocale, unumber, alpha_idx and formattable.
+ * @brief The i18n module contains uchar, ucollator, unormalization, usearch, ustring, ucalendar, udate, udatepg, ulocale, unumber, alpha_idx, formattable and measure.
  *	   This module provides flexible generation of number or date format patterns and helps you format and parse dates/number for any locale.
  * The i18n module provides various features based on data from ICU. The following table shows the version of ICU used in each Tizen platform.
  * <table>
@@ -135,7 +136,11 @@ extern "C" {
  * </tr>
  * <tr>
  *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
- *	  <td>The MeasureUnit module contains unit such as length, mass, volume, currency, etc..</td>
+ *	  <td>The MeasureUnit module contains units such as length, mass, volume, currency, etc...</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_MODULE</td>
+ *	  <td>The Measure module represents an amount of a specified unit, consisting of a number and a unit.</td>
  * </tr>
  * </table>
  *
@@ -2762,6 +2767,31 @@ extern "C" {
  *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE</td>
  *	  <td>#i18n_measure_unit_create_teaspoon</td>
  *	  <td>createTeaspoon</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_MODULE</td>
+ *	  <td>#i18n_measure_create</td>
+ *	  <td>Measure</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_MODULE</td>
+ *	  <td>#i18n_measure_clone</td>
+ *	  <td>clone</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_MODULE</td>
+ *	  <td>#i18n_measure_destroy</td>
+ *	  <td>~Measure</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_MODULE</td>
+ *	  <td>#i18n_measure_get_number</td>
+ *	  <td>getNumber</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_MODULE</td>
+ *	  <td>#i18n_measure_get_unit</td>
+ *	  <td>getUnit</td>
  * </tr>
  * </table>
  */
