@@ -83,11 +83,11 @@ int i18n_formattable_create_default(i18n_formattable_h *formattable);
 int i18n_formattable_create_with_udate(i18n_udate date, i18n_formattable_h *formattable);
 
 /**
- * @brief Creates a new #i18n_formattable_h handle with a double number.
+ * @brief Creates a new #i18n_formattable_h handle with a double value.
  * @remarks The created object should be released by the caller with the
  *          #i18n_formattable_destroy() function.
  *
- * @param[in] d             The double number
+ * @param[in] value         The double value to be used
  * @param[out] formattable  A pointer to a handle to the newly created formattable
  *                          object
  *
@@ -96,14 +96,14 @@ int i18n_formattable_create_with_udate(i18n_udate date, i18n_formattable_h *form
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  * @retval #I18N_ERROR_UNKNOWN Unknown error
  */
-int i18n_formattable_create_with_double(double d, i18n_formattable_h *formattable);
+int i18n_formattable_create_with_double(double value, i18n_formattable_h *formattable);
 
 /**
- * @brief Creates a new #i18n_formattable_h handle with a long number.
+ * @brief Creates a new #i18n_formattable_h handle with a long value.
  * @remarks The created object should be released by the caller with the
  *          #i18n_formattable_destroy() function.
  *
- * @param[in] l             The long number
+ * @param[in] value         The long value to be used
  * @param[out] formattable  A pointer to a handle to the newly created formattable
  *                          object
  *
@@ -112,14 +112,14 @@ int i18n_formattable_create_with_double(double d, i18n_formattable_h *formattabl
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  * @retval #I18N_ERROR_UNKNOWN Unknown error
  */
-int i18n_formattable_create_with_long(int32_t l, i18n_formattable_h *formattable);
+int i18n_formattable_create_with_long(int32_t value, i18n_formattable_h *formattable);
 
 /**
- * @brief Creates a new #i18n_formattable_h handle with an int64_t number.
+ * @brief Creates a new #i18n_formattable_h handle with an int64_t value.
  * @remarks The created object should be released by the caller with the
  *          #i18n_formattable_destroy() function.
  *
- * @param[in] ll            The int64_t number
+ * @param[in] value         The int64_t value to be used
  * @param[out] formattable  A pointer to a handle to the newly created formattable
  *                          object
  *
@@ -128,7 +128,7 @@ int i18n_formattable_create_with_long(int32_t l, i18n_formattable_h *formattable
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  * @retval #I18N_ERROR_UNKNOWN Unknown error
  */
-int i18n_formattable_create_with_int64(int64_t ll, i18n_formattable_h *formattable);
+int i18n_formattable_create_with_int64(int64_t value, i18n_formattable_h *formattable);
 
 /**
  * @brief Creates a new #i18n_formattable_h handle with a char string pointer.
@@ -197,8 +197,7 @@ int i18n_formattable_clone(i18n_formattable_h formattable, i18n_formattable_h *c
 /**
  * @brief Gets the array value and count of the given formattable object.
  * @remarks If this object is not of type #I18N_FORMATTABLE_K_ARRAY then the
- *          result is undefined. The obtained array should be released by the
- *          caller with the free() function.
+ *          result is undefined. 
  *
  * @param[in] formattable  A handle to the formattable object
  * @param[out] array        A pointer to an array of #i18n_formattable_h handles
@@ -277,7 +276,7 @@ int i18n_formattable_get_long(i18n_formattable_h formattable, int32_t *value);
  * @brief Gets the string value of the given formattable object.
  * @remarks If the type is not a string, the function returns the
  *          #I18N_ERROR_INVALID_FORMAT error code and the value is set to @c
- *          NULL.
+ *          NULL. The @a value should be released by the caller with the free() function.
  *
  * @param[in] formattable  A handle to the formattable object
  * @param[out] value        A pointer to a char string variable which will be
@@ -395,52 +394,52 @@ int i18n_formattable_set_array(i18n_formattable_h formattable, const i18n_format
  *        type to the #I18N_FORMATTABLE_K_DATE.
  *
  * @param[in] formattable  A handle to the formattable object
- * @param[in] d            The new i18n_udate value to be set
+ * @param[in] date         The new i18n_udate value to be set
  *
  * @return @c 0 on success, otherwise a negative error value
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_formattable_set_date(i18n_formattable_h formattable, i18n_udate d);
+int i18n_formattable_set_date(i18n_formattable_h formattable, i18n_udate date);
 
 /**
  * @brief Sets the double value of the given formattable object and changes
  *        the type to the #I18N_FORMATTABLE_K_DOUBLE.
  *
  * @param[in] formattable  A handle to the formattable object
- * @param[in] d            The new double value to be set
+ * @param[in] value        The new double value to be set
  *
  * @return @c 0 on success, otherwise a negative error value
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_formattable_set_double(i18n_formattable_h formattable, double d);
+int i18n_formattable_set_double(i18n_formattable_h formattable, double value);
 
 /**
  * @brief Sets the int64 value of the given formattable object and changes the
  *        type to the #I18N_FORMATTABLE_K_INT64.
  *
  * @param[in] formattable  A handle to the formattable object
- * @param[in] ll           The new int64_t value to be set
+ * @param[in] value        The new int64_t value to be set
  *
  * @return @c 0 on success, otherwise a negative error value
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_formattable_set_int64(i18n_formattable_h formattable, int64_t ll);
+int i18n_formattable_set_int64(i18n_formattable_h formattable, int64_t value);
 
 /**
  * @brief Sets the long value of the given formattable object and changes the
  *        type to the #I18N_FORMATTABLE_K_LONG.
  *
  * @param[in] formattable  A handle to the formattable object
- * @param[in] l            The new int32_t value to be set
+ * @param[in] value        The new int32_t value to be set
  *
  * @return @c 0 on success, otherwise a negative error value
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
-int i18n_formattable_set_long(i18n_formattable_h formattable, int32_t l);
+int i18n_formattable_set_long(i18n_formattable_h formattable, int32_t value);
 
 /**
  * @brief Sets the string value of the given formattable object and changes

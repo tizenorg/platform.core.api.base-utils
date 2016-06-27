@@ -70,7 +70,7 @@ typedef enum {
 	I18N_ERROR_ILLEGAL_CHAR_FOUND			= TIZEN_ERROR_UTILITY_ICU | 0x10,	  /**< Character conversion: Illegal input sequence/combination of input units. @if MOBILE (Since 2.3.1) @endif*/
 	I18N_ERROR_INVALID_TABLE_FORMAT			= TIZEN_ERROR_UTILITY_ICU | 0x11,	  /**< Conversion table file found, but corrupted. @if MOBILE (Since 2.3.1) @endif*/
 	I18N_ERROR_INVALID_TABLE_FILE			= TIZEN_ERROR_UTILITY_ICU | 0x12,	  /**< Conversion table file not found. @if MOBILE (Since 2.3.1) @endif*/
-	I18N_ERROR_ILLECAL_ESCAPE_SEQUENCE		= TIZEN_ERROR_UTILITY_ICU | 0x13,	  /**< ISO-2022 illlegal escape sequence. @if MOBILE (Since 2.3.1) @endif*/
+	I18N_ERROR_ILLECAL_ESCAPE_SEQUENCE		= TIZEN_ERROR_UTILITY_ICU | 0x13,	  /**< ISO-2022 illegal escape sequence. @if MOBILE (Since 2.3.1) @endif*/
 	I18N_ERROR_UNSUPPORTED_ESCAPE_SEQUENCE	= TIZEN_ERROR_UTILITY_ICU | 0x14,	  /**< ISO-2022 unsupported escape sequence. @if MOBILE (Since 2.3.1) @endif*/
 	I18N_ERROR_NO_SPACE_AVAILABLE			= TIZEN_ERROR_UTILITY_ICU | 0x15,	  /**< No space available for in-buffer expansion for Arabic shaping. @if MOBILE (Since 2.3.1) @endif*/
 	I18N_ERROR_CE_NOT_FOUND					= TIZEN_ERROR_UTILITY_ICU | 0x16,	  /**< Currently used only while setting variable top, but can be used generally. @if MOBILE (Since 2.3.1) @endif*/
@@ -2858,20 +2858,18 @@ typedef void *i18n_formattable_h;
  * @since_tizen 3.0
  */
 typedef enum {
-    I18N_FORMATTABLE_K_DATE = 0,    /**< Selector indicating an #i18n_udate value */
-    I18N_FORMATTABLE_K_DOUBLE = 1,  /**< Selector indicating a double value */
-    I18N_FORMATTABLE_K_LONG = 2,    /**< Selector indicating a 32-bit integer value */
-    I18N_FORMATTABLE_K_STRING = 3,  /**< Selector indicating a UnicodeString value */
-    I18N_FORMATTABLE_K_ARRAY = 4,   /**< Selector indicating an array of #i18n_formattable_h */
-    I18N_FORMATTABLE_K_INT64 = 5,   /**< Selector indicating a 64-bit integer value */
-    I18N_FORMATTABLE_K_OBJECT = 6,  /**< Selector indicating a UObject value */
+    I18N_FORMATTABLE_TYPE_DATE = 0,    /**< Selector indicating an #i18n_udate value */
+    I18N_FORMATTABLE_TYPE_DOUBLE = 1,  /**< Selector indicating a double value */
+    I18N_FORMATTABLE_TYPE_LONG = 2,    /**< Selector indicating a 32-bit integer value */
+    I18N_FORMATTABLE_TYPE_STRING = 3,  /**< Selector indicating a string */
+    I18N_FORMATTABLE_TYPE_ARRAY = 4,   /**< Selector indicating an array of #i18n_formattable_h */
+    I18N_FORMATTABLE_TYPE_INT64 = 5,   /**< Selector indicating a 64-bit integer value */
+    I18N_FORMATTABLE_TYPE_OBJECT = 6,  /**< Selector indicating a generic object value.
+                                            In the current version of the API, such objects
+                                            are not supported and cannot be used. This value
+                                            was added for completeness and possible future extensions. */
 } i18n_formattable_type_e;
 
-/**
- * @brief Handle to the object of class used by the #i18n_format_h and its subclasses to identify fields in a formatted output.
- * @since_tizen 3.0
- */
-typedef void *i18n_field_position_h;
 
 /**
  * @brief Handle to the object that represents an amount of a specified unit.
@@ -2954,7 +2952,7 @@ typedef enum {
 } i18_alpha_idx_label_type_e;
 
 /**
- * @brief Handle to the object used by the Format and its subtypes to identify fields in a formatted output.
+ * @brief A simple type used by Format module and its submodules to identify fields in formatted output.
  * @since_tizen 3.0
  */
 typedef void *i18n_field_position_h;
@@ -2968,7 +2966,7 @@ typedef enum {
 } i18n_field_position_dont_care_e;
 
 /**
- * @brief Handle to the object used by the Format and its subtypes to keep track of the current position during parsing.
+ * @brief A simple type used by Format module and its submodules to identify fields in formatted output.
  * @since_tizen 3.0
  */
 typedef void *i18n_parse_position_h;

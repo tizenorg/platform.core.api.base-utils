@@ -34,7 +34,7 @@ extern "C" {
  * @defgroup CAPI_BASE_UTILS_I18N_MEASURE_MODULE MeasureUnit
  * @brief Measure object contains an amount of a specified unit, consisting of a number and an unit.
  * @section CAPI_BASE_UTILS_I18N_MEASURE_MODULE_HEADER Required Header
- *»       \#include <utils_i18n.h>
+ *       \#include <utils_i18n.h>
  *
  * @section CAPI_BASE_UTILS_I18N_MEASURE_MODULE_OVERVIEW Overview
  * @details
@@ -81,7 +81,7 @@ int i18n_measure_create(const i18n_formattable_h formattable, i18n_measure_unit_
 int i18n_measure_clone(i18n_measure_h measure, i18n_measure_h *clone);
 
 /**
- * @brief Destroys the measure object
+ * @brief Destroys the measure object.
  * @since_tizen 3.0
  *
  * @param[in] measure  The measure object to destroy

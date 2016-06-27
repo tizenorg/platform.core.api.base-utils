@@ -115,7 +115,7 @@ int i18n_measure_unit_array_destroy(i18n_measure_unit_h *array, int32_t array_si
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  * @retval #I18N_ERROR_OUT_OF_MEMORY Out of memory
  */
-int i18n_measure_unit_get_type(i18n_measure_unit_h measure_unit, const char **type);
+int i18n_measure_unit_get_type(i18n_measure_unit_h measure_unit, char **type);
 
 /**
  * @brief Gets the measure unit object sub type.
@@ -131,7 +131,7 @@ int i18n_measure_unit_get_type(i18n_measure_unit_h measure_unit, const char **ty
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  * @retval #I18N_ERROR_OUT_OF_MEMORY Out of memory
  */
-int i18n_measure_unit_get_subtype(i18n_measure_unit_h measure_unit, const char **subtype);
+int i18n_measure_unit_get_subtype(i18n_measure_unit_h measure_unit, char **subtype);
 
 /**
  * @brief Gets all of the available units.

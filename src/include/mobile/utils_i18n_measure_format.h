@@ -34,7 +34,7 @@ extern "C" {
  * @defgroup CAPI_BASE_UTILS_I18N_MEASURE_FORMAT_MODULE MeasureFormat
  * @brief The MeasureFormat is a formatter for Measure objects.
  * @section CAPI_BASE_UTILS_I18N_MEASURE_FORMAT_MODULE_HEADER Required Header
- *»       \#include <utils_i18n.h>
+ *       \#include <utils_i18n.h>
  *
  * @section CAPI_BASE_UTILS_I18N_MEASURE_FORMAT_MODULE_OVERVIEW Overview
  * @details

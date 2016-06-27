@@ -38,7 +38,7 @@ extern "C" {
  *        \#include <utils_i18n.h>
  *
  * @section CAPI_BASE_UTILS_I18N_PARSE_POSITION_MODULE_OVERVIEW Overview
- * @details The i18n_format_parse_object() method in the Format types requires
+ * @details The i18n_format_parse_object() function in the Format types requires
  * a Parse Position object as an argument.
  * By design, as you parse through a string with different formats, you can use
  * the same Parse Position, since the index parameter records the current position.
@@ -51,9 +51,10 @@ extern "C" {
 
 /**
  * @brief Creates a parse position object.
+ * @details The index is set to position 0.
+ * @since_tizen 3.0
  * @remarks The created object should be released by the caller with the
  *          i18n_parse_position_destroy() function.
- * @since_tizen 3.0
  *
  * @param[out] parse_position  The created parse position object
  *
@@ -70,8 +71,8 @@ int i18n_parse_position_create(i18n_parse_position_h *parse_position);
  *          i18n_parse_position_destroy() function.
  * @since_tizen 3.0
  *
- * @param[out] parse_position  The parse position object
  * @param[in]  new_index       The new text offset
+ * @param[out] parse_position  The parse position object
  *
  * @return @c 0 on success, otherwise a negative error value
  * @retval #I18N_ERROR_NONE Successful
@@ -93,7 +94,7 @@ int i18n_parse_position_create_with_index(int32_t new_index, i18n_parse_position
 int i18n_parse_position_destroy(i18n_parse_position_h parse_position);
 
 /**
- * @brief Creates a polymorphic clone of the given @a parse_position object.
+ * @brief Creates a clone of the given @a parse_position object.
  * @remarks The @a clone object should be released by the caller with the
  *          i18n_parse_position_destroy() function.
  * @since_tizen 3.0
@@ -110,7 +111,7 @@ int i18n_parse_position_clone(i18n_parse_position_h parse_position, i18n_parse_p
 
 /**
  * @brief Retrieves the current parse position.
- * @details On input to a parse method, this is the index of the character
+ * @details On input to a parse function, this is the index of the character
  *          at which parsing will begin; on output, it is the index of the character
  *          following the last character parsed.
  * @since_tizen 3.0
@@ -140,7 +141,7 @@ int i18n_parse_position_set_index(i18n_parse_position_h parse_position, int32_t 
 /**
  * @brief Sets the index at which a parse error occurred.
  * @details Formatters should set this before returning an error code
- *          from their parse_object() method. The default value is -1
+ *          from their parse_object() function. The default value is -1
  *          if this is not set.
  * @since_tizen 3.0
  *
