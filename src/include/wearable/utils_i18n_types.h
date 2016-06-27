@@ -2886,7 +2886,7 @@ typedef void *i18n_measure_h;
 typedef void *i18n_measure_unit_h;
 
 /**
- * @brief Callback function for the #i18n_measure_unit_get_available_types()
+ * @brief Callback function for the i18n_measure_unit_get_available_types()
  *        that returns an enumeration over all recognized types.
  * @since_tizen 3.0
  *
@@ -2966,6 +2966,12 @@ typedef void *i18n_field_position_h;
 typedef enum {
     I18N_FIELD_POSITION_DONT_CARE = -1,
 } i18n_field_position_dont_care_e;
+
+/**
+ * @brief Handle to the object used by the Format and its subtypes to keep track of the current position during parsing.
+ * @since_tizen 3.0
+ */
+typedef void *i18n_parse_position_h;
 
 #ifdef __cplusplus
 }

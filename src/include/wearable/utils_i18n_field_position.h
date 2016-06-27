@@ -193,6 +193,10 @@ int i18n_field_position_set_begin_index(i18n_field_position_h field_position, in
  */
 int i18n_field_position_set_end_index(i18n_field_position_h field_position, int32_t end_index);
 
+/**
+ * @}
+ */
+
 #ifdef __cplusplus
 }
 #endif

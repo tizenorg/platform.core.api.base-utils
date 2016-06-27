@@ -39,6 +39,7 @@
 #include <utils_i18n_format.h>
 #include <utils_i18n_measure_format.h>
 #include <utils_i18n_field_position.h>
+#include <utils_i18n_parse_position.h>
 
 /**
  * @file utils_i18n.h
@@ -53,7 +54,7 @@ extern "C" {
 /**
  * @ingroup CAPI_BASE_UTILS_MODULE
  * @defgroup CAPI_BASE_UTILS_I18N_MODULE i18n
- * @brief The i18n module contains uchar, ucollator, unormalization, usearch, ustring, ucalendar, udate, udatepg, ulocale, unumber, alpha_idx, formattable, measure, format, measure format and field position.
+ * @brief The i18n module contains uchar, ucollator, unormalization, usearch, ustring, ucalendar, udate, udatepg, ulocale, unumber, alpha_idx, formattable, measure, format, measure format, field position and parse position.
  *	   This module provides flexible generation of number or date format patterns and helps you format and parse dates/number for any locale.
  * The i18n module provides various features based on data from ICU. The following table shows the version of ICU used in each Tizen platform.
  * <table>
@@ -156,6 +157,10 @@ extern "C" {
  * <tr>
  *	  <td>@ref CAPI_BASE_UTILS_I18N_FIELD_POSITION</td>
  *	  <td>The Field Position module is used to identify fields in a formatted output.</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_PARSE_POSITION</td>
+ *	  <td>The Parse Position module used by Format and its subclasses to keep track of the current position during parsing.</td>
  * </tr>
  * </table>
  *
@@ -2907,6 +2912,46 @@ extern "C" {
  *	  <td>@ref CAPI_BASE_UTILS_I18N_FIELD_POSITION_MODULE</td>
  *	  <td>#i18n_field_position_set_end_index</td>
  *	  <td>setEndIndex</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_PARSE_POSITION_MODULE</td>
+ *	  <td>#i18n_parse_position_create</td>
+ *	  <td>ParsePosition</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_PARSE_POSITION_MODULE</td>
+ *	  <td>#i18n_parse_position_create_with_index</td>
+ *	  <td>ParsePosition</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_PARSE_POSITION_MODULE</td>
+ *	  <td>#i18n_parse_position_destroy</td>
+ *	  <td>~ParsePosition</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_PARSE_POSITION_MODULE</td>
+ *	  <td>#i18n_parse_position_clone</td>
+ *	  <td>clone</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_PARSE_POSITION_MODULE</td>
+ *	  <td>#i18n_parse_position_get_index</td>
+ *	  <td>getIndex</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_PARSE_POSITION_MODULE</td>
+ *	  <td>#i18n_parse_position_set_index</td>
+ *	  <td>setIndex</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_PARSE_POSITION_MODULE</td>
+ *	  <td>#i18n_parse_position_set_error_index</td>
+ *	  <td>setErrorIndex</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_PARSE_POSITION_MODULE</td>
+ *	  <td>#i18n_parse_position_get_error_index</td>
+ *	  <td>getErrorIndex</td>
  * </tr>
  * </table>
  */
