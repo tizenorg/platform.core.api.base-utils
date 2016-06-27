@@ -53,6 +53,7 @@ extern "C" {
  * @brief Creates a parse position object.
  * @remarks The created object should be released by the caller with the
  *          i18n_parse_position_destroy() function.
+ * @details The index is set to position 0.
  * @since_tizen 3.0
  *
  * @param[out] parse_position  The created parse position object
@@ -93,7 +94,7 @@ int i18n_parse_position_create_with_index(int32_t new_index, i18n_parse_position
 int i18n_parse_position_destroy(i18n_parse_position_h parse_position);
 
 /**
- * @brief Creates a polymorphic clone of the given @a parse_position object.
+ * @brief Creates a clone of the given @a parse_position object.
  * @remarks The @a clone object should be released by the caller with the
  *          i18n_parse_position_destroy() function.
  * @since_tizen 3.0
