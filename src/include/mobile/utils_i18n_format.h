@@ -32,7 +32,7 @@ extern "C" {
 /**
  * @ingroup CAPI_BASE_UTILS_I18N_MODULE
  * @defgroup CAPI_BASE_UTILS_I18N_FORMAT_MODULE Format
- * @brief The Format module represents the base class for all formats.
+ * @brief The Format module represents the base module for all formats.
  * @section CAPI_BASE_UTILS_I18N_FORMAT_MODULE_HEADER Required Header
  *	\#include <utils_i18n.h>
  *
@@ -151,7 +151,7 @@ int i18n_format_parse_object(i18n_format_h format, const char *source, i18n_form
  * @param[out] result             The formattable object to be set to the parse result.
  *                                If parse fails, return contents are undefined.
  *
- * @return Error code. Error codes not listed below are described in the #i18n_error_code_e
+ * @return @c 0 on success, otherwise a negative error value
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  */
