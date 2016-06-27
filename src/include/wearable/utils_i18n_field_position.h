@@ -39,13 +39,12 @@ extern "C" {
  *
  * @section CAPI_BASE_UTILS_I18N_FIELD_POSITION_MODULE_OVERVIEW Overview
  * @details Fields are identified by constants, whose names typically end with _FIELD,
- * defined in the various subclasses of Format. Field position keeps track of the position
+ * defined in the various submodules of Format. Field position keeps track of the position
  * of the field within the formatted output with two indices: the index of the first
  * character of the field and the index of the last character of the field. One version
- * of the format method in the various Format classes requires a Field Position object
- * as an argument. You use this format method to perform partial formatting or to get
+ * of the format function in the various Format modules requires a Field Position object
+ * as an argument. You use this format function to perform partial formatting or to get
  * information about the formatted output (such as the position of a field).
- * The FieldPosition class is not suitable for subclassing.
  */
 
 /**
@@ -87,6 +86,22 @@ int i18n_field_position_create(i18n_field_position_h *field_position);
 int i18n_field_position_create_for_field(int32_t field, i18n_field_position_h *field_position);
 
 /**
+ * @brief Creates a field position object from the other field position object.
+ * @deatils Fields are identified by constants, whose names typically end with _FIELD,
+ *          in the various subclasses of Format.
+ * @deatils Function invokes the copy constructor.
+ * @since_tizen 3.0
+ *
+ * @param[out] field position  The created field position object
+ * @param[in]  other           The field position object from which the new object is created
+ *
+ * @retval #I18N_ERROR_NONE Successful
+ * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
+ * @retval #I18N_ERROR_OUT_OF_MEMORY Out of memory
+ */
+int i18n_field_position_create_from_other(i18n_field_position_h *field_position, const i18n_field_position_h other);
+
+/**
  * @brief Destroys the field position object.
  * @since_tizen 3.0
  *
@@ -99,7 +114,7 @@ int i18n_field_position_create_for_field(int32_t field, i18n_field_position_h *f
 int i18n_field_position_destroy(i18n_field_position_h field_position);
 
 /**
- * @brief Creates a polymorphic clone of the given @a field_position object.
+ * @brief Creates a clone of the given @a field_position object.
  * @remarks The @a clone object should be released by the caller with the
  *          i18n_field_position_destroy() function.
  * @since_tizen 3.0

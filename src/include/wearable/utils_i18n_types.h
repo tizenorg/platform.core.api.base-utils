@@ -2858,20 +2858,22 @@ typedef void *i18n_formattable_h;
  * @since_tizen 3.0
  */
 typedef enum {
-    I18N_FORMATTABLE_K_DATE = 0,    /**< Selector indicating an #i18n_udate value */
-    I18N_FORMATTABLE_K_DOUBLE = 1,  /**< Selector indicating a double value */
-    I18N_FORMATTABLE_K_LONG = 2,    /**< Selector indicating a 32-bit integer value */
-    I18N_FORMATTABLE_K_STRING = 3,  /**< Selector indicating a UnicodeString value */
-    I18N_FORMATTABLE_K_ARRAY = 4,   /**< Selector indicating an array of #i18n_formattable_h */
-    I18N_FORMATTABLE_K_INT64 = 5,   /**< Selector indicating a 64-bit integer value */
-    I18N_FORMATTABLE_K_OBJECT = 6,  /**< Selector indicating a UObject value */
-} i18n_formattable_type_e;
+    I18N_FORMATTABLE_IS_DATE = 0
+} i18n_formattable_is_date_e;
 
 /**
- * @brief Handle to the object of class used by the #i18n_format_h and its subclasses to identify fields in a formatted output.
+ * @brief Selector for flavor of data type contained within a i18n_formattable_h object.
  * @since_tizen 3.0
  */
-typedef void *i18n_field_position_h;
+typedef enum {
+    I18N_FORMATTABLE_TYPE_DATE = 0,    /**< Selector indicating a UDate value */
+    I18N_FORMATTABLE_TYPE_DOUBLE = 1,  /**< Selector indicating a double value */
+    I18N_FORMATTABLE_TYPE_LONG = 2,    /**< Selector indicating a 32-bit integer value */
+    I18N_FORMATTABLE_TYPE_STRING = 3,  /**< Selector indicating a UnicodeString value */
+    I18N_FORMATTABLE_TYPE_ARRAY = 4,   /**< Selector indicating an array of i18n_formattable_h */
+    I18N_FORMATTABLE_TYPE_INT64 = 5,   /**< Selector indicating a 64-bit integer value */
+    I18N_FORMATTABLE_TYPE_UNINITIALIZED = 6,  /**< Selector indicating a uninitialized type */
+} i18n_formattable_type_e;
 
 /**
  * @brief Handle to the object that represents an amount of a specified unit.
@@ -2954,7 +2956,7 @@ typedef enum {
 } i18_alpha_idx_label_type_e;
 
 /**
- * @brief Handle to the object used by the Format and its subtypes to identify fields in a formatted output
+ * @brief A simple class used by Format and its subclasses to identify fields in formatted output
  * @since_tizen 3.0
  */
 typedef void *i18n_field_position_h;
@@ -2968,7 +2970,7 @@ typedef enum {
 } i18n_field_position_dont_care_e;
 
 /**
- * @brief Handle to the object used by the Format and its subtypes to keep track of the current position during parsing.
+ * @brief A simple class used by Format and its subclasses to identify fields in formatted output.
  * @since_tizen 3.0
  */
 typedef void *i18n_parse_position_h;
