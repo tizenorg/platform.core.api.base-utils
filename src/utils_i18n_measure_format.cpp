@@ -24,6 +24,8 @@
 int i18n_measure_format_create(const char *language, const char *country, i18n_umeasure_format_width_e width, i18n_measure_format_h *measure_format)
 {
     retv_if(measure_format == NULL, I18N_ERROR_INVALID_PARAMETER);
+    retv_if(width < I18N_UMEASFMT_WIDTH_WIDE, I18N_ERROR_INVALID_PARAMETER);
+    retv_if(width > I18N_UMEASFMT_WIDTH_COUNT, I18N_ERROR_INVALID_PARAMETER);
     UErrorCode status = U_ZERO_ERROR;
     Locale locale(language, country, 0, 0);
     UMeasureFormatWidth icu_width = (UMeasureFormatWidth) width;
