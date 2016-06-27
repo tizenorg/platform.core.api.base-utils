@@ -37,6 +37,7 @@
 #include <utils_i18n_measure_unit.h>
 #include <utils_i18n_measure.h>
 #include <utils_i18n_format.h>
+#include <utils_i18n_measure_format.h>
 
 /**
  * @file utils_i18n.h
@@ -51,7 +52,7 @@ extern "C" {
 /**
  * @ingroup CAPI_BASE_UTILS_MODULE
  * @defgroup CAPI_BASE_UTILS_I18N_MODULE i18n
- * @brief The i18n module contains uchar, ucollator, unormalization, usearch, ustring, ucalendar, udate, udatepg, ulocale, unumber, alpha_idx, formattable, measure and format.
+ * @brief The i18n module contains uchar, ucollator, unormalization, usearch, ustring, ucalendar, udate, udatepg, ulocale, unumber, alpha_idx, formattable, measure, format and measure format.
  *	   This module provides flexible generation of number or date format patterns and helps you format and parse dates/number for any locale.
  * The i18n module provides various features based on data from ICU. The following table shows the version of ICU used in each Tizen platform.
  * <table>
@@ -146,6 +147,10 @@ extern "C" {
  * <tr>
  *	  <td>@ref CAPI_BASE_UTILS_I18N_FORMAT_MODULE</td>
  *	  <td>The Format module represents the basic format object.</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_FORMAT_MODULE</td>
+ *	  <td>The Measure Format module represents a formatter for measure objects.</td>
  * </tr>
  * </table>
  *
@@ -2822,6 +2827,31 @@ extern "C" {
  *	  <td>@ref CAPI_BASE_UTILS_I18N_FORMAT_MODULE</td>
  *	  <td>#i18n_format_get_locale</td>
  *	  <td>getLocale</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_FORMAT_MODULE</td>
+ *	  <td>#i18n_measure_format_create</td>
+ *	  <td>MeasureFormat</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_FORMAT_MODULE</td>
+ *	  <td>#i18n_measure_format_destroy</td>
+ *	  <td>~MeasureFormat</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_FORMAT_MODULE</td>
+ *	  <td>#i18n_measure_format_clone</td>
+ *	  <td>clone</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_FORMAT_MODULE</td>
+ *	  <td>#i18n_measure_format_create_currency_format_from_locale</td>
+ *	  <td>createCurrencyFormat</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_FORMAT_MODULE</td>
+ *	  <td>#i18n_measure_format_create_currency_format</td>
+ *	  <td>createCurrencyFormat</td>
  * </tr>
  * </table>
  */
