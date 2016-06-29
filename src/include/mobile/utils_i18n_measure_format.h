@@ -93,6 +93,120 @@ int i18n_measure_format_destroy(i18n_measure_format_h measure_format);
 int i18n_measure_format_clone(i18n_measure_format_h measure_format, i18n_format_h *clone);
 
 /**
+ * @brief Formats an object to produce a string.
+ * @remarks The obtained @a append_to string is actually a concatenation of the given input string and
+ *          the result of the function (appended to the string). Actually, the @a append_to
+ *          buffer is being reallocated inside the function which means that the buffer is not
+ *          at the same place in memory as it was on the input. Please note that the @a append_to
+ *          buffer should be released by the caller with the free() function.
+ * @since_tizen 3.0
+ *
+ * @param[in]  measure_format  The format object
+ * @param[in]  formattable     The object to format
+ * @param[in/out] append_to    Output parameter to receive the result.
+ *                             The result is appended to the existing contents.
+ * @param[in/out]  field_position  On input: an alignment field, if desired.
+ *                                 On output: the offsets of the alignment field.
+ *
+ * @return @c 0 on success, otherwise a negative error value
+ * @retval #I18N_ERROR_NONE Successful
+ * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
+ * @retval #I18N_ERROR_OUT_OF_MEMORY Out of memory
+ */
+int i18n_measure_format_format(i18n_measure_format_h measure_format, i18n_formattable_h formattable,
+                               char **append_to, i18n_field_position_h field_position);
+
+/**
+ * @brief Parses a string to produce an object.
+ * @remarks The obtained @a result object should be released by the caller
+ *          with the i18n_formattable_destroy() function.
+ * @since_tizen 3.0
+ *
+ * @param[in]  measure_format      The format object
+ * @param[in]  source              The string to be parsed into an object
+ * @param[in/out]  parse_position  The position to start parsing at. Upon return
+ *                                 this parameter is set to the position after the
+ *                                 last character successfully parsed. If the
+ *                                 source is not parsed successfully, this parameter
+ *                                 will remain unchanged.
+ * @param[out] result              The formattable object to be set to the parse result.
+ *                                 If parse fails, return contents are undefined.
+ *
+ * @return @c 0 on success, otherwise a negative error value
+ * @retval #I18N_ERROR_NONE Successful
+ * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
+ * @retval #I18N_ERROR_OUT_OF_MEMORY Out of memory
+ */
+int i18n_measure_format_parse_object(i18n_measure_format_h measure_format, const char *source, i18n_parse_position_h parse_position, i18n_formattable_h *result);
+
+/**
+ * @brief Formats measure objects from the given array to produce a string.
+ * @details An example of such a formatted string is 3 meters, 3.5 centimeters.
+ *
+ *          If the type of the given measures is not CurrencyAmount neither TimeUnitAmount,
+ *          the #I18N_ERROR_RESOURCE_TYPE_MISMATCH error code is returned by the function,
+ *          as those are the only two measure object types supported for now.
+ *
+ *          Measure objects appear in the formatted string in the same order they appear
+ *          in the @a measures array.
+ * @remarks The obtained @a append_to string is actually a concatenation of the given input string and
+ *          the result of the function (appended to the string). Actually, the @a append_to
+ *          buffer is being reallocated inside the function which means that the buffer is not
+ *          at the same place in memory as it was on the input. Please note that the @a append_to
+ *          buffer should be released by the caller with the free() function.
+ * @since_tizen 3.0
+ *
+ * @param[in]  measure_format  The format object
+ * @param[in]  measures        The array of measure objects
+ * @param[in]  measure_count   The number of measure objects
+ * @param[out] append_to       Output parameter to receive the result.
+ *                             The result is appended to the existing contents.
+ * @param[in]  field_position  The field position
+ *
+ * @return @c 0 on success, otherwise a negative error value
+ * @retval #I18N_ERROR_NONE Successful
+ * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
+ * @retval #I18N_ERROR_OUT_OF_MEMORY Out of memory
+ * @retval #I18N_ERROR_RESOURCE_TYPE_MISMATCH Wrong type of the given measures
+ */
+int i18n_measure_format_format_measures(i18n_measure_format_h measure_format, i18n_measure_h measures, int32_t measure_count, char **append_to, i18n_field_position_h field_position);
+
+/**
+ * @brief Formats measure objects from the given array to produce a string.
+ * @details This function does pretty much the same as the i18n_measure_format_format_measures()
+ *          despite that it adds a "per unit" substring to the result.
+ *
+ *          An example of such a formatted string is 3 meters, 3.5 centimeters per second.
+ *
+ *          If the type of the given measures is not CurrencyAmount neither TimeUnitAmount,
+ *          the #I18N_ERROR_RESOURCE_TYPE_MISMATCH error code is returned by the function,
+ *          as those are the only two measure object types supported for now.
+ * @remarks The obtained @a append_to string is actually a concatenation of the given input string and
+ *          the result of the function (appended to the string). Actually, the @a append_to
+ *          buffer is being reallocated inside the function which means that the buffer is not
+ *          at the same place in memory as it was on the input. Please note that the @a append_to
+ *          buffer should be released by the caller with the free() function.
+ * @since_tizen 3.0
+ *
+ * @param[in]  measure_format  The format object
+ * @param[in]  measures        The array of measure objects
+ * @param[in]  measure_count   The number of measure objects
+ * @param[in]  per_unit        The per unit.
+ *                             In the example formatted string,
+ *                             it is i18n_measure_unit_create_second().
+ * @param[out] append_to       Output parameter to receive the result.
+ *                             The result is appended to the existing contents.
+ * @param[in]  field_position  The field position
+ *
+ * @return @c 0 on success, otherwise a negative error value
+ * @retval #I18N_ERROR_NONE Successful
+ * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
+ * @retval #I18N_ERROR_OUT_OF_MEMORY Out of memory
+ * @retval #I18N_ERROR_RESOURCE_TYPE_MISMATCH Wrong type of the given measures
+ */
+int i18n_measure_format_format_measures_per(i18n_measure_format_h measure_format, i18n_measure_h measures, int32_t measure_count, i18n_measure_unit_h per_unit, char **append_to, i18n_field_position_h field_position);
+
+/**
  * @brief Gets a formatter for currency amount objects in the given locale.
  * @remarks The created object should be released by the caller with the
  *          i18n_measure_format_destroy() function.
