@@ -52,11 +52,17 @@ extern "C" {
  * The i18n module provides various features based on data from ICU. The following table shows the version of ICU used in each Tizen platform.
  * <table>
  *	<tr>
- *	 <td>Tizen 2.3, 2.3.1, 2.4</td>
+ *	 <td>Tizen 2.3.1</td>
  *	 <td>ICU 51</td>
  *	 <td>CLDR 23</td>
  *	 <td>Unicode 6.2</td>
  *	</tr>
+ *	<tr>
+ *   <td>Tizen 3.0</td>
+ *   <td>ICU 54</td>
+ *   <td>CLDR 26</td>
+ *   <td>Unicode 7.0</td>
+ *  </tr>
  * </table>
  * @section CAPI_BASE_UTILS_I18N_MODULE_HEADER Required Header
  *	\#include <utils_i18n.h>
