@@ -2855,6 +2855,16 @@ extern "C" {
  * </tr>
  * <tr>
  *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_FORMAT_MODULE</td>
+ *	  <td>#i18n_measure_format_format</td>
+ *	  <td>format</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_FORMAT_MODULE</td>
+ *	  <td>#i18n_measure_format_parse_object</td>
+ *	  <td>parseObject</td>
+ * </tr>
+ * <tr>
+ *	  <td>@ref CAPI_BASE_UTILS_I18N_MEASURE_FORMAT_MODULE</td>
  *	  <td>#i18n_measure_format_create_currency_format_from_locale</td>
  *	  <td>createCurrencyFormat</td>
  * </tr>
