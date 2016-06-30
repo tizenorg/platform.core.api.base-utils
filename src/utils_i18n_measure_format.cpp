@@ -19,7 +19,7 @@
 
 #include <unicode/measfmt.h>
 
-int i18n_measure_format_create(i18n_measure_format_h *measure_format, const char *language, const char *country, i18n_umeasure_format_width_e width)
+int i18n_measure_format_create(const char *language, const char *country, i18n_umeasure_format_width_e width, i18n_measure_format_h *measure_format)
 {
     retv_if(measure_format == NULL, I18N_ERROR_INVALID_PARAMETER);
     UErrorCode status = U_ZERO_ERROR;
@@ -51,9 +51,9 @@ int i18n_measure_format_clone(i18n_measure_format_h measure_format, i18n_format_
     return I18N_ERROR_NONE;
 }
 
-int i18n_measure_format_create_currency_format_from_locale(i18n_measure_format_h *measure_format, const char *language, const char *country)
+int i18n_measure_format_create_currency_format_from_locale(const char *language, const char *country, i18n_measure_format_h *measure_format)
 {
-    retv_if(measure_format == NULL || language == NULL || country == NULL, I18N_ERROR_INVALID_PARAMETER);
+    retv_if(measure_format == NULL, I18N_ERROR_INVALID_PARAMETER);
     UErrorCode status = U_ZERO_ERROR;
     Locale locale(language, country, 0, 0);
 
