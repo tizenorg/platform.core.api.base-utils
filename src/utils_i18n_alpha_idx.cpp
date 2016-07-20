@@ -17,12 +17,13 @@
 #include <utils_i18n_alpha_idx.h>
 #include <utils_i18n_private.h>
 
+#include <malloc.h>
 #include <string.h>
 #include <unicode/locid.h>
 #include <unicode/alphaindex.h>
 
 int i18n_alpha_idx_create(const char *language, const char *country,
-                          i18_alpha_idx_h *index)
+                          i18n_alpha_idx_h *index)
 {
     retv_if(index == NULL, I18N_ERROR_INVALID_PARAMETER);
 
@@ -35,7 +36,7 @@ int i18n_alpha_idx_create(const char *language, const char *country,
     return _i18n_error_mapping(status);
 }
 
-int i18n_alpha_idx_destroy(i18_alpha_idx_h index)
+int i18n_alpha_idx_destroy(i18n_alpha_idx_h index)
 {
     retv_if(index == NULL, I18N_ERROR_INVALID_PARAMETER);
 
@@ -44,7 +45,7 @@ int i18n_alpha_idx_destroy(i18_alpha_idx_h index)
     return I18N_ERROR_NONE;
 }
 
-int i18n_alpha_idx_add_labels(i18_alpha_idx_h index,
+int i18n_alpha_idx_add_labels(i18n_alpha_idx_h index,
                               const char *language, const char *country)
 {
     retv_if(index == NULL, I18N_ERROR_INVALID_PARAMETER);
@@ -57,7 +58,7 @@ int i18n_alpha_idx_add_labels(i18_alpha_idx_h index,
     return _i18n_error_mapping(status);
 }
 
-int i18n_alpha_idx_add_record(i18_alpha_idx_h index, const char *name,
+int i18n_alpha_idx_add_record(i18n_alpha_idx_h index, const char *name,
                               const void *data)
 {
     retv_if(index == NULL, I18N_ERROR_INVALID_PARAMETER);
@@ -70,35 +71,35 @@ int i18n_alpha_idx_add_record(i18_alpha_idx_h index, const char *name,
     return _i18n_error_mapping(status);
 }
 
-int i18n_alpha_idx_get_next_bucket(i18_alpha_idx_h index, bool *success)
+int i18n_alpha_idx_get_next_bucket(i18n_alpha_idx_h index, bool *available)
 {
     retv_if(index == NULL, I18N_ERROR_INVALID_PARAMETER);
 
     UErrorCode status = U_ZERO_ERROR;
 
-    if(success != NULL)
-        *success = ((AlphabeticIndex *) index)->nextBucket(status);
+    if(available != NULL)
+        *available = ((AlphabeticIndex *) index)->nextBucket(status);
     else
         ((AlphabeticIndex *) index)->nextBucket(status);
 
     return _i18n_error_mapping(status);
 }
 
-int i18n_alpha_idx_get_next_record(i18_alpha_idx_h index, bool *success)
+int i18n_alpha_idx_get_next_record(i18n_alpha_idx_h index, bool *available)
 {
     retv_if(index == NULL, I18N_ERROR_INVALID_PARAMETER);
 
     UErrorCode status = U_ZERO_ERROR;
 
-    if(success != NULL)
-        *success = ((AlphabeticIndex *) index)->nextRecord(status);
+    if(available != NULL)
+        *available = ((AlphabeticIndex *) index)->nextRecord(status);
     else
         ((AlphabeticIndex *) index)->nextRecord(status);
 
     return _i18n_error_mapping(status);
 }
 
-int i18n_alpha_idx_get_bucket_record_count(i18_alpha_idx_h index,
+int i18n_alpha_idx_get_bucket_record_count(i18n_alpha_idx_h index,
                                            int32_t *records_count)
 {
     retv_if(index == NULL, I18N_ERROR_INVALID_PARAMETER);
@@ -109,7 +110,7 @@ int i18n_alpha_idx_get_bucket_record_count(i18_alpha_idx_h index,
     return I18N_ERROR_NONE;
 }
 
-int i18n_alpha_idx_get_bucket_label(i18_alpha_idx_h index,
+int i18n_alpha_idx_get_bucket_label(i18n_alpha_idx_h index,
                                     char **label)
 {
     retv_if(index == NULL, I18N_ERROR_INVALID_PARAMETER);
@@ -121,23 +122,22 @@ int i18n_alpha_idx_get_bucket_label(i18_alpha_idx_h index,
     _label.toUTF8String(_label_string);
 
     *label = strdup(_label_string.c_str());
+    retv_if(*label == NULL, I18N_ERROR_OUT_OF_MEMORY);
 
     return I18N_ERROR_NONE;
 }
 
-int i18n_alpha_idx_get_record_data(i18_alpha_idx_h index,
-                                   const void **data)
+const void *i18n_alpha_idx_get_record_data(i18n_alpha_idx_h index)
 {
-    retv_if(index == NULL, I18N_ERROR_INVALID_PARAMETER);
-    retv_if(data == NULL, I18N_ERROR_INVALID_PARAMETER);
+    if (index == NULL) {
+        set_last_result(I18N_ERROR_INVALID_PARAMETER);
+        return NULL;
+    }
 
-    *data = ((AlphabeticIndex *) index)->getRecordData();
-    retv_if(*data == NULL, I18N_ERROR_INDEX_OUTOFBOUNDS);
-
-    return I18N_ERROR_NONE;
+    return ((AlphabeticIndex *) index)->getRecordData();
 }
 
-int i18n_alpha_idx_get_inflow_label(i18_alpha_idx_h index,
+int i18n_alpha_idx_get_inflow_label(i18n_alpha_idx_h index,
                                     char **label)
 {
     retv_if(index == NULL, I18N_ERROR_INVALID_PARAMETER);
@@ -149,11 +149,12 @@ int i18n_alpha_idx_get_inflow_label(i18_alpha_idx_h index,
     _label.toUTF8String(_label_string);
 
     *label = strdup(_label_string.c_str());
+    retv_if(*label == NULL, I18N_ERROR_OUT_OF_MEMORY);
 
     return I18N_ERROR_NONE;
 }
 
-int i18n_alpha_idx_set_inflow_label(i18_alpha_idx_h index,
+int i18n_alpha_idx_set_inflow_label(i18n_alpha_idx_h index,
                                     const char *label)
 {
     retv_if(index == NULL, I18N_ERROR_INVALID_PARAMETER);
@@ -167,7 +168,7 @@ int i18n_alpha_idx_set_inflow_label(i18_alpha_idx_h index,
     return _i18n_error_mapping(status);
 }
 
-int i18n_alpha_idx_get_overflow_label(i18_alpha_idx_h index,
+int i18n_alpha_idx_get_overflow_label(i18n_alpha_idx_h index,
                                       char **label)
 {
     retv_if(index == NULL, I18N_ERROR_INVALID_PARAMETER);
@@ -179,11 +180,12 @@ int i18n_alpha_idx_get_overflow_label(i18_alpha_idx_h index,
     overflow_label.toUTF8String(_label_string);
 
     *label = strdup(_label_string.c_str());
+    retv_if(*label == NULL, I18N_ERROR_OUT_OF_MEMORY);
 
     return I18N_ERROR_NONE;
 }
 
-int i18n_alpha_idx_set_overflow_label(i18_alpha_idx_h index,
+int i18n_alpha_idx_set_overflow_label(i18n_alpha_idx_h index,
                                       const char *label)
 {
     retv_if(index == NULL, I18N_ERROR_INVALID_PARAMETER);
@@ -197,23 +199,24 @@ int i18n_alpha_idx_set_overflow_label(i18_alpha_idx_h index,
     return _i18n_error_mapping(status);
 }
 
-int i18n_alpha_idx_get_underflow_label(i18_alpha_idx_h index,
+int i18n_alpha_idx_get_underflow_label(i18n_alpha_idx_h index,
                                        char **label)
 {
     retv_if(index == NULL, I18N_ERROR_INVALID_PARAMETER);
     retv_if(label == NULL, I18N_ERROR_INVALID_PARAMETER);
 
-    const UnicodeString overflow_label = ((AlphabeticIndex *) index)->getOverflowLabel();
+    const UnicodeString overflow_label = ((AlphabeticIndex *) index)->getUnderflowLabel();
 
     std::string _label_string;
     overflow_label.toUTF8String(_label_string);
 
     *label = strdup(_label_string.c_str());
+    retv_if(*label == NULL, I18N_ERROR_OUT_OF_MEMORY);
 
     return I18N_ERROR_NONE;
 }
 
-int i18n_alpha_idx_set_underflow_label(i18_alpha_idx_h index,
+int i18n_alpha_idx_set_underflow_label(i18n_alpha_idx_h index,
                                        const char *label)
 {
     retv_if(index == NULL, I18N_ERROR_INVALID_PARAMETER);
@@ -222,12 +225,12 @@ int i18n_alpha_idx_set_underflow_label(i18_alpha_idx_h index,
     const UnicodeString underflow_label(label);
     UErrorCode status = U_ZERO_ERROR;
 
-    ((AlphabeticIndex *) index)->setOverflowLabel(underflow_label, status);
+    ((AlphabeticIndex *) index)->setUnderflowLabel(underflow_label, status);
 
     return _i18n_error_mapping(status);
 }
 
-int i18n_alpha_idx_get_max_label_count(i18_alpha_idx_h index,
+int i18n_alpha_idx_get_max_label_count(i18n_alpha_idx_h index,
                                        int32_t *max_label_count)
 {
     retv_if(index == NULL, I18N_ERROR_INVALID_PARAMETER);
@@ -238,7 +241,7 @@ int i18n_alpha_idx_get_max_label_count(i18_alpha_idx_h index,
     return I18N_ERROR_NONE;
 }
 
-int i18n_alpha_idx_set_max_label_count(i18_alpha_idx_h index,
+int i18n_alpha_idx_set_max_label_count(i18n_alpha_idx_h index,
                                        int32_t max_label_count)
 {
     retv_if(index == NULL, I18N_ERROR_INVALID_PARAMETER);
@@ -250,7 +253,7 @@ int i18n_alpha_idx_set_max_label_count(i18_alpha_idx_h index,
     return _i18n_error_mapping(status);
 }
 
-int i18n_alpha_idx_clear_records(i18_alpha_idx_h index)
+int i18n_alpha_idx_clear_records(i18n_alpha_idx_h index)
 {
     retv_if(index == NULL, I18N_ERROR_INVALID_PARAMETER);
 
@@ -261,7 +264,7 @@ int i18n_alpha_idx_clear_records(i18_alpha_idx_h index)
     return _i18n_error_mapping(status);
 }
 
-int i18n_alpha_idx_get_bucket_count(i18_alpha_idx_h index,
+int i18n_alpha_idx_get_bucket_count(i18n_alpha_idx_h index,
                                     int32_t *bucket_count)
 {
     retv_if(index == NULL, I18N_ERROR_INVALID_PARAMETER);
@@ -274,7 +277,7 @@ int i18n_alpha_idx_get_bucket_count(i18_alpha_idx_h index,
     return _i18n_error_mapping(status);
 }
 
-int i18n_alpha_idx_get_record_count(i18_alpha_idx_h index,
+int i18n_alpha_idx_get_record_count(i18n_alpha_idx_h index,
                                     int32_t *record_count)
 {
     retv_if(index == NULL, I18N_ERROR_INVALID_PARAMETER);
@@ -287,7 +290,7 @@ int i18n_alpha_idx_get_record_count(i18_alpha_idx_h index,
     return _i18n_error_mapping(status);
 }
 
-int i18n_alpha_idx_get_bucket_index(i18_alpha_idx_h index,
+int i18n_alpha_idx_get_bucket_index(i18n_alpha_idx_h index,
                                     const char *item_name,
                                     int32_t *bucket_index)
 {
@@ -303,7 +306,7 @@ int i18n_alpha_idx_get_bucket_index(i18_alpha_idx_h index,
     return _i18n_error_mapping(status);
 }
 
-int i18n_alpha_idx_get_current_bucket_index(i18_alpha_idx_h index,
+int i18n_alpha_idx_get_current_bucket_index(i18n_alpha_idx_h index,
                                             int32_t *bucket_index)
 {
     retv_if(index == NULL, I18N_ERROR_INVALID_PARAMETER);
@@ -314,18 +317,18 @@ int i18n_alpha_idx_get_current_bucket_index(i18_alpha_idx_h index,
     return I18N_ERROR_NONE;
 }
 
-int i18n_alpha_idx_get_bucket_label_type(i18_alpha_idx_h index,
-                                         i18_alpha_idx_label_type_e *type)
+int i18n_alpha_idx_get_bucket_label_type(i18n_alpha_idx_h index,
+                                         i18n_alpha_idx_label_type_e *type)
 {
     retv_if(index == NULL, I18N_ERROR_INVALID_PARAMETER);
     retv_if(type == NULL, I18N_ERROR_INVALID_PARAMETER);
 
-    *type = (i18_alpha_idx_label_type_e) ((AlphabeticIndex *) index)->getBucketLabelType();
+    *type = (i18n_alpha_idx_label_type_e) ((AlphabeticIndex *) index)->getBucketLabelType();
 
     return I18N_ERROR_NONE;
 }
 
-int i18n_alpha_idx_get_record_name(i18_alpha_idx_h index,
+int i18n_alpha_idx_get_record_name(i18n_alpha_idx_h index,
                                    char **record_name)
 {
     retv_if(index == NULL, I18N_ERROR_INVALID_PARAMETER);
@@ -337,15 +340,18 @@ int i18n_alpha_idx_get_record_name(i18_alpha_idx_h index,
     _record_name.toUTF8String(_record_name_string);
 
     *record_name = strdup(_record_name_string.c_str());
+    retv_if(*record_name == NULL, I18N_ERROR_OUT_OF_MEMORY);
 
     if(_record_name.isEmpty()) {
+        free(*record_name);
+        *record_name = NULL;
         return I18N_ERROR_INDEX_OUTOFBOUNDS;
     }
 
     return I18N_ERROR_NONE;
 }
 
-int i18n_alpha_idx_reset_bucket_iter(i18_alpha_idx_h index)
+int i18n_alpha_idx_reset_bucket_iter(i18n_alpha_idx_h index)
 {
     retv_if(index == NULL, I18N_ERROR_INVALID_PARAMETER);
 
@@ -356,7 +362,7 @@ int i18n_alpha_idx_reset_bucket_iter(i18_alpha_idx_h index)
     return _i18n_error_mapping(status);
 }
 
-int i18n_alpha_idx_reset_record_iter(i18_alpha_idx_h index)
+int i18n_alpha_idx_reset_record_iter(i18n_alpha_idx_h index)
 {
     retv_if(index == NULL, I18N_ERROR_INVALID_PARAMETER);
 
