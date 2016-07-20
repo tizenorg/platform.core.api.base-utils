@@ -38,14 +38,12 @@ extern "C" {
  *        \#include <utils_i18n.h>
  *
  * @section CAPI_BASE_UTILS_I18N_FIELD_POSITION_MODULE_OVERVIEW Overview
- * @details Fields are identified by constants, whose names typically end with _FIELD,
- * defined in the various subclasses of Format. Field position keeps track of the position
- * of the field within the formatted output with two indices: the index of the first
- * character of the field and the index of the last character of the field. One version
- * of the format method in the various Format classes requires a Field Position object
- * as an argument. You use this format method to perform partial formatting or to get
- * information about the formatted output (such as the position of a field).
- * The FieldPosition class is not suitable for subclassing.
+ * @details Field position keeps track of the position of the field within the formatted
+ * output with two indices: the index of the first character of the field and the index
+ * of the last character of the field. One version of the format function in the various
+ * Format modules requires a Field Position object as an argument. You use this format
+ * function to perform partial formatting or to get information about the formatted output
+ * (such as the position of a field).
  */
 
 /**
@@ -55,9 +53,9 @@ extern "C" {
 
 /**
  * @brief Creates a field position object with a non-specified field.
+ * @since_tizen 2.3.2
  * @remarks The created object should be released by the caller with the
  *          i18n_field_position_destroy() function.
- * @since_tizen 3.0
  *
  * @param[out] field_position  The created field position object
  *
@@ -72,9 +70,9 @@ int i18n_field_position_create(i18n_field_position_h *field_position);
  * @brief Creates a field position object for the given field.
  * @details Fields are identified by constants, whose names typically end with _FIELD,
  *          in the various subtypes of Format.
+ * @since_tizen 2.3.2
  * @remarks The created object should be released by the caller with the
  *          i18n_field_position_destroy() function.
- * @since_tizen 3.0
  *
  * @param[in] field            The field value
  * @param[out] field_position  The created field position object
@@ -88,7 +86,7 @@ int i18n_field_position_create_for_field(int32_t field, i18n_field_position_h *f
 
 /**
  * @brief Destroys the field position object.
- * @since_tizen 3.0
+ * @since_tizen 2.3.2
  *
  * @param[in] field_position  The field position object to destroy
  *
@@ -99,10 +97,10 @@ int i18n_field_position_create_for_field(int32_t field, i18n_field_position_h *f
 int i18n_field_position_destroy(i18n_field_position_h field_position);
 
 /**
- * @brief Creates a polymorphic clone of the given @a field_position object.
+ * @brief Creates a clone of the given @a field_position object.
+ * @since_tizen 2.3.2
  * @remarks The @a clone object should be released by the caller with the
  *          i18n_field_position_destroy() function.
- * @since_tizen 3.0
  *
  * @param[in]  field_position  The field position object to be cloned
  * @param[out] clone           The created field position object
@@ -116,7 +114,7 @@ int i18n_field_position_clone(i18n_field_position_h field_position, i18n_field_p
 
 /**
  * @brief Retrieves the field identifier.
- * @since_tizen 3.0
+ * @since_tizen 2.3.2
  *
  * @param[in]  field_position  The field_position object
  * @param[out] field           The field identifier
@@ -129,7 +127,7 @@ int i18n_field_position_get_field(i18n_field_position_h field_position, int32_t 
 
 /**
  * @brief Retrieves the index of the first character in the requested field.
- * @since_tizen 3.0
+ * @since_tizen 2.3.2
  *
  * @param[in]  field_position  The field position object
  * @param[out] begin_index     The index of the first character in the requested field
@@ -142,7 +140,7 @@ int i18n_field_position_get_begin_index(i18n_field_position_h field_position, in
 
 /**
  * @brief Retrieves the index of the character following the last character in the requested field.
- * @since_tizen 3.0
+ * @since_tizen 2.3.2
  *
  * @param[in]  field_position  The field position object
  * @param[out] end_index       The index of the character following the last character
@@ -156,7 +154,7 @@ int i18n_field_position_get_end_index(i18n_field_position_h field_position, int3
 
 /**
  * @brief Sets the field.
- * @since_tizen 3.0
+ * @since_tizen 2.3.2
  *
  * @param[in] field_position  The field_position object
  * @param[in] field           The new value of the field
@@ -169,7 +167,7 @@ int i18n_field_position_set_field(i18n_field_position_h field_position, int32_t 
 
 /**
  * @brief Sets the begin index.
- * @since_tizen 3.0
+ * @since_tizen 2.3.2
  *
  * @param[in] field_position  The field_position object
  * @param[in] begin_index     The new value of the begin index
@@ -182,7 +180,7 @@ int i18n_field_position_set_begin_index(i18n_field_position_h field_position, in
 
 /**
  * @brief Sets the end index.
- * @since_tizen 3.0
+ * @since_tizen 2.3.2
  *
  * @param[in] field_position  The field_position object
  * @param[in] end_position    The new value of the end index

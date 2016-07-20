@@ -127,7 +127,7 @@ int i18n_format_parse_object_with_parse_position(i18n_format_h format, const cha
 }
 
 int i18n_format_get_locale(i18n_format_h format, i18n_uloc_data_locale_type_e type,
-        const char **language, const char **country)
+        char **language, char **country)
 {
     retv_if(format == NULL, I18N_ERROR_INVALID_PARAMETER);
     retv_if(type < I18N_ULOC_ACTUAL_LOCALE || type > I18N_ULOC_REQUESTED_LOCALE, I18N_ERROR_INVALID_PARAMETER);

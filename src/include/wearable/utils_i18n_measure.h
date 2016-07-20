@@ -34,7 +34,7 @@ extern "C" {
  * @defgroup CAPI_BASE_UTILS_I18N_MEASURE_MODULE MeasureUnit
  * @brief Measure object contains an amount of a specified unit, consisting of a number and an unit.
  * @section CAPI_BASE_UTILS_I18N_MEASURE_MODULE_HEADER Required Header
- *»       \#include <utils_i18n.h>
+ *       \#include <utils_i18n.h>
  *
  * @section CAPI_BASE_UTILS_I18N_MEASURE_MODULE_OVERVIEW Overview
  * @details
@@ -48,9 +48,9 @@ extern "C" {
 /**
  * @brief Creates an object with the given numeric amount and the given unit.
  * @details After this call, the caller must not delete the given measure unit object.
+ * @since_tizen 2.3.2
  * @remarks The created object should be released by the caller with the
  *          #i18n_measure_destroy() function.
- * @since_tizen 3.0
  *
  * @param[in] formattable   A numeric object; The #i18n_formattable_is_numeric()
  *                          function must return @c true for this object.
@@ -66,9 +66,9 @@ int i18n_measure_create(const i18n_formattable_h formattable, i18n_measure_unit_
 
 /**
  * @brief Creates a polymorphic clone of the given @a clone object.
+ * @since_tizen 2.3.2
  * @remarks The @c clone object should be released by the caller with the
  *          #i18n_measure_destroy() function.
- * @since_tizen 3.0
  *
  * @param[in]  measure  The measure object to be cloned
  * @param[out] clone    The created measure object
@@ -81,8 +81,8 @@ int i18n_measure_create(const i18n_formattable_h formattable, i18n_measure_unit_
 int i18n_measure_clone(i18n_measure_h measure, i18n_measure_h *clone);
 
 /**
- * @brief Destroys the measure object
- * @since_tizen 3.0
+ * @brief Destroys the measure object.
+ * @since_tizen 2.3.2
  *
  * @param[in] measure  The measure object to destroy
  *
@@ -94,9 +94,9 @@ int i18n_measure_destroy(i18n_measure_h measure);
 
 /**
  * @brief Gets a reference to the numeric value of the measure object.
+ * @since_tizen 2.3.2
  * @remarks The obtained formattable object should be released by the caller
  *          with the #i18n_formattable_destroy() function.
- * @since_tizen 3.0
  *
  * @param[in]  measure      The measure object
  * @param[out] formattable  The numeric value of the measure object
@@ -110,9 +110,9 @@ int i18n_measure_get_number(i18n_measure_h measure, i18n_formattable_h *formatta
 
 /**
  * @brief Gets a reference to the unit of the measure object.
+ * @since_tizen 2.3.2
  * @remarks The obtained measure unit object should be released by the caller
  *          with the #i18n_measure_unit_destroy() function.
- * @since_tizen 3.0
  *
  * @param[in]  measure       The measure object
  * @param[out] measure_unit  The unit of the measure object

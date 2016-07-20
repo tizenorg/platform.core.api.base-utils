@@ -34,7 +34,7 @@ extern "C" {
  * @defgroup CAPI_BASE_UTILS_I18N_MEASURE_FORMAT_MODULE MeasureFormat
  * @brief The MeasureFormat is a formatter for Measure objects.
  * @section CAPI_BASE_UTILS_I18N_MEASURE_FORMAT_MODULE_HEADER Required Header
- *»       \#include <utils_i18n.h>
+ *       \#include <utils_i18n.h>
  *
  * @section CAPI_BASE_UTILS_I18N_MEASURE_FORMAT_MODULE_OVERVIEW Overview
  * @details
@@ -47,9 +47,9 @@ extern "C" {
 
 /**
  * @brief Creates the measure format object using given locale.
+ * @since_tizen 3.0
  * @remarks The created object should be released by the caller with the
  *          i18n_measure_format_destroy() function.
- * @since_tizen 3.0
  *
  * @param[in] language         The language of the locale
  * @param[in] country          The country of the locale
@@ -78,9 +78,9 @@ int i18n_measure_format_destroy(i18n_measure_format_h measure_format);
 
 /**
  * @brief Creates a polymorphic clone of the given @a measure_format object.
+ * @since_tizen 3.0
  * @remarks The @a clone object should be released by the caller with the
  *          i18n_measure_format_destroy() function.
- * @since_tizen 3.0
  *
  * @param[in]  measure_format  The measure format object to be cloned
  * @param[out] clone           The created measure format object
@@ -94,12 +94,12 @@ int i18n_measure_format_clone(i18n_measure_format_h measure_format, i18n_format_
 
 /**
  * @brief Formats an object to produce a string.
+ * @since_tizen 3.0
  * @remarks The obtained @a append_to string is actually a concatenation of the given input string and
  *          the result of the function (appended to the string). Actually, the @a append_to
  *          buffer is being reallocated inside the function which means that the buffer is not
  *          at the same place in memory as it was on the input. Please note that the @a append_to
  *          buffer should be released by the caller with the free() function.
- * @since_tizen 3.0
  *
  * @param[in]  measure_format  The format object
  * @param[in]  formattable     The object to format
@@ -118,9 +118,9 @@ int i18n_measure_format_format(i18n_measure_format_h measure_format, i18n_format
 
 /**
  * @brief Parses a string to produce an object.
+ * @since_tizen 3.0
  * @remarks The obtained @a result object should be released by the caller
  *          with the i18n_formattable_destroy() function.
- * @since_tizen 3.0
  *
  * @param[in]  measure_format      The format object
  * @param[in]  source              The string to be parsed into an object
@@ -141,9 +141,9 @@ int i18n_measure_format_parse_object(i18n_measure_format_h measure_format, const
 
 /**
  * @brief Gets a formatter for currency amount objects in the given locale.
+ * @since_tizen 3.0
  * @remarks The created object should be released by the caller with the
  *          i18n_measure_format_destroy() function.
- * @since_tizen 3.0
  *
  * @param[in] language         The language of the locale
  * @param[in] country          The country of the locale
@@ -158,9 +158,9 @@ int i18n_measure_format_create_currency_format_from_locale(const char *language,
 
 /**
  * @brief Gets a formatter for currency amount objects in the default locale.
+ * @since_tizen 3.0
  * @remarks The created object should be released by the caller with the
  *          i18n_measure_format_destroy() function.
- * @since_tizen 3.0
  *
  * @param[out] measure_format  The measure format object
  *

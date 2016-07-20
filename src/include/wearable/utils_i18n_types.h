@@ -2824,19 +2824,19 @@ typedef enum {
 
 /**
  * @brief Handle to the object of base class for all formats.
- * @since_tizen 3.0
+ * @since_tizen 2.3.2
  */
 typedef void *i18n_format_h;
 
 /**
  * @brief Handle to the object that represents a formatter for measure objects.
- * @since_tizen 3.0
+ * @since_tizen 2.3.2
  */
 typedef void *i18n_measure_format_h;
 
 /**
  * @brief Enumeration for various widths.
- * @since_tizen 3.0
+ * @since_tizen 2.3.2
  */
 typedef enum {
     I18N_UMEASFMT_WIDTH_WIDE = 0,     /**< Spell out measure units */
@@ -2849,46 +2849,43 @@ typedef enum {
 
 /**
  * @brief Handle to the object of class used for formatting #i18n_format_h and its subclasses.
- * @since_tizen 3.0
+ * @since_tizen 2.3.2
  */
 typedef void *i18n_formattable_h;
 
 /**
  * @brief Enumeration for the flavor of data type contained within an #i18n_formattable_h object.
- * @since_tizen 3.0
+ * @since_tizen 2.3.2
  */
 typedef enum {
-    I18N_FORMATTABLE_K_DATE = 0,    /**< Selector indicating an #i18n_udate value */
-    I18N_FORMATTABLE_K_DOUBLE = 1,  /**< Selector indicating a double value */
-    I18N_FORMATTABLE_K_LONG = 2,    /**< Selector indicating a 32-bit integer value */
-    I18N_FORMATTABLE_K_STRING = 3,  /**< Selector indicating a UnicodeString value */
-    I18N_FORMATTABLE_K_ARRAY = 4,   /**< Selector indicating an array of #i18n_formattable_h */
-    I18N_FORMATTABLE_K_INT64 = 5,   /**< Selector indicating a 64-bit integer value */
-    I18N_FORMATTABLE_K_OBJECT = 6,  /**< Selector indicating a UObject value */
+    I18N_FORMATTABLE_TYPE_DATE = 0,    /**< Selector indicating an #i18n_udate value */
+    I18N_FORMATTABLE_TYPE_DOUBLE = 1,  /**< Selector indicating a double value */
+    I18N_FORMATTABLE_TYPE_LONG = 2,    /**< Selector indicating a 32-bit integer value */
+    I18N_FORMATTABLE_TYPE_STRING = 3,  /**< Selector indicating a string value */
+    I18N_FORMATTABLE_TYPE_ARRAY = 4,   /**< Selector indicating an array of #i18n_formattable_h */
+    I18N_FORMATTABLE_TYPE_INT64 = 5,   /**< Selector indicating a 64-bit integer value */
+    I18N_FORMATTABLE_TYPE_OBJECT = 6,  /**< Selector indicating a generic object value.
+                                            In the current version of the API, such objects
+                                            are not supported and cannot be used. This value
+                                            was added for completeness and possible future extensions. */
 } i18n_formattable_type_e;
 
 /**
- * @brief Handle to the object of class used by the #i18n_format_h and its subclasses to identify fields in a formatted output.
- * @since_tizen 3.0
- */
-typedef void *i18n_field_position_h;
-
-/**
  * @brief Handle to the object that represents an amount of a specified unit.
- * @since_tizen 3.0
+ * @since_tizen 2.3.2
  */
 typedef void *i18n_measure_h;
 
 /**
  * @brief Handle to the object that represents a unit such as length, mass, volume, currency, etc.
- * @since_tizen 3.0
+ * @since_tizen 2.3.2
  */
 typedef void *i18n_measure_unit_h;
 
 /**
  * @brief Callback function for the i18n_measure_unit_get_available_types()
  *        that returns an enumeration over all recognized types.
- * @since_tizen 3.0
+ * @since_tizen 2.3.2
  *
  * @param[in] type_id    The type ID
  * @param[in] user_data  The user data passed to the callback function
@@ -2900,7 +2897,7 @@ typedef bool (*i18n_measure_unit_types_cb)(const char *type_id, void *user_data)
 
 /**
  * @brief Enumeration for the flavor of data type contained within an #i18n_formattable_h object.
- * @since_tizen 3.0
+ * @since_tizen 2.3.2
  */
 typedef enum {
     I18N_ULOC_ACTUAL_LOCALE = 0,    /**< This is locale the data actually comes from */
@@ -2910,13 +2907,13 @@ typedef enum {
 
 /*
  * @brief The Alphabetic index handle.
- * @since_tizen 3.0
+ * @since_tizen 2.3.2
  */
 typedef void *i18_alpha_idx_h;
 
 /**
  * @brief Enumeration for alphabetic index label types.
- * @since_tizen 3.0
+ * @since_tizen 2.3.2
  *
  * @see i18n_alpha_idx_get_bucket_label_type()
  */
@@ -2954,22 +2951,22 @@ typedef enum {
 } i18_alpha_idx_label_type_e;
 
 /**
- * @brief Handle to the object used by the Format and its subtypes to identify fields in a formatted output
- * @since_tizen 3.0
+ * @brief A simple class used by Format and its subclasses to identify fields in formatted output
+ * @since_tizen 2.3.2
  */
 typedef void *i18n_field_position_h;
 
 /**
  * @brief DONT_CARE may be specified as the field to indicate that the caller doesn't need to specify a field.
- * @since_tizen 3.0
+ * @since_tizen 2.3.2
  */
 typedef enum {
     I18N_FIELD_POSITION_DONT_CARE = -1,
 } i18n_field_position_dont_care_e;
 
 /**
- * @brief Handle to the object used by the Format and its subtypes to keep track of the current position during parsing.
- * @since_tizen 3.0
+ * @brief A simple class used by Format and its subclasses to identify fields in formatted output.
+ * @since_tizen 2.3.2
  */
 typedef void *i18n_parse_position_h;
 
