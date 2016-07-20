@@ -2910,7 +2910,7 @@ typedef enum {
  * @brief The Alphabetic index handle.
  * @since_tizen 3.0
  */
-typedef void *i18_alpha_idx_h;
+typedef void *i18n_alpha_idx_h;
 
 /**
  * @brief Enumeration for alphabetic index label types.
@@ -2922,7 +2922,7 @@ typedef enum {
 	/**
 	 * Normal Label, typically the starting letter of the names in the bucket with this label.
 	 */
-	I18_ALPHA_IDX_NORMAL,
+	I18N_ALPHA_IDX_NORMAL,
 
 	/**
 	 * Underflow Label.
@@ -2930,7 +2930,7 @@ typedef enum {
 	 * The bucket with this label contains names in scripts that sort before any
 	 * of the bucket labels in this index.
 	 */
-	I18_ALPHA_IDX_UNDERFLOW,
+	I18N_ALPHA_IDX_UNDERFLOW,
 
 	/**
 	 * Inflow Label.
@@ -2940,7 +2940,7 @@ typedef enum {
 	 * an index contains normal labels for multiple scripts, and skips other
 	 * scripts that sort between some of the included scripts.
 	 */
-	I18_ALPHA_IDX_INFLOW,
+	I18N_ALPHA_IDX_INFLOW,
 
 	/**
 	 * Overflow Label.
@@ -2948,8 +2948,8 @@ typedef enum {
 	 * The bucket with this label contains names in scripts that sort after
 	 * all of the bucket labels in this index.
 	 */
-	I18_ALPHA_IDX_OVERFLOW,
-} i18_alpha_idx_label_type_e;
+	I18N_ALPHA_IDX_OVERFLOW,
+} i18n_alpha_idx_label_type_e;
 
 /**
  * @brief A simple type used by Format module and its submodules to identify fields in formatted output.
