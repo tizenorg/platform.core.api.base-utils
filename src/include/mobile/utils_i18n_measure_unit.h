@@ -132,16 +132,17 @@ int i18n_measure_unit_get_type(i18n_measure_unit_h measure_unit, char **type);
 int i18n_measure_unit_get_subtype(i18n_measure_unit_h measure_unit, char **subtype);
 
 /**
- * @brief Gets all of the available units.
- * @details If there are too many units to fit into @a dest_capacity the returned error code
- *          is #I18N_ERROR_BUFFER_OVERFLOW.
+ * @brief Gets the available units.
+ * @details If there are more units available than the given @a max_count
+ * 	        then the returned list is truncated to the first @a max_count units
+ * 	        and the returned error code is #I18N_ERROR_BUFFER_OVERFLOW.
  * @since_tizen 3.0
  * @remarks The obtained array of measure unit objects should be released by the caller
  *          with the #i18n_measure_unit_array_destroy() function.
  *
- * @param[in] dest_capacity   The capacity of the given @a dest_array
+ * @param[in] max_count       The maximal number of units that will be obtained
  * @param[out] dest_array     The destination buffer
- * @param[out] available      The number of available units
+ * @param[out] available      The actual number of available units
  *
  * @return @c 0 on success, otherwise a negative error value
  * @retval #I18N_ERROR_NONE Successful
@@ -149,20 +150,21 @@ int i18n_measure_unit_get_subtype(i18n_measure_unit_h measure_unit, char **subty
  * @retval #I18N_ERROR_OUT_OF_MEMORY Out of memory
  * @retval #I18N_ERROR_BUFFER_OVERFLOW Buffer overflow
  */
-int i18n_measure_unit_get_available(int32_t dest_capacity, i18n_measure_unit_h **dest_array, int32_t *available);
+int i18n_measure_unit_get_available(int32_t max_count, i18n_measure_unit_h **dest_array, int32_t *available);
 
 /**
- * @brief Gets all of the available units for a specific type.
- * @details If there are too many units to fit into dest_capacity then the error code
- *          is set to #I18N_ERROR_BUFFER_OVERFLOW.
+ * @brief Gets the available units for a specific type.
+ * @details If there are more units available than the given @a max_count
+ * 	        then the returned list is truncated to the first @a max_count units
+ * 	        and the returned error code is #I18N_ERROR_BUFFER_OVERFLOW.
  * @since_tizen 3.0
  * @remarks The obtained array of measure unit objects should be released by the caller
  *          with the #i18n_measure_unit_array_destroy() function.
  *
- * @param[in] dest_capacity   The capacity of the given @a dest_array
+ * @param[in] max_count       The maximal number of units that will be obtained
  * @param[in] type            The type of the obtained units
  * @param[out] dest_array     The destination buffer
- * @param[out] available      The number of available units
+ * @param[out] available      The actual number of available units
  *
  * @return @c 0 on success, otherwise a negative error value
  * @retval #I18N_ERROR_NONE Successful
@@ -170,7 +172,7 @@ int i18n_measure_unit_get_available(int32_t dest_capacity, i18n_measure_unit_h *
  * @retval #I18N_ERROR_OUT_OF_MEMORY Out of memory
  * @retval #I18N_ERROR_BUFFER_OVERFLOW Buffer overflow
  */
-int i18n_measure_unit_get_available_with_type(int32_t dest_capacity, const char *type, i18n_measure_unit_h **dest_array, int32_t *available);
+int i18n_measure_unit_get_available_with_type(int32_t max_count, const char *type, i18n_measure_unit_h **dest_array, int32_t *available);
 
 /**
  * @brief Invokes the given callback function for every available measure unit type.
