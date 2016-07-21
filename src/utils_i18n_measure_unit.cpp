@@ -91,47 +91,72 @@ int i18n_measure_unit_get_subtype(i18n_measure_unit_h measure_unit, char **subty
     return I18N_ERROR_NONE;
 }
 
-int i18n_measure_unit_get_available(int32_t dest_capacity, i18n_measure_unit_h **dest_array, int32_t *available)
+int i18n_measure_unit_get_available(int32_t max_count, i18n_measure_unit_h **out_array, int32_t *available)
 {
     retv_if(available == NULL, I18N_ERROR_INVALID_PARAMETER);
-    retv_if(dest_array == NULL, I18N_ERROR_INVALID_PARAMETER);
-    retv_if(dest_capacity < 0, I18N_ERROR_INVALID_PARAMETER);
+    retv_if(out_array == NULL, I18N_ERROR_INVALID_PARAMETER);
+    retv_if(max_count < 0, I18N_ERROR_INVALID_PARAMETER);
 
-    MeasureUnit *mu_array = new MeasureUnit[dest_capacity];
     UErrorCode status = U_ZERO_ERROR;
 
-    *available = MeasureUnit::getAvailable(mu_array, dest_capacity, status);
+    // Get the number of available units.
+    *available = MeasureUnit::getAvailable(NULL, 0, status);
+    retv_if(*available < 0, _i18n_error_mapping(status));
 
-    *dest_array = new i18n_measure_unit_h[dest_capacity];
-    for (int i = 0; i < dest_capacity; ++i) {
-        (*dest_array)[i] = (const i18n_measure_unit_h) mu_array[i].clone();
+    // Get the available units.
+    MeasureUnit *mu_array = new MeasureUnit[*available];
+    status = U_ZERO_ERROR;
+
+    MeasureUnit::getAvailable(mu_array, *available, status);
+
+    // If the maximal count given by the user is lower then the available
+    // number of units, return only the first max_count units.
+    // Otherwise return all of the available units.
+    int32_t count = max_count < *available ? max_count : *available;
+
+    *out_array = new i18n_measure_unit_h[count];
+    for (int i = 0; i < count; ++i) {
+        (*out_array)[i] = (i18n_measure_unit_h) mu_array[i].clone();
     }
 
     delete[] mu_array;
 
-    return _i18n_error_mapping(status);
+    return max_count < *available ? I18N_ERROR_BUFFER_OVERFLOW : _i18n_error_mapping(status);
 }
 
-int i18n_measure_unit_get_available_with_type(int32_t dest_capacity, const char *type, i18n_measure_unit_h **dest_array, int32_t *available)
+int i18n_measure_unit_get_available_with_type(int32_t max_count, const char *type,
+                                              i18n_measure_unit_h **out_array, int32_t *available)
 {
     retv_if(available == NULL, I18N_ERROR_INVALID_PARAMETER);
     retv_if(type == NULL, I18N_ERROR_INVALID_PARAMETER);
-    retv_if(dest_array == NULL, I18N_ERROR_INVALID_PARAMETER);
-    retv_if(dest_capacity < 0, I18N_ERROR_INVALID_PARAMETER);
+    retv_if(out_array == NULL, I18N_ERROR_INVALID_PARAMETER);
+    retv_if(max_count < 0, I18N_ERROR_INVALID_PARAMETER);
 
-    MeasureUnit *mu_array =  new MeasureUnit[dest_capacity];
     UErrorCode status = U_ZERO_ERROR;
 
-    *available = MeasureUnit::getAvailable(type, mu_array, dest_capacity, status);
+    // Get the number of available units for the given type.
+    *available = MeasureUnit::getAvailable(type, NULL, 0, status);
+    retv_if(*available < 0, _i18n_error_mapping(status));
 
-    *dest_array = new i18n_measure_unit_h[dest_capacity];
-    for (int i = 0; i < dest_capacity; ++i) {
-        (*dest_array)[i] = (i18n_measure_unit_h) mu_array[i].clone();
+    // Get the available units for the given type.
+    MeasureUnit *mu_array = new MeasureUnit[*available];
+    status = U_ZERO_ERROR;
+
+    MeasureUnit::getAvailable(type, mu_array, *available, status);
+
+    // If the maximal count given by the user is lower then the available
+    // number of units, return only the first max_count units.
+    // Otherwise return all of the available units for the given type.
+    int32_t count = max_count < *available ? max_count : *available;
+
+    *out_array = new i18n_measure_unit_h[count];
+    for (int i = 0; i < count; ++i) {
+        (*out_array)[i] = (i18n_measure_unit_h) mu_array[i].clone();
     }
 
     delete[] mu_array;
 
-    return _i18n_error_mapping(status);
+    return max_count < *available ? I18N_ERROR_BUFFER_OVERFLOW : _i18n_error_mapping(status);
 }
 
 int i18n_measure_unit_foreach_available_type(i18n_measure_unit_types_cb cb, void *user_data)
