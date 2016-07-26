@@ -25,7 +25,7 @@ int i18n_formattable_create_default(i18n_formattable_h *formattable)
     retv_if(formattable == NULL, I18N_ERROR_INVALID_PARAMETER);
 
     *formattable = new Formattable();
-    retv_if(*formattable == NULL, I18N_ERROR_UNKNOWN);
+    retv_if(*formattable == NULL, I18N_ERROR_OUT_OF_MEMORY);
 
     return I18N_ERROR_NONE;
 }
@@ -35,7 +35,7 @@ int i18n_formattable_create_with_udate(i18n_udate date, i18n_formattable_h *form
     retv_if(formattable == NULL, I18N_ERROR_INVALID_PARAMETER);
 
     *formattable = new Formattable(date, Formattable::kIsDate);
-    retv_if(*formattable == NULL, I18N_ERROR_UNKNOWN);
+    retv_if(*formattable == NULL, I18N_ERROR_OUT_OF_MEMORY);
 
     return I18N_ERROR_NONE;
 }
@@ -45,7 +45,7 @@ int i18n_formattable_create_with_double(double d, i18n_formattable_h *formattabl
     retv_if(formattable == NULL, I18N_ERROR_INVALID_PARAMETER);
 
     *formattable = new Formattable(d);
-    retv_if(*formattable == NULL, I18N_ERROR_UNKNOWN);
+    retv_if(*formattable == NULL, I18N_ERROR_OUT_OF_MEMORY);
 
     return I18N_ERROR_NONE;
 }
@@ -55,7 +55,7 @@ int i18n_formattable_create_with_long(int32_t l, i18n_formattable_h *formattable
     retv_if(formattable == NULL, I18N_ERROR_INVALID_PARAMETER);
 
     *formattable = new Formattable(l);
-    retv_if(*formattable == NULL, I18N_ERROR_UNKNOWN);
+    retv_if(*formattable == NULL, I18N_ERROR_OUT_OF_MEMORY);
 
     return I18N_ERROR_NONE;
 }
@@ -65,7 +65,7 @@ int i18n_formattable_create_with_int64(int64_t ll, i18n_formattable_h *formattab
     retv_if(formattable == NULL, I18N_ERROR_INVALID_PARAMETER);
 
     *formattable = new Formattable(ll);
-    retv_if(*formattable == NULL, I18N_ERROR_UNKNOWN);
+    retv_if(*formattable == NULL, I18N_ERROR_OUT_OF_MEMORY);
 
     return I18N_ERROR_NONE;
 }
@@ -75,7 +75,7 @@ int i18n_formattable_create_with_char_string(const char *str_to_copy, i18n_forma
     retv_if(formattable == NULL, I18N_ERROR_INVALID_PARAMETER);
 
     *formattable = new Formattable(str_to_copy);
-    retv_if(*formattable == NULL, I18N_ERROR_UNKNOWN);
+    retv_if(*formattable == NULL, I18N_ERROR_OUT_OF_MEMORY);
 
     return I18N_ERROR_NONE;
 }
@@ -99,7 +99,7 @@ int i18n_formattable_create_with_formattable_array(const i18n_formattable_h *arr
 
     delete[] f_array;
 
-    retv_if(*formattable == NULL, I18N_ERROR_UNKNOWN);
+    retv_if(*formattable == NULL, I18N_ERROR_OUT_OF_MEMORY);
 
     return I18N_ERROR_NONE;
 }
@@ -121,7 +121,7 @@ int i18n_formattable_clone(i18n_formattable_h formattable, i18n_formattable_h *c
     retv_if(clone == NULL, I18N_ERROR_INVALID_PARAMETER);
 
     *clone = ((Formattable *) formattable)->clone();
-    retv_if(*clone == NULL, I18N_ERROR_UNKNOWN);
+    retv_if(*clone == NULL, I18N_ERROR_OUT_OF_MEMORY);
 
     return I18N_ERROR_NONE;
 }
@@ -206,7 +206,7 @@ int i18n_formattable_get_string(i18n_formattable_h formattable, char **value)
     retv_if(ulen <= 0, I18N_ERROR_UNKNOWN);
 
     *value = (char *) malloc(ulen + 1);
-    retv_if(*value == NULL, I18N_ERROR_UNKNOWN);
+    retv_if(*value == NULL, I18N_ERROR_OUT_OF_MEMORY);
 
     u_austrcpy(*value, uchar_result);
 
