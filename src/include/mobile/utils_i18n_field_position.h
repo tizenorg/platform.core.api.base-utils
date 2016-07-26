@@ -38,7 +38,9 @@ extern "C" {
  *        \#include <utils_i18n.h>
  *
  * @section CAPI_BASE_UTILS_I18N_FIELD_POSITION_MODULE_OVERVIEW Overview
- * @details Field position keeps track of the position of the field within the formatted
+ * @details Fields are identified by constants defined in *_format_field_e enumerations.
+ * The only fields currently supported are the fields accepted by the date formatter, see #i18n_udate_format_field_e.
+ * Field position keeps track of the position of the field within the formatted
  * output with two indices: the index of the first character of the field and the index
  * of the last character of the field. One version of the format function in the various
  * Format modules requires a Field Position object as an argument. You use this format
@@ -68,8 +70,8 @@ int i18n_field_position_create(i18n_field_position_h *field_position);
 
 /**
  * @brief Creates a field position object for the given field.
- * @details Fields are identified by constants, whose names typically end with _FIELD,
- *          in the various subtypes of Format.
+ * @details The only fields currently supported are the fields accepted by the date formatter,
+ * 			see #i18n_udate_format_field_e.
  * @since_tizen 3.0
  * @remarks The created object should be released by the caller with the
  *          i18n_field_position_destroy() function.

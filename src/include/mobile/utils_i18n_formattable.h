@@ -63,7 +63,7 @@ extern "C" {
  * @return @c 0 on success, otherwise a negative error value
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
- * @retval #I18N_ERROR_UNKNOWN Unknown error
+ * @retval #I18N_ERROR_OUT_OF_MEMORY Out of memory
  */
 int i18n_formattable_create_default(i18n_formattable_h *formattable);
 
@@ -80,7 +80,7 @@ int i18n_formattable_create_default(i18n_formattable_h *formattable);
  * @return @c 0 on success, otherwise a negative error value
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
- * @retval #I18N_ERROR_UNKNOWN Unknown error
+ * @retval #I18N_ERROR_OUT_OF_MEMORY Out of memory
  */
 int i18n_formattable_create_with_udate(i18n_udate date, i18n_formattable_h *formattable);
 
@@ -97,7 +97,7 @@ int i18n_formattable_create_with_udate(i18n_udate date, i18n_formattable_h *form
  * @return @c 0 on success, otherwise a negative error value
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
- * @retval #I18N_ERROR_UNKNOWN Unknown error
+ * @retval #I18N_ERROR_OUT_OF_MEMORY Out of memory
  */
 int i18n_formattable_create_with_double(double value, i18n_formattable_h *formattable);
 
@@ -114,7 +114,7 @@ int i18n_formattable_create_with_double(double value, i18n_formattable_h *format
  * @return @c 0 on success, otherwise a negative error value
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
- * @retval #I18N_ERROR_UNKNOWN Unknown error
+ * @retval #I18N_ERROR_OUT_OF_MEMORY Out of memory
  */
 int i18n_formattable_create_with_long(int32_t value, i18n_formattable_h *formattable);
 
@@ -131,7 +131,7 @@ int i18n_formattable_create_with_long(int32_t value, i18n_formattable_h *formatt
  * @return @c 0 on success, otherwise a negative error value
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
- * @retval #I18N_ERROR_UNKNOWN Unknown error
+ * @retval #I18N_ERROR_OUT_OF_MEMORY Out of memory
  */
 int i18n_formattable_create_with_int64(int64_t value, i18n_formattable_h *formattable);
 
@@ -149,7 +149,7 @@ int i18n_formattable_create_with_int64(int64_t value, i18n_formattable_h *format
  * @return @c 0 on success, otherwise a negative error value
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
- * @retval #I18N_ERROR_UNKNOWN Unknown error
+ * @retval #I18N_ERROR_OUT_OF_MEMORY Out of memory
  */
 int i18n_formattable_create_with_char_string(const char *str_to_copy, i18n_formattable_h *formattable);
 
@@ -168,7 +168,7 @@ int i18n_formattable_create_with_char_string(const char *str_to_copy, i18n_forma
  * @return @c 0 on success, otherwise a negative error value
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
- * @retval #I18N_ERROR_UNKNOWN Unknown error
+ * @retval #I18N_ERROR_OUT_OF_MEMORY Out of memory
  */
 int i18n_formattable_create_with_formattable_array(const i18n_formattable_h *array_to_copy, int32_t count, i18n_formattable_h *formattable);
 
@@ -199,14 +199,14 @@ int i18n_formattable_destroy(i18n_formattable_h formattable);
  * @return @c 0 on success, otherwise a negative error value
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
- * @retval #I18N_ERROR_UNKNOWN Unknown error
+ * @retval #I18N_ERROR_OUT_OF_MEMORY Out of memory
  */
 int i18n_formattable_clone(i18n_formattable_h formattable, i18n_formattable_h *clone);
 
 /**
  * @brief Gets the array value and count of the given formattable object.
  * @since_tizen 3.0
- * @remarks If this object is not of type #I18N_FORMATTABLE_K_ARRAY then the
+ * @remarks If this object is not of type #I18N_FORMATTABLE_TYPE_ARRAY then the
  *          result is undefined.
  *
  * @param[in] formattable  A handle to the formattable object
@@ -223,7 +223,7 @@ int i18n_formattable_get_array(i18n_formattable_h formattable, i18n_formattable_
 /**
  * @brief Gets the date value of the given formattable object.
  * @since_tizen 3.0
- * @remarks If this object is not of type #I18N_FORMATTABLE_K_DATE then the
+ * @remarks If this object is not of type #I18N_FORMATTABLE_TYPE_DATE then the
  *          result is undefined.
  *
  * @param[in] formattable  A handle to the formattable object
@@ -239,7 +239,7 @@ int i18n_formattable_get_date(i18n_formattable_h formattable, i18n_udate *date);
 /**
  * @brief Gets the double value of the given formattable object.
  * @since_tizen 3.0
- * @remarks If this object is not of type #I18N_FORMATTABLE_K_DOUBLE then the
+ * @remarks If this object is not of type #I18N_FORMATTABLE_TYPE_DOUBLE then the
  *          result is undefined.
  *
  * @param[in] formattable  A handle to the formattable object
@@ -255,7 +255,7 @@ int i18n_formattable_get_double(i18n_formattable_h formattable, double *value);
 /**
  * @brief Gets the int64 value of the given formattable object.
  * @since_tizen 3.0
- * @remarks If this object is not of type #I18N_FORMATTABLE_K_INT64 then the
+ * @remarks If this object is not of type #I18N_FORMATTABLE_TYPE_INT64 then the
  *          result is undefined.
  *
  * @param[in] formattable  A handle to the formattable object
@@ -301,6 +301,7 @@ int i18n_formattable_get_long(i18n_formattable_h formattable, int32_t *value);
  * @retval #I18N_ERROR_NONE Successful
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  * @retval #I18N_ERROR_INVALID_FORMAT The given formattable type is not a string
+ * @retval #I18N_ERROR_OUT_OF_MEMORY Out of memory
  * @retval #I18N_ERROR_UNKNOWN Unknown error
  */
 int i18n_formattable_get_string(i18n_formattable_h formattable, char **value);
@@ -322,8 +323,8 @@ int i18n_formattable_get_type(i18n_formattable_h formattable, i18n_formattable_t
 
 /**
  * @brief Sets the variable pointed by the @a is_numeric pointer to @c true if
- *        the data type of the given formattable object is #I18N_FORMATTABLE_K_DOUBLE,
- *        #I18N_FORMATTABLE_K_LONG or #I18N_FORMATTABLE_K_INT64.
+ *        the data type of the given formattable object is #I18N_FORMATTABLE_TYPE_DOUBLE,
+ *        #I18N_FORMATTABLE_TYPE_LONG or #I18N_FORMATTABLE_TYPE_INT64.
  * @since_tizen 3.0
  *
  * @param[in] formattable  A handle to the formattable object
@@ -373,13 +374,13 @@ int i18n_formattable_equal(i18n_formattable_h formattable, i18n_formattable_h ot
 /**
  * @brief Sets the object pointed by the @a element pointer to the element at
  *        the @a index position in the array stored by the given formattable
- *        object (if its type is #I18N_FORMATTABLE_K_ARRAY).
+ *        object (if its type is #I18N_FORMATTABLE_TYPE_ARRAY).
  * @since_tizen 3.0
- * @remarks If this object is not of type #I18N_FORMATTABLE_K_ARRAY then the
+ * @remarks If this object is not of type #I18N_FORMATTABLE_TYPE_ARRAY then the
  *          result is undefined.
  *
  *          The obtained formattable element should not be released by the caller
- *          as it belongs to the given formattable object of type #I18N_FORMATTABLE_K_ARRAY.
+ *          as it belongs to the given formattable object of type #I18N_FORMATTABLE_TYPE_ARRAY.
  *
  * @param[in] formattable  A handle to the formattable object
  * @param[in] index        A number representing the position in the array from
@@ -397,7 +398,7 @@ int i18n_formattable_element_at(i18n_formattable_h formattable, int32_t index, i
 
 /**
  * @brief Sets the array value and count of the given formattable object and
- *        changes the type to #I18N_FORMATTABLE_K_ARRAY.
+ *        changes the type to #I18N_FORMATTABLE_TYPE_ARRAY.
  * @since_tizen 3.0
  *
  * @param[in] formattable  A handle to the formattable object
@@ -412,7 +413,7 @@ int i18n_formattable_set_array(i18n_formattable_h formattable, const i18n_format
 
 /**
  * @brief Sets the date value of the given formattable object and changes the
- *        type to the #I18N_FORMATTABLE_K_DATE.
+ *        type to the #I18N_FORMATTABLE_TYPE_DATE.
  * @since_tizen 3.0
  *
  * @param[in] formattable  A handle to the formattable object
@@ -426,7 +427,7 @@ int i18n_formattable_set_date(i18n_formattable_h formattable, i18n_udate date);
 
 /**
  * @brief Sets the double value of the given formattable object and changes
- *        the type to the #I18N_FORMATTABLE_K_DOUBLE.
+ *        the type to the #I18N_FORMATTABLE_TYPE_DOUBLE.
  * @since_tizen 3.0
  *
  * @param[in] formattable  A handle to the formattable object
@@ -440,7 +441,7 @@ int i18n_formattable_set_double(i18n_formattable_h formattable, double value);
 
 /**
  * @brief Sets the int64 value of the given formattable object and changes the
- *        type to the #I18N_FORMATTABLE_K_INT64.
+ *        type to the #I18N_FORMATTABLE_TYPE_INT64.
  * @since_tizen 3.0
  *
  * @param[in] formattable  A handle to the formattable object
@@ -454,7 +455,7 @@ int i18n_formattable_set_int64(i18n_formattable_h formattable, int64_t value);
 
 /**
  * @brief Sets the long value of the given formattable object and changes the
- *        type to the #I18N_FORMATTABLE_K_LONG.
+ *        type to the #I18N_FORMATTABLE_TYPE_LONG.
  * @since_tizen 3.0
  *
  * @param[in] formattable  A handle to the formattable object
@@ -468,7 +469,7 @@ int i18n_formattable_set_long(i18n_formattable_h formattable, int32_t value);
 
 /**
  * @brief Sets the string value of the given formattable object and changes
- *        the type to the #I18N_FORMATTABLE_K_STRING.
+ *        the type to the #I18N_FORMATTABLE_TYPE_STRING.
  * @since_tizen 3.0
  *
  * @param[in] formattable     A handle to the formattable object
