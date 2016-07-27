@@ -89,7 +89,6 @@ typedef enum {
 
 /**
  * @}
- * @}
  */
 
 /**
@@ -1213,7 +1212,6 @@ typedef enum {
 
 /**
  * @}
- * @}
  */
 
 /**
@@ -1296,7 +1294,6 @@ typedef enum {
 
 /**
  * @}
- * @}
  */
 
 /**
@@ -1346,7 +1343,6 @@ typedef enum {
 
 /**
  * @}
- * @}
  */
 
 /**
@@ -1361,7 +1357,6 @@ typedef enum {
 typedef void *i18n_usearch_h;
 
 /**
- * @}
  * @}
  */
 
@@ -1552,7 +1547,6 @@ typedef enum {
 } i18n_utimezone_transition_type_e;
 
 /**
- * @}
  * @}
  */
 
@@ -1989,7 +1983,6 @@ typedef enum {
 
 /**
  * @}
- * @}
  */
 
 /**
@@ -2052,7 +2045,6 @@ typedef enum {
 } i18n_udatepg_date_time_pattern_conflict_e;
 
 /**
- * @}
  * @}
  */
 
@@ -2214,7 +2206,6 @@ typedef enum {
 
 /**
  * @}
- * @}
  */
 
 /**
@@ -2375,7 +2366,6 @@ typedef enum {
 
 /**
  * @}
- * @}
  */
 
 /**
@@ -2421,7 +2411,6 @@ typedef i18n_uchar(*i18n_ustring_unescape_char_at_cb)(int32_t offset, void *cont
 
 /**
  * @}
- * @}
  */
 
 /**
@@ -2465,7 +2454,6 @@ typedef enum {
 } i18n_timezone_display_type_e;
 
 /**
- * @}
  * @}
  */
 
@@ -2512,7 +2500,6 @@ typedef enum {
 } i18n_ubreak_iterator_type_e;
 
 /**
- * @}
  * @}
  */
 
@@ -2625,7 +2612,6 @@ enum {
 
 /**
  * @}
- * @}
  */
 
 /**
@@ -2641,7 +2627,6 @@ enum {
 typedef void *i18n_uenumeration_h;
 
 /**
- * @}
  * @}
  */
 
@@ -2823,10 +2808,28 @@ typedef enum {
 } i18n_uscript_code_e;
 
 /**
+ * @}
+ */
+
+/**
+ * @addtogroup CAPI_BASE_UTILS_I18N_FORMAT_MODULE
+ * @{
+ */
+
+/**
  * @brief Handle to the object of base class for all formats.
  * @since_tizen 3.0
  */
 typedef void *i18n_format_h;
+
+/**
+ * @}
+ */
+
+/**
+ * @addtogroup CAPI_BASE_UTILS_I18N_MEASURE_FORMAT_MODULE
+ * @{
+ */
 
 /**
  * @brief Handle to the object that represents a formatter for measure objects.
@@ -2848,6 +2851,15 @@ typedef enum {
 } i18n_umeasure_format_width_e;
 
 /**
+ * @}
+ */
+
+/**
+ * @addtogroup CAPI_BASE_UTILS_I18N_FORMATTABLE_MODULE
+ * @{
+ */
+
+/**
  * @brief Handle to the object of class used for formatting #i18n_format_h and its subclasses.
  * @since_tizen 3.0
  */
@@ -2861,7 +2873,7 @@ typedef enum {
     I18N_FORMATTABLE_TYPE_DATE = 0,    /**< Selector indicating an #i18n_udate value */
     I18N_FORMATTABLE_TYPE_DOUBLE = 1,  /**< Selector indicating a double value */
     I18N_FORMATTABLE_TYPE_LONG = 2,    /**< Selector indicating a 32-bit integer value */
-    I18N_FORMATTABLE_TYPE_STRING = 3,  /**< Selector indicating a string */
+    I18N_FORMATTABLE_TYPE_STRING = 3,  /**< Selector indicating a string value */
     I18N_FORMATTABLE_TYPE_ARRAY = 4,   /**< Selector indicating an array of #i18n_formattable_h */
     I18N_FORMATTABLE_TYPE_INT64 = 5,   /**< Selector indicating a 64-bit integer value */
     I18N_FORMATTABLE_TYPE_OBJECT = 6,  /**< Selector indicating a generic object value.
@@ -2870,12 +2882,29 @@ typedef enum {
                                             was added for completeness and possible future extensions. */
 } i18n_formattable_type_e;
 
+/**
+ * @}
+ */
+
+/**
+ * @addtogroup CAPI_BASE_UTILS_I18N_MEASURE_MODULE
+ * @{
+ */
 
 /**
  * @brief Handle to the object that represents an amount of a specified unit.
  * @since_tizen 3.0
  */
 typedef void *i18n_measure_h;
+
+/**
+ * @}
+ */
+
+/**
+ * @addtogroup CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE
+ * @{
+ */
 
 /**
  * @brief Handle to the object that represents a unit such as length, mass, volume, currency, etc.
@@ -2897,14 +2926,13 @@ typedef void *i18n_measure_unit_h;
 typedef bool (*i18n_measure_unit_types_cb)(const char *type_id, void *user_data);
 
 /**
- * @brief Enumeration for the flavor of data type contained within an #i18n_formattable_h object.
- * @since_tizen 3.0
+ * @}
  */
-typedef enum {
-    I18N_ULOC_ACTUAL_LOCALE = 0,    /**< This is locale the data actually comes from */
-    I18N_ULOC_VALID_LOCALE = 1,     /**< This is the most specific locale supported by the ICU */
-    I18N_ULOC_REQUESTED_LOCALE = 2, /**< This is the requested locale (deprecated) */
-} i18n_uloc_data_locale_type_e;
+
+/**
+ * @addtogroup CAPI_BASE_UTILS_I18N_ALPHABETIC_INDEX_MODULE
+ * @{
+ */
 
 /*
  * @brief The Alphabetic index handle.
@@ -2952,7 +2980,16 @@ typedef enum {
 } i18n_alpha_idx_label_type_e;
 
 /**
- * @brief A simple type used by Format module and its submodules to identify fields in formatted output.
+ * @}
+ */
+
+/**
+ * @addtogroup CAPI_BASE_UTILS_I18N_FIELD_POSITION_MODULE
+ * @{
+ */
+
+/**
+ * @brief Handle to the object of class used by the #i18n_format_h and its subclasses to identify fields in a formatted output.
  * @since_tizen 3.0
  */
 typedef void *i18n_field_position_h;
@@ -2966,10 +3003,23 @@ typedef enum {
 } i18n_field_position_dont_care_e;
 
 /**
- * @brief A simple type used by Format module and its submodules to identify fields in formatted output.
+ * @}
+ */
+
+/**
+ * @addtogroup CAPI_BASE_UTILS_I18N_FIELD_POSITION_MODULE
+ * @{
+ */
+
+/**
+ * @brief Handle to the object used by the Format and its subtypes to keep track of the current position during parsing.
  * @since_tizen 3.0
  */
 typedef void *i18n_parse_position_h;
+
+/**
+ * @}
+ */
 
 #ifdef __cplusplus
 }
