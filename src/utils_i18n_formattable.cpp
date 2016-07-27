@@ -40,31 +40,31 @@ int i18n_formattable_create_with_udate(i18n_udate date, i18n_formattable_h *form
     return I18N_ERROR_NONE;
 }
 
-int i18n_formattable_create_with_double(double d, i18n_formattable_h *formattable)
+int i18n_formattable_create_with_double(double value, i18n_formattable_h *formattable)
 {
     retv_if(formattable == NULL, I18N_ERROR_INVALID_PARAMETER);
 
-    *formattable = new Formattable(d);
+    *formattable = new Formattable(value);
     retv_if(*formattable == NULL, I18N_ERROR_OUT_OF_MEMORY);
 
     return I18N_ERROR_NONE;
 }
 
-int i18n_formattable_create_with_long(int32_t l, i18n_formattable_h *formattable)
+int i18n_formattable_create_with_long(int32_t value, i18n_formattable_h *formattable)
 {
     retv_if(formattable == NULL, I18N_ERROR_INVALID_PARAMETER);
 
-    *formattable = new Formattable(l);
+    *formattable = new Formattable(value);
     retv_if(*formattable == NULL, I18N_ERROR_OUT_OF_MEMORY);
 
     return I18N_ERROR_NONE;
 }
 
-int i18n_formattable_create_with_int64(int64_t ll, i18n_formattable_h *formattable)
+int i18n_formattable_create_with_int64(int64_t value, i18n_formattable_h *formattable)
 {
     retv_if(formattable == NULL, I18N_ERROR_INVALID_PARAMETER);
 
-    *formattable = new Formattable(ll);
+    *formattable = new Formattable(value);
     retv_if(*formattable == NULL, I18N_ERROR_OUT_OF_MEMORY);
 
     return I18N_ERROR_NONE;
@@ -239,7 +239,7 @@ int i18n_formattable_not_equal(i18n_formattable_h formattable, i18n_formattable_
     retv_if(other == NULL, I18N_ERROR_INVALID_PARAMETER);
     retv_if(not_equal == NULL, I18N_ERROR_INVALID_PARAMETER);
 
-    *not_equal = (bool) (((Formattable *) formattable) != ((Formattable *) other));
+    *not_equal = (bool) (*((Formattable *) formattable) != *((Formattable *) other));
 
     return I18N_ERROR_NONE;
 }
@@ -250,7 +250,7 @@ int i18n_formattable_equal(i18n_formattable_h formattable, i18n_formattable_h ot
     retv_if(other == NULL, I18N_ERROR_INVALID_PARAMETER);
     retv_if(equal == NULL, I18N_ERROR_INVALID_PARAMETER);
 
-    *equal = (bool) (((Formattable *) formattable) == ((Formattable *) other));
+    *equal = (bool) (*((Formattable *) formattable) == *((Formattable *) other));
 
     return I18N_ERROR_NONE;
 }
@@ -263,12 +263,13 @@ int i18n_formattable_element_at(i18n_formattable_h formattable, int32_t index, i
 
     int32_t count;
     UErrorCode status = U_ZERO_ERROR;
+
     ((Formattable *) formattable)->getArray(count, status);
 
     retv_if(status == U_INVALID_FORMAT_ERROR, I18N_ERROR_INVALID_FORMAT);
     retv_if(index >= count, I18N_ERROR_INDEX_OUTOFBOUNDS);
 
-    *element = (i18n_formattable_h) &((Formattable *) formattable)[index];
+    *element = (i18n_formattable_h) &((*((Formattable *) formattable))[index]);
 
     return _i18n_error_mapping(status);
 }
@@ -304,29 +305,29 @@ int i18n_formattable_set_date(i18n_formattable_h formattable, i18n_udate d)
     return I18N_ERROR_NONE;
 }
 
-int i18n_formattable_set_double(i18n_formattable_h formattable, double d)
+int i18n_formattable_set_double(i18n_formattable_h formattable, double value)
 {
     retv_if(formattable == NULL, I18N_ERROR_INVALID_PARAMETER);
 
-    ((Formattable *) formattable)->setDouble(d);
+    ((Formattable *) formattable)->setDouble(value);
 
     return I18N_ERROR_NONE;
 }
 
-int i18n_formattable_set_int64(i18n_formattable_h formattable, int64_t ll)
+int i18n_formattable_set_int64(i18n_formattable_h formattable, int64_t value)
 {
     retv_if(formattable == NULL, I18N_ERROR_INVALID_PARAMETER);
 
-    ((Formattable *) formattable)->setInt64(ll);
+    ((Formattable *) formattable)->setInt64(value);
 
     return I18N_ERROR_NONE;
 }
 
-int i18n_formattable_set_long(i18n_formattable_h formattable, int32_t l)
+int i18n_formattable_set_long(i18n_formattable_h formattable, int32_t value)
 {
     retv_if(formattable == NULL, I18N_ERROR_INVALID_PARAMETER);
 
-    ((Formattable *) formattable)->setLong(l);
+    ((Formattable *) formattable)->setLong(value);
 
     return I18N_ERROR_NONE;
 }

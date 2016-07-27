@@ -62,9 +62,9 @@ extern "C" {
  *          exemplar characters. The locale determines the sorting order
  *          for both the index characters and the user item names appearing
  *          under each Index character.
+ * @since_tizen 2.3.2
  * @remarks The created object should be released by the caller with the
  *          #i18n_alpha_idx_destroy() function.
- * @since_tizen 2.3.2
  *
  * @param[in] language  The language of the locale
  * @param[in] country   The country of the locale
@@ -185,8 +185,8 @@ int i18n_alpha_idx_get_bucket_record_count(i18n_alpha_idx_h index, int32_t *reco
  * @details If the iteration is before the first Bucket
  *          (i18n_alpha_idx_get_next_bucket() has not been called),
  *          or after the last, return an empty string.
- * @remarks The obtained @a label should be released by the caller with the free() function.
  * @since_tizen 2.3.2
+ * @remarks The obtained @a label should be released by the caller with the free() function.
  *
  * @param[in] index   The alphabetic index, which contains buckets
  * @param[out] label  The name of the label of the current bucket
@@ -203,10 +203,10 @@ int i18n_alpha_idx_get_bucket_label(i18n_alpha_idx_h index, char **label);
  * @details Returns NULL if:
  *          - the current iteration position is before the first item in this Bucket,
  *            or after the last,
-*           - the given @a index parameter is invalid.
+ *          - the given @a index parameter is invalid.
+ * @since_tizen 2.3.2
  * @remarks The specific error code can be obtained using the get_last_result() method.
  *          Error codes are described in Exceptions section.
- * @since_tizen 2.3.2
  *
  * @param[in] index  The alphabetic index, which contains buckets with records
  *
@@ -220,8 +220,8 @@ const void *i18n_alpha_idx_get_record_data(i18n_alpha_idx_h index);
  * @brief Gets the default label used for abbreviated buckets between other index characters.
  * @details For example, consider the labels when Latin and Greek are used:
  *          X Y Z ... &#x0391; &#x0392; &#x0393;
- * @remarks The obtained @a label should be released by the caller with the free() function.
  * @since_tizen 2.3.2
+ * @remarks The obtained @a label should be released by the caller with the free() function.
  *
  * @param[in] index  The alphabetic index, which contains buckets with records
  * @param[out] label The default label used for abbreviated bucket between other index characters
@@ -282,8 +282,8 @@ int i18n_alpha_idx_set_overflow_label(i18n_alpha_idx_h index, const char *label)
 /**
  * @brief Gets the special label used for items that sort before the first normal label,
  *        and that would not otherwise have an appropriate label.
- * @remarks The obtained @a label should be released by the caller with the free() function.
  * @since_tizen 2.3.2
+ * @remarks The obtained @a label should be released by the caller with the free() function.
  *
  * @param[in] index   The alphabetic index, which contains buckets with records
  * @param[out] label  The underflow label
@@ -356,8 +356,8 @@ int i18n_alpha_idx_clear_records(i18n_alpha_idx_h index);
 
 /**
  * @brief Gets the number of labels in this index.
- * @remarks Note: may trigger lazy index construction.
  * @since_tizen 2.3.2
+ * @remarks Note: may trigger lazy index construction.
  *
  * @param[in] index          The alphabetic index, which contains buckets with records
  * @param[out] bucket_count  The number of labels in this index, including any under,
@@ -438,8 +438,8 @@ int i18n_alpha_idx_get_bucket_label_type(i18n_alpha_idx_h index,
  * @details If the Record iteration position is before the first or after the last record,
  *          sets the string pointed by the @a record_name parameter to NULL and returns
  *          the #I18N_ERROR_INDEX_OUTOFBOUNDS error code.
- * @remarks The obtained @a record_name should be released by the caller with the free() function.
  * @since_tizen 2.3.2
+ * @remarks The obtained @a record_name should be released by the caller with the free() function.
  *
  * @param[in] index        The alphabetic index, which contains buckets with records
  * @param[out] record_name The name of the current index item
