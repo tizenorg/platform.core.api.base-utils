@@ -70,7 +70,7 @@ typedef enum {
 	I18N_ERROR_ILLEGAL_CHAR_FOUND			= TIZEN_ERROR_UTILITY_ICU | 0x10,	  /**< Character conversion: Illegal input sequence/combination of input units. @if MOBILE (Since 2.3.1) @endif*/
 	I18N_ERROR_INVALID_TABLE_FORMAT			= TIZEN_ERROR_UTILITY_ICU | 0x11,	  /**< Conversion table file found, but corrupted. @if MOBILE (Since 2.3.1) @endif*/
 	I18N_ERROR_INVALID_TABLE_FILE			= TIZEN_ERROR_UTILITY_ICU | 0x12,	  /**< Conversion table file not found. @if MOBILE (Since 2.3.1) @endif*/
-	I18N_ERROR_ILLECAL_ESCAPE_SEQUENCE		= TIZEN_ERROR_UTILITY_ICU | 0x13,	  /**< ISO-2022 illlegal escape sequence. @if MOBILE (Since 2.3.1) @endif*/
+	I18N_ERROR_ILLECAL_ESCAPE_SEQUENCE		= TIZEN_ERROR_UTILITY_ICU | 0x13,	  /**< ISO-2022 illegal escape sequence. @if MOBILE (Since 2.3.1) @endif*/
 	I18N_ERROR_UNSUPPORTED_ESCAPE_SEQUENCE	= TIZEN_ERROR_UTILITY_ICU | 0x14,	  /**< ISO-2022 unsupported escape sequence. @if MOBILE (Since 2.3.1) @endif*/
 	I18N_ERROR_NO_SPACE_AVAILABLE			= TIZEN_ERROR_UTILITY_ICU | 0x15,	  /**< No space available for in-buffer expansion for Arabic shaping. @if MOBILE (Since 2.3.1) @endif*/
 	I18N_ERROR_CE_NOT_FOUND					= TIZEN_ERROR_UTILITY_ICU | 0x16,	  /**< Currently used only while setting variable top, but can be used generally. @if MOBILE (Since 2.3.1) @endif*/
@@ -88,7 +88,6 @@ typedef enum {
 } i18n_error_code_e;
 
 /**
- * @}
  * @}
  */
 
@@ -1213,7 +1212,6 @@ typedef enum {
 
 /**
  * @}
- * @}
  */
 
 /**
@@ -1296,7 +1294,6 @@ typedef enum {
 
 /**
  * @}
- * @}
  */
 
 /**
@@ -1346,7 +1343,6 @@ typedef enum {
 
 /**
  * @}
- * @}
  */
 
 /**
@@ -1361,7 +1357,6 @@ typedef enum {
 typedef void *i18n_usearch_h;
 
 /**
- * @}
  * @}
  */
 
@@ -1552,7 +1547,6 @@ typedef enum {
 } i18n_utimezone_transition_type_e;
 
 /**
- * @}
  * @}
  */
 
@@ -1989,7 +1983,6 @@ typedef enum {
 
 /**
  * @}
- * @}
  */
 
 /**
@@ -2052,7 +2045,6 @@ typedef enum {
 } i18n_udatepg_date_time_pattern_conflict_e;
 
 /**
- * @}
  * @}
  */
 
@@ -2214,7 +2206,6 @@ typedef enum {
 
 /**
  * @}
- * @}
  */
 
 /**
@@ -2375,7 +2366,6 @@ typedef enum {
 
 /**
  * @}
- * @}
  */
 
 /**
@@ -2421,7 +2411,6 @@ typedef i18n_uchar(*i18n_ustring_unescape_char_at_cb)(int32_t offset, void *cont
 
 /**
  * @}
- * @}
  */
 
 /**
@@ -2465,7 +2454,6 @@ typedef enum {
 } i18n_timezone_display_type_e;
 
 /**
- * @}
  * @}
  */
 
@@ -2512,7 +2500,6 @@ typedef enum {
 } i18n_ubreak_iterator_type_e;
 
 /**
- * @}
  * @}
  */
 
@@ -2625,7 +2612,6 @@ enum {
 
 /**
  * @}
- * @}
  */
 
 /**
@@ -2641,7 +2627,6 @@ enum {
 typedef void *i18n_uenumeration_h;
 
 /**
- * @}
  * @}
  */
 
@@ -2823,10 +2808,28 @@ typedef enum {
 } i18n_uscript_code_e;
 
 /**
+ * @}
+ */
+
+/**
+ * @addtogroup CAPI_BASE_UTILS_I18N_FORMAT_MODULE
+ * @{
+ */
+
+/**
  * @brief Handle to the object of base class for all formats.
  * @since_tizen 2.3.2
  */
 typedef void *i18n_format_h;
+
+/**
+ * @}
+ */
+
+/**
+ * @addtogroup CAPI_BASE_UTILS_I18N_MEASURE_FORMAT_MODULE
+ * @{
+ */
 
 /**
  * @brief Handle to the object that represents a formatter for measure objects.
@@ -2846,6 +2849,15 @@ typedef enum {
                                       For example, format '5 hours, 37 minutes' as '5:37' */
     I18N_UMEASFMT_WIDTH_COUNT = 4,    /**< Count of values in this enumeration */
 } i18n_umeasure_format_width_e;
+
+/**
+ * @}
+ */
+
+/**
+ * @addtogroup CAPI_BASE_UTILS_I18N_FORMATTABLE_MODULE
+ * @{
+ */
 
 /**
  * @brief Handle to the object of class used for formatting #i18n_format_h and its subclasses.
@@ -2871,10 +2883,28 @@ typedef enum {
 } i18n_formattable_type_e;
 
 /**
+ * @}
+ */
+
+/**
+ * @addtogroup CAPI_BASE_UTILS_I18N_MEASURE_MODULE
+ * @{
+ */
+
+/**
  * @brief Handle to the object that represents an amount of a specified unit.
  * @since_tizen 2.3.2
  */
 typedef void *i18n_measure_h;
+
+/**
+ * @}
+ */
+
+/**
+ * @addtogroup CAPI_BASE_UTILS_I18N_MEASURE_UNIT_MODULE
+ * @{
+ */
 
 /**
  * @brief Handle to the object that represents a unit such as length, mass, volume, currency, etc.
@@ -2896,14 +2926,13 @@ typedef void *i18n_measure_unit_h;
 typedef bool (*i18n_measure_unit_types_cb)(const char *type_id, void *user_data);
 
 /**
- * @brief Enumeration for the flavor of data type contained within an #i18n_formattable_h object.
- * @since_tizen 2.3.2
+ * @}
  */
-typedef enum {
-    I18N_ULOC_ACTUAL_LOCALE = 0,    /**< This is locale the data actually comes from */
-    I18N_ULOC_VALID_LOCALE = 1,     /**< This is the most specific locale supported by the ICU */
-    I18N_ULOC_REQUESTED_LOCALE = 2, /**< This is the requested locale (deprecated) */
-} i18n_uloc_data_locale_type_e;
+
+/**
+ * @addtogroup CAPI_BASE_UTILS_I18N_ALPHABETIC_INDEX_MODULE
+ * @{
+ */
 
 /*
  * @brief The Alphabetic index handle.
@@ -2951,7 +2980,16 @@ typedef enum {
 } i18n_alpha_idx_label_type_e;
 
 /**
- * @brief A simple class used by Format and its subclasses to identify fields in formatted output
+ * @}
+ */
+
+/**
+ * @addtogroup CAPI_BASE_UTILS_I18N_FIELD_POSITION_MODULE
+ * @{
+ */
+
+/**
+ * @brief Handle to the object of class used by the #i18n_format_h and its subclasses to identify fields in a formatted output.
  * @since_tizen 2.3.2
  */
 typedef void *i18n_field_position_h;
@@ -2965,10 +3003,23 @@ typedef enum {
 } i18n_field_position_dont_care_e;
 
 /**
- * @brief A simple class used by Format and its subclasses to identify fields in formatted output.
+ * @}
+ */
+
+/**
+ * @addtogroup CAPI_BASE_UTILS_I18N_FIELD_POSITION_MODULE
+ * @{
+ */
+
+/**
+ * @brief Handle to the object used by the Format and its subtypes to keep track of the current position during parsing.
  * @since_tizen 2.3.2
  */
 typedef void *i18n_parse_position_h;
+
+/**
+ * @}
+ */
 
 #ifdef __cplusplus
 }

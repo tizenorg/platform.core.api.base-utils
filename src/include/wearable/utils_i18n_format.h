@@ -174,7 +174,7 @@ int i18n_format_parse_object_with_parse_position(i18n_format_h format, const cha
  * @retval #I18N_ERROR_OUT_OF_MEMORY Out of memory
  */
 int i18n_format_get_locale(i18n_format_h format,
-        i18n_uloc_data_locale_type_e type, char **language, char **country);
+        i18n_ulocale_data_locale_type_e type, const char **language, const char **country);
 
 /**
  * @}
