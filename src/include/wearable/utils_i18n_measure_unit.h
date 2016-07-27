@@ -129,7 +129,7 @@ int i18n_measure_unit_get_type(i18n_measure_unit_h measure_unit, char **type);
  * @retval #I18N_ERROR_INVALID_PARAMETER Invalid function parameter
  * @retval #I18N_ERROR_OUT_OF_MEMORY Out of memory
  */
-int i18n_measure_unit_get_subtype(i18n_measur_unit_h measure_unit, char **subtype);
+int i18n_measure_unit_get_subtype(i18n_measure_unit_h measure_unit, char **subtype);
 
 /**
  * @brief Gets the available units.
