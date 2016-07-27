@@ -207,9 +207,10 @@ int i18n_formattable_clone(i18n_formattable_h formattable, i18n_formattable_h *c
  * @brief Gets the array value and count of the given formattable object.
  * @since_tizen 2.3.2
  * @remarks If this object is not of type #I18N_FORMATTABLE_TYPE_ARRAY then the
- *          result is undefined.
+ *          result is undefined. The obtained array should be released by the
+ *          caller with the free() function.
  *
- * @param[in] formattable  A handle to the formattable object
+ * @param[in] formattable   A handle to the formattable object
  * @param[out] array        A pointer to an array of #i18n_formattable_h handles
  * @param[out] count        A pointer to an int32_t variable which will be filled
  *                          with the number of array's elements
