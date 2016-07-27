@@ -71,7 +71,7 @@ int i18n_field_position_create(i18n_field_position_h *field_position);
 /**
  * @brief Creates a field position object for the given field.
  * @details The only fields currently supported are the fields accepted by the date formatter,
- * 			see #i18n_udate_format_field_e.
+ * 	        see #i18n_udate_format_field_e.
  * @since_tizen 2.3.2
  * @remarks The created object should be released by the caller with the
  *          i18n_field_position_destroy() function.
